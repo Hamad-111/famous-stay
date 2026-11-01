@@ -26,20 +26,20 @@ export default function WhatsAppWidget({
                   <img
                     src={agentAvatar}
                     alt={agentName}
-                    className="h-12 w-12 rounded-full object-cover border-2 border-white shadow-md"
+                    className="h-14 w-14 rounded-full object-cover object-[center_18%] border-2 border-[#E5C07B] shadow-md ring-2 ring-white/30"
                   />
-                  <span className="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full bg-[#25D366] border-2 border-[#075E54]"></span>
+                  <span className="absolute bottom-0 right-0 h-4 w-4 rounded-full bg-[#25D366] border-2 border-[#075E54] shadow-sm"></span>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <h3 className="font-serif font-bold text-base text-white">{agentName}</h3>
+                    <h3 className="font-serif font-extrabold text-lg text-white">Agent {agentName}</h3>
                     <ShieldCheck className="h-4 w-4 text-[#E5C07B]" />
                   </div>
-                  <div className="text-[11px] text-emerald-100 font-medium">
-                    Famous Stay • Luxury Agent
+                  <div className="text-xs text-emerald-100 font-semibold">
+                    Famous Stay • Luxury Host Desk
                   </div>
-                  <div className="text-[10px] text-emerald-200/90 font-mono">
-                    {agentPhone}
+                  <div className="text-xs text-emerald-300 font-mono font-bold">
+                    📞 {agentPhone}
                   </div>
                 </div>
               </div>
@@ -95,17 +95,17 @@ export default function WhatsAppWidget({
               <img
                 src={agentAvatar}
                 alt={agentName}
-                className="h-7 w-7 rounded-full object-cover border border-[#25D366]"
+                className="h-10 w-10 rounded-full object-cover object-[center_18%] border-2 border-[#25D366] shadow-sm ring-2 ring-[#E5C07B]/40"
               />
-              <span className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full bg-[#25D366]"></span>
+              <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-[#25D366] border-2 border-[#061026]"></span>
             </div>
             <div className="text-left">
-              <div className="text-[11px] text-white font-bold leading-tight flex items-center gap-1">
+              <div className="text-xs text-white font-extrabold leading-tight flex items-center gap-1.5">
                 <span>Agent {agentName}</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-[#25D366] animate-pulse"></span>
+                <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse"></span>
               </div>
-              <div className="text-[10px] text-emerald-400 font-mono leading-tight">
-                {agentPhone}
+              <div className="text-[11px] text-emerald-400 font-mono font-bold leading-tight">
+                0314 3292778
               </div>
             </div>
           </div>

@@ -126,25 +126,28 @@ export default function Header({
             <div className="relative">
               <button
                 onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
-                className="flex items-center gap-2 rounded-2xl border border-[#E5C07B]/40 bg-[#0B1E48] px-3 py-1.5 text-xs font-bold text-white transition-all hover:border-[#E5C07B] hover:bg-[#0E2458] shadow-md shadow-black/40"
+                className="flex items-center gap-2.5 rounded-2xl border border-[#E5C07B]/50 bg-[#0B1E48] px-3 py-1.5 text-xs font-bold text-white transition-all hover:border-[#E5C07B] hover:bg-[#0E2458] shadow-md shadow-black/40"
               >
-                {currentUser?.avatar ? (
-                  <img
-                    src={currentUser.avatar}
-                    alt={currentUser.name}
-                    className="h-7 w-7 rounded-full object-cover border border-[#E5C07B] shadow-sm"
-                  />
-                ) : (
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#FFF5D0] to-[#E5C07B] text-[#061026] text-[10px] font-extrabold">
-                    {currentUser.name.charAt(0)}
+                <div className="relative">
+                  {currentUser?.avatar ? (
+                    <img
+                      src={currentUser.avatar}
+                      alt={currentUser.name}
+                      className="h-9 w-9 rounded-full object-cover object-[center_18%] border-2 border-[#E5C07B] shadow-sm"
+                    />
+                  ) : (
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#FFF5D0] to-[#E5C07B] text-[#061026] text-xs font-extrabold">
+                      {currentUser.name.charAt(0)}
+                    </div>
+                  )}
+                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-[#25D366] border-2 border-[#0B1E48]"></span>
+                </div>
+                <div className="text-left">
+                  <div className="text-xs font-extrabold text-white flex items-center gap-1">
+                    <span>Agent {currentUser.name}</span>
                   </div>
-                )}
-                <div className="text-left hidden sm:block">
-                  <div className="text-xs font-bold text-white line-clamp-1 max-w-[110px]">
-                    {currentUser.name}
-                  </div>
-                  <div className="text-[9px] text-[#F7E5A9] font-medium leading-none">
-                    {currentUser.tier || 'Diamond Agent'}
+                  <div className="text-[10px] text-emerald-400 font-mono font-semibold leading-tight">
+                    0314 3292778
                   </div>
                 </div>
                 <ChevronDown className="h-3.5 w-3.5 text-[#E5C07B]" />

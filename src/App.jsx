@@ -286,9 +286,21 @@ export default function App() {
               <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[800px] rounded-full bg-gradient-to-r from-[#E5C07B]/15 via-[#1D4ED8]/15 to-transparent blur-[140px]"></div>
 
               <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#E5C07B]/40 bg-[#0A1A3E]/90 px-4 py-1.5 text-xs font-bold tracking-widest uppercase text-[#F7E5A9] backdrop-blur-md shadow-lg shadow-[#E5C07B]/10">
-                  <Crown className="h-3.5 w-3.5 text-[#E5C07B]" />
-                  <span>Premier B2B Agent Reservation Network • Pakistan</span>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#E5C07B]/40 bg-[#0A1A3E]/90 px-4 py-1.5 text-xs font-bold tracking-widest uppercase text-[#F7E5A9] backdrop-blur-md shadow-lg shadow-[#E5C07B]/10">
+                    <Crown className="h-3.5 w-3.5 text-[#E5C07B]" />
+                    <span>Premier B2B Agent Reservation Network • Pakistan</span>
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-[#061026]/90 px-3 py-1 text-xs font-bold text-white shadow-md">
+                    <img
+                      src="/agent-mohsin.jpg"
+                      alt="Agent Mohsin"
+                      className="h-6 w-6 rounded-full object-cover object-[center_18%] border border-[#25D366]"
+                    />
+                    <span>Host: <strong className="text-[#F7E5A9]">Agent Mohsin</strong></span>
+                    <span className="text-emerald-400 font-mono font-semibold">(0314 3292778)</span>
+                  </div>
                 </div>
 
                 <h1 className="mt-5 font-serif text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.08]">
