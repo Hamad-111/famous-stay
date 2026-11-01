@@ -19,7 +19,10 @@ import {
   Wine,
   UtensilsCrossed,
   Clock,
-  Briefcase
+  Briefcase,
+  Camera,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -31,6 +34,7 @@ export default function BookingModal({
   onBookingComplete 
 }) {
   const [step, setStep] = useState(1);
+  const [previewPhotoIndex, setPreviewPhotoIndex] = useState(0);
 
   // Client Details Form State
   const [clientForm, setClientForm] = useState({
@@ -54,6 +58,22 @@ export default function BookingModal({
 
   // Currency is strictly in Pakistani Rupees (PKR)
   const currencySymbol = 'Rs. ';
+
+  const apartmentPhotos = room.images || [
+    "/apartment/emerald-living-main.jpg",
+    "/apartment/master-bedroom-blush.jpg",
+    "/apartment/charcoal-bedroom-suite.jpg",
+    "/apartment/emerald-lounge-art.jpg",
+    "/apartment/beige-marble-salon.jpg"
+  ];
+
+  const photoLabels = room.imageLabels || [
+    "Emerald Executive Salon & Media Wall",
+    "Blush Rose Master King Suite",
+    "Noir Charcoal Second Suite",
+    "Velvet Lounge & Signature Gold Art",
+    "Beige Marble Salon & Arched Mirrors"
+  ];
 
   // Calculate nights
   const checkInDate = new Date(initialDates.checkIn);
@@ -240,7 +260,96 @@ export default function BookingModal({
         </div>
 
         {/* Step Content */}
-        <div className="max-h-[75vh] overflow-y-auto p-6 sm:p-8">
+        <div className="max-h-[75vh] overflow-y-auto p-4 sm:p-7">
+          {/* STYLISH 5-PHOTO APARTMENT SHOWCASE IN BOOKING SECTOR */}
+          <div className="mb-5 overflow-hidden rounded-2xl border border-[#E5C07B]/40 bg-[#061026] shadow-xl">
+            {/* Main Active Photo Container */}
+            <div className="group relative h-40 sm:h-52 w-full overflow-hidden bg-black">
+              <img
+                src={apartmentPhotos[previewPhotoIndex]}
+                alt={photoLabels[previewPhotoIndex] || room.name}
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#040A18]/90 via-transparent to-black/40"></div>
+
+              {/* Photo Index Badge */}
+              <div className="absolute top-2.5 left-2.5 z-10">
+                <span className="flex items-center gap-1.5 rounded-full bg-[#061026]/90 backdrop-blur-md px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#F7E5A9] border border-[#E5C07B]/40 shadow-lg">
+                  <Camera className="h-3 w-3 text-[#E5C07B]" />
+                  <span>Photo {previewPhotoIndex + 1} of {apartmentPhotos.length}</span>
+                </span>
+              </div>
+
+              {/* Wholesale Rate Tag */}
+              <div className="absolute top-2.5 right-2.5 z-10">
+                <span className="rounded-full bg-emerald-600/90 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-white shadow-lg">
+                  Rs. {room.clientRate.toLocaleString()} / nt
+                </span>
+              </div>
+
+              {/* Prev / Next Arrows */}
+              <button
+                type="button"
+                onClick={() => setPreviewPhotoIndex((prev) => (prev === 0 ? apartmentPhotos.length - 1 : prev - 1))}
+                className="absolute left-2 top-1/2 -translate-y-1/2 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#061026]/80 text-white border border-[#E5C07B]/40 hover:bg-[#E5C07B] hover:text-[#061026] transition-all shadow-md z-10"
+                aria-label="Previous photo"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setPreviewPhotoIndex((prev) => (prev === apartmentPhotos.length - 1 ? 0 : prev + 1))}
+                className="absolute right-2 top-1/2 -translate-y-1/2 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#061026]/80 text-white border border-[#E5C07B]/40 hover:bg-[#E5C07B] hover:text-[#061026] transition-all shadow-md z-10"
+                aria-label="Next photo"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+
+              {/* Photo Title Overlay */}
+              <div className="absolute bottom-2.5 left-3 right-3 flex items-end justify-between z-10">
+                <div>
+                  <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#E5C07B]">
+                    Verified Residence View
+                  </div>
+                  <div className="text-xs sm:text-sm font-bold text-white truncate max-w-[220px] sm:max-w-md">
+                    {photoLabels[previewPhotoIndex] || room.name}
+                  </div>
+                </div>
+                <span className="hidden sm:inline-block text-[10px] font-mono text-emerald-400 bg-[#061026]/90 px-2 py-0.5 rounded-lg border border-emerald-500/30">
+                  Host: Mohsin (0314 3292778)
+                </span>
+              </div>
+            </div>
+
+            {/* 5-Thumbnail Selector Bar */}
+            <div className="grid grid-cols-5 gap-1.5 p-2 bg-[#091738]/90 border-t border-[#E5C07B]/20">
+              {apartmentPhotos.map((photoUrl, pIdx) => {
+                const isSelected = previewPhotoIndex === pIdx;
+                return (
+                  <button
+                    type="button"
+                    key={pIdx}
+                    onClick={() => setPreviewPhotoIndex(pIdx)}
+                    className={`relative aspect-[16/10] overflow-hidden rounded-lg border transition-all ${
+                      isSelected
+                        ? 'border-[#E5C07B] ring-2 ring-[#E5C07B]/60 scale-105 shadow-md'
+                        : 'border-[#E5C07B]/20 opacity-70 hover:opacity-100'
+                    }`}
+                  >
+                    <img
+                      src={photoUrl}
+                      alt={photoLabels[pIdx]}
+                      className="h-full w-full object-cover"
+                    />
+                    {isSelected && (
+                      <span className="absolute inset-0 bg-[#E5C07B]/15"></span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {/* STEP 1: CLIENT DETAILS */}
           {step === 1 && (
             <div className="space-y-4">
@@ -442,7 +551,7 @@ export default function BookingModal({
                             </div>
                           </div>
                           <span className="text-xs font-bold text-[#F7E5A9]">
-                            +{currencySymbol}{Math.round(addon.price * currencyRate)}
+                            +{currencySymbol}{addon.price.toLocaleString()}
                           </span>
                         </div>
                       </div>

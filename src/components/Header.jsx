@@ -89,13 +89,14 @@ export default function Header({
             target="_blank"
             rel="noopener noreferrer"
             title="Chat directly on WhatsApp with Agent Mohsin"
-            className="flex items-center gap-2 rounded-2xl border border-[#25D366]/40 bg-[#25D366]/15 hover:bg-[#25D366] hover:text-[#061026] text-[#25D366] px-3.5 py-1.5 text-xs font-bold transition-all shadow-sm group"
+            className="flex items-center gap-1.5 sm:gap-2 rounded-2xl border border-[#25D366]/40 bg-[#25D366]/15 hover:bg-[#25D366] hover:text-[#061026] text-[#25D366] px-2.5 sm:px-3.5 py-1.5 text-xs font-bold transition-all shadow-sm group shrink-0"
           >
             <svg className="h-4 w-4 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
               <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
             </svg>
             <span className="hidden sm:inline">WhatsApp:</span>
-            <span className="font-mono text-xs">0314 3292778</span>
+            <span className="hidden md:inline font-mono text-xs">0314 3292778</span>
+            <span className="sm:hidden text-[11px]">Chat</span>
           </a>
 
           {/* Currency Indicator: Fixed PKR */}
@@ -126,23 +127,23 @@ export default function Header({
             <div className="relative">
               <button
                 onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
-                className="flex items-center gap-2.5 rounded-2xl border border-[#E5C07B]/50 bg-[#0B1E48] px-3 py-1.5 text-xs font-bold text-white transition-all hover:border-[#E5C07B] hover:bg-[#0E2458] shadow-md shadow-black/40"
+                className="flex items-center gap-2 sm:gap-2.5 rounded-2xl border border-[#E5C07B]/50 bg-[#0B1E48] px-2.5 sm:px-3 py-1.5 text-xs font-bold text-white transition-all hover:border-[#E5C07B] hover:bg-[#0E2458] shadow-md shadow-black/40 shrink-0"
               >
                 <div className="relative">
                   {currentUser?.avatar ? (
                     <img
                       src={currentUser.avatar}
                       alt={currentUser.name}
-                      className="h-9 w-9 rounded-full object-cover object-[center_18%] border-2 border-[#E5C07B] shadow-sm"
+                      className="h-8 w-8 sm:h-9 sm:w-9 rounded-full object-cover object-[center_18%] border-2 border-[#E5C07B] shadow-sm"
                     />
                   ) : (
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#FFF5D0] to-[#E5C07B] text-[#061026] text-xs font-extrabold">
+                    <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#FFF5D0] to-[#E5C07B] text-[#061026] text-xs font-extrabold">
                       {currentUser.name.charAt(0)}
                     </div>
                   )}
-                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-[#25D366] border-2 border-[#0B1E48]"></span>
+                  <span className="absolute bottom-0 right-0 h-2 sm:h-2.5 w-2 sm:w-2.5 rounded-full bg-[#25D366] border-2 border-[#0B1E48]"></span>
                 </div>
-                <div className="text-left">
+                <div className="text-left hidden sm:block">
                   <div className="text-xs font-extrabold text-white flex items-center gap-1">
                     <span>Agent {currentUser.name}</span>
                   </div>

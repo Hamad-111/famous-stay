@@ -14,7 +14,7 @@ export default function WhatsAppWidget({
   const whatsappUrl = `https://wa.me/${formattedNumber}?text=${defaultMessage}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
       {/* Expandable Chat Popup */}
       {isOpen && (
         <div className="mb-3 w-80 sm:w-96 rounded-3xl border border-[#25D366]/40 bg-[#061026] text-white shadow-2xl shadow-black/90 backdrop-blur-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200">
