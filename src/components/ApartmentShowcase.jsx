@@ -80,10 +80,10 @@ function HoverVideoFrame({ video, index, isActive, onSelect }) {
       onMouseLeave={handleMouseLeave}
       className={`group relative flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 ${
         isActive
-          ? 'border-[#E5C07B] ring-2 ring-[#E5C07B]/70 shadow-2xl shadow-[#E5C07B]/30 scale-[1.01] bg-[#0E2355]'
+          ? 'border-[#D4AF37] ring-2 ring-[#D4AF37]/70 shadow-xl shadow-[#D4AF37]/20 scale-[1.01] bg-[#FFFDF7]'
           : isPlaying
-          ? 'border-[#E5C07B] shadow-2xl shadow-black/90 scale-[1.01] bg-[#0A1A40]'
-          : 'border-[#E5C07B]/25 hover:border-[#E5C07B]/70 bg-[#061026]/90'
+          ? 'border-[#D4AF37] shadow-xl shadow-[#D4AF37]/20 scale-[1.01] bg-white'
+          : 'border-[#D4AF37]/30 hover:border-[#D4AF37] bg-white shadow-sm'
       }`}
     >
       {/* Video Container Frame */}
@@ -120,8 +120,8 @@ function HoverVideoFrame({ video, index, isActive, onSelect }) {
         {/* Hover / Tap Instruction Overlay when inactive */}
         {!isPlaying && (
           <div className="absolute inset-0 bg-black/35 flex items-center justify-center transition-opacity group-hover:opacity-0 pointer-events-none">
-            <div className="flex items-center gap-1.5 rounded-full bg-[#061026]/90 px-2.5 py-1 text-[10px] font-bold text-[#F7E5A9] border border-[#E5C07B]/50 shadow-lg">
-              <Play className="h-3 w-3 fill-current text-[#E5C07B]" />
+            <div className="flex items-center gap-1.5 rounded-full bg-black/80 px-2.5 py-1 text-[10px] font-bold text-[#F7E5A9] border border-[#D4AF37]/50 shadow-lg">
+              <Play className="h-3 w-3 fill-current text-[#D4AF37]" />
               <span className="hidden sm:inline">Hover to Play</span>
               <span className="sm:hidden">Tap to Play</span>
             </div>
@@ -140,12 +140,12 @@ function HoverVideoFrame({ video, index, isActive, onSelect }) {
       </div>
 
       {/* Frame Card Details */}
-      <div className="p-2.5 sm:p-3.5 flex flex-col justify-between flex-1">
+      <div className="p-2.5 sm:p-3.5 flex flex-col justify-between flex-1 bg-white">
         <div>
-          <div className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#E5C07B]">
+          <div className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#8C6207]">
             Tour {index + 1} • {video.tag}
           </div>
-          <h4 className="mt-0.5 text-[11px] sm:text-xs font-bold text-white line-clamp-1 group-hover:text-[#F7E5A9] transition-colors">
+          <h4 className="mt-0.5 text-[11px] sm:text-xs font-bold text-slate-900 line-clamp-1 group-hover:text-[#8C6207] transition-colors">
             {video.title}
           </h4>
         </div>
@@ -155,10 +155,10 @@ function HoverVideoFrame({ video, index, isActive, onSelect }) {
             e.stopPropagation();
             onSelect(index);
           }}
-          className="mt-2.5 flex items-center justify-between rounded-xl border border-[#E5C07B]/30 bg-[#0B1E48] hover:bg-[#E5C07B] hover:text-[#061026] text-white p-1.5 px-2.5 text-[10px] font-bold transition-all"
+          className="mt-2.5 flex items-center justify-between rounded-xl border border-[#D4AF37]/40 bg-[#FFFDF7] hover:bg-[#D4AF37] hover:text-white text-slate-800 p-1.5 px-2.5 text-[10px] font-bold transition-all shadow-sm"
         >
           <span>Open Cinema</span>
-          <ArrowRight className="h-3 w-3 text-[#E5C07B] group-hover:text-[#061026]" />
+          <ArrowRight className="h-3 w-3 text-[#8C6207] group-hover:text-white" />
         </button>
       </div>
     </div>
@@ -365,39 +365,39 @@ export default function ApartmentShowcase({
   return (
     <div 
       id="apartment-video-showcase"
-      className="relative mb-14 overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-[#E5C07B]/40 bg-gradient-to-b from-[#091738] via-[#07132F] to-[#040A18] p-3.5 sm:p-8 shadow-2xl shadow-[#020712]/90 scroll-mt-24"
+      className="relative mb-14 overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/45 bg-gradient-to-b from-[#FFFFFF] via-[#FDFBF7] to-[#FAF7EE] p-3.5 sm:p-8 shadow-2xl shadow-[#D4AF37]/15 scroll-mt-24 text-slate-800"
     >
       {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#E5C07B]/10 blur-[120px]"></div>
+      <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-[120px]"></div>
       <div className="pointer-events-none absolute -left-20 -bottom-20 h-96 w-96 rounded-full bg-[#10B981]/10 blur-[140px]"></div>
 
       {/* Top Header Row with Media Switcher */}
-      <div className="relative z-10 mb-5 sm:mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#E5C07B]/20 pb-4 sm:pb-5">
+      <div className="relative z-10 mb-5 sm:mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#D4AF37]/25 pb-4 sm:pb-5">
         <div>
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#E5C07B]/40 bg-[#0B1A3E] px-2.5 sm:px-3.5 py-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#F7E5A9] shadow-sm">
-            <Crown className="h-3 sm:h-3.5 w-3 sm:w-3.5 text-[#E5C07B]" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#D4AF37]/50 bg-[#FFFDF7] px-2.5 sm:px-3.5 py-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#8C6207] shadow-sm">
+            <Crown className="h-3 sm:h-3.5 w-3 sm:w-3.5 text-[#B8860B]" />
             <span>Exclusive Penthouse • Host Mohsin: 0314 3292778</span>
           </div>
 
-          <h2 className="mt-2 font-serif text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="mt-2 font-serif text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             {apartment.name}
           </h2>
 
-          <div className="mt-2 flex flex-wrap items-center gap-2 sm:gap-4 text-[11px] sm:text-xs text-blue-200">
-            <span className="flex items-center gap-1.5 font-medium text-white">
-              <MapPin className="h-3.5 w-3.5 text-[#E5C07B]" />
+          <div className="mt-2 flex flex-wrap items-center gap-2 sm:gap-4 text-[11px] sm:text-xs text-slate-600">
+            <span className="flex items-center gap-1.5 font-bold text-slate-900">
+              <MapPin className="h-3.5 w-3.5 text-[#8C6207]" />
               {apartment.city}, Pakistan (Diplomatic Zone)
             </span>
-            <span className="hidden sm:inline text-blue-400/40">•</span>
-            <span className="flex items-center gap-1 font-bold text-[#F7E5A9]">
-              <Star className="h-3.5 w-3.5 fill-[#E5C07B] text-[#E5C07B]" />
+            <span className="hidden sm:inline text-slate-300">•</span>
+            <span className="flex items-center gap-1 font-bold text-[#8C6207]">
+              <Star className="h-3.5 w-3.5 fill-[#D4AF37] text-[#D4AF37]" />
               5.0 Exceptional (380+ Bookings)
             </span>
-            <span className="hidden sm:inline text-blue-400/40">•</span>
-            <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+            <span className="hidden sm:inline text-slate-300">•</span>
+            <span className="flex items-center gap-1.5 text-emerald-700 font-semibold">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
               </span>
               <span>15 HD Video Frames with Hover/Tap Play</span>
             </span>
@@ -407,13 +407,13 @@ export default function ApartmentShowcase({
         {/* Media Selector Tabs + Pricing */}
         <div className="flex flex-col sm:items-end gap-3 w-full sm:w-auto">
           {/* Media Mode Pill Switcher */}
-          <div className="inline-flex w-full sm:w-auto items-center justify-center rounded-2xl bg-[#061026] p-1 border border-[#E5C07B]/30 shadow-lg">
+          <div className="inline-flex w-full sm:w-auto items-center justify-center rounded-2xl bg-white p-1 border border-[#D4AF37]/35 shadow-sm">
             <button
               onClick={() => setMediaMode('all')}
               className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold transition-all ${
                 mediaMode === 'all'
-                  ? 'gold-btn text-[#061026] shadow-md'
-                  : 'text-blue-200 hover:text-white'
+                  ? 'gold-btn text-slate-950 shadow-md'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-[#FFFDF7]'
               }`}
             >
               <Sparkles className="h-3 w-3" />
@@ -428,11 +428,11 @@ export default function ApartmentShowcase({
               }}
               className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold transition-all ${
                 mediaMode === 'photos'
-                  ? 'bg-[#0E2458] text-[#F7E5A9] border border-[#E5C07B]/50 shadow-md'
-                  : 'text-blue-200 hover:text-white'
+                  ? 'bg-[#FFFDF7] text-[#8C6207] border border-[#D4AF37]/50 shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-[#FFFDF7]'
               }`}
             >
-              <Camera className="h-3 w-3 text-[#E5C07B]" />
+              <Camera className="h-3 w-3 text-[#8C6207]" />
               <span>5 Photos</span>
             </button>
 
@@ -444,29 +444,29 @@ export default function ApartmentShowcase({
               }}
               className={`relative flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold transition-all ${
                 mediaMode === 'videos'
-                  ? 'bg-gradient-to-r from-red-600 via-rose-600 to-rose-700 text-white shadow-lg shadow-rose-900/50'
-                  : 'text-rose-300 hover:text-white hover:bg-rose-950/30'
+                  ? 'bg-gradient-to-r from-red-600 via-rose-600 to-rose-700 text-white shadow-md shadow-rose-900/20'
+                  : 'text-rose-700 hover:text-rose-900 hover:bg-rose-50'
               }`}
             >
               <Play className="h-3 w-3 fill-current" />
               <span>15 Videos</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping"></span>
             </button>
           </div>
 
-          <div className="bg-[#061026]/80 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-[#E5C07B]/20 sm:border-0 text-left sm:text-right">
-            <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-blue-200/80">
+          <div className="bg-white sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-[#D4AF37]/25 sm:border-0 text-left sm:text-right shadow-sm sm:shadow-none">
+            <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-500">
               Wholesale Rate {nights > 1 ? `(${nights} Nights Total)` : 'per Night'}
             </div>
-            <div className="font-serif text-2xl sm:text-3xl font-extrabold text-[#F7E5A9]">
+            <div className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-950">
               Rs. {(apartment.clientRate * nights).toLocaleString()}
               {nights > 1 ? (
-                <span className="text-xs font-sans font-normal text-blue-200/80"> (Rs. {apartment.clientRate.toLocaleString()} / nt)</span>
+                <span className="text-xs font-sans font-normal text-slate-500"> (Rs. {apartment.clientRate.toLocaleString()} / nt)</span>
               ) : (
-                <span className="text-xs font-sans font-normal text-blue-200/80"> / nt</span>
+                <span className="text-xs font-sans font-normal text-slate-500"> / nt</span>
               )}
             </div>
-            <div className="text-xs font-bold text-emerald-400 mt-0.5">
+            <div className="text-xs font-bold text-emerald-700 mt-0.5">
               +Rs. {(apartment.clientRate * nights * 0.18).toLocaleString()} Net Agent Profit (18%)
             </div>
           </div>
@@ -478,23 +478,23 @@ export default function ApartmentShowcase({
         <div id="apartment-photos-portfolio" className="relative z-10 mb-8 sm:mb-10 animate-in fade-in duration-300 scroll-mt-24">
           <div className="mb-3.5 sm:mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#E5C07B]">
+              <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8C6207]">
                 <Camera className="h-3.5 w-3.5" />
                 <span>Verified Residence Gallery • 5 Masterpiece Perspectives</span>
               </div>
-              <h3 className="mt-1 font-serif text-xl sm:text-3xl font-bold text-white">
+              <h3 className="mt-1 font-serif text-xl sm:text-3xl font-bold text-slate-900">
                 Architectural Photography Portfolio
               </h3>
-              <p className="mt-0.5 text-[11px] sm:text-xs text-blue-200">
+              <p className="mt-0.5 text-[11px] sm:text-xs text-slate-600">
                 Tap any room perspective to view in high definition or launch the fullscreen interactive lightbox.
               </p>
             </div>
 
             <button
               onClick={() => setLightboxPhotoIndex(activePhotoIndex)}
-              className="self-start sm:self-auto flex items-center gap-1.5 rounded-xl border border-[#E5C07B]/40 bg-[#0B1E48] hover:bg-[#E5C07B] hover:text-[#061026] text-[#F7E5A9] px-3.5 py-1.5 sm:py-2 text-xs font-bold transition-all shadow-md group"
+              className="self-start sm:self-auto flex items-center gap-1.5 rounded-xl border border-[#D4AF37]/50 bg-white hover:bg-[#D4AF37] hover:text-white text-[#8C6207] px-3.5 py-1.5 sm:py-2 text-xs font-bold transition-all shadow-sm group"
             >
-              <Maximize2 className="h-3.5 w-3.5 text-[#E5C07B] group-hover:text-[#061026]" />
+              <Maximize2 className="h-3.5 w-3.5 text-[#8C6207] group-hover:text-white" />
               <span>Open 5-Photo High-Res Lightbox</span>
             </button>
           </div>
@@ -504,26 +504,26 @@ export default function ApartmentShowcase({
             {/* Main Featured Photo (Left 7 Cols) */}
             <div
               onClick={() => setLightboxPhotoIndex(activePhotoIndex)}
-              className="group relative lg:col-span-7 aspect-[16/10] overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-[#E5C07B]/50 bg-black cursor-pointer shadow-2xl shadow-black/80"
+              className="group relative lg:col-span-7 aspect-[16/10] overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/50 bg-black cursor-pointer shadow-xl shadow-[#D4AF37]/15"
             >
               <img
                 src={photos[activePhotoIndex]}
                 alt={labels[activePhotoIndex]}
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#040A18]/90 via-transparent to-black/30 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/25 pointer-events-none"></div>
 
               {/* Top Status & Zoom Badges */}
               <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 z-10 pointer-events-none">
-                <span className="flex items-center gap-1.5 rounded-full bg-[#061026]/90 backdrop-blur-md px-2.5 sm:px-3 py-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#F7E5A9] border border-[#E5C07B]/40 shadow-lg">
-                  <Sparkles className="h-3 w-3 text-[#E5C07B]" />
+                <span className="flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-2.5 sm:px-3 py-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8C6207] border border-[#D4AF37]/50 shadow-md">
+                  <Sparkles className="h-3 w-3 text-[#B8860B]" />
                   <span>Main View • Photo {activePhotoIndex + 1} of 5</span>
                 </span>
               </div>
 
               <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4 z-10 pointer-events-none">
                 <span className="flex items-center gap-1 rounded-full bg-black/75 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-white border border-white/20">
-                  <Maximize2 className="h-3 w-3 text-[#E5C07B]" />
+                  <Maximize2 className="h-3 w-3 text-[#D4AF37]" />
                   <span className="hidden sm:inline">Tap for Fullscreen</span>
                   <span className="sm:hidden">Zoom</span>
                 </span>
@@ -531,11 +531,11 @@ export default function ApartmentShowcase({
 
               {/* Bottom Caption Overlay */}
               <div className="absolute bottom-2.5 sm:bottom-4 left-2.5 sm:left-4 right-2.5 sm:right-4 flex items-end justify-between z-10 pointer-events-none">
-                <div className="rounded-xl border border-[#E5C07B]/30 bg-[#061026]/90 px-3 py-2 backdrop-blur-md max-w-[85%]">
-                  <div className="text-[9px] uppercase font-bold text-[#E5C07B] tracking-wider">
+                <div className="rounded-xl border border-[#D4AF37]/40 bg-white/95 px-3 py-2 backdrop-blur-md max-w-[85%] shadow-md">
+                  <div className="text-[9px] uppercase font-bold text-[#8C6207] tracking-wider">
                     Diplomatic Sector 2BR Penthouse
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-white truncate">
+                  <div className="text-xs sm:text-sm font-bold text-slate-900 truncate">
                     {labels[activePhotoIndex]}
                   </div>
                 </div>
@@ -550,7 +550,7 @@ export default function ApartmentShowcase({
                   <div
                     key={idx}
                     onClick={() => setActivePhotoIndex(idx)}
-                    className="group relative aspect-[4/3] overflow-hidden rounded-xl sm:rounded-2xl border border-[#E5C07B]/30 bg-black cursor-pointer transition-all hover:border-[#E5C07B] hover:shadow-xl hover:shadow-[#E5C07B]/15"
+                    className="group relative aspect-[4/3] overflow-hidden rounded-xl sm:rounded-2xl border border-[#D4AF37]/40 bg-black cursor-pointer transition-all hover:border-[#D4AF37] hover:shadow-lg hover:shadow-[#D4AF37]/20"
                   >
                     <img
                       src={pUrl}
@@ -566,7 +566,7 @@ export default function ApartmentShowcase({
                       </span>
                     </div>
 
-                    <div className="absolute top-1.5 right-1.5 rounded-md bg-black/80 px-1.5 py-0.5 text-[8px] font-bold text-[#E5C07B] border border-[#E5C07B]/30">
+                    <div className="absolute top-1.5 right-1.5 rounded-md bg-white/90 backdrop-blur-md px-1.5 py-0.5 text-[8px] font-bold text-[#8C6207] border border-[#D4AF37]/40 shadow-sm">
                       View #{idx + 1}
                     </div>
                   </div>
@@ -580,12 +580,12 @@ export default function ApartmentShowcase({
       {/* Golden Section Divider between Photos and Videos when 'all' is active */}
       {mediaMode === 'all' && (
         <div className="relative z-10 my-6 sm:my-8 flex items-center justify-center gap-4">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#E5C07B]/40 to-[#E5C07B]/10"></div>
-          <div className="flex items-center gap-2 rounded-full border border-[#E5C07B]/40 bg-[#061026] px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-[#F7E5A9] shadow-lg">
-            <Film className="h-3.5 w-3.5 text-red-500" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-[#D4AF37]/10"></div>
+          <div className="flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-white px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-[#8C6207] shadow-sm">
+            <Film className="h-3.5 w-3.5 text-rose-600" />
             <span>15 HD Video Walkthroughs • Sound & Multi-Frame Lounge</span>
           </div>
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#E5C07B]/40 to-[#E5C07B]/10"></div>
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#D4AF37]/40 to-[#D4AF37]/10"></div>
         </div>
       )}
 
@@ -596,7 +596,7 @@ export default function ApartmentShowcase({
           <div id="primary-cinema-player" className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 scroll-mt-28">
             {/* Main Cinema Video Player Container (Left 8 Cols) */}
             <div className="lg:col-span-8 flex flex-col gap-2.5 sm:gap-3">
-              <div className="group relative rounded-2xl sm:rounded-3xl border-2 border-[#E5C07B]/50 bg-black overflow-hidden shadow-2xl shadow-black/80">
+              <div className="group relative rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/50 bg-black overflow-hidden shadow-xl shadow-[#D4AF37]/15">
                 {/* HTML5 Autoplaying Video */}
                 <video
                   ref={videoRef}
@@ -625,16 +625,16 @@ export default function ApartmentShowcase({
                 <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4 z-20">
                   <button
                     onClick={toggleSound}
-                    className={`flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold backdrop-blur-md transition-all shadow-xl border ${
+                    className={`flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold backdrop-blur-md transition-all shadow-md border ${
                       isMuted
-                        ? 'bg-[#061026]/90 text-[#F7E5A9] border-[#E5C07B]/50 hover:bg-[#E5C07B] hover:text-[#061026]'
+                        ? 'bg-white/95 text-[#8C6207] border-[#D4AF37]/50 hover:bg-[#D4AF37] hover:text-white'
                         : 'bg-emerald-600 text-white border-emerald-400 hover:bg-emerald-500'
                     }`}
                     title={isMuted ? "Unmute Audio" : "Mute Audio"}
                   >
                     {isMuted ? (
                       <>
-                        <VolumeX className="h-3.5 w-3.5 text-red-400" />
+                        <VolumeX className="h-3.5 w-3.5 text-rose-500" />
                         <span>🔊 Unmute</span>
                       </>
                     ) : (
@@ -647,24 +647,24 @@ export default function ApartmentShowcase({
                 </div>
 
                 {/* Video Title Bar at Bottom of Screen */}
-                <div className="p-2.5 sm:p-4 bg-gradient-to-r from-[#061026] via-[#091738] to-[#061026] border-t border-[#E5C07B]/30 flex items-center justify-between gap-2">
+                <div className="p-2.5 sm:p-4 bg-gradient-to-r from-white via-[#FFFDF7] to-white border-t border-[#D4AF37]/30 flex items-center justify-between gap-2 shadow-sm">
                   <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                    <div className="flex h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0 items-center justify-center rounded-xl bg-red-600/20 text-red-400 border border-red-500/30">
+                    <div className="flex h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0 items-center justify-center rounded-xl bg-red-600/15 text-rose-600 border border-red-500/30">
                       <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-current ml-0.5" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-[9px] sm:text-[10px] uppercase font-bold text-[#E5C07B] tracking-wider truncate">
+                      <div className="text-[9px] sm:text-[10px] uppercase font-bold text-[#8C6207] tracking-wider truncate">
                         Room {activeVideoIndex + 1} of {videos.length}: {videos[activeVideoIndex].room}
                       </div>
-                      <div className="text-xs sm:text-sm font-bold text-white truncate">
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 truncate">
                         {videos[activeVideoIndex].title}
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <span className="rounded-full bg-emerald-500/20 border border-emerald-500/40 px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-[11px] font-bold text-emerald-300 flex items-center gap-1">
-                      <ShieldCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-emerald-400" />
+                    <span className="rounded-full bg-emerald-500/15 border border-emerald-500/40 px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-[11px] font-bold text-emerald-800 flex items-center gap-1">
+                      <ShieldCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-emerald-600" />
                       <span>1080p</span>
                     </span>
                   </div>
@@ -673,7 +673,7 @@ export default function ApartmentShowcase({
 
               {/* Quick Jump Bar with Edge-to-Edge Touch Scroll */}
               <div className="-mx-3.5 px-3.5 sm:mx-0 sm:px-0 flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 pt-1 scrollbar-none">
-                <span className="text-[10px] sm:text-xs font-bold text-[#E5C07B] uppercase tracking-wider shrink-0 mr-0.5">
+                <span className="text-[10px] sm:text-xs font-bold text-[#8C6207] uppercase tracking-wider shrink-0 mr-0.5">
                   Jump Room:
                 </span>
                 {videos.map((vid, idx) => {
@@ -684,11 +684,11 @@ export default function ApartmentShowcase({
                       onClick={() => handleSelectVideo(idx)}
                       className={`flex items-center gap-1 sm:gap-1.5 rounded-xl px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all border shrink-0 ${
                         isSelected
-                          ? 'bg-gradient-to-r from-[#FFF5D0] via-[#E5C07B] to-[#C49824] text-[#061026] border-white shadow-md shadow-[#E5C07B]/30 scale-[1.02]'
-                          : 'bg-[#061026]/90 text-blue-200 border-[#E5C07B]/25 hover:border-[#E5C07B]/60 hover:text-white hover:bg-[#0B1E48]'
+                          ? 'gold-btn text-slate-950 border-white shadow-md shadow-[#D4AF37]/20 scale-[1.02]'
+                          : 'bg-white text-slate-700 border-[#D4AF37]/30 hover:border-[#D4AF37] hover:text-slate-900 hover:bg-[#FFFDF7]'
                       }`}
                     >
-                      <Play className={`h-2.5 w-2.5 ${isSelected ? 'fill-current text-[#061026]' : 'text-[#E5C07B]'}`} />
+                      <Play className={`h-2.5 w-2.5 ${isSelected ? 'fill-current text-slate-950' : 'text-[#8C6207]'}`} />
                       <span>{idx + 1}. {vid.room}</span>
                     </button>
                   );
@@ -698,9 +698,9 @@ export default function ApartmentShowcase({
 
             {/* Video Playlist Sidebar (Right 4 Cols) */}
             <div className="lg:col-span-4 flex flex-col gap-2">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#F7E5A9] px-1 flex items-center justify-between">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#8C6207] px-1 flex items-center justify-between">
                 <span>All {videos.length} Room Walkthroughs:</span>
-                <span className="text-[11px] text-emerald-400 font-bold">Auto-Looping</span>
+                <span className="text-[11px] text-emerald-700 font-bold">Auto-Looping</span>
               </div>
 
               <div className="flex flex-col gap-2 overflow-y-auto max-h-[320px] lg:max-h-[460px] pr-1 scrollbar-thin">
@@ -712,21 +712,21 @@ export default function ApartmentShowcase({
                       onClick={() => handleSelectVideo(vIdx)}
                       className={`group flex items-center gap-2.5 sm:gap-3 rounded-2xl p-2 sm:p-2.5 text-left transition-all border ${
                         isActive
-                          ? 'border-[#E5C07B] bg-[#0E2458] shadow-xl shadow-[#E5C07B]/20 ring-2 ring-[#E5C07B]/50'
-                          : 'border-[#E5C07B]/20 bg-[#061026]/90 hover:bg-[#0B1E48] hover:border-[#E5C07B]/50'
+                          ? 'border-[#D4AF37] bg-[#FFFBF0] shadow-md ring-2 ring-[#D4AF37]/50'
+                          : 'border-[#D4AF37]/25 bg-white hover:bg-[#FFFDF7] hover:border-[#D4AF37]/60'
                       }`}
                     >
-                      <div className="relative h-12 w-16 sm:h-14 sm:w-20 flex-shrink-0 overflow-hidden rounded-xl border border-white/20">
+                      <div className="relative h-12 w-16 sm:h-14 sm:w-20 flex-shrink-0 overflow-hidden rounded-xl border border-[#D4AF37]/30">
                         <img
                           src={vid.thumbnail}
                           alt={vid.title}
                           className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                           <span className={`flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full shadow-md ${
                             isActive 
-                              ? 'bg-[#E5C07B] text-[#061026] animate-pulse' 
-                              : 'bg-white/85 text-[#061026] group-hover:bg-[#E5C07B]'
+                              ? 'bg-[#D4AF37] text-white animate-pulse' 
+                              : 'bg-white/90 text-slate-900 group-hover:bg-[#D4AF37] group-hover:text-white'
                           }`}>
                             <Play className="h-2.5 w-2.5 sm:h-3 sm:w-3 fill-current ml-0.5" />
                           </span>
@@ -740,17 +740,17 @@ export default function ApartmentShowcase({
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <span className="text-[9px] sm:text-[10px] font-extrabold text-[#E5C07B] uppercase tracking-wider truncate">
+                          <span className="text-[9px] sm:text-[10px] font-extrabold text-[#8C6207] uppercase tracking-wider truncate">
                             Tour {vIdx + 1} • {vid.tag}
                           </span>
                           {isActive && (
-                            <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                            <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-600"></span>
                           )}
                         </div>
-                        <div className={`text-[11px] sm:text-xs font-bold line-clamp-1 mt-0.5 ${isActive ? 'text-white' : 'text-blue-100 group-hover:text-white'}`}>
+                        <div className={`text-[11px] sm:text-xs font-bold line-clamp-1 mt-0.5 ${isActive ? 'text-slate-950 font-extrabold' : 'text-slate-800 group-hover:text-slate-950'}`}>
                           {vid.title}
                         </div>
-                        <div className="text-[9px] sm:text-[10px] text-emerald-400 mt-0.5 font-semibold">
+                        <div className="text-[9px] sm:text-[10px] text-emerald-700 mt-0.5 font-semibold">
                           {isActive ? '● Live on Screen' : '▶ Click to Play'}
                         </div>
                       </div>
@@ -762,22 +762,22 @@ export default function ApartmentShowcase({
           </div>
 
           {/* SECTION B: MULTIPLE VIDEO FRAMES (HOVER / TOUCH TO PLAY) */}
-          <div className="pt-5 border-t border-[#E5C07B]/20">
+          <div className="pt-5 border-t border-[#D4AF37]/25">
             <div className="mb-4 sm:mb-5 flex flex-col sm:flex-row sm:items-end justify-between gap-2 sm:gap-3">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#E5C07B]">
+                <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8C6207]">
                   <Film className="h-3.5 w-3.5" />
                   <span>Interactive Multi-Frame Gallery</span>
                 </div>
-                <h3 className="mt-1 font-serif text-xl sm:text-3xl font-bold text-white">
-                  Multi-Frame Room Video Tours <span className="text-[#E5C07B] font-normal text-base sm:text-xl">(Hover / Tap to Play)</span>
+                <h3 className="mt-1 font-serif text-xl sm:text-3xl font-bold text-slate-900">
+                  Multi-Frame Room Video Tours <span className="text-[#8C6207] font-normal text-base sm:text-xl">(Hover / Tap to Play)</span>
                 </h3>
-                <p className="mt-0.5 text-[11px] sm:text-xs text-blue-200">
+                <p className="mt-0.5 text-[11px] sm:text-xs text-slate-600">
                   Hover your mouse or tap any frame below to stream the video walkthrough live. Click "Open Cinema" to focus in HD Cinema.
                 </p>
               </div>
 
-              <span className="self-start sm:self-auto rounded-full bg-[#0E2458] border border-[#E5C07B]/30 px-3 py-1 text-[11px] font-bold text-[#F7E5A9]">
+              <span className="self-start sm:self-auto rounded-full bg-white border border-[#D4AF37]/40 px-3 py-1 text-[11px] font-bold text-[#8C6207] shadow-sm">
                 {videos.length} Video Frames
               </span>
             </div>
@@ -903,49 +903,49 @@ export default function ApartmentShowcase({
       )}
 
       {/* SECTION C: CLEAR & PROMINENT AGENT MOHSIN VERIFIED HOST PROFILE */}
-      <div className="relative z-10 mt-8 sm:mt-10 rounded-2xl sm:rounded-3xl border-2 border-[#E5C07B]/50 bg-gradient-to-r from-[#0C1F45] via-[#091738] to-[#061026] p-4 sm:p-8 shadow-2xl">
+      <div className="relative z-10 mt-8 sm:mt-10 rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-r from-[#FFFDF8] via-[#FFFFFF] to-[#FAF5E6] p-4 sm:p-8 shadow-xl shadow-[#D4AF37]/10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left w-full sm:w-auto">
             {/* Clear & Large Agent Photo */}
             <div className="relative flex-shrink-0">
-              <div className="h-24 w-24 sm:h-36 sm:w-36 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#E5C07B] ring-4 ring-[#E5C07B]/40 shadow-2xl shadow-[#E5C07B]/25 bg-black">
+              <div className="h-24 w-24 sm:h-36 sm:w-36 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#D4AF37] ring-4 ring-[#D4AF37]/35 shadow-xl shadow-[#D4AF37]/20 bg-slate-100">
                 <img
                   src="/agent-mohsin.jpg"
                   alt="Agent Mohsin - Verified Host"
                   className="h-full w-full object-cover object-[center_18%]"
                 />
               </div>
-              <span className="absolute -bottom-1 -right-1 sm:-bottom-1.5 sm:-right-1.5 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#25D366] border-2 border-[#091738] shadow-lg" title="Online on WhatsApp">
+              <span className="absolute -bottom-1 -right-1 sm:-bottom-1.5 sm:-right-1.5 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#25D366] border-2 border-white shadow-lg" title="Online on WhatsApp">
                 <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white" />
               </span>
             </div>
 
             {/* Clear Agent Details & Credentials */}
             <div className="space-y-1.5 w-full">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-[#E5C07B]/40 bg-[#061026]/90 px-3 py-0.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#F7E5A9]">
-                <ShieldCheck className="h-3.5 w-3.5 text-[#25D366]" />
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/45 bg-white px-3 py-0.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8C6207] shadow-sm">
+                <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
                 <span>Verified Host & Exclusive Concierge</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-4xl font-extrabold text-white">
+              <h3 className="font-serif text-2xl sm:text-4xl font-extrabold text-slate-900">
                 Agent Mohsin
               </h3>
 
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-xs text-blue-200">
-                <span className="font-mono font-bold text-emerald-400 text-sm sm:text-base bg-[#061026] px-2.5 sm:px-3 py-1 rounded-xl border border-emerald-500/30">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-xs text-slate-600">
+                <span className="font-mono font-bold text-[#8C6207] text-sm sm:text-base bg-white px-2.5 sm:px-3 py-1 rounded-xl border border-[#D4AF37]/40 shadow-sm">
                   📞 0314 3292778
                 </span>
-                <span className="text-blue-400/40">•</span>
-                <span className="text-blue-100 font-semibold">
+                <span className="text-slate-300">•</span>
+                <span className="text-slate-700 font-semibold">
                   DTS Reg #ISB-4921
                 </span>
-                <span className="text-blue-400/40 hidden sm:inline">•</span>
-                <span className="text-[#F7E5A9] font-bold hidden sm:inline">
+                <span className="text-slate-300 hidden sm:inline">•</span>
+                <span className="text-[#8C6207] font-bold hidden sm:inline">
                   ⭐ 5.0 Host Rating
                 </span>
               </div>
 
-              <p className="text-xs sm:text-sm text-blue-100/90 max-w-xl pt-0.5 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-700 max-w-xl pt-0.5 leading-relaxed">
                 Directly manages keycard handover, 24/7 VIP check-in, Margalla Hills penthouse view access, and complimentary Prado airport transfers for your distinguished guests.
               </p>
             </div>
@@ -957,7 +957,7 @@ export default function ApartmentShowcase({
               href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20want%20to%20book%20The%20Royal%20Emerald%202BR%20Apartment%20for%20my%20client."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-[#061026] px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold shadow-xl shadow-[#25D366]/35 transition-all hover:scale-105 w-full sm:w-auto"
+              className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold shadow-xl shadow-[#25D366]/25 transition-all hover:scale-105 w-full sm:w-auto"
             >
               <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
@@ -967,9 +967,9 @@ export default function ApartmentShowcase({
 
             <a
               href="tel:03143292778"
-              className="flex items-center justify-center gap-2 rounded-2xl border border-[#E5C07B]/40 bg-[#061026] hover:bg-[#0E2458] hover:border-[#E5C07B] text-[#F7E5A9] px-5 py-3 text-xs font-bold transition-all w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 rounded-2xl border border-[#D4AF37]/50 bg-white hover:bg-[#FFFDF7] hover:border-[#D4AF37] text-[#8C6207] px-5 py-3 text-xs font-bold transition-all w-full sm:w-auto shadow-sm"
             >
-              <Phone className="h-4 w-4 text-[#E5C07B]" />
+              <Phone className="h-4 w-4 text-[#8C6207]" />
               <span>Call Direct: 0314 3292778</span>
             </a>
           </div>
@@ -977,59 +977,59 @@ export default function ApartmentShowcase({
       </div>
 
       {/* Architectural Features Ribbon & Highlights */}
-      <div className="relative z-10 mt-6 grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-4 border-y border-[#E5C07B]/15 py-3.5 sm:py-4 text-xs">
-        <div className="flex items-center gap-2 text-blue-200">
-          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-[#E5C07B]/15 text-[#F7E5A9] shrink-0">
+      <div className="relative z-10 mt-6 grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-4 border-y border-[#D4AF37]/25 py-3.5 sm:py-4 text-xs">
+        <div className="flex items-center gap-2 text-slate-600">
+          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-[#FFF4D4] text-[#8C6207] shrink-0 border border-[#D4AF37]/30">
             <Maximize className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </div>
           <div className="min-w-0">
-            <div className="text-[9px] uppercase font-bold text-blue-300/70">Total Space</div>
-            <div className="font-bold text-white text-[11px] sm:text-xs truncate">3,200 sq ft</div>
+            <div className="text-[9px] uppercase font-bold text-slate-500">Total Space</div>
+            <div className="font-bold text-slate-900 text-[11px] sm:text-xs truncate">3,200 sq ft</div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 text-blue-200">
-          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-[#E5C07B]/15 text-[#F7E5A9] shrink-0">
+        <div className="flex items-center gap-2 text-slate-600">
+          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-[#FFF4D4] text-[#8C6207] shrink-0 border border-[#D4AF37]/30">
             <Bed className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </div>
           <div className="min-w-0">
-            <div className="text-[9px] uppercase font-bold text-blue-300/70">Master Bedding</div>
-            <div className="font-bold text-white text-[11px] sm:text-xs truncate">2 King Suites</div>
+            <div className="text-[9px] uppercase font-bold text-slate-500">Master Bedding</div>
+            <div className="font-bold text-slate-900 text-[11px] sm:text-xs truncate">2 King Suites</div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 text-blue-200">
-          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-[#E5C07B]/15 text-[#F7E5A9] shrink-0">
+        <div className="flex items-center gap-2 text-slate-600">
+          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-[#FFF4D4] text-[#8C6207] shrink-0 border border-[#D4AF37]/30">
             <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </div>
           <div className="min-w-0">
-            <div className="text-[9px] uppercase font-bold text-blue-300/70">Capacity</div>
-            <div className="font-bold text-white text-[11px] sm:text-xs truncate">Up to 5 VIP Guests</div>
+            <div className="text-[9px] uppercase font-bold text-slate-500">Capacity</div>
+            <div className="font-bold text-slate-900 text-[11px] sm:text-xs truncate">Up to 5 VIP Guests</div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 text-blue-200">
-          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-[#25D366]/20 text-[#25D366] shrink-0">
+        <div className="flex items-center gap-2 text-slate-600">
+          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-[#25D366]/15 text-emerald-700 shrink-0 border border-[#25D366]/30">
             <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </div>
           <div className="min-w-0">
-            <div className="text-[9px] uppercase font-bold text-blue-300/70">Direct Concierge</div>
-            <div className="font-bold text-emerald-400 text-[11px] sm:text-xs truncate">Agent Mohsin</div>
+            <div className="text-[9px] uppercase font-bold text-slate-500">Direct Concierge</div>
+            <div className="font-bold text-emerald-700 text-[11px] sm:text-xs truncate">Agent Mohsin</div>
           </div>
         </div>
       </div>
 
       {/* Bottom CTA Row: Instant Booking & WhatsApp (Mobile Stacked) */}
       <div className="relative z-10 mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex flex-wrap items-center gap-1.5 text-xs text-blue-100">
-          <span className="font-bold text-[#F7E5A9] text-[11px] sm:text-xs">Inclusions:</span>
-          <span className="rounded-lg bg-[#0E2458] px-2 py-0.5 text-[10px] sm:text-[11px] border border-[#E5C07B]/20">
+        <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-600">
+          <span className="font-bold text-[#8C6207] text-[11px] sm:text-xs">Inclusions:</span>
+          <span className="rounded-lg bg-white px-2 py-0.5 text-[10px] sm:text-[11px] border border-[#D4AF37]/30 text-slate-800 shadow-sm">
             • 4K Smart TVs
           </span>
-          <span className="rounded-lg bg-[#0E2458] px-2 py-0.5 text-[10px] sm:text-[11px] border border-[#E5C07B]/20">
+          <span className="rounded-lg bg-white px-2 py-0.5 text-[10px] sm:text-[11px] border border-[#D4AF37]/30 text-slate-800 shadow-sm">
             • Gourmet Kitchen
           </span>
-          <span className="rounded-lg bg-[#0E2458] px-2 py-0.5 text-[10px] sm:text-[11px] border border-[#E5C07B]/20">
+          <span className="rounded-lg bg-white px-2 py-0.5 text-[10px] sm:text-[11px] border border-[#D4AF37]/30 text-slate-800 shadow-sm">
             • Prado Airport Transfer
           </span>
         </div>
@@ -1040,7 +1040,7 @@ export default function ApartmentShowcase({
             href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I want to book The Royal Emerald 2BR Apartment in Islamabad for my client. Please share availability.`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/20 border border-[#25D366]/50 px-4 py-3 text-xs font-bold text-emerald-300 hover:bg-[#25D366] hover:text-[#061026] transition-all shadow-md w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-slate-950 transition-all shadow-sm w-full sm:w-auto"
           >
             <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
               <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
@@ -1051,16 +1051,16 @@ export default function ApartmentShowcase({
           {/* Suite Spec Modal */}
           <button
             onClick={() => onSelectApartment(apartment)}
-            className="flex items-center justify-center gap-2 rounded-2xl border border-[#E5C07B]/40 bg-[#0A1A40] px-4 py-3 text-xs font-bold text-[#F7E5A9] hover:bg-[#0E2458] hover:border-[#E5C07B] transition-all w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 rounded-2xl border border-[#D4AF37]/50 bg-white px-4 py-3 text-xs font-bold text-[#8C6207] hover:bg-[#FFFDF7] hover:border-[#D4AF37] transition-all w-full sm:w-auto shadow-sm"
           >
-            <Eye className="h-4 w-4 text-[#E5C07B]" />
+            <Eye className="h-4 w-4 text-[#8C6207]" />
             <span>Interactive Media Spec</span>
           </button>
 
           {/* Book Now Button */}
           <button
             onClick={() => onBookApartment(apartment)}
-            className="gold-btn flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-xs font-bold shadow-xl shadow-[#E5C07B]/20 w-full sm:w-auto"
+            className="gold-btn flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-xs font-bold shadow-xl shadow-[#D4AF37]/25 w-full sm:w-auto"
           >
             <span>Book Apartment for Client</span>
             <ArrowRight className="h-4 w-4" />

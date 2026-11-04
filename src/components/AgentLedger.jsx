@@ -55,105 +55,105 @@ export default function AgentLedger({
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Top Banner & Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#E5C07B]/20 pb-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#D4AF37]/25 pb-6">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FFF5D0] via-[#E5C07B] to-[#B88A1F] text-[#061026] shadow-md shadow-[#E5C07B]/25 font-bold">
+            <span className="flex h-9 w-9 items-center justify-center rounded-2xl gold-btn text-slate-950 shadow-sm font-bold">
               <Briefcase className="h-5 w-5" />
             </span>
-            <h1 className="font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h1 className="font-serif text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Client Bookings & Commission Ledger
             </h1>
           </div>
-          <p className="mt-1 text-xs text-blue-200/80">
+          <p className="mt-1 text-xs text-slate-600">
             Real-time management for all luxury client reservations, vouchers, and commission settlements.
           </p>
         </div>
 
         <button
           onClick={onNewBookingClick}
-          className="gold-btn flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-bold"
+          className="gold-btn flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-bold shadow-md shadow-[#D4AF37]/20"
         >
           <Sparkles className="h-4 w-4" />
           <span>Book Another Room</span>
         </button>
       </div>
 
-      {/* KPI Cards Grid in Sapphire Blue & Light Gold */}
+      {/* KPI Cards Grid in White & Royal Gold */}
       <div className="my-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {/* Total Bookings */}
-        <div className="glass-blue-panel rounded-2xl p-5 border border-[#E5C07B]/25">
-          <div className="flex items-center justify-between text-xs text-blue-200">
+        <div className="rounded-2xl p-5 border border-[#D4AF37]/35 bg-white shadow-sm">
+          <div className="flex items-center justify-between text-xs text-slate-500">
             <span className="uppercase font-bold tracking-wider">Total Reservations</span>
-            <Briefcase className="h-4 w-4 text-[#E5C07B]" />
+            <Briefcase className="h-4 w-4 text-[#8C6207]" />
           </div>
-          <div className="mt-2 font-serif text-3xl font-bold text-white">
+          <div className="mt-2 font-serif text-3xl font-bold text-slate-900">
             {totalBookings}
           </div>
-          <div className="mt-1 text-xs text-blue-300">
+          <div className="mt-1 text-xs text-slate-600">
             {totalNights} Total Guest Nights Booked
           </div>
         </div>
 
         {/* Total Gross Volume */}
-        <div className="glass-blue-panel rounded-2xl p-5 border border-[#E5C07B]/25">
-          <div className="flex items-center justify-between text-xs text-blue-200">
+        <div className="rounded-2xl p-5 border border-[#D4AF37]/35 bg-white shadow-sm">
+          <div className="flex items-center justify-between text-xs text-slate-500">
             <span className="uppercase font-bold tracking-wider">Gross Client Value</span>
-            <DollarSign className="h-4 w-4 text-[#E5C07B]" />
+            <DollarSign className="h-4 w-4 text-[#8C6207]" />
           </div>
-          <div className="mt-2 font-serif text-3xl font-bold text-white">
+          <div className="mt-2 font-serif text-3xl font-bold text-slate-900">
             {currencySymbol}{totalGrossClient.toLocaleString()}
           </div>
-          <div className="mt-1 text-xs text-[#F7E5A9] font-medium">
+          <div className="mt-1 text-xs text-[#8C6207] font-semibold">
             Direct High-Net-Worth Volume
           </div>
         </div>
 
         {/* Net Agent Commission Earned */}
-        <div className="glass-blue-panel rounded-2xl p-5 border border-[#E5C07B]/45 bg-gradient-to-br from-[#0C2050] to-[#07132F]">
-          <div className="flex items-center justify-between text-xs text-[#E5C07B]">
+        <div className="rounded-2xl p-5 border-2 border-[#D4AF37] bg-gradient-to-br from-[#FFFDF8] via-[#FAF6EC] to-[#FFF4D4] shadow-md shadow-[#D4AF37]/15">
+          <div className="flex items-center justify-between text-xs text-[#8C6207]">
             <span className="uppercase font-extrabold tracking-wider">Agent Commission Earned</span>
-            <TrendingUp className="h-4 w-4 text-[#E5C07B]" />
+            <TrendingUp className="h-4 w-4 text-[#8C6207]" />
           </div>
-          <div className="mt-2 font-serif text-3xl font-bold text-[#F7E5A9]">
+          <div className="mt-2 font-serif text-3xl font-extrabold text-[#8C6207]">
             +{currencySymbol}{totalNetCommissions.toLocaleString()}
           </div>
-          <div className="mt-1 text-xs text-blue-200">
+          <div className="mt-1 text-xs text-slate-600">
             Average {avgCommissionPct}% Commission Rate
           </div>
         </div>
 
         {/* Agency Partner Status */}
-        <div className="glass-blue-panel rounded-2xl p-5 border border-[#60A5FA]/30 bg-gradient-to-br from-[#0B2154] to-[#07132F]">
-          <div className="flex items-center justify-between text-xs text-[#93C5FD]">
+        <div className="rounded-2xl p-5 border border-emerald-300 bg-emerald-50/70 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-emerald-800">
             <span className="uppercase font-extrabold tracking-wider">Agent Status</span>
-            <ShieldCheck className="h-4 w-4 text-[#60A5FA]" />
+            <ShieldCheck className="h-4 w-4 text-emerald-600" />
           </div>
-          <div className="mt-2 font-serif text-2xl font-bold text-white">
+          <div className="mt-2 font-serif text-2xl font-bold text-slate-900">
             Diamond Elite
           </div>
-          <div className="mt-1 text-xs text-blue-200">
+          <div className="mt-1 text-xs text-emerald-700 font-medium">
             Next payout: 1st of next month
           </div>
         </div>
       </div>
 
       {/* Search and Filters Bar */}
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#E5C07B]/25 bg-[#081534] p-4">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#D4AF37]/35 bg-white p-4 shadow-sm">
         <div className="relative min-w-[280px] flex-1">
-          <Search className="pointer-events-none absolute left-3 top-2.5 h-4 w-4 text-[#E5C07B]" />
+          <Search className="pointer-events-none absolute left-3 top-2.5 h-4 w-4 text-[#8C6207]" />
           <input
             type="text"
             placeholder="Search by client name, PNR, hotel, or city..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-xl border border-[#E5C07B]/30 bg-[#050E24] py-2 pl-9 pr-3 text-xs font-semibold text-white placeholder-blue-300/50 outline-none focus:border-[#E5C07B]"
+            className="w-full rounded-xl border border-[#D4AF37]/30 bg-[#FAF9F5] py-2 pl-9 pr-3 text-xs font-semibold text-slate-900 placeholder-slate-400 outline-none focus:border-[#D4AF37] focus:bg-white"
           />
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-xs text-blue-200 font-medium flex items-center gap-1">
-            <Filter className="h-3.5 w-3.5 text-[#E5C07B]" /> Status:
+          <span className="text-xs text-slate-600 font-semibold flex items-center gap-1">
+            <Filter className="h-3.5 w-3.5 text-[#8C6207]" /> Status:
           </span>
           {['All', 'Confirmed', 'Completed'].map((status) => (
             <button
@@ -161,8 +161,8 @@ export default function AgentLedger({
               onClick={() => setStatusFilter(status)}
               className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all ${
                 statusFilter === status
-                  ? 'gold-btn text-[#061026]'
-                  : 'bg-[#0B1A3E] text-blue-100 hover:bg-[#0E2252] border border-[#E5C07B]/20'
+                  ? 'gold-btn text-slate-950 shadow-sm'
+                  : 'bg-[#FAF9F5] text-slate-600 hover:text-slate-900 hover:bg-[#FFFDF7] border border-[#D4AF37]/25'
               }`}
             >
               {status}
@@ -173,10 +173,10 @@ export default function AgentLedger({
 
       {/* Bookings List / Table */}
       {filteredBookings.length === 0 ? (
-        <div className="glass-blue-panel rounded-3xl p-12 text-center border border-[#E5C07B]/20">
-          <Briefcase className="mx-auto h-12 w-12 text-blue-400/40" />
-          <h3 className="mt-3 font-serif text-lg font-bold text-white">No client bookings found</h3>
-          <p className="mt-1 text-xs text-blue-200">
+        <div className="rounded-3xl p-12 text-center border border-[#D4AF37]/25 bg-white shadow-sm">
+          <Briefcase className="mx-auto h-12 w-12 text-slate-300" />
+          <h3 className="mt-3 font-serif text-lg font-bold text-slate-900">No client bookings found</h3>
+          <p className="mt-1 text-xs text-slate-500">
             Try adjusting your search criteria or book a new luxury suite for a client.
           </p>
         </div>
@@ -185,39 +185,39 @@ export default function AgentLedger({
           {filteredBookings.map((booking) => (
             <div
               key={booking.id}
-              className="luxury-card group relative overflow-hidden rounded-3xl border border-[#E5C07B]/25 bg-[#081534] p-6 transition-all hover:border-[#E5C07B]/60 hover:bg-[#0B1E48]"
+              className="luxury-card-white group relative overflow-hidden rounded-3xl border border-[#D4AF37]/35 bg-white p-6 transition-all hover:border-[#D4AF37] hover:shadow-xl hover:shadow-[#D4AF37]/15 shadow-sm"
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 {/* Left: Client & Suite Info */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-[#F7E5A9] bg-[#050E24] px-2.5 py-1 rounded-lg border border-[#E5C07B]/30">
+                    <span className="font-mono text-xs font-bold text-[#8C6207] bg-[#FAF9F5] px-2.5 py-1 rounded-lg border border-[#D4AF37]/35 shadow-sm">
                       {booking.id}
                     </span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[#0E2D64] px-3 py-0.5 text-[11px] font-bold text-[#93C5FD] border border-[#3B82F6]/30">
-                      <CheckCircle2 className="h-3 w-3 text-[#60A5FA]" />
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-0.5 text-[11px] font-bold text-emerald-800 border border-emerald-300/60 shadow-sm">
+                      <CheckCircle2 className="h-3 w-3 text-emerald-600" />
                       {booking.status}
                     </span>
-                    <span className="text-xs text-blue-300">• Booked on {booking.bookingDate}</span>
+                    <span className="text-xs text-slate-500">• Booked on {booking.bookingDate}</span>
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-white">
+                    <h3 className="font-serif text-2xl font-bold text-slate-900">
                       {booking.clientName}
                     </h3>
-                    <div className="text-xs text-blue-200">
+                    <div className="text-xs text-slate-600">
                       {booking.clientEmail} • {booking.clientPhone}
                     </div>
                   </div>
 
-                  <div className="text-xs text-blue-100">
-                    <span className="font-bold text-[#F7E5A9]">{booking.roomName}</span>
-                    <span className="mx-1.5 text-blue-400">—</span>
+                  <div className="text-xs text-slate-700">
+                    <span className="font-bold text-[#8C6207]">{booking.roomName}</span>
+                    <span className="mx-1.5 text-slate-300">—</span>
                     <span>{booking.hotelName} ({booking.destination})</span>
                   </div>
 
                   {booking.specialRequests && (
-                    <div className="text-xs text-blue-200 italic line-clamp-1 max-w-xl">
+                    <div className="text-xs text-slate-600 italic line-clamp-1 max-w-xl">
                       "{booking.specialRequests}"
                     </div>
                   )}
@@ -226,19 +226,19 @@ export default function AgentLedger({
                 {/* Right: Financials & Action Buttons */}
                 <div className="flex flex-col items-end gap-3 text-right">
                   <div>
-                    <div className="text-xs text-blue-200">Client Total Quoted:</div>
-                    <div className="font-serif text-2xl font-bold text-white">
-                      {currencySymbol}{Math.round((booking.clientTotal || 0) * currencyRate).toLocaleString()}
+                    <div className="text-xs text-slate-500">Client Total Quoted:</div>
+                    <div className="font-serif text-2xl font-bold text-slate-900">
+                      {currencySymbol}{(booking.clientTotal || 0).toLocaleString()}
                     </div>
-                    <div className="text-xs font-bold text-[#F7E5A9]">
-                      +{currencySymbol}{Math.round((booking.agentCommission || 0) * currencyRate).toLocaleString()} Commission ({booking.commissionPct}%)
+                    <div className="text-xs font-bold text-[#8C6207]">
+                      +{currencySymbol}{(booking.agentCommission || 0).toLocaleString()} Commission ({booking.commissionPct}%)
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => onViewVoucher(booking)}
-                      className="gold-btn flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold"
+                      className="gold-btn flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold shadow-md shadow-[#D4AF37]/20"
                     >
                       <FileText className="h-3.5 w-3.5" />
                       <span>View Guest Voucher</span>
@@ -248,17 +248,17 @@ export default function AgentLedger({
               </div>
 
               {/* Bottom Details Footer */}
-              <div className="mt-4 flex flex-wrap items-center justify-between border-t border-[#E5C07B]/15 pt-3.5 text-xs text-blue-200/80">
+              <div className="mt-4 flex flex-wrap items-center justify-between border-t border-[#D4AF37]/20 pt-3.5 text-xs text-slate-600">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-1 text-blue-100">
-                    <Calendar className="h-3.5 w-3.5 text-[#E5C07B]" />
+                  <div className="flex items-center gap-1 text-slate-700">
+                    <Calendar className="h-3.5 w-3.5 text-[#8C6207]" />
                     <span>{booking.checkIn} → {booking.checkOut} ({booking.nights} nights)</span>
                   </div>
-                  <div>Guests: <strong className="text-white">{booking.guests}</strong></div>
-                  <div>Settlement: <strong className="text-[#F7E5A9]">{booking.paymentMode}</strong></div>
+                  <div>Guests: <strong className="text-slate-900">{booking.guests}</strong></div>
+                  <div>Settlement: <strong className="text-[#8C6207]">{booking.paymentMode}</strong></div>
                 </div>
 
-                <div className="font-mono text-[11px] text-[#E5C07B] font-bold">
+                <div className="font-mono text-[11px] text-[#8C6207] font-bold">
                   Ref PNR: {booking.agentPnr}
                 </div>
               </div>

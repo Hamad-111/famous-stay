@@ -47,19 +47,19 @@ export default function RoomCard({
   const totalAgentNet = totalClientPrice - totalAgentCommission;
 
   return (
-    <div className={`luxury-card group relative flex flex-col overflow-hidden rounded-3xl border transition-all ${
+    <div className={`luxury-card-white group relative flex flex-col overflow-hidden rounded-3xl border transition-all duration-300 ${
       room.isExclusiveFlagship 
-        ? 'border-2 border-[#E5C07B] shadow-2xl shadow-[#E5C07B]/20 ring-1 ring-[#E5C07B]/40' 
-        : 'border-[#E5C07B]/25'
-    } bg-[#081432]`}>
+        ? 'border-2 border-[#D4AF37] shadow-xl shadow-[#D4AF37]/20 ring-1 ring-[#D4AF37]/40' 
+        : 'border-[#D4AF37]/35 shadow-lg shadow-black/5 hover:border-[#D4AF37] hover:shadow-xl hover:shadow-[#D4AF37]/15'
+    } bg-white text-slate-800`}>
       {/* Top Image Showcase */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#040914]">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
         <img
           src={room.images[currentImageIndex]}
           alt={room.name}
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#081432] via-transparent to-black/35"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25"></div>
 
         {/* Carousel Controls */}
         {room.images.length > 1 && (
@@ -67,14 +67,14 @@ export default function RoomCard({
             <button
               onClick={prevImage}
               aria-label="Previous photo"
-              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-[#061026]/80 text-[#F7E5A9] border border-[#E5C07B]/30 backdrop-blur-md opacity-0 group-hover:opacity-100 hover:bg-[#061026] hover:scale-110 transition-all"
+              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-900 border border-[#D4AF37]/40 backdrop-blur-md opacity-0 group-hover:opacity-100 hover:bg-[#D4AF37] hover:text-white hover:scale-110 transition-all shadow-md"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
             <button
               onClick={nextImage}
               aria-label="Next photo"
-              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-[#061026]/80 text-[#F7E5A9] border border-[#E5C07B]/30 backdrop-blur-md opacity-0 group-hover:opacity-100 hover:bg-[#061026] hover:scale-110 transition-all"
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-900 border border-[#D4AF37]/40 backdrop-blur-md opacity-0 group-hover:opacity-100 hover:bg-[#D4AF37] hover:text-white hover:scale-110 transition-all shadow-md"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
@@ -86,8 +86,8 @@ export default function RoomCard({
                   key={idx}
                   className={`h-1.5 rounded-full transition-all ${
                     idx === currentImageIndex
-                      ? 'w-5 bg-[#E5C07B]'
-                      : 'w-1.5 bg-white/40'
+                      ? 'w-5 bg-[#D4AF37]'
+                      : 'w-1.5 bg-white/60'
                   }`}
                 />
               ))}
@@ -95,7 +95,7 @@ export default function RoomCard({
 
             {/* Room Caption Tag */}
             {room.imageLabels && (
-              <div className="absolute bottom-3 left-3 rounded-lg bg-black/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-[#F7E5A9] border border-[#E5C07B]/30 max-w-[70%] truncate shadow-sm">
+              <div className="absolute bottom-3 left-3 rounded-lg bg-black/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white border border-[#D4AF37]/40 max-w-[70%] truncate shadow-sm">
                 {room.imageLabels[currentImageIndex]}
               </div>
             )}
@@ -105,18 +105,18 @@ export default function RoomCard({
         {/* Floating Category Pill in Light Gold */}
         <div className="absolute left-3.5 top-3.5 flex flex-wrap gap-1.5">
           {room.isExclusiveFlagship ? (
-            <span className="rounded-full bg-gradient-to-r from-[#FFF5D0] via-[#E5C07B] to-[#C49824] px-3 py-1 text-[11px] font-extrabold tracking-wider text-[#061026] shadow-lg flex items-center gap-1">
+            <span className="rounded-full bg-gradient-to-r from-[#FFF5D0] via-[#D4AF37] to-[#B8860B] px-3 py-1 text-[11px] font-extrabold tracking-wider text-slate-950 shadow-md flex items-center gap-1 border border-white">
               <Crown className="h-3 w-3" />
               Flagship Apartment
             </span>
           ) : (
-            <span className="rounded-full bg-[#061026]/90 px-3 py-1 text-[11px] font-extrabold tracking-wider text-[#F7E5A9] backdrop-blur-md border border-[#E5C07B]/40 shadow-lg">
+            <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-extrabold tracking-wider text-[#8C6207] backdrop-blur-md border border-[#D4AF37]/40 shadow-sm">
               {room.category}
             </span>
           )}
           {room.instantConfirmation && (
-            <span className="hidden sm:flex items-center gap-1 rounded-full bg-[#0A2647]/90 px-2.5 py-1 text-[10px] font-bold text-[#60A5FA] backdrop-blur-md border border-[#3B82F6]/40">
-              <CheckCircle2 className="h-3 w-3 text-[#60A5FA]" />
+            <span className="hidden sm:flex items-center gap-1 rounded-full bg-emerald-50/95 px-2.5 py-1 text-[10px] font-bold text-emerald-700 backdrop-blur-md border border-emerald-300/60 shadow-sm">
+              <CheckCircle2 className="h-3 w-3 text-emerald-600" />
               Instant Confirm
             </span>
           )}
@@ -124,7 +124,7 @@ export default function RoomCard({
 
         {/* Live Availability Pill & Video Badge */}
         <div className="absolute right-3.5 top-3.5 flex flex-col items-end gap-1.5">
-          <span className="rounded-full bg-[#07173D]/90 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#F7E5A9] backdrop-blur-md border border-[#E5C07B]/40 shadow-md">
+          <span className="rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#8C6207] backdrop-blur-md border border-[#D4AF37]/40 shadow-sm">
             {room.availableRooms} {room.availableRooms === 1 ? 'Suite Left' : 'Suites Left'}
           </span>
           {room.videos && room.videos.length > 0 && (
@@ -137,47 +137,47 @@ export default function RoomCard({
       </div>
 
       {/* Card Body */}
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6 bg-white">
         {/* Hotel & Rating Header */}
         <div className="mb-2 flex items-center justify-between text-xs">
-          <div className="flex items-center gap-1.5 text-blue-200">
-            <MapPin className="h-3.5 w-3.5 text-[#E5C07B]" />
-            <span className="font-medium text-blue-100">{room.city}, {room.country}</span>
+          <div className="flex items-center gap-1.5 text-slate-600">
+            <MapPin className="h-3.5 w-3.5 text-[#8C6207]" />
+            <span className="font-semibold text-slate-700">{room.city}, {room.country}</span>
           </div>
 
-          <div className="flex items-center gap-1 rounded-lg bg-[#E5C07B]/15 px-2 py-0.5 font-bold text-[#F7E5A9] border border-[#E5C07B]/30">
-            <Star className="h-3.5 w-3.5 fill-[#E5C07B] text-[#E5C07B]" />
+          <div className="flex items-center gap-1 rounded-lg bg-[#FFF4D4] px-2 py-0.5 font-bold text-[#8C6207] border border-[#D4AF37]/35">
+            <Star className="h-3.5 w-3.5 fill-[#D4AF37] text-[#D4AF37]" />
             <span>{room.rating}</span>
-            <span className="text-blue-300/70 font-normal">({room.reviewsCount})</span>
+            <span className="text-slate-500 font-normal">({room.reviewsCount})</span>
           </div>
         </div>
 
         {/* Hotel Brand Label in Light Gold */}
-        <div className="text-[11px] uppercase tracking-widest text-[#E5C07B] font-extrabold mb-1">
+        <div className="text-[11px] uppercase tracking-widest text-[#8C6207] font-extrabold mb-1">
           {room.hotel}
         </div>
 
         {/* Suite Name in Serif Typography */}
         <h3 
           onClick={() => onSelectRoom(room)}
-          className="font-serif text-2xl font-bold tracking-tight text-white transition-colors hover:text-[#F7E5A9] cursor-pointer line-clamp-1"
+          className="font-serif text-2xl font-bold tracking-tight text-slate-900 transition-colors hover:text-[#8C6207] cursor-pointer line-clamp-1"
         >
           {room.name}
         </h3>
 
         {/* Architectural Specs Row */}
-        <div className="my-3.5 grid grid-cols-3 gap-2 border-y border-[#E5C07B]/15 py-2.5 text-xs text-blue-200/80">
+        <div className="my-3.5 grid grid-cols-3 gap-2 border-y border-[#D4AF37]/20 py-2.5 text-xs text-slate-600">
           <div className="flex items-center gap-1.5">
-            <Maximize className="h-3.5 w-3.5 text-[#E5C07B]" />
-            <span className="font-medium">{room.sizeSqFt} sq ft</span>
+            <Maximize className="h-3.5 w-3.5 text-[#8C6207]" />
+            <span className="font-medium text-slate-800">{room.sizeSqFt} sq ft</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <Users className="h-3.5 w-3.5 text-[#E5C07B]" />
-            <span className="font-medium">Up to {room.maxAdults} Guests</span>
+            <Users className="h-3.5 w-3.5 text-[#8C6207]" />
+            <span className="font-medium text-slate-800">Up to {room.maxAdults} Guests</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <Bed className="h-3.5 w-3.5 text-[#E5C07B]" />
-            <span className="truncate font-medium">{room.bedType.split('+')[0]}</span>
+            <Bed className="h-3.5 w-3.5 text-[#8C6207]" />
+            <span className="truncate font-medium text-slate-800">{room.bedType.split('+')[0]}</span>
           </div>
         </div>
 
@@ -186,7 +186,7 @@ export default function RoomCard({
           {room.amenities.slice(0, 3).map((amenity, idx) => (
             <span 
               key={idx}
-              className="rounded-lg bg-[#0B1E48]/70 px-2.5 py-1 text-[11px] text-blue-100 border border-[#E5C07B]/15 font-medium"
+              className="rounded-lg bg-[#FAF9F5] px-2.5 py-1 text-[11px] text-slate-700 border border-[#D4AF37]/25 font-medium shadow-sm"
             >
               • {amenity}
             </span>
@@ -194,31 +194,31 @@ export default function RoomCard({
           {room.amenities.length > 3 && (
             <button
               onClick={() => onSelectRoom(room)}
-              className="text-[11px] text-[#F7E5A9] hover:text-white hover:underline px-1 py-1 font-semibold"
+              className="text-[11px] text-[#8C6207] hover:text-slate-950 hover:underline px-1 py-1 font-bold"
             >
               +{room.amenities.length - 3} more perks
             </button>
           )}
         </div>
 
-        {/* B2B Agent Commission Matrix in Sapphire & Light Gold */}
-        <div className="mt-auto rounded-2xl border border-[#E5C07B]/30 bg-gradient-to-br from-[#07132E] via-[#0B1B40] to-[#0E2458] p-4 shadow-inner">
-          <div className="flex items-center justify-between border-b border-[#E5C07B]/15 pb-2.5">
+        {/* B2B Agent Commission Matrix in White & Royal Gold */}
+        <div className="mt-auto rounded-2xl border border-[#D4AF37]/35 bg-gradient-to-br from-[#FFFDF8] via-[#FAF6EC] to-[#F5EED9] p-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-[#D4AF37]/20 pb-2.5">
             <div>
-              <div className="text-[10px] uppercase font-bold tracking-wider text-blue-200/80">
+              <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500">
                 Client Quoted Rate
               </div>
-              <div className="text-base font-bold text-white">
-                {currencySymbol}{clientRatePerNight.toLocaleString()} <span className="text-xs font-normal text-blue-200/70">/ nt</span>
+              <div className="text-base font-extrabold text-slate-900">
+                {currencySymbol}{clientRatePerNight.toLocaleString()} <span className="text-xs font-normal text-slate-500">/ nt</span>
               </div>
             </div>
 
             <div className="text-right">
-              <div className="text-[10px] uppercase font-bold tracking-wider text-blue-200/80">
+              <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500">
                 Wholesale Net Cost
               </div>
-              <div className="text-sm font-semibold text-blue-100">
-                {currencySymbol}{agentNetPerNight.toLocaleString()} <span className="text-xs font-normal text-blue-200/70">/ nt</span>
+              <div className="text-sm font-semibold text-slate-700">
+                {currencySymbol}{agentNetPerNight.toLocaleString()} <span className="text-xs font-normal text-slate-500">/ nt</span>
               </div>
             </div>
           </div>
@@ -226,22 +226,22 @@ export default function RoomCard({
           {/* Commission Calculation & Stay Total */}
           <div className="mt-2.5 flex items-center justify-between">
             <div className="flex items-center gap-1.5">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#E5C07B]/20 text-[#F7E5A9]">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FFF4D4] text-[#8C6207] border border-[#D4AF37]/30">
                 <TrendingUp className="h-3 w-3" />
               </span>
               <div>
-                <span className="text-xs font-bold text-[#F7E5A9]">
+                <span className="text-xs font-extrabold text-[#8C6207]">
                   +{currencySymbol}{totalAgentCommission.toLocaleString()} Commission
                 </span>
-                <span className="ml-1 text-[10px] font-bold text-[#E5C07B]/90">
+                <span className="ml-1 text-[10px] font-bold text-slate-600">
                   ({room.agentCommissionPct}%)
                 </span>
               </div>
             </div>
 
             <div className="text-right">
-              <span className="text-xs text-blue-200">
-                {nights} {nights === 1 ? 'Nt' : 'Nts'}: <strong className="text-white font-bold">{currencySymbol}{totalClientPrice.toLocaleString()}</strong>
+              <span className="text-xs text-slate-600">
+                {nights} {nights === 1 ? 'Nt' : 'Nts'}: <strong className="text-slate-950 font-bold">{currencySymbol}{totalClientPrice.toLocaleString()}</strong>
               </span>
             </div>
           </div>
@@ -251,15 +251,15 @@ export default function RoomCard({
         <div className="mt-4 grid grid-cols-2 gap-2.5">
           <button
             onClick={() => onSelectRoom(room)}
-            className="flex items-center justify-center gap-1.5 rounded-xl border border-[#E5C07B]/30 bg-[#091738] px-3 py-2.5 text-xs font-bold text-blue-100 transition-colors hover:border-[#E5C07B]/70 hover:bg-[#0D2252]"
+            className="flex items-center justify-center gap-1.5 rounded-xl border border-[#D4AF37]/45 bg-white px-3 py-2.5 text-xs font-bold text-[#8C6207] transition-all hover:border-[#D4AF37] hover:bg-[#FFFDF7] shadow-sm"
           >
-            <Eye className="h-3.5 w-3.5 text-[#E5C07B]" />
+            <Eye className="h-3.5 w-3.5 text-[#8C6207]" />
             <span>Suite Spec</span>
           </button>
 
           <button
             onClick={() => onBookRoom(room)}
-            className="gold-btn flex items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-xs font-bold"
+            className="gold-btn flex items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-xs font-bold shadow-md shadow-[#D4AF37]/20"
           >
             <span>Book for Client</span>
             <ArrowRight className="h-3.5 w-3.5" />

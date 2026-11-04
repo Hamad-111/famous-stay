@@ -97,24 +97,24 @@ export default function Logo({ size = 'default', showBadge = true, className = '
       {/* Typography Wordmark */}
       <div className="flex flex-col">
         <div className="flex items-center gap-2">
-          <span className={`font-serif font-extrabold tracking-widest text-white ${
+          <span className={`font-serif font-extrabold tracking-widest text-slate-900 ${
             isLarge ? 'text-3xl' : isSmall ? 'text-xl' : 'text-2xl'
           }`}>
-            FAMOUS<span className="gold-gradient-text">STAY</span>
+            FAMOUS<span className="gold-gradient-text ml-0.5">STAY</span>
           </span>
 
           {showBadge && (
-            <span className="flex items-center gap-1 rounded-full border border-[#E5C07B]/40 bg-gradient-to-r from-[#0C1E4A] to-[#122A66] px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[#F7E5A9] shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-[#FFFDF5] px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[#8C6207] shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#25D366] animate-pulse"></span>
               PAKISTAN B2B
             </span>
           )}
         </div>
 
-        <p className="text-[10px] uppercase font-bold tracking-wider text-blue-200/80 flex items-center gap-1.5">
+        <p className="text-[10px] uppercase font-bold tracking-wider text-slate-500 flex items-center gap-1.5">
           <span>Hotel Agent Reservation Network</span>
-          <span className="text-[#E5C07B]/50">•</span>
-          <span className="text-[#E5C07B]">DTS & TAAP Verified</span>
+          <span className="text-[#D4AF37]">•</span>
+          <span className="text-[#8C6207] font-semibold">DTS & TAAP Verified</span>
         </p>
       </div>
     </div>
