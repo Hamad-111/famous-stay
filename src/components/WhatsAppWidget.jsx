@@ -59,7 +59,7 @@ export default function WhatsAppWidget({
               <span className="font-bold text-[#8C6207] block mb-1">
                 Assalam-o-Alaikum! 👋
               </span>
-              I am <strong className="text-slate-900 font-bold">{agentName}</strong>, your dedicated VIP reservation agent. Looking to book Serena, PC Bhurban, or luxury suites in Pakistan? Chat with me directly on WhatsApp!
+              I am <strong className="text-slate-900 font-bold">{agentName}</strong>, your dedicated VIP reservation agent. Looking to book 5-star partner hotels, luxury penthouses, or custom suites in Pakistan? Chat with me directly on WhatsApp!
             </div>
 
             <div className="text-[10px] text-slate-500 text-center">

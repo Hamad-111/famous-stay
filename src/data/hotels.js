@@ -1,7 +1,7 @@
 export const LUXURY_HOTELS = [
   {
     id: "fs-apt-emerald-01",
-    name: "The Royal Emerald 2BR Luxury Penthouse & Dual Salons",
+    name: "Executive 2BR Luxury Penthouse & Dual Salons",
     hotel: "Famous Stay Signature Residences",
     city: "Islamabad",
     country: "Pakistan",
@@ -18,18 +18,20 @@ export const LUXURY_HOTELS = [
       "/apartment/beige-marble-salon.jpg"
     ],
     imageLabels: [
-      "Emerald Executive Salon & 4K Smart Media Wall",
+      "Executive Salon & 4K Smart Media Wall",
       "Blush Rose Master King Suite with Cove Lighting",
       "Noir Charcoal Second Master Suite & Bedside Sconces",
-      "Emerald Velvet Chesterfield Salon & Gold Wall Art",
+      "Velvet Chesterfield Salon & Gold Wall Art",
       "Grand Marble Sitting Lounge with Arched Mirror Columns"
     ],
     videos: [
       {
         url: "/apartment/videos/video-tour-1.mp4",
-        title: "Emerald Executive Salon & Media Wall Tour",
-        room: "Emerald Salon",
+        title: "Executive Salon & Media Wall Tour",
+        room: "Executive Salon",
         tag: "Main Salon",
+        category: "salons",
+        feature: "85\" 4K TV • Italian Velvet Lounge",
         thumbnail: "/apartment/emerald-living-main.jpg"
       },
       {
@@ -37,6 +39,8 @@ export const LUXURY_HOTELS = [
         title: "Blush Rose Master King Suite Walkthrough",
         room: "Master Suite 1",
         tag: "Blush King Bed",
+        category: "suites",
+        feature: "King Bed • Walk-in Dressing Suite",
         thumbnail: "/apartment/master-bedroom-blush.jpg"
       },
       {
@@ -44,6 +48,8 @@ export const LUXURY_HOTELS = [
         title: "Noir Charcoal Master Suite Tour",
         room: "Master Suite 2",
         tag: "Charcoal Suite",
+        category: "suites",
+        feature: "Noir Luxury Finishes • Ensuite Bath",
         thumbnail: "/apartment/charcoal-bedroom-suite.jpg"
       },
       {
@@ -51,6 +57,8 @@ export const LUXURY_HOTELS = [
         title: "Beige Marble Lounge & Arched Mirrors",
         room: "Marble Lounge",
         tag: "2nd Salon",
+        category: "salons",
+        feature: "Italian Marble • Arched Mirrors",
         thumbnail: "/apartment/beige-marble-salon.jpg"
       },
       {
@@ -58,6 +66,8 @@ export const LUXURY_HOTELS = [
         title: "Full Penthouse Walkthrough & Dual Salons",
         room: "Complete Tour",
         tag: "Full Walkthrough",
+        category: "salons",
+        feature: "3,200 sq ft Panoramic Living Flow",
         thumbnail: "/apartment/emerald-lounge-art.jpg"
       },
       {
@@ -65,6 +75,8 @@ export const LUXURY_HOTELS = [
         title: "Executive Entry Foyer & Lighting Walkthrough",
         room: "Entry Foyer",
         tag: "Foyer & Sconces",
+        category: "foyers",
+        feature: "Crystal Sconces • Keycard Security",
         thumbnail: "/apartment/emerald-living-main.jpg"
       },
       {
@@ -72,6 +84,8 @@ export const LUXURY_HOTELS = [
         title: "Gourmet Kitchen & Dining Suite Tour",
         room: "Dining & Kitchen",
         tag: "Gourmet Kitchen",
+        category: "kitchen",
+        feature: "Quartz Island • Espresso Bar",
         thumbnail: "/apartment/beige-marble-salon.jpg"
       },
       {
@@ -79,6 +93,8 @@ export const LUXURY_HOTELS = [
         title: "Master Dressing & Built-in Wardrobes",
         room: "Dressing Suite",
         tag: "Walk-in Wardrobe",
+        category: "suites",
+        feature: "LED Lit Mirrors • Soft-close Joinery",
         thumbnail: "/apartment/master-bedroom-blush.jpg"
       },
       {
@@ -86,6 +102,8 @@ export const LUXURY_HOTELS = [
         title: "Architectural Ceiling & Ambient Cove Lighting",
         room: "Ceiling & Ambiance",
         tag: "Cove Lighting",
+        category: "salons",
+        feature: "Multi-Zone Warm Dimmers",
         thumbnail: "/apartment/emerald-lounge-art.jpg"
       },
       {
@@ -93,6 +111,8 @@ export const LUXURY_HOTELS = [
         title: "Grand Panoramic Penthouse View & Living Flow",
         room: "Grand Suite",
         tag: "Panoramic Living",
+        category: "salons",
+        feature: "Floor-to-Ceiling Windows • Margalla Hills",
         thumbnail: "/apartment/charcoal-bedroom-suite.jpg"
       },
       {
@@ -100,6 +120,8 @@ export const LUXURY_HOTELS = [
         title: "Designer Bath Suite & Rain Shower Walkthrough",
         room: "Master Bath Suite",
         tag: "Luxury Bath",
+        category: "foyers",
+        feature: "Rain Shower • Marble Vanity",
         thumbnail: "/apartment/emerald-living-main.jpg"
       },
       {
@@ -107,6 +129,8 @@ export const LUXURY_HOTELS = [
         title: "VIP Executive Corridor & Architectural Details",
         room: "Executive Hall",
         tag: "Private Corridor",
+        category: "foyers",
+        feature: "Art Gallery Wall • Recessed LEDs",
         thumbnail: "/apartment/beige-marble-salon.jpg"
       },
       {
@@ -114,6 +138,8 @@ export const LUXURY_HOTELS = [
         title: "Second Marble Vanity & Guest Powder Suite",
         room: "Guest Powder Room",
         tag: "Powder Suite",
+        category: "foyers",
+        feature: "Golden Faucets • Guest Powder Room",
         thumbnail: "/apartment/master-bedroom-blush.jpg"
       },
       {
@@ -121,6 +147,8 @@ export const LUXURY_HOTELS = [
         title: "Smart Media Console & 4K Surround Sound Setup",
         room: "Media Console",
         tag: "Smart 4K Media",
+        category: "salons",
+        feature: "Dolby Atmos • High-Speed Fiber WiFi",
         thumbnail: "/apartment/emerald-lounge-art.jpg"
       },
       {
@@ -128,6 +156,8 @@ export const LUXURY_HOTELS = [
         title: "Full 360 Penthouse Walkthrough & Night Lighting",
         room: "Night Ambiance",
         tag: "Night Lighting",
+        category: "suites",
+        feature: "Evening Mood Lighting • City Views",
         thumbnail: "/apartment/charcoal-bedroom-suite.jpg"
       }
     ],
@@ -144,7 +174,7 @@ export const LUXURY_HOTELS = [
     instantConfirmation: true,
     amenities: [
       "2 Lavish Master Bedrooms with Velvet Tufted King Beds",
-      "Signature Emerald Velvet Living Salon with Gold Trim Accent Walls",
+      "Signature Velvet Living Salon with Gold Trim Accent Walls",
       "Second Marble Sitting Lounge with Architectural Arched Mirrors",
       "Warm Architectural Cove Ceiling Lighting & Inverter Climate Control",
       "Smart 4K TVs in Both Salons and Master Bedrooms",
@@ -154,12 +184,12 @@ export const LUXURY_HOTELS = [
       "Complimentary VIP Airport Chauffeur (Prado / Mercedes)",
       "Daily Housekeeping & Fresh Luxury Egyptian Cotton Linens"
     ],
-    description: "An architectural masterpiece in Islamabad. Features two grand interior-designed salons—an iconic emerald green velvet salon with gold wainscoting and a sunlit marble lounge with arched French mirror panels. Includes two opulent master bedrooms with custom backlit cove ceilings, offering unparalleled luxury for VIP executives, diplomats, and elite families."
+    description: "An architectural masterpiece in Islamabad. Features two grand interior-designed salons—an iconic velvet salon with gold wainscoting and a sunlit marble lounge with arched French mirror panels. Includes two opulent master bedrooms with custom backlit cove ceilings, offering luxury for VIP executives, diplomats, and elite families."
   },
   {
     id: "fs-room-pk-01",
-    name: "Sheesh Mahal Royal Presidential Suite",
-    hotel: "Islamabad Serena Hotel",
+    name: "Diplomatic Royal Presidential Suite",
+    hotel: "5-Star Partner Hotel (Diplomatic Sector)",
     city: "Islamabad",
     country: "Pakistan",
     rating: 4.98,
@@ -183,10 +213,10 @@ export const LUXURY_HOTELS = [
     availableRooms: 2,
     instantConfirmation: true,
     amenities: [
-      "Dedicated 24/7 Royal Pakistani Butler",
+      "Dedicated 24/7 Royal Butler Assistance",
       "Complimentary VIP Airport Chauffeur (Mercedes S-Class)",
-      "Daily Royal Buffet Breakfast at Zamana",
-      "Executive Maisha Spa & Heated Lap Pool Access",
+      "Daily Royal Buffet Breakfast at Executive Lounge",
+      "Executive Wellness Spa & Heated Lap Pool Access",
       "Handcrafted Swati Wood Carvings & Onyx Marble Bath",
       "Jacuzzi & Hydrotherapy Steam Shower",
       "High-speed 1Gbps Secure Leased Wi-Fi",
@@ -194,12 +224,12 @@ export const LUXURY_HOTELS = [
       "Complimentary Premium Dry Fruits & Gourmet Minibar",
       "Bespoke Security Detail & Safe Haven Protocol"
     ],
-    description: "The crown jewel of Islamabad hospitality. Inspired by traditional Mughal architecture with authentic mirror mosaics, intricate marble inlays, and sweeping vistas of the Margalla Hills. Favored by visiting heads of state and royalty."
+    description: "The premier suite of Islamabad hospitality. Inspired by traditional architecture with authentic mirror mosaics, intricate marble inlays, and sweeping vistas of the Margalla Hills. Favored by visiting executives, delegations, and elite guests."
   },
   {
     id: "fs-room-pk-02",
     name: "Himalayan Monarch Royal Chalet",
-    hotel: "Pearl Continental Resort Bhurban",
+    hotel: "5-Star Alpine Resort (Bhurban Hills)",
     city: "Bhurban, Murree Hills",
     country: "Pakistan",
     rating: 4.95,
@@ -228,18 +258,18 @@ export const LUXURY_HOTELS = [
       "Dedicated Private Chalet Attendant",
       "Daily Continental & Desi Breakfast Buffet",
       "Chauffeur Transfer from Islamabad Airport",
-      "VIP Priority Tee Times at Bhurban Golf Course",
+      "VIP Priority Tee Times at Golf Course",
       "Heated Cashmere Blankets & Balcony Telescope",
       "En-suite Cedarwood Dry Sauna",
       "Private Barbecue Terrace with Personal Chef Option",
       "Helipad Landing Access"
     ],
-    description: "Perched majestically among misty pine ridges overlooking the Kashmir valley. Features towering cedar ceilings, a natural stone fireplace, private panoramic terrace, and quintessential hill-station luxury for elite families."
+    description: "Perched majestically among misty pine ridges overlooking the Kashmir valley. Features towering cedar ceilings, a natural stone fireplace, private panoramic terrace, and hill-station luxury for elite families."
   },
   {
     id: "fs-room-pk-03",
     name: "Karakoram Royal Heritage Pavilion",
-    hotel: "Serena Altit Fort Heritage Sanctuary",
+    hotel: "5-Star Heritage Sanctuary (Hunza Valley)",
     city: "Hunza Valley, Gilgit-Baltistan",
     country: "Pakistan",
     rating: 4.99,
@@ -255,7 +285,7 @@ export const LUXURY_HOTELS = [
     agentCommissionPct: 18,
     sizeSqM: 280,
     sizeSqFt: 3010,
-    bedType: "1 Royal Mir of Hunza King Pavilion",
+    bedType: "1 Royal King Pavilion",
     maxAdults: 3,
     maxChildren: 2,
     view: "Ultar Sar, Ladyfinger Peak & Ancient Apricot Orchards",
@@ -264,22 +294,22 @@ export const LUXURY_HOTELS = [
     instantConfirmation: true,
     amenities: [
       "Private Heated Infinity Pool overlooking Hunza River",
-      "Traditional Mir's Personal Attendant 24/7",
+      "Traditional Personal Attendant 24/7",
       "Helicopter Charter Transfer from Gilgit Airport",
-      "Daily Organic Hunza Glacier Breakfast Experience",
+      "Daily Organic Glacier Breakfast Experience",
       "Private Sunset Balcony with High-Powered Stargazing Scope",
       "Handmade Silk Carpets & Walnut Wood Carvings",
       "Apricot Oil Herbal Spa & Aromatherapy Ritual",
       "Private 4x4 Prado with Local Guide for Attabad Lake",
-      "Exclusive After-Hours Private Access to Altit Fort",
+      "Exclusive After-Hours Private Access to Historic Fort",
       "Gourmet Local & Continental In-Villa Dining"
     ],
-    description: "An ethereal retreat suspended beneath the towering peaks of the Karakoram. Designed in authentic Hunza architecture with royal silk draperies, heated pool, and unmatched views of Rakaposhi and Ladyfinger peak."
+    description: "An ethereal retreat suspended beneath the towering peaks of the Karakoram. Designed in authentic regional architecture with royal silk draperies, heated pool, and unmatched views of Rakaposhi and Ladyfinger peak."
   },
   {
     id: "fs-room-pk-04",
     name: "Lower Kachura Lake Presidential Haven",
-    hotel: "Shangrila Resort Skardu",
+    hotel: "5-Star Alpine Lake Resort (Skardu)",
     city: "Skardu, Gilgit-Baltistan",
     country: "Pakistan",
     rating: 4.97,
@@ -298,7 +328,7 @@ export const LUXURY_HOTELS = [
     bedType: "1 Grand King Bed + Lakeside Daybed",
     maxAdults: 3,
     maxChildren: 1,
-    view: "Heart-Shaped Shangrila Lake & Tibetan Himalayan Peaks",
+    view: "Heart-Shaped Lake & Tibetan Himalayan Peaks",
     floor: "Lakefront Water Edge",
     availableRooms: 2,
     instantConfirmation: true,
@@ -308,18 +338,18 @@ export const LUXURY_HOTELS = [
       "VIP Chauffeur Transfer from Skardu International Airport",
       "Daily Trout Fish & Organic Fruit Breakfast",
       "Lake-view Firepit with Fresh Pine Logs",
-      "Kashmiri Pashmina Bed Linens & Heating Suite",
+      "Pashmina Bed Linens & Heating Suite",
       "Panoramic Floor-to-Ceiling Glass Walls",
       "Deosai Plains VIP Private Safari Coordination",
       "Warm Stone Jacuzzi overlooking Lake Reflection",
       "Complimentary High-Altitude Wellness Kit"
     ],
-    description: "Situated directly on the serene shores of the famous heart-shaped Shangrila Lake in Skardu. Offers Tibetan-inspired luxury chalets, fresh mountain trout dining, and gateway access to the majestic peaks of K2."
+    description: "Situated directly on the serene shores of the famous heart-shaped lake in Skardu. Offers mountain chalets, fresh lake trout dining, and gateway access to the majestic peaks of K2."
   },
   {
     id: "fs-room-pk-05",
-    name: "The Royal Mughal Penthouse Suite",
-    hotel: "The Nishat Hotel (Gulberg)",
+    name: "The Royal Executive Penthouse Suite",
+    hotel: "5-Star Boutique Hotel (Gulberg)",
     city: "Lahore",
     country: "Pakistan",
     rating: 4.96,
@@ -345,21 +375,21 @@ export const LUXURY_HOTELS = [
     amenities: [
       "Personal Clefs d'Or Concierge & Butler Service",
       "Audi A8 / BMW 7-Series Chauffeur Airport Pick & Drop",
-      "Signature Nishat Linen Handcrafted Egyptian Bedding",
+      "Signature Handcrafted Egyptian Cotton Bedding",
       "Freestanding Italian Marble Soaking Tub with TV",
       "Private In-Suite Dining curated by Executive French Chef",
       "Direct VIP Elevator Access & Secured Floor Key",
-      "Smart Touchscreen Room Automation & Bang & Olufsen Audio",
+      "Smart Touchscreen Room Automation & Surround Sound Audio",
       "Daily Gourmet Breakfast at The Bistro",
       "Walk-in Dressing Room with Safe & Espresso Bar",
       "Exclusive Access to Salt-Water Indoor Swimming Pool"
     ],
-    description: "The epitome of high-fashion urban luxury in Lahore's most prestigious district. Hand-carved mouldings, gold-leaf accents, Hermès bath amenities, and immediate access to M.M. Alam Road's haute couture boutiques."
+    description: "The epitome of high-fashion urban luxury in Lahore's most prestigious district. Hand-carved mouldings, gold-leaf accents, luxury bath amenities, and immediate access to M.M. Alam Road."
   },
   {
     id: "fs-room-pk-06",
     name: "Arabian Sea Executive Presidential Suite",
-    hotel: "Mövenpick Hotel Karachi",
+    hotel: "5-Star Executive Tower (Karachi Coast)",
     city: "Karachi",
     country: "Pakistan",
     rating: 4.94,
@@ -387,19 +417,19 @@ export const LUXURY_HOTELS = [
       "VIP Chauffeur Airport Escort (Jinnah International KHI)",
       "Private Meeting Room & High-Security Workspace",
       "Deep Soaking Jacuzzi with Sea Breeze Vistas",
-      "Daily Swiss & Pakistani Gourmet Breakfast Buffet",
-      "Mövenpick Signature Chocolate Hour Delivered to Suite",
+      "Daily Gourmet Breakfast Buffet",
+      "Executive High-Tea & Canapés Delivered to Suite",
       "State-of-the-art Fitness & Hydrotherapy Spa Access",
       "Multi-Line Conference Calling & Leased Fiber Internet",
       "Personal Laundry & Valet Pressing Included",
       "24/7 Diplomatic Security Desk Coordination"
     ],
-    description: "Karachi's most trusted executive sanctuary for corporate titans and diplomatic missions. Features generous entertaining salons, private conference facilities, and tranquil Arabian Sea views above the bustling metropolis."
+    description: "Karachi's trusted executive sanctuary for corporate titans and diplomatic missions. Features generous entertaining salons, private conference facilities, and tranquil Arabian Sea views above the bustling metropolis."
   },
   {
     id: "fs-room-pk-07",
     name: "The Royal Palm Beachfront Villa (Outbound VIP)",
-    hotel: "One&Only Royal Mirage",
+    hotel: "5-Star Luxury Beach Resort (Dubai)",
     city: "Dubai",
     country: "United Arab Emirates",
     rating: 5.0,
@@ -424,22 +454,22 @@ export const LUXURY_HOTELS = [
     instantConfirmation: true,
     amenities: [
       "Private Heated Infinity Pool & Beach Cabana",
-      "24/7 Dedicated Royal Butler & Concierge",
+      "24/7 Dedicated Butler & Concierge",
       "Complimentary Rolls-Royce Phantom DXB Airport Transfer",
       "Daily Gourmet Breakfast in Villa",
-      "Hermès Eau d'Orange Verte Amenities",
+      "Luxury Designer Bath Amenities",
       "Fast-Track Airport Marhaba Lounge Coordination",
       "Urdu & English Speaking Concierge Assistance",
       "Marble Spa Bathroom with Jacuzzi",
-      "Private Dining with Halal Michelin-Starred Menu",
+      "Private Dining with Halal Gourmet Menu",
       "High-speed 1Gbps Wi-Fi"
     ],
-    description: "The top choice for Pakistani VIP vacationers in Dubai. Secluded two-bedroom beachfront sanctuary directly on white sands with temperature-controlled private pool, personalized butler, and seamless luxury."
+    description: "The top choice for VIP vacationers in Dubai. Secluded two-bedroom beachfront sanctuary directly on white sands with temperature-controlled private pool, personalized butler, and seamless luxury."
   },
   {
     id: "fs-room-pk-08",
     name: "Celestial Lagoon Overwater Villa (Outbound VIP)",
-    hotel: "Soneva Jani Maldivian Sanctuary",
+    hotel: "5-Star Island Sanctuary (Maldives)",
     city: "Noonu Atoll",
     country: "Maldives",
     rating: 4.99,
@@ -474,7 +504,7 @@ export const LUXURY_HOTELS = [
       "Organic In-Villa Spa Care",
       "Private Speedboat & Sunset Dolphin Cruise"
     ],
-    description: "The ultimate tropical dream for Pakistani honeymooners and families. Features an iconic water slide into the crystal lagoon, retractable bedroom roof that opens to the night sky, and complete privacy."
+    description: "The ultimate tropical dream for vacationers and families. Features an iconic water slide into the crystal lagoon, retractable bedroom roof that opens to the night sky, and complete privacy."
   }
 ];
 
@@ -485,8 +515,8 @@ export const INITIAL_AGENT_BOOKINGS = [
     clientName: "Chaudhry Tariq Mehmood",
     clientEmail: "tariq.mehmood@mehmoodgroup.com.pk",
     clientPhone: "+92 300 8541290",
-    hotelName: "Islamabad Serena Hotel",
-    roomName: "Sheesh Mahal Royal Presidential Suite",
+    hotelName: "5-Star Partner Hotel (Diplomatic Sector)",
+    roomName: "Diplomatic Royal Presidential Suite",
     destination: "Islamabad, Pakistan",
     checkIn: "2026-11-12",
     checkOut: "2026-11-17",
@@ -508,7 +538,7 @@ export const INITIAL_AGENT_BOOKINGS = [
     clientName: "Malik Jahangir Khan & Family",
     clientEmail: "m.jahangir@jkenterprises.pk",
     clientPhone: "+92 321 4455889",
-    hotelName: "Pearl Continental Resort Bhurban",
+    hotelName: "5-Star Alpine Resort (Bhurban Hills)",
     roomName: "Himalayan Monarch Royal Chalet",
     destination: "Bhurban, Murree Hills, Pakistan",
     checkIn: "2026-12-04",
@@ -531,7 +561,7 @@ export const INITIAL_AGENT_BOOKINGS = [
     clientName: "Begum Fatima & Dr. Salman Bilgrami",
     clientEmail: "salman.bilgrami@bilgramiclinic.pk",
     clientPhone: "+92 333 2198765",
-    hotelName: "One&Only Royal Mirage",
+    hotelName: "5-Star Luxury Beach Resort (Dubai)",
     roomName: "The Royal Palm Beachfront Villa (Outbound VIP)",
     destination: "Dubai, United Arab Emirates",
     checkIn: "2026-12-20",
@@ -544,7 +574,7 @@ export const INITIAL_AGENT_BOOKINGS = [
     commissionPct: 16,
     status: "Confirmed",
     paymentMode: "Habib Bank Direct Wire (HBL)",
-    specialRequests: "Anniversary vacation. Urdu-speaking concierge, Rolls-Royce DXB airport greeting, oceanfront cabana reserved.",
+    specialRequests: "Anniversary vacation. Rolls-Royce DXB airport greeting, oceanfront cabana reserved.",
     agentPnr: "DXB-88319-BIL",
     qrCodeMock: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=FAMOUS-STAY-FS-88319-DXB"
   }

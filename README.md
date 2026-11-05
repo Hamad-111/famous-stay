@@ -8,7 +8,7 @@
 
 ## 🌟 Key Features
 
-- **Exclusive Flagship Showcase**: Features *The Royal Emerald 2BR Luxury Penthouse & Dual Salons* in Islamabad (Diplomatic & Executive Zone).
+- **Multi-Hotel & Flagship Showcase**: Features *Executive 2BR Luxury Penthouse & Dual Salons* in Islamabad alongside a nationwide multi-hotel partner network across Pakistan and worldwide.
 - **15 Active HD Video Walkthroughs**: HTML5 cinema video player with browser-compliant autoplay, audio toggle, and 15 direct room jump chips.
 - **5-Photo Bento Mosaic**: 1-click toggle to explore high-definition architectural photography.
 - **Strictly PKR Currency**: Instant wholesale rate calculations, rack rates, and guaranteed **18% agent commissions** (Rs. 26,100/night net profit).

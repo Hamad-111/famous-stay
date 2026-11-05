@@ -101,7 +101,7 @@ export default function App() {
   // Bookings state with LocalStorage persistence
   const [bookings, setBookings] = useState(() => {
     try {
-      const saved = localStorage.getItem('famous_stay_agent_bookings_pkr_v2');
+      const saved = localStorage.getItem('famous_stay_agent_bookings_pkr_v3');
       return saved ? JSON.parse(saved) : INITIAL_AGENT_BOOKINGS;
     } catch {
       return INITIAL_AGENT_BOOKINGS;
@@ -110,7 +110,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('famous_stay_agent_bookings_pkr_v2', JSON.stringify(bookings));
+      localStorage.setItem('famous_stay_agent_bookings_pkr_v3', JSON.stringify(bookings));
     } catch (e) {
       console.error('Could not save bookings to localStorage', e);
     }
@@ -330,7 +330,7 @@ export default function App() {
                   </button>
 
                   <a
-                    href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20the%20luxury%20apartment%20booking%20and%20rates%20on%20Famous%20Stay."
+                    href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20partner%20hotel%20bookings%20and%20rates%20on%20Famous%20Stay."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/50 px-5 py-3 text-xs sm:text-sm font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-md backdrop-blur-md"
@@ -350,21 +350,21 @@ export default function App() {
                 filters={filters}
                 setFilters={setFilters}
                 onReset={handleResetFilters}
-                totalResults={1}
+                totalResults={filteredRooms.length}
               />
             </div>
 
             {/* SUITES INVENTORY CATALOG SECTION */}
             <div id="inventory-catalog" className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:px-8 scroll-mt-20">
-              {/* Exclusive Luxury Residence Section Header */}
+              {/* Featured Multi-Hotel Video Showcase Header */}
               <div className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-[#D4AF37]/25 pb-6">
                 <div>
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8C6207]">
                     <Sparkles className="h-3.5 w-3.5 text-[#D4AF37]" />
-                    <span>Exclusive Verified Residence • Diplomatic Sector Islamabad</span>
+                    <span>Multi-Hotel Partner Network • Verified 1080p Video Showroom</span>
                   </div>
                   <h2 className="mt-1 font-serif text-3xl font-bold text-slate-900 sm:text-4xl">
-                    The Royal Emerald Luxury Penthouse
+                    Featured Partner Suite & Multi-Frame Video Showroom
                   </h2>
                   <p className="mt-1 text-xs text-slate-500">
                     Calculated for <strong className="text-[#8C6207] font-bold">{nights} {nights === 1 ? 'night' : 'nights'}</strong> ({filters.checkIn} → {filters.checkOut}) • Guaranteed wholesale net partner rates in PKR
@@ -379,7 +379,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* STYLISH & UNIQUE 5-PHOTO & 5-VIDEO REAL APARTMENT SHOWCASE */}
+              {/* STYLISH & UNIQUE 5-PHOTO & 15-VIDEO REAL APARTMENT SHOWCASE */}
               {flagshipApartment && (
                 <ApartmentShowcase
                   apartment={flagshipApartment}
@@ -388,6 +388,102 @@ export default function App() {
                   onBookApartment={(apt) => handleBookRoom(apt)}
                 />
               )}
+
+              {/* MULTI-HOTEL SUITES INVENTORY CATALOG SECTION */}
+              <div id="all-hotels-catalog" className="mt-14 pt-10 border-t-2 border-[#D4AF37]/30">
+                <div className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-[#D4AF37]/25 pb-6">
+                  <div>
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8C6207]">
+                      <Crown className="h-3.5 w-3.5 text-[#B8860B]" />
+                      <span>Complete Multi-Hotel Portfolio • {filteredRooms.length} Available Suites</span>
+                    </div>
+                    <h2 className="mt-1 font-serif text-3xl font-bold text-slate-900 sm:text-4xl">
+                      Partner Hotels & Luxury Suites
+                    </h2>
+                    <p className="mt-1 text-xs text-slate-500">
+                      Browse 5-star partner hotels across all premier destinations • Dealing with any hotel you choose
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-full bg-white border border-[#D4AF37]/50 px-3.5 py-1.5 text-xs font-bold text-[#8C6207] shadow-sm">
+                      Showing {filteredRooms.length} of {LUXURY_HOTELS.length} Partner Hotels
+                    </span>
+                  </div>
+                </div>
+
+                {/* Grid of All Hotel Partner Rooms */}
+                {filteredRooms.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    {filteredRooms.map((room) => (
+                      <RoomCard
+                        key={room.id}
+                        room={room}
+                        nights={nights}
+                        currency={currency}
+                        onSelectRoom={(r) => setSelectedRoomForModal(r)}
+                        onBookRoom={(r) => handleBookRoom(r)}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-3xl border border-[#D4AF37]/40 bg-white p-12 text-center shadow-md">
+                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF8E7] text-[#8C6207] mb-4">
+                      <Building2 className="h-7 w-7" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-slate-900">No partner suites match this filter</h3>
+                    <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+                      Try adjusting your destination, date, or category filters to explore available 5-star partner hotels.
+                    </p>
+                    <button
+                      onClick={handleResetFilters}
+                      className="mt-4 gold-btn px-5 py-2 text-xs font-bold rounded-xl"
+                    >
+                      Reset All Filters
+                    </button>
+                  </div>
+                )}
+
+                {/* UNIVERSAL "WE DEAL WITH ANY HOTEL" CONCIERGE BANNER */}
+                <div className="mt-12 rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-r from-[#FFFDF8] via-white to-[#FAF5E6] p-6 sm:p-10 shadow-xl shadow-[#D4AF37]/15">
+                  <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+                    <div className="space-y-2 text-center lg:text-left">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-white px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-[#8C6207]">
+                        <Sparkles className="h-3.5 w-3.5 text-[#B8860B]" />
+                        <span>Universal Multi-Hotel Reservation Network</span>
+                      </div>
+                      <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
+                        Need to Book Any Other Hotel or Custom Suite?
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+                        Famous Stay deals directly with luxury hotels, mountain resorts, and serviced residences across Pakistan and internationally. Whatever hotel or suite your client wants, Host Mohsin will secure wholesale net rates with your guaranteed agent profit.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0">
+                      <a
+                        href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20have%20a%20client%20requesting%20a%20hotel%20booking%20not%20listed%20on%20the%20website.%20Can%20you%20provide%20rates%20and%20availability%3F"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="gold-btn flex items-center justify-center gap-2.5 rounded-2xl px-6 py-3.5 text-xs sm:text-sm font-bold text-slate-950 shadow-xl shadow-[#D4AF37]/25 w-full sm:w-auto"
+                      >
+                        <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
+                        </svg>
+                        <span>Request Any Hotel via WhatsApp</span>
+                      </a>
+
+                      <a
+                        href="tel:03143292778"
+                        className="flex items-center justify-center gap-2 rounded-2xl border border-[#D4AF37]/50 bg-white hover:bg-[#FFFDF7] text-[#8C6207] px-5 py-3.5 text-xs font-bold transition-all w-full sm:w-auto shadow-sm"
+                      >
+                        <PhoneCall className="h-4 w-4 text-[#8C6207]" />
+                        <span>Call Mohsin Direct</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </>
         )}
@@ -438,13 +534,13 @@ export default function App() {
                 Featured Destinations
               </div>
               <ul className="space-y-2 text-xs text-slate-600">
-                <li><button onClick={() => handleQuickDestinationSelect('Islamabad')} className="hover:text-slate-900 transition-colors">Islamabad Serena Suites</button></li>
-                <li><button onClick={() => handleQuickDestinationSelect('Hunza')} className="hover:text-slate-900 transition-colors">Hunza Valley & Altit Fort</button></li>
-                <li><button onClick={() => handleQuickDestinationSelect('Bhurban')} className="hover:text-slate-900 transition-colors">Bhurban & Murree Hills</button></li>
-                <li><button onClick={() => handleQuickDestinationSelect('Skardu')} className="hover:text-slate-900 transition-colors">Skardu Shangrila Lake</button></li>
-                <li><button onClick={() => handleQuickDestinationSelect('Lahore')} className="hover:text-slate-900 transition-colors">Lahore Gulberg Nishat</button></li>
-                <li><button onClick={() => handleQuickDestinationSelect('Karachi')} className="hover:text-slate-900 transition-colors">Karachi Arabian Sea</button></li>
-                <li><button onClick={() => handleQuickDestinationSelect('Dubai')} className="hover:text-slate-900 transition-colors">Dubai Outbound Luxury</button></li>
+                <li><button onClick={() => handleQuickDestinationSelect('Islamabad')} className="hover:text-slate-900 transition-colors">Islamabad 5-Star Suites</button></li>
+                <li><button onClick={() => handleQuickDestinationSelect('Hunza')} className="hover:text-slate-900 transition-colors">Hunza Heritage Pavilions</button></li>
+                <li><button onClick={() => handleQuickDestinationSelect('Bhurban')} className="hover:text-slate-900 transition-colors">Bhurban Mountain Chalets</button></li>
+                <li><button onClick={() => handleQuickDestinationSelect('Skardu')} className="hover:text-slate-900 transition-colors">Skardu Lakefront Lodges</button></li>
+                <li><button onClick={() => handleQuickDestinationSelect('Lahore')} className="hover:text-slate-900 transition-colors">Lahore Executive Suites</button></li>
+                <li><button onClick={() => handleQuickDestinationSelect('Karachi')} className="hover:text-slate-900 transition-colors">Karachi Oceanfront Towers</button></li>
+                <li><button onClick={() => handleQuickDestinationSelect('Dubai')} className="hover:text-slate-900 transition-colors">Dubai Luxury Beachfront</button></li>
               </ul>
             </div>
 

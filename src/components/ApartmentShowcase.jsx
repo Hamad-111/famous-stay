@@ -652,7 +652,7 @@ function VideoCinemaModal({
     setIsMuted(!isMuted);
   };
 
-  const whatsappMessage = `Hello Mohsin, I am watching the 1080p video tour of The Royal Emerald 2BR Apartment (Tour #${currentIndex + 1}: ${currentVideo.room} - ${currentVideo.title}). I would like to check availability and book it for my client.`;
+  const whatsappMessage = `Hello Mohsin, I am watching the 1080p video tour of ${apartment?.name || 'this luxury suite'} (${apartment?.hotel || 'Famous Stay Partner Hotel'}) - Tour #${currentIndex + 1}: ${currentVideo.room} (${currentVideo.title}). I would like to check availability and book it for my client.`;
 
   return (
     <div 
@@ -1242,7 +1242,7 @@ export default function ApartmentShowcase({
               <div className="absolute bottom-2.5 sm:bottom-4 left-2.5 sm:left-4 right-2.5 sm:right-4 flex items-end justify-between z-10 pointer-events-none">
                 <div className="rounded-xl border border-[#D4AF37]/40 bg-white/95 px-3 py-2 backdrop-blur-md max-w-[85%] shadow-md">
                   <div className="text-[9px] uppercase font-bold text-[#8C6207] tracking-wider">
-                    Diplomatic Sector 2BR Penthouse
+                    {apartment.hotel || 'Famous Stay Partner Hotel'} • {apartment.city}
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-slate-900 truncate">
                     {labels[activePhotoIndex]}
@@ -1724,7 +1724,7 @@ export default function ApartmentShowcase({
 
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <a
-                  href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I am viewing the photos of The Royal Emerald 2BR Apartment (${labels[lightboxPhotoIndex]}). I would like to book it for my client.`)}`}
+                  href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I am viewing the photos of ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}). I would like to book it for my client.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 sm:flex-initial flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[#061026] px-4 py-2 text-xs font-bold transition-all shadow-md"
@@ -1814,7 +1814,7 @@ export default function ApartmentShowcase({
           {/* Action CTAs: Full-width on mobile */}
           <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
             <a
-              href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20want%20to%20book%20The%20Royal%20Emerald%202BR%20Apartment%20for%20my%20client."
+              href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) for my client.`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold shadow-xl shadow-[#25D366]/25 transition-all hover:scale-105 w-full sm:w-auto"
@@ -1897,7 +1897,7 @@ export default function ApartmentShowcase({
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
           {/* Direct WhatsApp Inquiry for This Apartment */}
           <a
-            href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I want to book The Royal Emerald 2BR Apartment in Islamabad for my client. Please share availability.`)}`}
+            href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) in ${apartment.city} for my client. Please share availability.`)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-slate-950 transition-all shadow-sm w-full sm:w-auto"
