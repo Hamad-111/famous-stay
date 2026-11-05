@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   Briefcase, 
   DollarSign, 
-  Search, 
+  Film, 
   LogOut, 
   LogIn, 
   ChevronDown,
@@ -45,8 +45,8 @@ export default function Header({
                 : 'text-slate-600 hover:text-slate-950 hover:bg-white/70'
             }`}
           >
-            <Search className="h-3.5 w-3.5 text-[#8C6207]" />
-            <span>Rooms Catalog</span>
+            <Film className="h-3.5 w-3.5 text-[#8C6207]" />
+            <span>Video Showcase</span>
           </button>
 
           <button
@@ -240,8 +240,8 @@ export default function Header({
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
-          <Search className="h-3.5 w-3.5" />
-          <span>Rooms</span>
+          <Film className="h-3.5 w-3.5" />
+          <span>Videos</span>
         </button>
 
         <button

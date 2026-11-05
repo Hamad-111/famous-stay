@@ -811,8 +811,8 @@ export default function ApartmentShowcase({
   onSelectApartment,
   onBookApartment
 }) {
-  // Default to 'all' so both 5 photos portfolio and 15 video walkthroughs display prominently
-  const [mediaMode, setMediaMode] = useState('all'); // 'all' | 'videos' | 'photos'
+  // Default to 'videos' so all 15 video walkthroughs are front and center on a simple user-friendly screen
+  const [mediaMode, setMediaMode] = useState('videos'); // 'videos' | 'photos' | 'all'
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [lightboxPhotoIndex, setLightboxPhotoIndex] = useState(null);
