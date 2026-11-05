@@ -1,14 +1,13 @@
 export const LUXURY_HOTELS = [
   {
     id: "fs-apt-emerald-01",
-    name: "Executive 2BR Luxury Penthouse & Dual Salons",
-    hotel: "Famous Stay Signature Residences",
+    name: "Executive 2BR Luxury Suite & Dual Salons",
+    hotel: "5-Star Luxury Serviced Suite",
     city: "Islamabad",
     country: "Pakistan",
     rating: 5.0,
     reviewsCount: 384,
     category: "Luxury Serviced Apartment",
-    isExclusiveFlagship: true,
     managedBy: "Agent Mohsin (0314 3292778)",
     images: [
       "/apartment/emerald-living-main.jpg",
@@ -189,7 +188,7 @@ export const LUXURY_HOTELS = [
   {
     id: "fs-room-pk-01",
     name: "Diplomatic Royal Presidential Suite",
-    hotel: "5-Star Partner Hotel (Diplomatic Sector)",
+    hotel: "5-Star Diplomatic Hotel",
     city: "Islamabad",
     country: "Pakistan",
     rating: 4.98,
@@ -229,7 +228,7 @@ export const LUXURY_HOTELS = [
   {
     id: "fs-room-pk-02",
     name: "Himalayan Monarch Royal Chalet",
-    hotel: "5-Star Alpine Resort (Bhurban Hills)",
+    hotel: "5-Star Mountain Resort",
     city: "Bhurban, Murree Hills",
     country: "Pakistan",
     rating: 4.95,
@@ -269,7 +268,7 @@ export const LUXURY_HOTELS = [
   {
     id: "fs-room-pk-03",
     name: "Karakoram Royal Heritage Pavilion",
-    hotel: "5-Star Heritage Sanctuary (Hunza Valley)",
+    hotel: "5-Star Heritage Sanctuary",
     city: "Hunza Valley, Gilgit-Baltistan",
     country: "Pakistan",
     rating: 4.99,
@@ -309,7 +308,7 @@ export const LUXURY_HOTELS = [
   {
     id: "fs-room-pk-04",
     name: "Lower Kachura Lake Presidential Haven",
-    hotel: "5-Star Alpine Lake Resort (Skardu)",
+    hotel: "5-Star Alpine Lakefront Resort",
     city: "Skardu, Gilgit-Baltistan",
     country: "Pakistan",
     rating: 4.97,
@@ -349,7 +348,7 @@ export const LUXURY_HOTELS = [
   {
     id: "fs-room-pk-05",
     name: "The Royal Executive Penthouse Suite",
-    hotel: "5-Star Boutique Hotel (Gulberg)",
+    hotel: "5-Star Boutique Hotel",
     city: "Lahore",
     country: "Pakistan",
     rating: 4.96,
@@ -389,7 +388,7 @@ export const LUXURY_HOTELS = [
   {
     id: "fs-room-pk-06",
     name: "Arabian Sea Executive Presidential Suite",
-    hotel: "5-Star Executive Tower (Karachi Coast)",
+    hotel: "5-Star Coastal Executive Tower",
     city: "Karachi",
     country: "Pakistan",
     rating: 4.94,
@@ -515,7 +514,7 @@ export const INITIAL_AGENT_BOOKINGS = [
     clientName: "Chaudhry Tariq Mehmood",
     clientEmail: "tariq.mehmood@mehmoodgroup.com.pk",
     clientPhone: "+92 300 8541290",
-    hotelName: "5-Star Partner Hotel (Diplomatic Sector)",
+    hotelName: "5-Star Diplomatic Hotel",
     roomName: "Diplomatic Royal Presidential Suite",
     destination: "Islamabad, Pakistan",
     checkIn: "2026-11-12",
@@ -538,7 +537,7 @@ export const INITIAL_AGENT_BOOKINGS = [
     clientName: "Malik Jahangir Khan & Family",
     clientEmail: "m.jahangir@jkenterprises.pk",
     clientPhone: "+92 321 4455889",
-    hotelName: "5-Star Alpine Resort (Bhurban Hills)",
+    hotelName: "5-Star Mountain Resort",
     roomName: "Himalayan Monarch Royal Chalet",
     destination: "Bhurban, Murree Hills, Pakistan",
     checkIn: "2026-12-04",

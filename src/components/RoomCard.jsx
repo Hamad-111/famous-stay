@@ -47,11 +47,7 @@ export default function RoomCard({
   const totalAgentNet = totalClientPrice - totalAgentCommission;
 
   return (
-    <div className={`luxury-card-white group relative flex flex-col overflow-hidden rounded-3xl border transition-all duration-300 ${
-      room.isExclusiveFlagship 
-        ? 'border-2 border-[#D4AF37] shadow-xl shadow-[#D4AF37]/20 ring-1 ring-[#D4AF37]/40' 
-        : 'border-[#D4AF37]/35 shadow-lg shadow-black/5 hover:border-[#D4AF37] hover:shadow-xl hover:shadow-[#D4AF37]/15'
-    } bg-white text-slate-800`}>
+    <div className="luxury-card-white group relative flex flex-col overflow-hidden rounded-3xl border border-[#D4AF37]/35 shadow-lg shadow-black/5 hover:border-[#D4AF37] hover:shadow-xl hover:shadow-[#D4AF37]/15 transition-all duration-300 bg-white text-slate-800">
       {/* Top Image Showcase */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
         <img
@@ -104,16 +100,9 @@ export default function RoomCard({
 
         {/* Floating Category Pill in Light Gold */}
         <div className="absolute left-3.5 top-3.5 flex flex-wrap gap-1.5">
-          {room.isExclusiveFlagship ? (
-            <span className="rounded-full bg-gradient-to-r from-[#FFF5D0] via-[#D4AF37] to-[#B8860B] px-3 py-1 text-[11px] font-extrabold tracking-wider text-slate-950 shadow-md flex items-center gap-1 border border-white">
-              <Crown className="h-3 w-3" />
-              Flagship Apartment
-            </span>
-          ) : (
-            <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-extrabold tracking-wider text-[#8C6207] backdrop-blur-md border border-[#D4AF37]/40 shadow-sm">
-              {room.category}
-            </span>
-          )}
+          <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-extrabold tracking-wider text-[#8C6207] backdrop-blur-md border border-[#D4AF37]/40 shadow-sm">
+            {room.category}
+          </span>
           {room.instantConfirmation && (
             <span className="hidden sm:flex items-center gap-1 rounded-full bg-emerald-50/95 px-2.5 py-1 text-[10px] font-bold text-emerald-700 backdrop-blur-md border border-emerald-300/60 shadow-sm">
               <CheckCircle2 className="h-3 w-3 text-emerald-600" />
@@ -128,9 +117,9 @@ export default function RoomCard({
             {room.availableRooms} {room.availableRooms === 1 ? 'Suite Left' : 'Suites Left'}
           </span>
           {room.videos && room.videos.length > 0 && (
-            <span className="flex items-center gap-1 rounded-full bg-gradient-to-r from-red-600 to-rose-700 px-2.5 py-1 text-[10px] font-extrabold text-white backdrop-blur-md shadow-md animate-pulse">
+            <span className="flex items-center gap-1 rounded-full bg-gradient-to-r from-red-600 to-rose-700 px-2.5 py-1 text-[10px] font-extrabold text-white backdrop-blur-md shadow-md">
               <Play className="h-2.5 w-2.5 fill-current" />
-              5 Video Tours
+              {room.videos.length} Video Tours
             </span>
           )}
         </div>
