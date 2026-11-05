@@ -210,6 +210,21 @@ export default function App() {
                     <span>Host: <strong className="text-[#8C6207]">Agent Mohsin</strong></span>
                     <span className="text-emerald-600 font-mono font-bold">(0314 3292778)</span>
                   </div>
+
+                  <a
+                    href="https://wa.me/923180985887?text=Hello%20Arsalan%2C%20I%20am%20inquiring%20about%20the%20Trending%20Luxury%20Penthouse%20on%20Famous%20Stay."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-white hover:bg-[#25D366]/10 px-3 py-1 text-xs font-bold text-slate-800 shadow-sm transition-all"
+                  >
+                    <img
+                      src="/agent-arsalan.jpg"
+                      alt="Agent Arsalan Jutt"
+                      className="h-5 w-5 rounded-full object-cover object-[center_20%] border border-[#25D366]"
+                    />
+                    <span>Agent: <strong className="text-[#8C6207]">Arsalan Jutt</strong></span>
+                    <span className="text-emerald-600 font-mono font-bold">(+92 318 0985887)</span>
+                  </a>
                 </div>
 
                 <h1 className="mt-4 font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-tight">
@@ -238,12 +253,24 @@ export default function App() {
                     href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20watching%20the%2015%20video%20tours%20and%20want%20to%20inquire%20about%20booking%20the%20luxury%20suite."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-5 py-3 text-xs sm:text-sm font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-sm"
+                    className="flex items-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs sm:text-sm font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-sm"
                   >
                     <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
                     </svg>
-                    <span>WhatsApp Agent Mohsin (0314 3292778)</span>
+                    <span>WhatsApp Mohsin (0314 3292778)</span>
+                  </a>
+
+                  <a
+                    href="https://wa.me/923180985887?text=Hello%20Arsalan%2C%20I%20am%20watching%20the%2015%20video%20tours%20and%20want%20to%20inquire%20about%20booking%20the%20luxury%20suite."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs sm:text-sm font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-sm"
+                  >
+                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
+                    </svg>
+                    <span>WhatsApp Arsalan (+92 318 0985887)</span>
                   </a>
                 </div>
               </div>
@@ -354,38 +381,61 @@ export default function App() {
               <div className="font-serif text-sm font-bold uppercase tracking-wider text-[#8C6207]">
                 24/7 Agent Desk (Pakistan)
               </div>
-              <div className="space-y-2.5 text-xs text-slate-600">
-                <div className="flex items-center gap-3">
-                  <img
-                    src="/agent-mohsin.jpg"
-                    alt="Agent Mohsin"
-                    className="h-10 w-10 rounded-full object-cover border-2 border-[#D4AF37] shadow-md"
-                  />
-                  <div>
-                    <div className="text-slate-900 font-bold text-sm">Mohsin</div>
-                    <div className="text-[#8C6207] text-[11px] font-semibold">Authorized Reservation Lead</div>
+              <div className="space-y-3 text-xs text-slate-600">
+                {/* Agent 1: Mohsin */}
+                <div className="rounded-xl border border-[#D4AF37]/30 bg-white p-2.5 shadow-sm space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    <img
+                      src="/agent-mohsin.jpg"
+                      alt="Agent Mohsin"
+                      className="h-9 w-9 rounded-full object-cover border-2 border-[#D4AF37]"
+                    />
+                    <div>
+                      <div className="text-slate-900 font-bold text-xs">Mohsin</div>
+                      <div className="text-[#8C6207] text-[10px] font-semibold">Authorized Reservation Lead</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
+                    <a href="tel:+923143292778" className="font-bold text-slate-800 hover:text-[#8C6207] font-mono text-[11px]">
+                      0314 3292778
+                    </a>
+                    <a
+                      href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20a%20luxury%20hotel%20booking%20on%20Famous%20Stay."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-lg bg-[#25D366] text-slate-950 font-bold text-[10px] px-2 py-1 shadow-sm"
+                    >
+                      <span>WhatsApp</span>
+                    </a>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 pt-1">
-                  <PhoneCall className="h-4 w-4 text-[#D4AF37]" />
-                  <a href="tel:+923143292778" className="font-bold text-slate-900 hover:text-[#8C6207] font-mono">
-                    +92 (314) 3292778
-                  </a>
-                </div>
-
-                <div>
-                  <a
-                    href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20a%20luxury%20hotel%20booking%20on%20Famous%20Stay."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#25D366]/15 border border-[#25D366]/40 px-3 py-1.5 text-xs font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-sm"
-                  >
-                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
-                    </svg>
-                    <span>Chat with Mohsin on WhatsApp</span>
-                  </a>
+                {/* Agent 2: Arsalan Jutt */}
+                <div className="rounded-xl border border-[#D4AF37]/30 bg-white p-2.5 shadow-sm space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    <img
+                      src="/agent-arsalan.jpg"
+                      alt="Agent Arsalan Jutt"
+                      className="h-9 w-9 rounded-full object-cover object-[center_20%] border-2 border-[#25D366]"
+                    />
+                    <div>
+                      <div className="text-slate-900 font-bold text-xs">Arsalan Jutt</div>
+                      <div className="text-[#8C6207] text-[10px] font-semibold">Senior VIP Reservation Agent</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
+                    <a href="tel:+923180985887" className="font-bold text-slate-800 hover:text-[#8C6207] font-mono text-[11px]">
+                      +92 318 0985887
+                    </a>
+                    <a
+                      href="https://wa.me/923180985887?text=Hello%20Arsalan%2C%20I%20am%20inquiring%20about%20the%20Trending%20Luxury%20Penthouse%20on%20Famous%20Stay."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-lg bg-[#25D366] text-slate-950 font-bold text-[10px] px-2 py-1 shadow-sm"
+                    >
+                      <span>WhatsApp</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

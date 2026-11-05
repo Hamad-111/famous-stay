@@ -766,25 +766,34 @@ function VideoCinemaModal({
           {/* Action Row */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="text-left w-full sm:w-auto">
-              <div className="text-xs text-[#E5C07B] font-bold">
-                Direct Host Contact: Mohsin (0314 3292778)
+              <div className="text-xs text-[#E5C07B] font-bold flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse"></span>
+                <span>VIP Agents: Mohsin (0314 3292778) • Arsalan Jutt (+92 318 0985887)</span>
               </div>
               <div className="text-[11px] text-slate-300">
                 1080p Verified Walkthrough • Press Left/Right arrows to explore all 15 rooms
               </div>
             </div>
 
-            <div className="flex items-center gap-2 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
               <a
                 href={`https://wa.me/923143292778?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-4 py-2 text-xs font-extrabold transition-all shadow-md"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-3.5 py-2 text-xs font-extrabold transition-all shadow-md"
               >
-                <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
-                </svg>
-                <span>Inquire on WhatsApp</span>
+                <img src="/agent-mohsin.jpg" alt="Mohsin" className="h-4 w-4 rounded-full object-cover object-[center_18%]" />
+                <span>WhatsApp Mohsin</span>
+              </a>
+
+              <a
+                href={`https://wa.me/923180985887?text=${encodeURIComponent(whatsappMessage)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-3.5 py-2 text-xs font-extrabold transition-all shadow-md"
+              >
+                <img src="/agent-arsalan.jpg" alt="Arsalan" className="h-4 w-4 rounded-full object-cover object-[center_20%]" />
+                <span>WhatsApp Arsalan</span>
               </a>
 
               <button
@@ -1776,42 +1785,66 @@ export default function ApartmentShowcase({
       <div className="relative z-10 mt-8 sm:mt-10 rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-r from-[#FFFDF8] via-[#FFFFFF] to-[#FAF5E6] p-4 sm:p-8 shadow-xl shadow-[#D4AF37]/10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left w-full sm:w-auto">
-            {/* Clear & Large Agent Photo */}
-            <div className="relative flex-shrink-0">
-              <div className="h-24 w-24 sm:h-36 sm:w-36 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#D4AF37] ring-4 ring-[#D4AF37]/35 shadow-xl shadow-[#D4AF37]/20 bg-slate-100">
-                <img
-                  src="/agent-mohsin.jpg"
-                  alt="Agent Mohsin - Verified Host"
-                  className="h-full w-full object-cover object-[center_18%]"
-                />
+            {/* Clear & Large Agent Photos (Dual Agents) */}
+            <div className="flex items-center -space-x-4 shrink-0">
+              <div className="relative">
+                <div className="h-20 w-20 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-[#D4AF37] ring-4 ring-[#D4AF37]/35 shadow-xl bg-slate-100">
+                  <img
+                    src="/agent-mohsin.jpg"
+                    alt="Agent Mohsin - Verified Host"
+                    className="h-full w-full object-cover object-[center_18%]"
+                  />
+                </div>
+                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#25D366] border-2 border-white shadow-lg" title="Mohsin Active">
+                  <CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
+                </span>
               </div>
-              <span className="absolute -bottom-1 -right-1 sm:-bottom-1.5 sm:-right-1.5 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#25D366] border-2 border-white shadow-lg" title="Online on WhatsApp">
-                <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white" />
-              </span>
+
+              <div className="relative z-10">
+                <div className="h-20 w-20 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-[#25D366] ring-4 ring-[#25D366]/35 shadow-xl bg-slate-100">
+                  <img
+                    src="/agent-arsalan.jpg"
+                    alt="Agent Arsalan Jutt - Second Agent"
+                    className="h-full w-full object-cover object-[center_20%]"
+                  />
+                </div>
+                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#25D366] border-2 border-white shadow-lg" title="Arsalan Active">
+                  <CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
+                </span>
+              </div>
             </div>
 
             {/* Clear Agent Details & Credentials */}
             <div className="space-y-1.5 w-full">
               <div className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/45 bg-white px-3 py-0.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8C6207] shadow-sm">
                 <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
-                <span>Verified Host & Exclusive Concierge</span>
+                <span>Verified Direct Reservation Desk</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-4xl font-extrabold text-slate-900">
-                Agent Mohsin
+              <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
+                Agent Mohsin & Agent Arsalan Jutt
               </h3>
 
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-xs text-slate-600">
-                <span className="font-mono font-bold text-[#8C6207] text-sm sm:text-base bg-white px-2.5 sm:px-3 py-1 rounded-xl border border-[#D4AF37]/40 shadow-sm">
-                  📞 0314 3292778
-                </span>
-                <span className="text-slate-300">•</span>
-                <span className="text-slate-700 font-semibold">
-                  DTS Reg #ISB-4921
-                </span>
+                <a
+                  href="https://wa.me/923143292778"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono font-bold text-[#8C6207] text-xs sm:text-sm bg-white px-2.5 sm:px-3 py-1 rounded-xl border border-[#D4AF37]/40 shadow-sm hover:border-[#25D366] transition-colors"
+                >
+                  Mohsin: 📞 0314 3292778
+                </a>
+                <a
+                  href="https://wa.me/923180985887"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono font-bold text-emerald-700 text-xs sm:text-sm bg-white px-2.5 sm:px-3 py-1 rounded-xl border border-[#25D366]/40 shadow-sm hover:border-[#25D366] transition-colors"
+                >
+                  Arsalan: 📞 +92 318 0985887
+                </a>
                 <span className="text-slate-300 hidden sm:inline">•</span>
                 <span className="text-[#8C6207] font-bold hidden sm:inline">
-                  ⭐ 5.0 Host Rating
+                  ⭐ 5.0 VIP Host Rating
                 </span>
               </div>
 
@@ -1827,20 +1860,20 @@ export default function ApartmentShowcase({
               href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) for my client.`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold shadow-xl shadow-[#25D366]/25 transition-all hover:scale-105 w-full sm:w-auto"
+              className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-extrabold shadow-lg shadow-[#25D366]/20 transition-all hover:scale-105 w-full sm:w-auto"
             >
-              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
-              </svg>
+              <img src="/agent-mohsin.jpg" alt="Mohsin" className="h-5 w-5 rounded-full object-cover object-[center_18%]" />
               <span>WhatsApp Mohsin (0314 3292778)</span>
             </a>
 
             <a
-              href="tel:03143292778"
-              className="flex items-center justify-center gap-2 rounded-2xl border border-[#D4AF37]/50 bg-white hover:bg-[#FFFDF7] hover:border-[#D4AF37] text-[#8C6207] px-5 py-3 text-xs font-bold transition-all w-full sm:w-auto shadow-sm"
+              href={`https://wa.me/923180985887?text=${encodeURIComponent(`Hello Arsalan, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) for my client.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-extrabold shadow-lg shadow-[#25D366]/20 transition-all hover:scale-105 w-full sm:w-auto"
             >
-              <Phone className="h-4 w-4 text-[#8C6207]" />
-              <span>Call Direct: 0314 3292778</span>
+              <img src="/agent-arsalan.jpg" alt="Arsalan" className="h-5 w-5 rounded-full object-cover object-[center_20%]" />
+              <span>WhatsApp Arsalan (+92 318 0985887)</span>
             </a>
           </div>
         </div>
@@ -1884,7 +1917,7 @@ export default function ApartmentShowcase({
           </div>
           <div className="min-w-0">
             <div className="text-[9px] uppercase font-bold text-slate-500">Direct Concierge</div>
-            <div className="font-bold text-emerald-700 text-[11px] sm:text-xs truncate">Agent Mohsin</div>
+            <div className="font-bold text-emerald-700 text-[11px] sm:text-xs truncate">Mohsin & Arsalan</div>
           </div>
         </div>
       </div>
@@ -1910,12 +1943,20 @@ export default function ApartmentShowcase({
             href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) in ${apartment.city} for my client. Please share availability.`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-slate-950 transition-all shadow-sm w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-3.5 py-3 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-slate-950 transition-all shadow-sm w-full sm:w-auto"
           >
-            <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
-            </svg>
-            <span>Ask Mohsin on WhatsApp</span>
+            <img src="/agent-mohsin.jpg" alt="Mohsin" className="h-4 w-4 rounded-full object-cover object-[center_18%]" />
+            <span>Ask Mohsin</span>
+          </a>
+
+          <a
+            href={`https://wa.me/923180985887?text=${encodeURIComponent(`Hello Arsalan, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) in ${apartment.city} for my client. Please share availability.`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-3.5 py-3 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-slate-950 transition-all shadow-sm w-full sm:w-auto"
+          >
+            <img src="/agent-arsalan.jpg" alt="Arsalan" className="h-4 w-4 rounded-full object-cover object-[center_20%]" />
+            <span>Ask Arsalan</span>
           </a>
 
           {/* Suite Spec Modal */}
