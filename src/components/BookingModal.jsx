@@ -60,19 +60,19 @@ export default function BookingModal({
   const currencySymbol = 'Rs. ';
 
   const apartmentPhotos = room.images || [
-    "/apartment/emerald-living-main.jpg",
-    "/apartment/master-bedroom-blush.jpg",
-    "/apartment/charcoal-bedroom-suite.jpg",
-    "/apartment/emerald-lounge-art.jpg",
-    "/apartment/beige-marble-salon.jpg"
+    "/apartment/trending-living-media.jpg",
+    "/apartment/trending-terrace-bbq.jpg",
+    "/apartment/trending-lounge-dining.jpg",
+    "/apartment/trending-mirror-foyer.jpg",
+    "/apartment/trending-terrace-night.jpg"
   ];
 
   const photoLabels = room.imageLabels || [
-    "Emerald Executive Salon & Media Wall",
-    "Blush Rose Master King Suite",
-    "Noir Charcoal Second Suite",
-    "Velvet Lounge & Signature Gold Art",
-    "Beige Marble Salon & Arched Mirrors"
+    "Grand Executive Salon with 85\" Smart TV & Fluted Acoustic Wall",
+    "Open-Air Rooftop Sky Terrace with Barbecue & Mountain Views",
+    "Sculpted Wave Ambient LED Lounge with Custom Velvet Sectional",
+    "Arched Backlit Vanity Mirror & Exotic Palm Entrance Foyer",
+    "Panoramic Twilight Skyline over Margalla Mountain Range"
   ];
 
   // Calculate nights

@@ -811,8 +811,8 @@ export default function ApartmentShowcase({
   onSelectApartment,
   onBookApartment
 }) {
-  // Default to 'videos' so all 15 video walkthroughs are front and center on a simple user-friendly screen
-  const [mediaMode, setMediaMode] = useState('videos'); // 'videos' | 'photos' | 'all'
+  // Default to 'all' so the 5 trending photos portfolio and 15 video walkthroughs are both visible
+  const [mediaMode, setMediaMode] = useState('all'); // 'all' | 'photos' | 'videos'
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [lightboxPhotoIndex, setLightboxPhotoIndex] = useState(null);
@@ -829,19 +829,19 @@ export default function ApartmentShowcase({
   if (!apartment) return null;
 
   const photos = apartment.images || [
-    "/apartment/emerald-living-main.jpg",
-    "/apartment/master-bedroom-blush.jpg",
-    "/apartment/charcoal-bedroom-suite.jpg",
-    "/apartment/emerald-lounge-art.jpg",
-    "/apartment/beige-marble-salon.jpg"
+    "/apartment/trending-living-media.jpg",
+    "/apartment/trending-terrace-bbq.jpg",
+    "/apartment/trending-lounge-dining.jpg",
+    "/apartment/trending-mirror-foyer.jpg",
+    "/apartment/trending-terrace-night.jpg"
   ];
 
   const labels = apartment.imageLabels || [
-    "Emerald Executive Salon & Media Wall",
-    "Blush Rose Master King Suite",
-    "Noir Charcoal Second Suite",
-    "Velvet Lounge & Gold Art",
-    "Beige Marble Lounge & Arched Mirrors"
+    "Grand Executive Salon with 85\" Smart TV & Fluted Acoustic Wall",
+    "Open-Air Rooftop Sky Terrace with Barbecue & Mountain Views",
+    "Sculpted Wave Ambient LED Lounge with Custom Velvet Sectional",
+    "Arched Backlit Vanity Mirror & Exotic Palm Entrance Foyer",
+    "Panoramic Twilight Skyline over Margalla Mountain Range"
   ];
 
   // Keyboard navigation for Fullscreen Lightbox (Photos)
@@ -1083,12 +1083,22 @@ export default function ApartmentShowcase({
       {/* Top Header Row with Media Switcher */}
       <div className="relative z-10 mb-5 sm:mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#D4AF37]/25 pb-4 sm:pb-5">
         <div>
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#D4AF37]/50 bg-[#FFFDF7] px-2.5 sm:px-3.5 py-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#8C6207] shadow-sm">
-            <Crown className="h-3 sm:h-3.5 w-3 sm:w-3.5 text-[#B8860B]" />
-            <span>Exclusive Penthouse • Host Mohsin: 0314 3292778</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-rose-700 text-white px-3 py-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider shadow-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+              <span>🔥 #1 Trending Penthouse</span>
+            </span>
+
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-[#FFFDF7] px-3 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8C6207] shadow-sm">
+              <Crown className="h-3.5 w-3.5 text-[#B8860B]" />
+              <span>Host Mohsin: 0314 3292778</span>
+            </div>
           </div>
 
-          <h2 className="mt-2 font-serif text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="mt-2.5 font-serif text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             {apartment.name}
           </h2>
 

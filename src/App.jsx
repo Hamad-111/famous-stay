@@ -193,9 +193,12 @@ export default function App() {
 
               <div className="relative z-10 max-w-3xl mx-auto">
                 <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-                  <div className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-white px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#8C6207] shadow-sm">
-                    <Crown className="h-3.5 w-3.5 text-[#B8860B]" />
-                    <span>Exclusive Luxury Suite Video Showcase</span>
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-rose-700 text-white px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider shadow-md">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                    </span>
+                    <span>🔥 #1 Trending Penthouse in Pakistan</span>
                   </div>
 
                   <div className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-white px-3 py-1 text-xs font-bold text-slate-800 shadow-sm">
@@ -210,12 +213,12 @@ export default function App() {
                 </div>
 
                 <h1 className="mt-4 font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-tight">
-                  15 Ultra-HD Video Tours <br className="hidden sm:inline" />
-                  <span className="gold-gradient-text">Live Multi-Frame Walkthrough</span>
+                  Trending Luxury Penthouse <br className="hidden sm:inline" />
+                  <span className="gold-gradient-text">& Margalla Sky Terrace</span>
                 </h1>
 
                 <p className="mt-3 text-xs sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-                  Hover your mouse over any video frame below to stream live room tours. Guaranteed <strong className="text-[#8C6207] font-bold">18% agent wholesale commission in PKR</strong> with instant voucher confirmation.
+                  Private open-air barbecue terrace with Margalla mountain views, sculpted wave ambient LED lounge, and 15 live video walkthroughs. Guaranteed <strong className="text-[#8C6207] font-bold">18% agent wholesale commission in PKR</strong>.
                 </p>
 
                 {/* Quick Action Buttons */}

@@ -1,100 +1,102 @@
 export const LUXURY_HOTELS = [
   {
     id: "fs-apt-emerald-01",
-    name: "Executive 2BR Luxury Suite & Dual Salons",
-    hotel: "5-Star Luxury Serviced Suite",
+    name: "Trending Executive Luxury Penthouse & Margalla Sky Terrace",
+    hotel: "5-Star Luxury Serviced Penthouse",
     city: "Islamabad",
     country: "Pakistan",
     rating: 5.0,
     reviewsCount: 384,
-    category: "Luxury Serviced Apartment",
+    category: "Trending Luxury Penthouse",
+    isTrending: true,
+    trendingBadge: "🔥 #1 Trending Penthouse in Pakistan",
     managedBy: "Agent Mohsin (0314 3292778)",
     images: [
-      "/apartment/emerald-living-main.jpg",
-      "/apartment/master-bedroom-blush.jpg",
-      "/apartment/charcoal-bedroom-suite.jpg",
-      "/apartment/emerald-lounge-art.jpg",
-      "/apartment/beige-marble-salon.jpg"
+      "/apartment/trending-living-media.jpg",
+      "/apartment/trending-terrace-bbq.jpg",
+      "/apartment/trending-lounge-dining.jpg",
+      "/apartment/trending-mirror-foyer.jpg",
+      "/apartment/trending-terrace-night.jpg"
     ],
     imageLabels: [
-      "Executive Salon & 4K Smart Media Wall",
-      "Blush Rose Master King Suite with Cove Lighting",
-      "Noir Charcoal Second Master Suite & Bedside Sconces",
-      "Velvet Chesterfield Salon & Gold Wall Art",
-      "Grand Marble Sitting Lounge with Arched Mirror Columns"
+      "Grand Executive Salon with 85\" Smart TV & Fluted Acoustic Wall",
+      "Open-Air Rooftop Sky Terrace with Barbecue & Mountain Views",
+      "Sculpted Wave Ambient LED Lounge with Custom Velvet Sectional",
+      "Arched Backlit Vanity Mirror & Exotic Palm Entrance Foyer",
+      "Panoramic Twilight Skyline over Margalla Mountain Range"
     ],
     videos: [
       {
         url: "/apartment/videos/video-tour-1.mp4",
-        title: "Executive Salon & Media Wall Tour",
+        title: "Executive Salon & 85\" Media Wall Tour",
         room: "Executive Salon",
         tag: "Main Salon",
         category: "salons",
-        feature: "85\" 4K TV • Italian Velvet Lounge",
-        thumbnail: "/apartment/emerald-living-main.jpg"
+        feature: "85\" 4K TV • Fluted Acoustic Wall • Terrace Access",
+        thumbnail: "/apartment/trending-living-media.jpg"
       },
       {
         url: "/apartment/videos/video-tour-2.mp4",
-        title: "Blush Rose Master King Suite Walkthrough",
-        room: "Master Suite 1",
-        tag: "Blush King Bed",
-        category: "suites",
-        feature: "King Bed • Walk-in Dressing Suite",
-        thumbnail: "/apartment/master-bedroom-blush.jpg"
+        title: "Wave Ambient Lounge & Custom Sectional Walkthrough",
+        room: "Wave Lounge",
+        tag: "Ambient Lounge",
+        category: "salons",
+        feature: "Custom Wave LED Wall • Deep Sectional",
+        thumbnail: "/apartment/trending-lounge-dining.jpg"
       },
       {
         url: "/apartment/videos/video-tour-3.mp4",
-        title: "Noir Charcoal Master Suite Tour",
-        room: "Master Suite 2",
-        tag: "Charcoal Suite",
-        category: "suites",
-        feature: "Noir Luxury Finishes • Ensuite Bath",
-        thumbnail: "/apartment/charcoal-bedroom-suite.jpg"
+        title: "Arched Backlit Vanity Mirror & Palm Foyer Tour",
+        room: "Entrance Foyer",
+        tag: "Arched Mirror",
+        category: "foyers",
+        feature: "Full-Length Backlit Mirror • Exotic Palm",
+        thumbnail: "/apartment/trending-mirror-foyer.jpg"
       },
       {
         url: "/apartment/videos/video-tour-4.mp4",
-        title: "Beige Marble Lounge & Arched Mirrors",
-        room: "Marble Lounge",
-        tag: "2nd Salon",
+        title: "Private Rooftop Sky Terrace & Barbecue Patio",
+        room: "Sky Terrace",
+        tag: "BBQ Terrace",
         category: "salons",
-        feature: "Italian Marble • Arched Mirrors",
-        thumbnail: "/apartment/beige-marble-salon.jpg"
+        feature: "Outdoor Barbecue • Mountain Dining Patio",
+        thumbnail: "/apartment/trending-terrace-bbq.jpg"
       },
       {
         url: "/apartment/videos/video-tour-5.mp4",
-        title: "Full Penthouse Walkthrough & Dual Salons",
+        title: "Full Trending Penthouse Walkthrough & Skyline Flow",
         room: "Complete Tour",
         tag: "Full Walkthrough",
         category: "salons",
-        feature: "3,200 sq ft Panoramic Living Flow",
-        thumbnail: "/apartment/emerald-lounge-art.jpg"
+        feature: "3,200 sq ft Panoramic Sky Terrace Flow",
+        thumbnail: "/apartment/trending-terrace-night.jpg"
       },
       {
         url: "/apartment/videos/video-tour-6.mp4",
-        title: "Executive Entry Foyer & Lighting Walkthrough",
+        title: "Executive Entry Foyer & Arched Mirror Walkthrough",
         room: "Entry Foyer",
         tag: "Foyer & Sconces",
         category: "foyers",
-        feature: "Crystal Sconces • Keycard Security",
-        thumbnail: "/apartment/emerald-living-main.jpg"
+        feature: "LED Mirror • Keycard Security",
+        thumbnail: "/apartment/trending-mirror-foyer.jpg"
       },
       {
         url: "/apartment/videos/video-tour-7.mp4",
-        title: "Gourmet Kitchen & Dining Suite Tour",
-        room: "Dining & Kitchen",
-        tag: "Gourmet Kitchen",
+        title: "Gourmet Dining Suite & Gold Centerpiece Tour",
+        room: "Dining & Lounge",
+        tag: "Gourmet Dining",
         category: "kitchen",
-        feature: "Quartz Island • Espresso Bar",
-        thumbnail: "/apartment/beige-marble-salon.jpg"
+        feature: "Glass Dining • Modern Candle Decor",
+        thumbnail: "/apartment/trending-lounge-dining.jpg"
       },
       {
         url: "/apartment/videos/video-tour-8.mp4",
-        title: "Master Dressing & Built-in Wardrobes",
+        title: "Master Suite & Built-in Wardrobes",
         room: "Dressing Suite",
         tag: "Walk-in Wardrobe",
         category: "suites",
         feature: "LED Lit Mirrors • Soft-close Joinery",
-        thumbnail: "/apartment/master-bedroom-blush.jpg"
+        thumbnail: "/apartment/trending-living-media.jpg"
       },
       {
         url: "/apartment/videos/video-tour-9.mp4",
@@ -103,16 +105,16 @@ export const LUXURY_HOTELS = [
         tag: "Cove Lighting",
         category: "salons",
         feature: "Multi-Zone Warm Dimmers",
-        thumbnail: "/apartment/emerald-lounge-art.jpg"
+        thumbnail: "/apartment/trending-lounge-dining.jpg"
       },
       {
         url: "/apartment/videos/video-tour-10.mp4",
-        title: "Grand Panoramic Penthouse View & Living Flow",
-        room: "Grand Suite",
-        tag: "Panoramic Living",
+        title: "Grand Margalla Mountain Sunset Sky Terrace",
+        room: "Twilight Terrace",
+        tag: "Mountain Skyline",
         category: "salons",
-        feature: "Floor-to-Ceiling Windows • Margalla Hills",
-        thumbnail: "/apartment/charcoal-bedroom-suite.jpg"
+        feature: "Margalla Hills View • Artificial Turf",
+        thumbnail: "/apartment/trending-terrace-night.jpg"
       },
       {
         url: "/apartment/videos/video-tour-11.mp4",
@@ -121,16 +123,16 @@ export const LUXURY_HOTELS = [
         tag: "Luxury Bath",
         category: "foyers",
         feature: "Rain Shower • Marble Vanity",
-        thumbnail: "/apartment/emerald-living-main.jpg"
+        thumbnail: "/apartment/trending-mirror-foyer.jpg"
       },
       {
         url: "/apartment/videos/video-tour-12.mp4",
-        title: "VIP Executive Corridor & Architectural Details",
+        title: "VIP Executive Corridor & 85\" TV Media Setup",
         room: "Executive Hall",
         tag: "Private Corridor",
         category: "foyers",
-        feature: "Art Gallery Wall • Recessed LEDs",
-        thumbnail: "/apartment/beige-marble-salon.jpg"
+        feature: "Fluted Acoustic Wall • Recessed LEDs",
+        thumbnail: "/apartment/trending-living-media.jpg"
       },
       {
         url: "/apartment/videos/video-tour-13.mp4",
@@ -139,7 +141,7 @@ export const LUXURY_HOTELS = [
         tag: "Powder Suite",
         category: "foyers",
         feature: "Golden Faucets • Guest Powder Room",
-        thumbnail: "/apartment/master-bedroom-blush.jpg"
+        thumbnail: "/apartment/trending-mirror-foyer.jpg"
       },
       {
         url: "/apartment/videos/video-tour-14.mp4",
@@ -148,16 +150,16 @@ export const LUXURY_HOTELS = [
         tag: "Smart 4K Media",
         category: "salons",
         feature: "Dolby Atmos • High-Speed Fiber WiFi",
-        thumbnail: "/apartment/emerald-lounge-art.jpg"
+        thumbnail: "/apartment/trending-living-media.jpg"
       },
       {
         url: "/apartment/videos/video-tour-15.mp4",
-        title: "Full 360 Penthouse Walkthrough & Night Lighting",
+        title: "Full 360 Penthouse Twilight Walkthrough",
         room: "Night Ambiance",
         tag: "Night Lighting",
         category: "suites",
-        feature: "Evening Mood Lighting • City Views",
-        thumbnail: "/apartment/charcoal-bedroom-suite.jpg"
+        feature: "Evening Mood Lighting • Margalla Twilight",
+        thumbnail: "/apartment/trending-terrace-night.jpg"
       }
     ],
     clientRate: 145000, // PKR per night (Rack rate)
@@ -172,18 +174,19 @@ export const LUXURY_HOTELS = [
     availableRooms: 1,
     instantConfirmation: true,
     amenities: [
+      "Private Margalla Mountain Sky Terrace with Barbecue & Outdoor Dining Patio",
+      "Grand Executive Salon with 85\" 4K Smart TV & Fluted Acoustic Wall",
+      "Sculpted Wave-Design Ambient LED Lounge with Custom Velvet Sectional",
+      "Full-Length Arched Backlit LED Vanity Mirror & Exotic Palm Entrance Foyer",
       "2 Lavish Master Bedrooms with Velvet Tufted King Beds",
-      "Signature Velvet Living Salon with Gold Trim Accent Walls",
-      "Second Marble Sitting Lounge with Architectural Arched Mirrors",
       "Warm Architectural Cove Ceiling Lighting & Inverter Climate Control",
-      "Smart 4K TVs in Both Salons and Master Bedrooms",
-      "Direct WhatsApp Concierge & Check-in Desk with Agent Mohsin",
-      "Fully Equipped Gourmet Kitchen with Refrigerator & Dining",
+      "Direct WhatsApp Concierge & VIP Check-in Desk with Agent Mohsin",
+      "Fully Equipped Gourmet Dining Suite with Gold Hammered Centerpiece",
       "High-speed 1Gbps Fiber Wi-Fi with Dedicated Workstation",
       "Complimentary VIP Airport Chauffeur (Prado / Mercedes)",
       "Daily Housekeeping & Fresh Luxury Egyptian Cotton Linens"
     ],
-    description: "An architectural masterpiece in Islamabad. Features two grand interior-designed salons—an iconic velvet salon with gold wainscoting and a sunlit marble lounge with arched French mirror panels. Includes two opulent master bedrooms with custom backlit cove ceilings, offering luxury for VIP executives, diplomats, and elite families."
+    description: "Pakistan's #1 Trending Luxury Penthouse in Islamabad. Features a private open-air rooftop sky terrace with barbecue grill and panoramic twilight views of the Margalla Hills. Inside, experience an expansive executive salon with an 85\" smart TV media wall, a sculpted wave ambient LED lounge, and an iconic arched backlit mirror foyer tailored for VIP travelers, diplomats, and elite executives."
   },
   {
     id: "fs-room-pk-01",
