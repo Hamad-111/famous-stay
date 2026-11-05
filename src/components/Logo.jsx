@@ -104,14 +104,14 @@ export default function Logo({ size = 'default', showBadge = true, className = '
           </span>
 
           {showBadge && (
-            <span className="flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-[#FFFDF5] px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[#8C6207] shadow-sm">
+            <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-[#FFFDF5] px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[#8C6207] shadow-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-[#25D366] animate-pulse"></span>
               PAKISTAN B2B
             </span>
           )}
         </div>
 
-        <p className="text-[10px] uppercase font-bold tracking-wider text-slate-500 flex items-center gap-1.5">
+        <p className="hidden sm:flex text-[10px] uppercase font-bold tracking-wider text-slate-500 items-center gap-1.5">
           <span>Hotel Agent Reservation Network</span>
           <span className="text-[#D4AF37]">•</span>
           <span className="text-[#8C6207] font-semibold">DTS & TAAP Verified</span>
