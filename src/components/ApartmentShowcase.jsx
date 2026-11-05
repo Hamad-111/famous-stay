@@ -14,6 +14,7 @@ import {
   Crown,
   Camera,
   Play,
+  Pause,
   Volume2,
   VolumeX,
   Phone,
@@ -21,23 +22,63 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
-  Maximize2
+  Maximize2,
+  Grid,
+  Columns,
+  Layers,
+  Tv,
+  SlidersHorizontal,
+  Radio,
+  Video,
+  RotateCcw
 } from 'lucide-react';
 
 /* 
   Individual Hover/Touch Video Frame Component:
   - Displays high-definition preview of the room.
-  - Desktop: Plays smoothly on mouse hover.
+  - Live progress scrubber tracking currentTime / duration.
+  - Live status beacon (LIVE • 01 vs FRAME 01).
+  - Desktop: Plays smoothly on mouse hover or runs continuously if isGlobalLive.
   - Mobile: Plays on tap/touch with instant visual feedback.
-  - Dedicated 'Watch in Cinema' button to focus video on the main cinema screen.
+  - Local Audio toggle button directly on the frame.
+  - Quick action buttons: "Focus" in top cinema screen, and "Cinema" fullscreen theater modal.
 */
-function HoverVideoFrame({ video, index, isActive, onSelect }) {
+function HoverVideoFrame({ 
+  video, 
+  index, 
+  isActive, 
+  isGlobalLive, 
+  onSelect, 
+  onOpenCinema 
+}) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLocalMuted, setIsLocalMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+
+  // If global wall live mode is on, keep playing continuously
+  useEffect(() => {
+    if (isGlobalLive) {
+      if (videoRef.current) {
+        videoRef.current.muted = isLocalMuted;
+        const playPromise = videoRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => setIsPlaying(true))
+            .catch(() => {});
+        }
+      }
+    } else {
+      if (videoRef.current) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  }, [isGlobalLive, isLocalMuted]);
 
   const startPlayback = () => {
     if (videoRef.current) {
-      videoRef.current.currentTime = 0;
+      videoRef.current.muted = isLocalMuted;
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
         playPromise
@@ -48,23 +89,34 @@ function HoverVideoFrame({ video, index, isActive, onSelect }) {
   };
 
   const stopPlayback = () => {
+    if (isGlobalLive) return; // Keep playing if global live mode is active
     setIsPlaying(false);
     if (videoRef.current) {
       videoRef.current.pause();
-      videoRef.current.currentTime = 0;
     }
   };
 
-  const handleMouseEnter = () => {
-    startPlayback();
+  const handleTimeUpdate = () => {
+    if (videoRef.current && videoRef.current.duration) {
+      const pct = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+      setProgress(pct);
+    }
   };
 
-  const handleMouseLeave = () => {
-    stopPlayback();
+  const handleToggleMute = (e) => {
+    e.stopPropagation();
+    const nextMuted = !isLocalMuted;
+    setIsLocalMuted(nextMuted);
+    if (videoRef.current) {
+      videoRef.current.muted = nextMuted;
+      if (!nextMuted) {
+        videoRef.current.volume = 1.0;
+        startPlayback();
+      }
+    }
   };
 
-  const handleTouchToggle = (e) => {
-    // If user taps the video container on mobile, toggle preview playback
+  const handleTouchToggle = () => {
     if (videoRef.current) {
       if (videoRef.current.paused) {
         startPlayback();
@@ -76,90 +128,678 @@ function HoverVideoFrame({ video, index, isActive, onSelect }) {
 
   return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={startPlayback}
+      onMouseLeave={stopPlayback}
       className={`group relative flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 ${
         isActive
-          ? 'border-[#D4AF37] ring-2 ring-[#D4AF37]/70 shadow-xl shadow-[#D4AF37]/20 scale-[1.01] bg-[#FFFDF7]'
+          ? 'border-[#D4AF37] ring-2 ring-[#D4AF37]/70 shadow-xl shadow-[#D4AF37]/25 scale-[1.01] bg-[#FFFDF7]'
           : isPlaying
-          ? 'border-[#D4AF37] shadow-xl shadow-[#D4AF37]/20 scale-[1.01] bg-white'
-          : 'border-[#D4AF37]/30 hover:border-[#D4AF37] bg-white shadow-sm'
+          ? 'border-[#D4AF37] shadow-lg shadow-[#D4AF37]/20 scale-[1.008] bg-white'
+          : 'border-[#D4AF37]/30 hover:border-[#D4AF37] bg-white shadow-sm hover:shadow-md'
       }`}
     >
       {/* Video Container Frame */}
       <div 
         onClick={handleTouchToggle}
-        className="relative aspect-[16/10] w-full overflow-hidden bg-black cursor-pointer"
+        className="relative aspect-[16/10] w-full overflow-hidden bg-black cursor-pointer select-none"
       >
         <video
           ref={videoRef}
           src={video.url}
           poster={video.thumbnail}
-          muted
+          muted={isLocalMuted}
           loop
           playsInline
           preload="metadata"
+          onTimeUpdate={handleTimeUpdate}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Live Status Badge */}
+        {/* Dynamic Progress Scrubber Bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/40 z-20">
+          <div 
+            className="h-full bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#FFF5D0] transition-all duration-150"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
+        {/* Top-Left Live Status Beacon */}
         <div className="absolute top-2 left-2 z-10 pointer-events-none">
           {isPlaying ? (
-            <span className="flex items-center gap-1 rounded-full bg-red-600/95 backdrop-blur-md px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-lg animate-pulse">
-              <span className="h-1.5 w-1.5 rounded-full bg-white"></span>
-              Playing
+            <span className="flex items-center gap-1.5 rounded-full bg-red-600/95 backdrop-blur-md px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-md">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
+              </span>
+              <span>LIVE • 0{index + 1}</span>
             </span>
           ) : (
-            <span className="flex items-center gap-1 rounded-full bg-black/80 backdrop-blur-md px-2 py-0.5 text-[9px] font-bold text-[#F7E5A9] border border-[#E5C07B]/35">
+            <span className="flex items-center gap-1 rounded-full bg-black/80 backdrop-blur-md px-2 py-0.5 text-[9px] font-bold text-[#F7E5A9] border border-[#E5C07B]/40 shadow-sm">
               <Play className="h-2 w-2 fill-current text-[#E5C07B]" />
-              Frame {index + 1}
+              FRAME {index + 1 < 10 ? `0${index + 1}` : index + 1}
             </span>
           )}
         </div>
 
-        {/* Hover / Tap Instruction Overlay when inactive */}
+        {/* Top-Right Quick Action Icons (Audio Toggle & Fullscreen Modal) */}
+        <div className="absolute top-2 right-2 z-20 flex items-center gap-1">
+          {isPlaying && (
+            <button
+              onClick={handleToggleMute}
+              className={`flex h-6 w-6 items-center justify-center rounded-lg backdrop-blur-md transition-all ${
+                !isLocalMuted 
+                  ? 'bg-emerald-600 text-white shadow-sm' 
+                  : 'bg-black/70 hover:bg-black/90 text-white border border-white/20'
+              }`}
+              title={isLocalMuted ? "Unmute this frame" : "Mute audio"}
+            >
+              {!isLocalMuted ? <Volume2 className="h-3 w-3 animate-pulse" /> : <VolumeX className="h-3 w-3 text-slate-300" />}
+            </button>
+          )}
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenCinema(index);
+            }}
+            className="flex h-6 w-6 items-center justify-center rounded-lg bg-black/70 hover:bg-[#D4AF37] hover:text-slate-950 text-white backdrop-blur-md border border-white/20 transition-all shadow-sm"
+            title="Expand into Cinema Theater Lightbox"
+          >
+            <Maximize2 className="h-3 w-3" />
+          </button>
+        </div>
+
+        {/* Hover / Tap Hint when Idle */}
         {!isPlaying && (
-          <div className="absolute inset-0 bg-black/35 flex items-center justify-center transition-opacity group-hover:opacity-0 pointer-events-none">
-            <div className="flex items-center gap-1.5 rounded-full bg-black/80 px-2.5 py-1 text-[10px] font-bold text-[#F7E5A9] border border-[#D4AF37]/50 shadow-lg">
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity group-hover:opacity-0 pointer-events-none">
+            <div className="flex items-center gap-1.5 rounded-full bg-black/80 px-2.5 py-1 text-[10px] font-bold text-[#F7E5A9] border border-[#D4AF37]/60 shadow-lg">
               <Play className="h-3 w-3 fill-current text-[#D4AF37]" />
-              <span className="hidden sm:inline">Hover to Play</span>
-              <span className="sm:hidden">Tap to Play</span>
+              <span className="hidden sm:inline">Hover to Stream</span>
+              <span className="sm:hidden">Tap to Stream</span>
             </div>
           </div>
         )}
 
-        {/* Room Label Strip */}
-        <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-center justify-between z-10 pointer-events-none">
-          <span className="rounded-lg bg-black/85 backdrop-blur-md px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold text-white border border-white/10 truncate max-w-[70%]">
+        {/* Room Label Strip at Bottom */}
+        <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between z-10 pointer-events-none">
+          <span className="rounded-lg bg-black/85 backdrop-blur-md px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-white border border-white/10 truncate max-w-[70%]">
             {video.room}
           </span>
-          <span className="rounded-md bg-emerald-500/20 backdrop-blur-md px-1 py-0.5 text-[8px] sm:text-[9px] font-bold text-emerald-300 border border-emerald-500/30">
+          <span className="rounded-md bg-emerald-500/20 backdrop-blur-md px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold text-emerald-300 border border-emerald-500/30">
             1080p
           </span>
         </div>
       </div>
 
       {/* Frame Card Details */}
-      <div className="p-2.5 sm:p-3.5 flex flex-col justify-between flex-1 bg-white">
+      <div className="p-2.5 sm:p-3 flex flex-col justify-between flex-1 bg-white">
         <div>
-          <div className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#8C6207]">
-            Tour {index + 1} • {video.tag}
+          <div className="flex items-center justify-between">
+            <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#8C6207]">
+              Tour {index + 1} • {video.tag}
+            </span>
+            {video.category && (
+              <span className="text-[8px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
+                {video.category}
+              </span>
+            )}
           </div>
-          <h4 className="mt-0.5 text-[11px] sm:text-xs font-bold text-slate-900 line-clamp-1 group-hover:text-[#8C6207] transition-colors">
+          <h4 className="mt-1 text-[11px] sm:text-xs font-bold text-slate-900 line-clamp-1 group-hover:text-[#8C6207] transition-colors" title={video.title}>
             {video.title}
           </h4>
+          {video.feature && (
+            <p className="mt-0.5 text-[10px] text-slate-500 line-clamp-1">
+              {video.feature}
+            </p>
+          )}
         </div>
 
+        {/* Card Actions */}
+        <div className="mt-2.5 grid grid-cols-2 gap-1.5">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelect(index);
+            }}
+            className="flex items-center justify-center gap-1 rounded-xl border border-[#D4AF37]/40 bg-[#FFFDF7] hover:bg-[#D4AF37] hover:text-white text-slate-800 py-1.5 px-2 text-[10px] font-bold transition-all shadow-sm group/btn"
+            title="Focus this video in the primary upper player"
+          >
+            <Play className="h-2.5 w-2.5 text-[#8C6207] group-hover/btn:text-white fill-current" />
+            <span>Focus</span>
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenCinema(index);
+            }}
+            className="gold-btn flex items-center justify-center gap-1 rounded-xl py-1.5 px-2 text-[10px] font-bold text-slate-950 transition-all shadow-sm"
+            title="Launch Fullscreen Cinema Theater"
+          >
+            <Maximize2 className="h-2.5 w-2.5" />
+            <span>Cinema</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/*
+  Synchronous Quad-Vision Split Screen (4 concurrent live streams):
+  - 4 video streams playing simultaneously side-by-side in a 2x2 luxury command matrix.
+  - Camera HUD overlay on each quadrant (CAM 01 // MAIN SALON, CAM 02 // MASTER SUITE, etc.)
+  - Master audio channel switcher (listen to CAM 01, 02, 03, or 04).
+  - Slot selector beneath each quadrant to swap in any of the 15 rooms.
+  - Preset switcher: "Salons & Living", "Master Suites", "Panoramic & Baths", "Ambiance & Night".
+*/
+function QuadVideoWall({ 
+  videos, 
+  quadIndices, 
+  onSetQuadIndex, 
+  onOpenCinema,
+  onApplyPreset 
+}) {
+  const [audioChannel, setAudioChannel] = useState(0); // 0, 1, 2, 3
+  const [isAllMuted, setIsAllMuted] = useState(true);
+  const ref0 = useRef(null);
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+  const videoRefs = [ref0, ref1, ref2, ref3];
+
+  // Update audio states across the 4 quadrant videos
+  useEffect(() => {
+    videoRefs.forEach((ref, idx) => {
+      if (ref.current) {
+        if (isAllMuted) {
+          ref.current.muted = true;
+        } else {
+          ref.current.muted = idx !== audioChannel;
+          if (idx === audioChannel) {
+            ref.current.volume = 1.0;
+          }
+        }
+        ref.current.play().catch(() => {});
+      }
+    });
+  }, [audioChannel, isAllMuted, quadIndices]);
+
+  const handleSelectAudioChannel = (channelIdx) => {
+    if (isAllMuted) {
+      setIsAllMuted(false);
+      setAudioChannel(channelIdx);
+    } else if (audioChannel === channelIdx) {
+      setIsAllMuted(true);
+    } else {
+      setAudioChannel(channelIdx);
+    }
+  };
+
+  const presets = [
+    { label: "Grand Salons (1-4)", indices: [0, 1, 2, 3] },
+    { label: "Master Suites (5-8)", indices: [4, 5, 6, 7] },
+    { label: "VIP Features (9-12)", indices: [8, 9, 10, 11] },
+    { label: "Night & Ambiance (12-15)", indices: [11, 12, 13, 14] }
+  ];
+
+  return (
+    <div className="rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#020617] p-3 sm:p-6 text-white shadow-2xl shadow-[#D4AF37]/20">
+      {/* Top HUD Control Bar */}
+      <div className="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
+        <div className="flex items-center gap-2.5">
+          <span className="flex h-3 w-3 relative">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+          </span>
+          <div>
+            <div className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#F7E5A9] uppercase flex items-center gap-1.5">
+              <span>QUAD-VISION COMMAND WALL</span>
+              <span className="text-emerald-400">• 4 SYNC FEEDS LIVE</span>
+            </div>
+            <div className="text-xs sm:text-sm font-semibold text-slate-300">
+              4 Concurrent 1080p Video Feeds • Click Any Quadrant to Focus Sound
+            </div>
+          </div>
+        </div>
+
+        {/* Audio Channel Switcher */}
+        <div className="flex flex-wrap items-center gap-1.5 self-start sm:self-auto">
+          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider mr-1">
+            Audio Feed:
+          </span>
+          {[0, 1, 2, 3].map((ch) => {
+            const isListening = !isAllMuted && audioChannel === ch;
+            return (
+              <button
+                key={ch}
+                onClick={() => handleSelectAudioChannel(ch)}
+                className={`flex items-center gap-1 rounded-lg px-2.5 py-1 text-[10px] sm:text-xs font-mono font-bold transition-all border ${
+                  isListening
+                    ? 'bg-emerald-500 text-slate-950 border-emerald-400 shadow-md shadow-emerald-500/20'
+                    : 'bg-white/10 hover:bg-white/20 text-slate-300 border-white/15'
+                }`}
+              >
+                {isListening ? <Volume2 className="h-3 w-3 animate-pulse" /> : <VolumeX className="h-3 w-3 text-slate-400" />}
+                <span>CAM 0{ch + 1}</span>
+              </button>
+            );
+          })}
+
+          <button
+            onClick={() => setIsAllMuted(!isAllMuted)}
+            className={`rounded-lg px-2 py-1 text-[10px] font-mono font-bold transition-all border ${
+              isAllMuted
+                ? 'bg-red-500/30 text-rose-300 border-red-500/40'
+                : 'bg-white/10 text-slate-300 border-white/20 hover:bg-white/20'
+            }`}
+          >
+            {isAllMuted ? "ALL MUTED" : "MUTE ALL"}
+          </button>
+        </div>
+      </div>
+
+      {/* Preset Quick Buttons */}
+      <div className="mb-4 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+        <span className="text-[10px] font-mono text-[#E5C07B] uppercase tracking-wider shrink-0">
+          Presets:
+        </span>
+        {presets.map((preset, pIdx) => {
+          const isPresetActive = JSON.stringify(quadIndices) === JSON.stringify(preset.indices);
+          return (
+            <button
+              key={pIdx}
+              onClick={() => onApplyPreset(preset.indices)}
+              className={`rounded-xl px-3 py-1 text-[10px] sm:text-xs font-bold transition-all border shrink-0 ${
+                isPresetActive
+                  ? 'bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 border-white font-extrabold shadow-md'
+                  : 'bg-white/10 hover:bg-white/20 text-slate-300 border-white/15'
+              }`}
+            >
+              {preset.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* 2x2 Synchronous Video Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        {quadIndices.map((videoIndex, qIdx) => {
+          const video = videos[videoIndex] || videos[0];
+          const isListening = !isAllMuted && audioChannel === qIdx;
+
+          return (
+            <div
+              key={qIdx}
+              className={`group relative flex flex-col rounded-2xl overflow-hidden border-2 transition-all duration-300 ${
+                isListening
+                  ? 'border-emerald-500 ring-2 ring-emerald-500/60 shadow-xl shadow-emerald-500/20'
+                  : 'border-[#D4AF37]/50 hover:border-[#D4AF37] bg-slate-900/80 shadow-md'
+              }`}
+            >
+              {/* Video Player */}
+              <div 
+                onClick={() => handleSelectAudioChannel(qIdx)}
+                className="relative aspect-video w-full bg-black cursor-pointer overflow-hidden"
+              >
+                <video
+                  ref={videoRefs[qIdx]}
+                  key={video.url}
+                  src={video.url}
+                  poster={video.thumbnail}
+                  muted={isAllMuted || audioChannel !== qIdx}
+                  autoPlay
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+
+                {/* HUD Camera Watermark (Top Left) */}
+                <div className="absolute top-2 left-2 z-10 pointer-events-none flex items-center gap-1.5">
+                  <span className="rounded-md bg-black/85 backdrop-blur-md px-2 py-0.5 text-[9px] sm:text-[10px] font-mono font-bold tracking-widest text-[#F7E5A9] border border-white/20">
+                    CAM 0{qIdx + 1} // {video.room.toUpperCase()}
+                  </span>
+                  <span className="flex items-center gap-1 rounded-md bg-red-600/90 px-1.5 py-0.5 text-[8px] font-bold text-white uppercase animate-pulse">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white"></span>
+                    REC
+                  </span>
+                </div>
+
+                {/* Fullscreen Expand Button (Top Right) */}
+                <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5">
+                  {isListening && (
+                    <span className="rounded-md bg-emerald-500 px-2 py-0.5 text-[9px] font-mono font-bold text-slate-950 flex items-center gap-1 shadow-md">
+                      <Volume2 className="h-3 w-3 animate-pulse" />
+                      <span>AUDIO ACTIVE</span>
+                    </span>
+                  )}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenCinema(videoIndex);
+                    }}
+                    className="flex h-7 w-7 items-center justify-center rounded-lg bg-black/75 hover:bg-[#D4AF37] hover:text-slate-950 text-white backdrop-blur-md border border-white/25 transition-all shadow-md"
+                    title="Open in Fullscreen Cinema"
+                  >
+                    <Maximize2 className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+
+                {/* Bottom HUD Bar */}
+                <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between z-10 pointer-events-none">
+                  <span className="rounded-md bg-black/85 backdrop-blur-md px-2 py-0.5 text-[9px] font-bold text-white border border-white/10 truncate max-w-[70%]">
+                    {video.title}
+                  </span>
+                  <span className="rounded-md bg-[#D4AF37]/20 border border-[#D4AF37]/50 px-1.5 py-0.5 text-[8px] font-mono font-bold text-[#F7E5A9]">
+                    1080P 60FPS
+                  </span>
+                </div>
+              </div>
+
+              {/* Quadrant Source Switcher Bar */}
+              <div className="p-2 sm:p-2.5 bg-slate-950/90 border-t border-white/10 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <span className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider shrink-0">
+                    Slot 0{qIdx + 1} Stream:
+                  </span>
+                  <select
+                    value={videoIndex}
+                    onChange={(e) => onSetQuadIndex(qIdx, parseInt(e.target.value, 10))}
+                    className="rounded-lg bg-white/10 border border-white/20 text-white text-[11px] font-semibold py-1 px-2 focus:outline-none focus:ring-1 focus:ring-[#D4AF37] max-w-[180px] sm:max-w-[240px] truncate"
+                  >
+                    {videos.map((v, vIdx) => (
+                      <option key={vIdx} value={vIdx} className="bg-slate-900 text-white">
+                        {vIdx + 1}. {v.room} — {v.tag}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <button
+                  onClick={() => onOpenCinema(videoIndex)}
+                  className="rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-slate-950 text-slate-200 px-2.5 py-1 text-[10px] font-bold transition-all shrink-0 border border-white/15"
+                >
+                  Cinema View
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/*
+  Panoramic Reel Carousel:
+  - Horizontal smooth scrolling reel showing video frames with left/right golden arrow navigation.
+  - Touch swipe enabled.
+*/
+function PanoramicReelCarousel({ 
+  videos, 
+  activeVideoIndex, 
+  isGlobalLive, 
+  onSelect, 
+  onOpenCinema 
+}) {
+  const scrollContainerRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -360, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="relative">
+      {/* Scroll Arrow Buttons */}
+      <div className="hidden sm:flex items-center gap-2 absolute -top-12 right-0 z-10">
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onSelect(index);
-          }}
-          className="mt-2.5 flex items-center justify-between rounded-xl border border-[#D4AF37]/40 bg-[#FFFDF7] hover:bg-[#D4AF37] hover:text-white text-slate-800 p-1.5 px-2.5 text-[10px] font-bold transition-all shadow-sm"
+          onClick={scrollLeft}
+          className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#D4AF37]/50 bg-white hover:bg-[#D4AF37] hover:text-white text-[#8C6207] transition-all shadow-sm"
+          aria-label="Previous reel"
         >
-          <span>Open Cinema</span>
-          <ArrowRight className="h-3 w-3 text-[#8C6207] group-hover:text-white" />
+          <ChevronLeft className="h-5 w-5" />
         </button>
+        <button
+          onClick={scrollRight}
+          className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#D4AF37]/50 bg-white hover:bg-[#D4AF37] hover:text-white text-[#8C6207] transition-all shadow-sm"
+          aria-label="Next reel"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+
+      {/* Fluid Horizontal Scroll Strip */}
+      <div
+        ref={scrollContainerRef}
+        className="-mx-3.5 px-3.5 sm:mx-0 sm:px-0 flex items-stretch gap-3.5 overflow-x-auto pb-4 pt-1 snap-x scrollbar-thin"
+      >
+        {videos.map((vid, idx) => (
+          <div key={idx} className="w-[280px] sm:w-[320px] md:w-[360px] shrink-0 snap-start">
+            <HoverVideoFrame
+              video={vid}
+              index={vid.originalIndex ?? idx}
+              isActive={activeVideoIndex === (vid.originalIndex ?? idx)}
+              isGlobalLive={isGlobalLive}
+              onSelect={onSelect}
+              onOpenCinema={onOpenCinema}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/*
+  Fullscreen Ultra-HD Video Cinema Theater Modal:
+  - 1080p full-screen theater view with sound default ON.
+  - Floating left/right navigation arrows.
+  - Keyboard navigation: Left/Right arrows, Esc to close.
+  - WhatsApp CTA prefilled with video title & room details for Host Mohsin (0314 3292778).
+  - Bottom thumbnail strip to switch between all 15 videos without closing theater.
+*/
+function VideoCinemaModal({ 
+  videos, 
+  currentIndex, 
+  onClose, 
+  onNavigate, 
+  onBookApartment,
+  apartment 
+}) {
+  const currentVideo = videos[currentIndex] || videos[0];
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(false);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') {
+        onNavigate((currentIndex === 0 ? videos.length - 1 : currentIndex - 1));
+      }
+      if (e.key === 'ArrowRight') {
+        onNavigate((currentIndex === videos.length - 1 ? 0 : currentIndex + 1));
+      }
+      if (e.key.toLowerCase() === 'm') {
+        setIsMuted((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentIndex, videos.length, onClose, onNavigate]);
+
+  // Sync mute state to video element
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+      if (!isMuted) {
+        videoRef.current.volume = 1.0;
+      }
+      videoRef.current.play().catch(() => {});
+    }
+  }, [currentIndex, isMuted]);
+
+  const toggleSound = () => {
+    setIsMuted(!isMuted);
+  };
+
+  const whatsappMessage = `Hello Mohsin, I am watching the 1080p video tour of The Royal Emerald 2BR Apartment (Tour #${currentIndex + 1}: ${currentVideo.room} - ${currentVideo.title}). I would like to check availability and book it for my client.`;
+
+  return (
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-2xl p-2 sm:p-6 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div 
+        className="relative flex flex-col items-center justify-between max-w-6xl w-full h-full max-h-[96vh] bg-slate-950 rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/50 shadow-2xl shadow-[#D4AF37]/20 overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Top Header Bar */}
+        <div className="w-full flex items-center justify-between p-3 sm:p-4 border-b border-white/10 bg-slate-900/90 text-white">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 px-3 py-1 text-[10px] sm:text-xs font-mono font-extrabold uppercase tracking-wider shrink-0 shadow-sm">
+              <Film className="h-3 w-3" />
+              <span>Tour {currentIndex + 1} of {videos.length}</span>
+            </span>
+            <div className="min-w-0">
+              <div className="text-[10px] sm:text-xs text-[#E5C07B] font-bold uppercase tracking-wider truncate">
+                {currentVideo.room} • {currentVideo.tag}
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-white truncate max-w-[220px] sm:max-w-md">
+                {currentVideo.title}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleSound}
+              className={`flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-bold transition-all border ${
+                isMuted
+                  ? 'bg-red-500/20 text-rose-300 border-red-500/40'
+                  : 'bg-emerald-600 text-white border-emerald-400'
+              }`}
+            >
+              {isMuted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5 animate-pulse" />}
+              <span className="hidden sm:inline">{isMuted ? "Unmute" : "Sound ON"}</span>
+            </button>
+
+            <button
+              onClick={onClose}
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
+              aria-label="Close Cinema"
+              title="Close Cinema (Esc)"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Central Stage: High-Def Video Player + Left/Right Nav */}
+        <div className="relative flex-1 w-full flex items-center justify-center overflow-hidden bg-black">
+          <video
+            ref={videoRef}
+            key={currentVideo.url}
+            src={currentVideo.url}
+            poster={currentVideo.thumbnail}
+            controls
+            autoPlay
+            loop
+            playsInline
+            preload="auto"
+            className="max-h-full max-w-full aspect-[16/9] object-contain"
+          />
+
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => onNavigate((currentIndex === 0 ? videos.length - 1 : currentIndex - 1))}
+            className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/75 border border-[#D4AF37]/60 text-white hover:bg-[#D4AF37] hover:text-slate-950 transition-all shadow-xl z-20"
+            aria-label="Previous video"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => onNavigate((currentIndex === videos.length - 1 ? 0 : currentIndex + 1))}
+            className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/75 border border-[#D4AF37]/60 text-white hover:bg-[#D4AF37] hover:text-slate-950 transition-all shadow-xl z-20"
+            aria-label="Next video"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        </div>
+
+        {/* Bottom Bar: Thumbnail Strip + Host Mohsin Inquiry CTA */}
+        <div className="w-full flex flex-col gap-3 p-3 sm:p-4 bg-slate-900/95 border-t border-white/10">
+          {/* Thumbnail Strip */}
+          <div className="flex items-center gap-2 overflow-x-auto max-w-full pb-1 scrollbar-thin">
+            {videos.map((v, idx) => {
+              const isSelected = currentIndex === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => onNavigate(idx)}
+                  className={`relative h-12 w-16 sm:h-14 sm:w-20 rounded-xl overflow-hidden border-2 transition-all shrink-0 ${
+                    isSelected
+                      ? 'border-[#D4AF37] ring-2 ring-[#D4AF37]/70 scale-105'
+                      : 'border-white/20 opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <img src={v.thumbnail} alt={v.room} className="h-full w-full object-cover" />
+                  <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] text-white font-mono text-center truncate py-0.5">
+                    {idx + 1}. {v.room}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Action Row */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="text-left w-full sm:w-auto">
+              <div className="text-xs text-[#E5C07B] font-bold">
+                Direct Host Contact: Mohsin (0314 3292778)
+              </div>
+              <div className="text-[11px] text-slate-300">
+                1080p Verified Walkthrough • Press Left/Right arrows to explore all 15 rooms
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <a
+                href={`https://wa.me/923143292778?text=${encodeURIComponent(whatsappMessage)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-4 py-2 text-xs font-extrabold transition-all shadow-md"
+              >
+                <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
+                </svg>
+                <span>Inquire on WhatsApp</span>
+              </a>
+
+              <button
+                onClick={() => {
+                  onClose();
+                  onBookApartment(apartment);
+                }}
+                className="flex-1 sm:flex-initial gold-btn flex items-center justify-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold text-slate-950"
+              >
+                <span>Book Penthouse</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -176,8 +816,15 @@ export default function ApartmentShowcase({
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [lightboxPhotoIndex, setLightboxPhotoIndex] = useState(null);
+  const [lightboxVideoIndex, setLightboxVideoIndex] = useState(null); // Fullscreen video modal
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
+
+  // Multi-frame showroom state
+  const [showLayout, setShowLayout] = useState('grid'); // 'grid' | 'quad' | 'carousel'
+  const [isWallLive, setIsWallLive] = useState(false); // Global video wall continuous playback
+  const [selectedCategory, setSelectedCategory] = useState('all'); // 'all' | 'salons' | 'suites' | 'kitchen' | 'foyers'
+  const [quadIndices, setQuadIndices] = useState([0, 1, 2, 3]); // 4 feeds for Quad-Vision
 
   if (!apartment) return null;
 
@@ -197,7 +844,7 @@ export default function ApartmentShowcase({
     "Beige Marble Lounge & Arched Mirrors"
   ];
 
-  // Keyboard navigation for Fullscreen Lightbox
+  // Keyboard navigation for Fullscreen Lightbox (Photos)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (lightboxPhotoIndex === null) return;
@@ -213,112 +860,162 @@ export default function ApartmentShowcase({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxPhotoIndex, photos.length]);
 
-  const videos = apartment.videos || [
+  const rawVideos = apartment.videos || [
     {
       url: "/apartment/videos/video-tour-1.mp4",
       title: "Emerald Executive Salon & Media Wall Tour",
       room: "Emerald Salon",
       thumbnail: "/apartment/emerald-living-main.jpg",
-      tag: "Main Salon"
+      tag: "Main Salon",
+      category: "salons",
+      feature: "85\" 4K TV • Italian Velvet Lounge"
     },
     {
       url: "/apartment/videos/video-tour-2.mp4",
       title: "Blush Rose Master King Suite Walkthrough",
       room: "Master Suite 1",
       thumbnail: "/apartment/master-bedroom-blush.jpg",
-      tag: "King Bed"
+      tag: "King Bed",
+      category: "suites",
+      feature: "King Bed • Walk-in Dressing Suite"
     },
     {
       url: "/apartment/videos/video-tour-3.mp4",
       title: "Noir Charcoal Master Suite Tour",
       room: "Master Suite 2",
       thumbnail: "/apartment/charcoal-bedroom-suite.jpg",
-      tag: "Charcoal Bed"
+      tag: "Charcoal Bed",
+      category: "suites",
+      feature: "Noir Luxury Finishes • Ensuite Bath"
     },
     {
       url: "/apartment/videos/video-tour-4.mp4",
       title: "Beige Marble Lounge & Arched Mirrors",
       room: "Marble Lounge",
       thumbnail: "/apartment/beige-marble-salon.jpg",
-      tag: "2nd Salon"
+      tag: "2nd Salon",
+      category: "salons",
+      feature: "Italian Marble • Arched Mirrors"
     },
     {
       url: "/apartment/videos/video-tour-5.mp4",
       title: "Full Penthouse Walkthrough & Dual Salons",
       room: "Complete Tour",
       thumbnail: "/apartment/emerald-lounge-art.jpg",
-      tag: "Full Walkthrough"
+      tag: "Full Walkthrough",
+      category: "salons",
+      feature: "3,200 sq ft Panoramic Living Flow"
     },
     {
       url: "/apartment/videos/video-tour-6.mp4",
       title: "Executive Entry Foyer & Lighting Walkthrough",
       room: "Entry Foyer",
       thumbnail: "/apartment/emerald-living-main.jpg",
-      tag: "Foyer & Sconces"
+      tag: "Foyer & Sconces",
+      category: "foyers",
+      feature: "Crystal Sconces • Keycard Security"
     },
     {
       url: "/apartment/videos/video-tour-7.mp4",
       title: "Gourmet Kitchen & Dining Suite Tour",
       room: "Dining & Kitchen",
       thumbnail: "/apartment/beige-marble-salon.jpg",
-      tag: "Gourmet Kitchen"
+      tag: "Gourmet Kitchen",
+      category: "kitchen",
+      feature: "Quartz Island • Espresso Bar"
     },
     {
       url: "/apartment/videos/video-tour-8.mp4",
       title: "Master Dressing & Built-in Wardrobes",
       room: "Dressing Suite",
       thumbnail: "/apartment/master-bedroom-blush.jpg",
-      tag: "Walk-in Wardrobe"
+      tag: "Walk-in Wardrobe",
+      category: "suites",
+      feature: "LED Lit Mirrors • Soft-close Joinery"
     },
     {
       url: "/apartment/videos/video-tour-9.mp4",
       title: "Architectural Ceiling & Ambient Cove Lighting",
       room: "Ceiling & Ambiance",
       thumbnail: "/apartment/emerald-lounge-art.jpg",
-      tag: "Cove Lighting"
+      tag: "Cove Lighting",
+      category: "salons",
+      feature: "Multi-Zone Warm Dimmers"
     },
     {
       url: "/apartment/videos/video-tour-10.mp4",
       title: "Grand Panoramic Penthouse View & Living Flow",
       room: "Grand Suite",
       thumbnail: "/apartment/charcoal-bedroom-suite.jpg",
-      tag: "Panoramic Living"
+      tag: "Panoramic Living",
+      category: "salons",
+      feature: "Floor-to-Ceiling Windows • Margalla Hills"
     },
     {
       url: "/apartment/videos/video-tour-11.mp4",
       title: "Designer Bath Suite & Rain Shower Walkthrough",
       room: "Master Bath Suite",
       thumbnail: "/apartment/emerald-living-main.jpg",
-      tag: "Luxury Bath"
+      tag: "Luxury Bath",
+      category: "foyers",
+      feature: "Rain Shower • Marble Vanity"
     },
     {
       url: "/apartment/videos/video-tour-12.mp4",
       title: "VIP Executive Corridor & Architectural Details",
       room: "Executive Hall",
       thumbnail: "/apartment/beige-marble-salon.jpg",
-      tag: "Private Corridor"
+      tag: "Private Corridor",
+      category: "foyers",
+      feature: "Art Gallery Wall • Recessed LEDs"
     },
     {
       url: "/apartment/videos/video-tour-13.mp4",
       title: "Second Marble Vanity & Guest Powder Suite",
       room: "Guest Powder Room",
       thumbnail: "/apartment/master-bedroom-blush.jpg",
-      tag: "Powder Suite"
+      tag: "Powder Suite",
+      category: "foyers",
+      feature: "Golden Faucets • Guest Powder Room"
     },
     {
       url: "/apartment/videos/video-tour-14.mp4",
       title: "Smart Media Console & 4K Surround Sound Setup",
       room: "Media Console",
       thumbnail: "/apartment/emerald-lounge-art.jpg",
-      tag: "Smart 4K Media"
+      tag: "Smart 4K Media",
+      category: "salons",
+      feature: "Dolby Atmos • High-Speed Fiber WiFi"
     },
     {
       url: "/apartment/videos/video-tour-15.mp4",
       title: "Full 360 Penthouse Walkthrough & Night Lighting",
       room: "Night Ambiance",
       thumbnail: "/apartment/charcoal-bedroom-suite.jpg",
-      tag: "Night Lighting"
+      tag: "Night Lighting",
+      category: "suites",
+      feature: "Evening Mood Lighting • City Views"
     }
+  ];
+
+  // Enrich with originalIndex to ensure selections map back reliably
+  const enrichedVideos = rawVideos.map((v, i) => ({
+    ...v,
+    category: v.category || 'salons',
+    feature: v.feature || '1080p Ultra-HD Walkthrough',
+    originalIndex: i
+  }));
+
+  const filteredVideos = enrichedVideos.filter((v) => 
+    selectedCategory === 'all' ? true : v.category === selectedCategory
+  );
+
+  const categories = [
+    { id: 'all', label: 'All Rooms', count: enrichedVideos.length },
+    { id: 'salons', label: 'Salons & Lounges', count: enrichedVideos.filter(v => v.category === 'salons').length },
+    { id: 'suites', label: 'Master Suites', count: enrichedVideos.filter(v => v.category === 'suites').length },
+    { id: 'kitchen', label: 'Dining & Kitchen', count: enrichedVideos.filter(v => v.category === 'kitchen').length },
+    { id: 'foyers', label: 'Baths & Foyers', count: enrichedVideos.filter(v => v.category === 'foyers').length },
   ];
 
   // Ensure autoplay triggers reliably on video change
@@ -362,6 +1059,18 @@ export default function ApartmentShowcase({
     }
   };
 
+  const handleSetQuadIndex = (quadSlot, targetIndex) => {
+    setQuadIndices((prev) => {
+      const next = [...prev];
+      next[quadSlot] = targetIndex;
+      return next;
+    });
+  };
+
+  const handleApplyPreset = (indices) => {
+    setQuadIndices(indices);
+  };
+
   return (
     <div 
       id="apartment-video-showcase"
@@ -399,7 +1108,7 @@ export default function ApartmentShowcase({
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
               </span>
-              <span>15 HD Video Frames with Hover/Tap Play</span>
+              <span>15 HD Video Frames with Multi-Frame Show</span>
             </span>
           </div>
         </div>
@@ -589,7 +1298,7 @@ export default function ApartmentShowcase({
         </div>
       )}
 
-      {/* SECTION 2: 15 HD VIDEO TOURS CINEMA PLAYER & MULTI-FRAME REEL GALLERY */}
+      {/* SECTION 2: 15 HD VIDEO TOURS CINEMA PLAYER & MULTI-FRAME SHOWROOM */}
       {(mediaMode === 'all' || mediaMode === 'videos') && (
         <div className="relative z-10 flex flex-col gap-6 sm:gap-8 animate-in fade-in duration-300">
           {/* SECTION A: Primary Cinema Player + Side Playlist */}
@@ -600,9 +1309,9 @@ export default function ApartmentShowcase({
                 {/* HTML5 Autoplaying Video */}
                 <video
                   ref={videoRef}
-                  key={videos[activeVideoIndex].url}
-                  src={videos[activeVideoIndex].url}
-                  poster={videos[activeVideoIndex].thumbnail}
+                  key={rawVideos[activeVideoIndex].url}
+                  src={rawVideos[activeVideoIndex].url}
+                  poster={rawVideos[activeVideoIndex].thumbnail}
                   controls
                   autoPlay
                   muted={isMuted}
@@ -616,13 +1325,13 @@ export default function ApartmentShowcase({
                 <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 z-20 pointer-events-none max-w-[50%]">
                   <span className="flex items-center gap-1.5 rounded-full bg-red-600/90 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-wider text-white shadow-lg truncate">
                     <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse"></span>
-                    <span className="sm:hidden">Tour {activeVideoIndex + 1}/{videos.length}</span>
-                    <span className="hidden sm:inline">CINEMA • TOUR {activeVideoIndex + 1}/{videos.length}</span>
+                    <span className="sm:hidden">Tour {activeVideoIndex + 1}/{rawVideos.length}</span>
+                    <span className="hidden sm:inline">CINEMA • TOUR {activeVideoIndex + 1}/{rawVideos.length}</span>
                   </span>
                 </div>
 
-                {/* Floating Sound Toggle Button (Top-Right) */}
-                <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4 z-20">
+                {/* Floating Controls (Top-Right): Sound Toggle & Cinema Modal Button */}
+                <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4 z-20 flex items-center gap-2">
                   <button
                     onClick={toggleSound}
                     className={`flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold backdrop-blur-md transition-all shadow-md border ${
@@ -644,6 +1353,15 @@ export default function ApartmentShowcase({
                       </>
                     )}
                   </button>
+
+                  <button
+                    onClick={() => setLightboxVideoIndex(activeVideoIndex)}
+                    className="flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold bg-black/75 text-white hover:bg-[#D4AF37] hover:text-slate-950 border border-white/25 backdrop-blur-md transition-all shadow-md"
+                    title="Open Fullscreen Cinema Theater"
+                  >
+                    <Maximize2 className="h-3.5 w-3.5" />
+                    <span className="hidden sm:inline">Theater</span>
+                  </button>
                 </div>
 
                 {/* Video Title Bar at Bottom of Screen */}
@@ -654,10 +1372,10 @@ export default function ApartmentShowcase({
                     </div>
                     <div className="min-w-0">
                       <div className="text-[9px] sm:text-[10px] uppercase font-bold text-[#8C6207] tracking-wider truncate">
-                        Room {activeVideoIndex + 1} of {videos.length}: {videos[activeVideoIndex].room}
+                        Room {activeVideoIndex + 1} of {rawVideos.length}: {rawVideos[activeVideoIndex].room}
                       </div>
                       <div className="text-xs sm:text-sm font-bold text-slate-900 truncate">
-                        {videos[activeVideoIndex].title}
+                        {rawVideos[activeVideoIndex].title}
                       </div>
                     </div>
                   </div>
@@ -676,7 +1394,7 @@ export default function ApartmentShowcase({
                 <span className="text-[10px] sm:text-xs font-bold text-[#8C6207] uppercase tracking-wider shrink-0 mr-0.5">
                   Jump Room:
                 </span>
-                {videos.map((vid, idx) => {
+                {rawVideos.map((vid, idx) => {
                   const isSelected = activeVideoIndex === idx;
                   return (
                     <button
@@ -699,12 +1417,12 @@ export default function ApartmentShowcase({
             {/* Video Playlist Sidebar (Right 4 Cols) */}
             <div className="lg:col-span-4 flex flex-col gap-2">
               <div className="text-xs font-bold uppercase tracking-wider text-[#8C6207] px-1 flex items-center justify-between">
-                <span>All {videos.length} Room Walkthroughs:</span>
+                <span>All {rawVideos.length} Room Walkthroughs:</span>
                 <span className="text-[11px] text-emerald-700 font-bold">Auto-Looping</span>
               </div>
 
               <div className="flex flex-col gap-2 overflow-y-auto max-h-[320px] lg:max-h-[460px] pr-1 scrollbar-thin">
-                {videos.map((vid, vIdx) => {
+                {rawVideos.map((vid, vIdx) => {
                   const isActive = activeVideoIndex === vIdx;
                   return (
                     <button
@@ -761,39 +1479,169 @@ export default function ApartmentShowcase({
             </div>
           </div>
 
-          {/* SECTION B: MULTIPLE VIDEO FRAMES (HOVER / TOUCH TO PLAY) */}
-          <div className="pt-5 border-t border-[#D4AF37]/25">
-            <div className="mb-4 sm:mb-5 flex flex-col sm:flex-row sm:items-end justify-between gap-2 sm:gap-3">
+          {/* SECTION B: ADVANCED MULTI-FRAME SHOWROOM WITH MULTI-VIEW LAYOUTS */}
+          <div className="pt-6 border-t-2 border-[#D4AF37]/30">
+            {/* Showroom Header & Control Center */}
+            <div className="mb-5 flex flex-col lg:flex-row lg:items-end justify-between gap-4">
               <div>
                 <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8C6207]">
-                  <Film className="h-3.5 w-3.5" />
-                  <span>Interactive Multi-Frame Gallery</span>
+                  <Film className="h-3.5 w-3.5 text-rose-600" />
+                  <span>Ultra-Luxe Interactive Multi-Frame Showroom</span>
                 </div>
-                <h3 className="mt-1 font-serif text-xl sm:text-3xl font-bold text-slate-900">
-                  Multi-Frame Room Video Tours <span className="text-[#8C6207] font-normal text-base sm:text-xl">(Hover / Tap to Play)</span>
+                <h3 className="mt-1 font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Multiple Frame Video Showroom
                 </h3>
-                <p className="mt-0.5 text-[11px] sm:text-xs text-slate-600">
-                  Hover your mouse or tap any frame below to stream the video walkthrough live. Click "Open Cinema" to focus in HD Cinema.
+                <p className="mt-1 text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+                  Switch between the <span className="font-bold text-slate-900">15-Frame Grid Wall</span>, synchronous <span className="font-bold text-slate-900">4-Split Quad-Vision</span>, or the <span className="font-bold text-slate-900">Panoramic Reel Strip</span>. Hover or tap to stream any room walkthrough in 1080p.
                 </p>
               </div>
 
-              <span className="self-start sm:self-auto rounded-full bg-white border border-[#D4AF37]/40 px-3 py-1 text-[11px] font-bold text-[#8C6207] shadow-sm">
-                {videos.length} Video Frames
-              </span>
+              {/* Showroom Global Controls: Layout Mode + Play All Live Toggle */}
+              <div className="flex flex-wrap items-center gap-2.5">
+                {/* Global Live Wall Toggle */}
+                <button
+                  onClick={() => setIsWallLive(!isWallLive)}
+                  className={`flex items-center gap-2 rounded-2xl px-3.5 py-2 text-xs font-bold transition-all shadow-md border ${
+                    isWallLive
+                      ? 'bg-red-600 text-white border-red-500 shadow-red-600/25 ring-2 ring-red-400/50'
+                      : 'bg-white hover:bg-[#FFFDF7] text-[#8C6207] border-[#D4AF37]/60'
+                  }`}
+                  title="Toggle all video frames to play simultaneously"
+                >
+                  {isWallLive ? (
+                    <>
+                      <Pause className="h-3.5 w-3.5 fill-current" />
+                      <span>⏸ Hover Stream Mode</span>
+                    </>
+                  ) : (
+                    <>
+                      <Play className="h-3.5 w-3.5 fill-current text-[#D4AF37]" />
+                      <span>▶ Stream All Frames Live</span>
+                      <span className="flex h-2 w-2 relative">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                      </span>
+                    </>
+                  )}
+                </button>
+
+                {/* Layout Mode Switcher */}
+                <div className="inline-flex items-center rounded-2xl bg-white p-1 border border-[#D4AF37]/50 shadow-sm">
+                  <button
+                    onClick={() => setShowLayout('grid')}
+                    className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
+                      showLayout === 'grid'
+                        ? 'gold-btn text-slate-950 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-[#FFFDF7]'
+                    }`}
+                    title="15-Frame Grid Wall"
+                  >
+                    <Grid className="h-3.5 w-3.5" />
+                    <span>Grid Wall (15)</span>
+                  </button>
+
+                  <button
+                    onClick={() => setShowLayout('quad')}
+                    className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
+                      showLayout === 'quad'
+                        ? 'bg-gradient-to-r from-slate-900 to-slate-950 text-[#F7E5A9] border border-[#D4AF37]/50 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-[#FFFDF7]'
+                    }`}
+                    title="Synchronous Quad-Vision (4 Simultaneous Feeds)"
+                  >
+                    <Tv className="h-3.5 w-3.5 text-[#D4AF37]" />
+                    <span>Quad-Vision (4-in-1)</span>
+                  </button>
+
+                  <button
+                    onClick={() => setShowLayout('carousel')}
+                    className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
+                      showLayout === 'carousel'
+                        ? 'gold-btn text-slate-950 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-[#FFFDF7]'
+                    }`}
+                    title="Panoramic Reel Filmstrip"
+                  >
+                    <Layers className="h-3.5 w-3.5" />
+                    <span>Panoramic Reel</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Grid of 15 Video Frames: 2 cols on mobile, 3 on md, 5 on xl */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
-              {videos.map((vid, idx) => (
-                <HoverVideoFrame
-                  key={idx}
-                  video={vid}
-                  index={idx}
-                  isActive={activeVideoIndex === idx}
-                  onSelect={handleSelectVideo}
-                />
-              ))}
+            {/* Category Filter Chips Bar */}
+            <div className="mb-5 flex items-center justify-between gap-3 border-b border-[#D4AF37]/20 pb-3">
+              <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 scrollbar-none w-full">
+                <span className="text-[10px] sm:text-xs font-bold text-[#8C6207] uppercase tracking-wider shrink-0 mr-1 flex items-center gap-1">
+                  <SlidersHorizontal className="h-3 w-3" />
+                  <span>Filter:</span>
+                </span>
+                {categories.map((cat) => {
+                  const isCatSelected = selectedCategory === cat.id;
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => setSelectedCategory(cat.id)}
+                      className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all border shrink-0 ${
+                        isCatSelected
+                          ? 'gold-btn text-slate-950 border-white shadow-md'
+                          : 'bg-white hover:bg-[#FFFDF7] text-slate-700 border-[#D4AF37]/35 hover:border-[#D4AF37]'
+                      }`}
+                    >
+                      <span>{cat.label}</span>
+                      <span className={`rounded-full px-1.5 py-0.2 text-[9px] font-extrabold ${
+                        isCatSelected ? 'bg-slate-950/20 text-slate-950' : 'bg-slate-100 text-slate-600'
+                      }`}>
+                        {cat.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
+
+            {/* ACTIVE LAYOUT RENDERING */}
+            {showLayout === 'grid' && (
+              <div className="animate-in fade-in duration-300">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
+                  {filteredVideos.map((vid) => (
+                    <HoverVideoFrame
+                      key={vid.originalIndex}
+                      video={vid}
+                      index={vid.originalIndex}
+                      isActive={activeVideoIndex === vid.originalIndex}
+                      isGlobalLive={isWallLive}
+                      onSelect={handleSelectVideo}
+                      onOpenCinema={setLightboxVideoIndex}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {showLayout === 'quad' && (
+              <div className="animate-in fade-in duration-300">
+                <QuadVideoWall
+                  videos={rawVideos}
+                  quadIndices={quadIndices}
+                  onSetQuadIndex={handleSetQuadIndex}
+                  onOpenCinema={setLightboxVideoIndex}
+                  onApplyPreset={handleApplyPreset}
+                />
+              </div>
+            )}
+
+            {showLayout === 'carousel' && (
+              <div className="animate-in fade-in duration-300">
+                <PanoramicReelCarousel
+                  videos={filteredVideos}
+                  activeVideoIndex={activeVideoIndex}
+                  isGlobalLive={isWallLive}
+                  onSelect={handleSelectVideo}
+                  onOpenCinema={setLightboxVideoIndex}
+                />
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -900,6 +1748,18 @@ export default function ApartmentShowcase({
             </div>
           </div>
         </div>
+      )}
+
+      {/* FULL-SCREEN ULTRA-HD VIDEO CINEMA THEATER MODAL */}
+      {lightboxVideoIndex !== null && (
+        <VideoCinemaModal
+          videos={rawVideos}
+          currentIndex={lightboxVideoIndex}
+          onClose={() => setLightboxVideoIndex(null)}
+          onNavigate={(idx) => setLightboxVideoIndex(idx)}
+          onBookApartment={onBookApartment}
+          apartment={apartment}
+        />
       )}
 
       {/* SECTION C: CLEAR & PROMINENT AGENT MOHSIN VERIFIED HOST PROFILE */}
