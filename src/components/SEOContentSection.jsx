@@ -192,3 +192,4 @@ export default function SEOContentSection({ singleBedRoom, twoBedRoom, penthouse
     </section>
   );
 }
+
