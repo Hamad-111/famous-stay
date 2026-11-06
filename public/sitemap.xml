@@ -3,57 +3,56 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://famousstay.com/</loc>
+    <loc>https://famous-stay.vercel.app/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     
     <!-- Verified Penthouse Photos for Google Image Search -->
     <image:image>
-      <image:loc>https://famousstay.com/apartment/trending-living-media.jpg</image:loc>
+      <image:loc>https://famous-stay.vercel.app/apartment/trending-living-media.jpg</image:loc>
       <image:title>Famous Stay Grand Executive Salon &amp; 85 inch 4K Smart Media Wall</image:title>
       <image:caption>Trending luxury penthouse living room with acoustic wall and cove lighting</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://famousstay.com/apartment/trending-terrace-bbq.jpg</image:loc>
+      <image:loc>https://famous-stay.vercel.app/apartment/trending-terrace-bbq.jpg</image:loc>
       <image:title>Famous Stay Open-Air Rooftop Sky Terrace with Barbecue Patio</image:title>
       <image:caption>Margalla mountain panoramic sky terrace with outdoor dining and BBQ setup</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://famousstay.com/apartment/trending-lounge-dining.jpg</image:loc>
+      <image:loc>https://famous-stay.vercel.app/apartment/trending-lounge-dining.jpg</image:loc>
       <image:title>Famous Stay Sculpted Wave Ambient LED Lounge &amp; Gourmet Dining</image:title>
       <image:caption>Wave-design backlit wall, deep velvet sectional, and gold hammered centerpiece</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://famousstay.com/apartment/trending-mirror-foyer.jpg</image:loc>
+      <image:loc>https://famous-stay.vercel.app/apartment/trending-mirror-foyer.jpg</image:loc>
       <image:title>Famous Stay Arched Backlit Vanity Mirror &amp; Palm Foyer</image:title>
       <image:caption>Iconic illuminated arched mirror and exotic palm entrance foyer</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://famousstay.com/apartment/trending-terrace-night.jpg</image:loc>
+      <image:loc>https://famous-stay.vercel.app/apartment/trending-terrace-night.jpg</image:loc>
       <image:title>Famous Stay Margalla Mountain Twilight Terrace View</image:title>
       <image:caption>Evening ambiance and twilight mountain skyline from the penthouse terrace</image:caption>
     </image:image>
 
     <!-- Verified 15 Video Tours for Google Video Search -->
     <video:video>
-      <video:thumbnail_loc>https://famousstay.com/apartment/trending-living-media.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://famous-stay.vercel.app/apartment/trending-living-media.jpg</video:thumbnail_loc>
       <video:title>Famous Stay Executive Salon &amp; 85 inch Media Wall Tour</video:title>
       <video:description>Complete walkthrough of the executive salon, fluted acoustic wall, and 4K media setup in Islamabad.</video:description>
-      <video:content_loc>https://famousstay.com/apartment/videos/video-tour-1.mp4</video:content_loc>
-      <video:player_loc>https://famousstay.com/</video:player_loc>
+      <video:content_loc>https://famous-stay.vercel.app/apartment/videos/video-tour-1.mp4</video:content_loc>
+      <video:player_loc>https://famous-stay.vercel.app/</video:player_loc>
       <video:duration>45</video:duration>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://famousstay.com/apartment/trending-terrace-bbq.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://famous-stay.vercel.app/apartment/trending-terrace-bbq.jpg</video:thumbnail_loc>
       <video:title>Famous Stay Rooftop Sky Terrace &amp; BBQ Walkthrough</video:title>
       <video:description>Panoramic Margalla mountain views, outdoor dining patio, and barbecue grill walkthrough.</video:description>
-      <video:content_loc>https://famousstay.com/apartment/videos/video-tour-4.mp4</video:content_loc>
-      <video:player_loc>https://famousstay.com/</video:player_loc>
+      <video:content_loc>https://famous-stay.vercel.app/apartment/videos/video-tour-4.mp4</video:content_loc>
+      <video:player_loc>https://famous-stay.vercel.app/</video:player_loc>
       <video:duration>50</video:duration>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>
 </urlset>
-
