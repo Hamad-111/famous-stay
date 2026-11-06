@@ -297,7 +297,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* FAMOUS SEARCH KEY: INSTANT KEYWORD & RATE SEARCH */}
+            {/* FAMOUS SEARCH CONSOLE: LIVE KEYWORD, RATE & SITELINKS ENGINE */}
             <FamousSearchBar
               onSelectRoom={(room) => setSelectedRoomForModal(room)}
               onBookRoom={(room) => handleBookRoom(room)}

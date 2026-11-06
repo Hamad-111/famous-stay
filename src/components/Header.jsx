@@ -7,7 +7,8 @@ import {
   LogIn, 
   ChevronDown,
   PhoneCall,
-  UserCheck
+  UserCheck,
+  Search
 } from 'lucide-react';
 import Logo from './Logo';
 
@@ -47,6 +48,20 @@ export default function Header({
           >
             <Film className="h-3.5 w-3.5 text-[#8C6207]" />
             <span>Video Showcase</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setActiveTab('explore');
+              setTimeout(() => {
+                const el = document.getElementById('famous-search-console');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
+            className="flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-bold tracking-wide text-slate-600 hover:text-slate-950 hover:bg-white/70 transition-all"
+          >
+            <Search className="h-3.5 w-3.5 text-[#8C6207]" />
+            <span>Search Console</span>
           </button>
 
           <button
@@ -184,11 +199,17 @@ export default function Header({
                   {/* Actions */}
                   <div className="space-y-1">
                     <button
-                      onClick={() => setActiveTab('explore')}
-                      className="w-full flex items-center gap-2 rounded-xl px-2.5 py-2 text-left text-slate-700 hover:bg-[#FAF6EA] hover:text-[#8C6207] transition-colors"
+                      onClick={() => {
+                        setActiveTab('explore');
+                        setTimeout(() => {
+                          const el = document.getElementById('famous-search-console');
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                      }}
+                      className="w-full flex items-center gap-2 rounded-xl px-2.5 py-2 text-left text-slate-700 hover:bg-[#FAF6EA] hover:text-[#8C6207] transition-colors font-bold text-xs"
                     >
                       <Search className="h-3.5 w-3.5 text-[#8C6207]" />
-                      <span>Browse Rooms Catalog</span>
+                      <span>Famous Search Console</span>
                     </button>
 
                     <button
