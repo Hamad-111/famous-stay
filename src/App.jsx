@@ -16,6 +16,8 @@ import Toast from './components/Toast';
 import AuthModal from './components/AuthModal';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import ApartmentShowcase from './components/ApartmentShowcase';
+import FamousSearchBar from './components/FamousSearchBar';
+import SEOContentSection from './components/SEOContentSection';
 import { LUXURY_HOTELS, INITIAL_AGENT_BOOKINGS } from './data/hotels';
 import Logo from './components/Logo';
 
@@ -295,6 +297,15 @@ export default function App() {
               </div>
             </div>
 
+            {/* FAMOUS SEARCH KEY: INSTANT KEYWORD & RATE SEARCH */}
+            <FamousSearchBar
+              onSelectRoom={(room) => setSelectedRoomForModal(room)}
+              onBookRoom={(room) => handleBookRoom(room)}
+              singleBedRoom={singleBedRoom}
+              twoBedRoom={twoBedRoom}
+              penthouseRoom={penthouseRoom}
+            />
+
             {/* OFFICIAL FIXED DAILY RATE CARD (Single Bed 8k, Two Bed 15k, Penthouse 50k) */}
             <div className="mb-8 rounded-3xl border border-[#D4AF37]/35 bg-white p-5 sm:p-7 shadow-sm">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
@@ -429,6 +440,14 @@ export default function App() {
                 onBookApartment={(apt) => handleBookRoom(apt)}
               />
             )}
+
+            {/* SEO KNOWLEDGE BASE & FREQUENTLY ASKED QUESTIONS */}
+            <SEOContentSection
+              singleBedRoom={singleBedRoom}
+              twoBedRoom={twoBedRoom}
+              penthouseRoom={penthouseRoom}
+              onBookRoom={(room) => handleBookRoom(room)}
+            />
 
             {/* AGENT PRIVILEGES / WHY FAMOUS STAY PILLARS */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
