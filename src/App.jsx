@@ -137,8 +137,13 @@ export default function App() {
   // Total Commissions Calculation
   const totalCommissions = bookings.reduce((sum, b) => sum + (b.agentCommission || 0), 0);
 
+  // Dedicated room types with fixed rates: 1-Bed 8k, 2-Bed 15k, Penthouse 50k
+  const penthouseRoom = LUXURY_HOTELS.find(h => h.id === 'fs-apt-emerald-01') || LUXURY_HOTELS[0];
+  const singleBedRoom = LUXURY_HOTELS.find(h => h.id === 'fs-room-1bed-01') || LUXURY_HOTELS[1];
+  const twoBedRoom = LUXURY_HOTELS.find(h => h.id === 'fs-room-2bed-01') || LUXURY_HOTELS[2];
+
   // The primary luxury suite featuring the 15 HD video tours
-  const featuredSuite = LUXURY_HOTELS.find(h => h.videos && h.videos.length > 0) || LUXURY_HOTELS[0];
+  const featuredSuite = penthouseRoom;
 
   const handleBookRoom = (room) => {
     if (!currentUser?.isLoggedIn) {
@@ -232,6 +237,20 @@ export default function App() {
                   <span className="gold-gradient-text">& Margalla Sky Terrace</span>
                 </h1>
 
+                {/* Fixed Rates Pill Bar */}
+                <div className="mt-3 inline-flex flex-wrap items-center justify-center gap-2 rounded-2xl bg-white/95 border border-[#D4AF37]/50 px-3.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm">
+                  <span className="text-[#8C6207]">Official Daily Rates:</span>
+                  <span className="rounded-lg bg-[#FAF6EA] px-2 py-0.5 border border-[#D4AF37]/30 font-mono text-slate-900">
+                    Single Bed: <strong>Rs. 8k/day</strong>
+                  </span>
+                  <span className="rounded-lg bg-[#FAF6EA] px-2 py-0.5 border border-[#D4AF37]/30 font-mono text-slate-900">
+                    Two Bed: <strong>Rs. 15k/day</strong>
+                  </span>
+                  <span className="rounded-lg bg-[#FFF4D4] px-2 py-0.5 border border-[#D4AF37]/50 font-mono text-[#8C6207] font-extrabold">
+                    Penthouse: <strong>Rs. 50k/day</strong>
+                  </span>
+                </div>
+
                 <p className="mt-3 text-xs sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
                   Private open-air barbecue terrace with Margalla mountain views, sculpted wave ambient LED lounge, and 15 live video walkthroughs. Guaranteed <strong className="text-[#8C6207] font-bold">18% agent wholesale commission in PKR</strong>.
                 </p>
@@ -272,6 +291,131 @@ export default function App() {
                     </svg>
                     <span>WhatsApp Arsalan (+92 318 0985887)</span>
                   </a>
+                </div>
+              </div>
+            </div>
+
+            {/* OFFICIAL FIXED DAILY RATE CARD (Single Bed 8k, Two Bed 15k, Penthouse 50k) */}
+            <div className="mb-8 rounded-3xl border border-[#D4AF37]/35 bg-white p-5 sm:p-7 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#8C6207]">
+                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
+                    <span>Fixed Daily Partner Rates • 18% Agent Margin</span>
+                  </div>
+                  <h2 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
+                    Official Fixed Daily Rates
+                  </h2>
+                </div>
+                <div className="text-xs text-slate-500 font-medium">
+                  Direct keycard check-in • Multi-hotel partner flexibility
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+                {/* 1. Single Bed Room - 8k / day */}
+                <div className="rounded-2xl border-2 border-[#D4AF37]/35 bg-[#FAF9F5]/70 p-4 sm:p-5 hover:border-[#D4AF37] transition-all flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-[#FFF4D4] px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-[#8C6207] border border-[#D4AF37]/30">
+                        1-Bed Room
+                      </span>
+                      <span className="text-[11px] font-mono font-bold text-emerald-600">8k / day</span>
+                    </div>
+
+                    <h3 className="mt-2.5 font-serif text-lg font-bold text-slate-900">
+                      Single Bed Room
+                    </h3>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      1 Plush Master Bed • Fiber Wi-Fi • Dedicated Desk • 4K LED TV • Marble Rain Shower.
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between gap-2">
+                    <div>
+                      <div className="text-[10px] uppercase font-bold text-slate-400">Fixed Rate</div>
+                      <div className="font-serif text-xl font-extrabold text-slate-950">
+                        Rs. 8,000 <span className="text-xs font-sans font-normal text-slate-500">/ day</span>
+                      </div>
+                      <div className="text-[11px] font-bold text-emerald-600 font-mono">+Rs. 1,440 profit/nt</div>
+                    </div>
+                    <button
+                      onClick={() => handleBookRoom(singleBedRoom)}
+                      className="gold-btn rounded-xl px-3.5 py-2 text-xs font-bold text-slate-950 shadow-sm"
+                    >
+                      Book 8k
+                    </button>
+                  </div>
+                </div>
+
+                {/* 2. Two Bed Room - 15k / day */}
+                <div className="rounded-2xl border-2 border-[#D4AF37]/35 bg-[#FAF9F5]/70 p-4 sm:p-5 hover:border-[#D4AF37] transition-all flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-[#FFF4D4] px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-[#8C6207] border border-[#D4AF37]/30">
+                        2-Bed Room
+                      </span>
+                      <span className="text-[11px] font-mono font-bold text-emerald-600">15k / day</span>
+                    </div>
+
+                    <h3 className="mt-2.5 font-serif text-lg font-bold text-slate-900">
+                      Two Bed Room
+                    </h3>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      2 Separate Master Bedrooms • Attached En-Suite Baths • Central Salon • Kitchenette.
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between gap-2">
+                    <div>
+                      <div className="text-[10px] uppercase font-bold text-slate-400">Fixed Rate</div>
+                      <div className="font-serif text-xl font-extrabold text-slate-950">
+                        Rs. 15,000 <span className="text-xs font-sans font-normal text-slate-500">/ day</span>
+                      </div>
+                      <div className="text-[11px] font-bold text-emerald-600 font-mono">+Rs. 2,700 profit/nt</div>
+                    </div>
+                    <button
+                      onClick={() => handleBookRoom(twoBedRoom)}
+                      className="gold-btn rounded-xl px-3.5 py-2 text-xs font-bold text-slate-950 shadow-sm"
+                    >
+                      Book 15k
+                    </button>
+                  </div>
+                </div>
+
+                {/* 3. Luxury Penthouse - 50k / day */}
+                <div className="rounded-2xl border-2 border-[#D4AF37] bg-gradient-to-br from-[#FFFDF8] via-white to-[#FAF5E6] p-4 sm:p-5 shadow-md ring-2 ring-[#D4AF37]/25 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-rose-700 px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-white shadow-sm">
+                        🔥 Trending Penthouse
+                      </span>
+                      <span className="text-[11px] font-mono font-bold text-[#8C6207]">50k / day</span>
+                    </div>
+
+                    <h3 className="mt-2.5 font-serif text-lg font-bold text-slate-900">
+                      Luxury Penthouse
+                    </h3>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      Margalla Sky Terrace • BBQ Patio • 85" 4K Smart Media Wall • 15 Video Tours.
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-[#D4AF37]/30 flex items-center justify-between gap-2">
+                    <div>
+                      <div className="text-[10px] uppercase font-bold text-slate-400">Fixed Rate</div>
+                      <div className="font-serif text-xl font-extrabold text-[#8C6207]">
+                        Rs. 50,000 <span className="text-xs font-sans font-normal text-slate-500">/ day</span>
+                      </div>
+                      <div className="text-[11px] font-bold text-emerald-600 font-mono">+Rs. 9,000 profit/nt</div>
+                    </div>
+                    <button
+                      onClick={() => handleBookRoom(penthouseRoom)}
+                      className="gold-btn rounded-xl px-3.5 py-2 text-xs font-bold text-slate-950 shadow-md"
+                    >
+                      Book 50k
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -162,7 +162,7 @@ export const LUXURY_HOTELS = [
         thumbnail: "/apartment/trending-terrace-night.jpg"
       }
     ],
-    clientRate: 145000, // PKR per night (Rack rate)
+    clientRate: 50000, // PKR per night - Fixed: 50k per day for Luxury Penthouse
     agentCommissionPct: 18, // 18% agent margin
     sizeSqM: 300,
     sizeSqFt: 3200,
@@ -189,84 +189,80 @@ export const LUXURY_HOTELS = [
     description: "Pakistan's #1 Trending Luxury Penthouse in Islamabad. Features a private open-air rooftop sky terrace with barbecue grill and panoramic twilight views of the Margalla Hills. Inside, experience an expansive executive salon with an 85\" smart TV media wall, a sculpted wave ambient LED lounge, and an iconic arched backlit mirror foyer tailored for VIP travelers, diplomats, and elite executives."
   },
   {
-    id: "fs-room-pk-01",
-    name: "Diplomatic Royal Presidential Suite",
-    hotel: "5-Star Diplomatic Hotel",
+    id: "fs-room-1bed-01",
+    name: "Deluxe Single Bed Room Executive Suite",
+    hotel: "Famous Stay Partner Hotel",
     city: "Islamabad",
     country: "Pakistan",
     rating: 4.98,
     reviewsCount: 412,
-    category: "Presidential Suite",
+    category: "Single Bed Room",
     images: [
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80"
     ],
-    clientRate: 185000, // PKR per night (Rack rate)
-    agentCommissionPct: 16, // %
-    sizeSqM: 240,
-    sizeSqFt: 2580,
-    bedType: "1 Master King Bed + Executive Study",
-    maxAdults: 3,
-    maxChildren: 2,
-    view: "Margalla Hills & Diplomatic Enclave Gardens",
-    floor: "Executive Diplomatic Floor (5th Floor)",
-    availableRooms: 2,
+    clientRate: 8000, // PKR per night - Fixed: 8k per day for Single Bed Room
+    agentCommissionPct: 18, // 18% agent margin
+    sizeSqM: 65,
+    sizeSqFt: 700,
+    bedType: "1 Master King Bed + Executive Study Desk",
+    maxAdults: 2,
+    maxChildren: 1,
+    view: "City View & Skyline Gardens",
+    floor: "Executive Floor (4th Floor)",
+    availableRooms: 5,
     instantConfirmation: true,
     amenities: [
-      "Dedicated 24/7 Royal Butler Assistance",
-      "Complimentary VIP Airport Chauffeur (Mercedes S-Class)",
-      "Daily Royal Buffet Breakfast at Executive Lounge",
-      "Executive Wellness Spa & Heated Lap Pool Access",
-      "Handcrafted Swati Wood Carvings & Onyx Marble Bath",
-      "Jacuzzi & Hydrotherapy Steam Shower",
-      "High-speed 1Gbps Secure Leased Wi-Fi",
-      "Private Boardroom Salon for 8 Guests",
-      "Complimentary Premium Dry Fruits & Gourmet Minibar",
-      "Bespoke Security Detail & Safe Haven Protocol"
+      "Plush Master King Bed with Premium Egyptian Cotton Linens",
+      "High-speed 1Gbps Fiber Wi-Fi & Dedicated Ergonomic Workspace",
+      "Attached Luxury Marble Bathroom with Rain Shower",
+      "55\" 4K Smart LED TV with Streaming Services",
+      "Inverter Air Conditioning & Heating",
+      "Complimentary Tea, Gourmet Coffee & Mineral Water",
+      "24/7 Room Service & Daily Housekeeping",
+      "Direct WhatsApp Concierge Assistance"
     ],
-    description: "The premier suite of Islamabad hospitality. Inspired by traditional architecture with authentic mirror mosaics, intricate marble inlays, and sweeping vistas of the Margalla Hills. Favored by visiting executives, delegations, and elite guests."
+    description: "Comfortable, modern Single Bed Room suite tailored for solo travelers, business executives, and visiting clients. Features a plush king bed, ergonomic desk, high-speed fiber internet, and luxury amenities."
   },
   {
-    id: "fs-room-pk-02",
-    name: "Himalayan Monarch Royal Chalet",
-    hotel: "5-Star Mountain Resort",
-    city: "Bhurban, Murree Hills",
+    id: "fs-room-2bed-01",
+    name: "Executive Two Bed Room Luxury Suite",
+    hotel: "Famous Stay Partner Hotel",
+    city: "Islamabad",
     country: "Pakistan",
     rating: 4.95,
     reviewsCount: 529,
-    category: "Presidential Chalet",
+    category: "Two Bed Room",
     images: [
       "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
     ],
-    clientRate: 145000,
-    agentCommissionPct: 15,
-    sizeSqM: 210,
-    sizeSqFt: 2260,
-    bedType: "2 Master King Bedrooms + Attic",
+    clientRate: 15000, // PKR per night - Fixed: 15k per day for Two Bed Room
+    agentCommissionPct: 18, // 18% agent margin
+    sizeSqM: 150,
+    sizeSqFt: 1600,
+    bedType: "2 Master King Bedrooms + Central Living Lounge",
     maxAdults: 4,
     maxChildren: 2,
-    view: "Panoramic Kashmir Valley & Snowcapped Pine Forests",
-    floor: "Private Hillside Chalet Tier",
-    availableRooms: 3,
+    view: "Panoramic Skyline & Mountain Horizon",
+    floor: "Executive Suite Tier",
+    availableRooms: 4,
     instantConfirmation: true,
     amenities: [
-      "Natural Stone Wood-burning Fireplace in Salon",
-      "Private Heated Alpine Jacuzzi on Balcony",
-      "Dedicated Private Chalet Attendant",
-      "Daily Continental & Desi Breakfast Buffet",
-      "Chauffeur Transfer from Islamabad Airport",
-      "VIP Priority Tee Times at Golf Course",
-      "Heated Cashmere Blankets & Balcony Telescope",
-      "En-suite Cedarwood Dry Sauna",
-      "Private Barbecue Terrace with Personal Chef Option",
-      "Helipad Landing Access"
+      "2 Completely Separate Master King Bedrooms with En-suite Baths",
+      "Central Executive Living Lounge with 65\" 4K Smart TV",
+      "Fully Equipped Dining Table & Kitchenette",
+      "High-speed 1Gbps Fiber Wi-Fi throughout suite",
+      "Dual Climate Control Inverters in all rooms",
+      "Deep Soaking Tub & Luxury Rain Showers",
+      "Private Balcony with Outdoor Chairs",
+      "24/7 VIP Concierge & Keycard Access"
     ],
-    description: "Perched majestically among misty pine ridges overlooking the Kashmir valley. Features towering cedar ceilings, a natural stone fireplace, private panoramic terrace, and hill-station luxury for elite families."
+    description: "Spacious Two Bed Room family suite featuring two separate master bedrooms, attached designer marble bathrooms, central living lounge with 65\" TV, and dining area. Perfect for families, corporate teams, and long-term stays."
   },
   {
     id: "fs-room-pk-03",
@@ -276,14 +272,14 @@ export const LUXURY_HOTELS = [
     country: "Pakistan",
     rating: 4.99,
     reviewsCount: 388,
-    category: "Private Pool Villa",
+    category: "Single Bed Room",
     images: [
       "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80"
     ],
-    clientRate: 195000,
+    clientRate: 8000, // Fixed: 8k per day for Single Bed Room
     agentCommissionPct: 18,
     sizeSqM: 280,
     sizeSqFt: 3010,
@@ -316,15 +312,15 @@ export const LUXURY_HOTELS = [
     country: "Pakistan",
     rating: 4.97,
     reviewsCount: 340,
-    category: "Cliffside Suite",
+    category: "Single Bed Room",
     images: [
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80"
     ],
-    clientRate: 165000,
-    agentCommissionPct: 16,
+    clientRate: 8000, // Fixed: 8k per day for Single Bed Room
+    agentCommissionPct: 18,
     sizeSqM: 190,
     sizeSqFt: 2045,
     bedType: "1 Grand King Bed + Lakeside Daybed",
@@ -356,15 +352,15 @@ export const LUXURY_HOTELS = [
     country: "Pakistan",
     rating: 4.96,
     reviewsCount: 472,
-    category: "Royal Penthouse",
+    category: "Luxury Penthouse",
     images: [
       "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
     ],
-    clientRate: 175000,
-    agentCommissionPct: 16,
+    clientRate: 50000, // Fixed: 50k per day for Penthouse
+    agentCommissionPct: 18,
     sizeSqM: 220,
     sizeSqFt: 2365,
     bedType: "1 Emperor King Bed + Walk-in Dressing Suite",
@@ -396,15 +392,15 @@ export const LUXURY_HOTELS = [
     country: "Pakistan",
     rating: 4.94,
     reviewsCount: 395,
-    category: "Executive Deluxe",
+    category: "Single Bed Room",
     images: [
       "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80"
     ],
-    clientRate: 155000,
-    agentCommissionPct: 15,
+    clientRate: 8000, // Fixed: 8k per day for Single Bed Room
+    agentCommissionPct: 18,
     sizeSqM: 195,
     sizeSqFt: 2100,
     bedType: "1 Grand King Bed + Diplomatic Salon",
@@ -436,19 +432,19 @@ export const LUXURY_HOTELS = [
     country: "United Arab Emirates",
     rating: 5.0,
     reviewsCount: 618,
-    category: "Private Pool Villa",
+    category: "Two Bed Room",
     images: [
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80"
     ],
-    clientRate: 420000,
-    agentCommissionPct: 16,
+    clientRate: 15000, // Fixed: 15k per day for Two Bed Room
+    agentCommissionPct: 18,
     sizeSqM: 260,
     sizeSqFt: 2800,
-    bedType: "1 Super King Bed + 1 Daybed",
-    maxAdults: 3,
+    bedType: "2 Master King Bedrooms",
+    maxAdults: 4,
     maxChildren: 2,
     view: "Arabian Gulf & Private Palm Beachfront",
     floor: "Ground Level with Private Beach Access",
@@ -476,14 +472,14 @@ export const LUXURY_HOTELS = [
     country: "Maldives",
     rating: 4.99,
     reviewsCount: 512,
-    category: "Overwater Villa",
+    category: "Two Bed Room",
     images: [
       "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
     ],
-    clientRate: 590000,
+    clientRate: 15000, // Fixed: 15k per day for Two Bed Room
     agentCommissionPct: 18,
     sizeSqM: 380,
     sizeSqFt: 4100,
@@ -517,20 +513,20 @@ export const INITIAL_AGENT_BOOKINGS = [
     clientName: "Chaudhry Tariq Mehmood",
     clientEmail: "tariq.mehmood@mehmoodgroup.com.pk",
     clientPhone: "+92 300 8541290",
-    hotelName: "5-Star Diplomatic Hotel",
-    roomName: "Diplomatic Royal Presidential Suite",
+    hotelName: "Famous Stay Partner Hotel",
+    roomName: "Deluxe Single Bed Room Executive Suite",
     destination: "Islamabad, Pakistan",
     checkIn: "2026-11-12",
     checkOut: "2026-11-17",
     nights: 5,
     guests: "2 Adults",
-    clientTotal: 925000, // PKR
-    agentNetTotal: 777000,
-    agentCommission: 148000,
-    commissionPct: 16,
+    clientTotal: 40000, // PKR (5 nights × Rs. 8,000)
+    agentNetTotal: 32800,
+    agentCommission: 7200,
+    commissionPct: 18,
     status: "Confirmed",
     paymentMode: "Agency Corporate Credit Line (Net 30)",
-    specialRequests: "VIP Diplomatic arrival. Airport Mercedes S-Class pickup from Islamabad International. Non-feather pillows, late checkout 4pm.",
+    specialRequests: "VIP Diplomatic arrival. High-speed fiber WiFi needed for business meetings.",
     agentPnr: "ISB-92841-VIP",
     qrCodeMock: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=FAMOUS-STAY-FS-92841-ISB"
   },
@@ -540,21 +536,21 @@ export const INITIAL_AGENT_BOOKINGS = [
     clientName: "Malik Jahangir Khan & Family",
     clientEmail: "m.jahangir@jkenterprises.pk",
     clientPhone: "+92 321 4455889",
-    hotelName: "5-Star Mountain Resort",
-    roomName: "Himalayan Monarch Royal Chalet",
-    destination: "Bhurban, Murree Hills, Pakistan",
+    hotelName: "Famous Stay Partner Hotel",
+    roomName: "Executive Two Bed Room Luxury Suite",
+    destination: "Islamabad, Pakistan",
     checkIn: "2026-12-04",
     checkOut: "2026-12-08",
     nights: 4,
     guests: "4 Adults, 2 Children",
-    clientTotal: 580000,
-    agentNetTotal: 493000,
-    agentCommission: 87000,
-    commissionPct: 15,
+    clientTotal: 60000, // PKR (4 nights × Rs. 15,000)
+    agentNetTotal: 49200,
+    agentCommission: 10800,
+    commissionPct: 18,
     status: "Confirmed",
     paymentMode: "Bank Alfalah Corporate Transfer",
-    specialRequests: "Chalet stone fireplace pre-lit upon arrival. Private barbecue dinner on terrace for family celebration.",
-    agentPnr: "BHU-49102-MAL",
+    specialRequests: "Two connecting bedrooms. Late checkout requested.",
+    agentPnr: "ISB-49102-MAL",
     qrCodeMock: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=FAMOUS-STAY-FS-49102-BHU"
   },
   {
@@ -563,21 +559,21 @@ export const INITIAL_AGENT_BOOKINGS = [
     clientName: "Begum Fatima & Dr. Salman Bilgrami",
     clientEmail: "salman.bilgrami@bilgramiclinic.pk",
     clientPhone: "+92 333 2198765",
-    hotelName: "5-Star Luxury Beach Resort (Dubai)",
-    roomName: "The Royal Palm Beachfront Villa (Outbound VIP)",
-    destination: "Dubai, United Arab Emirates",
+    hotelName: "Famous Stay Serviced Residence",
+    roomName: "Trending Executive Luxury Penthouse & Margalla Sky Terrace",
+    destination: "Islamabad, Pakistan",
     checkIn: "2026-12-20",
-    checkOut: "2026-12-26",
-    nights: 6,
+    checkOut: "2026-12-23",
+    nights: 3,
     guests: "2 Adults",
-    clientTotal: 2520000,
-    agentNetTotal: 2116800,
-    agentCommission: 403200,
-    commissionPct: 16,
+    clientTotal: 150000, // PKR (3 nights × Rs. 50,000)
+    agentNetTotal: 123000,
+    agentCommission: 27000,
+    commissionPct: 18,
     status: "Confirmed",
-    paymentMode: "Habib Bank Direct Wire (HBL)",
-    specialRequests: "Anniversary vacation. Rolls-Royce DXB airport greeting, oceanfront cabana reserved.",
-    agentPnr: "DXB-88319-BIL",
+    paymentMode: "Bank Alfalah Corporate Transfer",
+    specialRequests: "Margalla terrace barbecue prepped for arrival evening. VIP airport pickup.",
+    agentPnr: "ISB-88319-BIL",
     qrCodeMock: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=FAMOUS-STAY-FS-88319-DXB"
   }
 ];
@@ -596,12 +592,7 @@ export const DESTINATIONS = [
 
 export const CATEGORIES = [
   "All Categories",
-  "Luxury Serviced Apartment",
-  "Presidential Suite",
-  "Presidential Chalet",
-  "Private Pool Villa",
-  "Royal Penthouse",
-  "Cliffside Suite",
-  "Overwater Villa",
-  "Executive Deluxe"
+  "Single Bed Room",
+  "Two Bed Room",
+  "Luxury Penthouse"
 ];
