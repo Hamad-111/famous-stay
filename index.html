@@ -16,6 +16,21 @@
     <meta name="publisher" content="Famous Stay" />
     <link rel="canonical" href="https://famousstay.com/" />
 
+    <!-- DYNAMIC CANONICAL & HOST SYNCHRONIZATION FOR GOOGLE SEARCH CONSOLE -->
+    <script>
+      (function() {
+        try {
+          var h = window.location.hostname;
+          if (h && h !== 'localhost' && h !== '127.0.0.1') {
+            var can = document.querySelector("link[rel='canonical']");
+            if (can && h !== 'famousstay.com' && h !== 'www.famousstay.com') {
+              can.setAttribute('href', window.location.origin + window.location.pathname);
+            }
+          }
+        } catch(e) {}
+      })();
+    </script>
+
     <!-- GOOGLE SEARCH CONSOLE & WEBMASTER VERIFICATION -->
     <meta name="google-site-verification" content="google-site-verification-famousstay-verified" />
     <meta name="msvalidate.01" content="msvalidate-famousstay-bing-verified" />
@@ -313,7 +328,67 @@
     </script>
   </head>
   <body class="bg-[#FAF9F5] text-slate-800 antialiased selection:bg-[#D4AF37] selection:text-white">
-    <div id="root"></div>
+    <div id="root">
+      <!-- CRAWLABLE PRE-RENDERED STATIC CONTENT FOR GOOGLEBOT & SEARCH ENGINE INDEXERS -->
+      <main style="max-width:1200px;margin:0 auto;padding:40px 20px;font-family:system-ui,-apple-system,sans-serif;">
+        <header style="margin-bottom:30px;border-bottom:2px solid #D4AF37;padding-bottom:20px;">
+          <h1 style="font-size:2rem;color:#0f172a;margin-bottom:8px;">Famous Stay | Luxury Penthouses &amp; Hotel Suites in Pakistan</h1>
+          <p style="color:#475569;font-size:1.1rem;line-height:1.5;">
+            Verified B2B travel agent portal and direct booking service featuring luxury hotel rooms, 15 live video walkthroughs, and executive penthouses in Islamabad, Pakistan.
+          </p>
+        </header>
+
+        <section style="margin-bottom:30px;">
+          <h2 style="font-size:1.5rem;color:#8C6207;margin-bottom:12px;">Official Fixed Daily Room Rates</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+            <article style="border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#ffffff;">
+              <h3 style="font-size:1.2rem;color:#0f172a;margin-bottom:6px;">Deluxe Single Bed Room</h3>
+              <p style="font-weight:bold;color:#059669;font-size:1.1rem;margin-bottom:8px;">Rs. 8,000 / day (8k)</p>
+              <p style="color:#64748b;font-size:0.9rem;">1 Plush King Bed, 4K LED TV, High-speed fiber Wi-Fi, Attached rain shower bath.</p>
+            </article>
+
+            <article style="border:1px solid #e2e8f0;border-radius:12px;padding:20px;background:#ffffff;">
+              <h3 style="font-size:1.2rem;color:#0f172a;margin-bottom:6px;">Executive Two Bed Room Suite</h3>
+              <p style="font-weight:bold;color:#059669;font-size:1.1rem;margin-bottom:8px;">Rs. 15,000 / day (15k)</p>
+              <p style="color:#64748b;font-size:0.9rem;">2 Master King Bedrooms, 2 En-Suite Designer Marble Baths, Central Living Lounge, Dining.</p>
+            </article>
+
+            <article style="border:2px solid #D4AF37;border-radius:12px;padding:20px;background:#FFFDF7;">
+              <h3 style="font-size:1.2rem;color:#8C6207;margin-bottom:6px;">Trending Luxury Penthouse &amp; Margalla Sky Terrace</h3>
+              <p style="font-weight:bold;color:#8C6207;font-size:1.1rem;margin-bottom:8px;">Rs. 50,000 / day (50k)</p>
+              <p style="color:#64748b;font-size:0.9rem;">Open-Air Rooftop Sky Terrace with Barbecue Patio, 85&quot; Smart Media Wall, Wave LED Lounge, 15 Video Tours.</p>
+            </article>
+          </div>
+        </section>
+
+        <section style="margin-bottom:30px;">
+          <h2 style="font-size:1.3rem;color:#0f172a;margin-bottom:10px;">Direct 24/7 VIP Concierge &amp; WhatsApp Booking Desk</h2>
+          <p style="color:#334155;margin-bottom:8px;">
+            <strong>Lead Host Agent Mohsin:</strong> <a href="https://wa.me/923143292778" style="color:#128c7e;font-weight:bold;">0314 3292778 (+92 314 3292778)</a>
+          </p>
+          <p style="color:#334155;margin-bottom:8px;">
+            <strong>Second Agent Arsalan Jutt:</strong> <a href="https://wa.me/923180985887" style="color:#128c7e;font-weight:bold;">+92 318 0985887</a>
+          </p>
+        </section>
+
+        <section style="margin-bottom:30px;">
+          <h2 style="font-size:1.3rem;color:#0f172a;margin-bottom:10px;">Frequently Asked Questions (FAQ)</h2>
+          <details style="margin-bottom:10px;padding:10px;background:#f8fafc;border-radius:8px;">
+            <summary style="font-weight:bold;cursor:pointer;">What are the room rates on Famous Stay?</summary>
+            <p style="margin-top:6px;color:#475569;">Single Bed Room is Rs. 8,000/day, Two Bed Room is Rs. 15,000/day, and the Trending Penthouse is Rs. 50,000/day.</p>
+          </details>
+          <details style="margin-bottom:10px;padding:10px;background:#f8fafc;border-radius:8px;">
+            <summary style="font-weight:bold;cursor:pointer;">How can I book a room?</summary>
+            <p style="margin-top:6px;color:#475569;">Contact Agent Mohsin at 0314 3292778 or Agent Arsalan Jutt at +92 318 0985887 directly on WhatsApp, or book through our online portal.</p>
+          </details>
+        </section>
+      </main>
+    </div>
+    <noscript>
+      <div style="text-align:center;padding:20px;background:#fee2e2;color:#991b1b;font-weight:bold;">
+        For the full interactive 15-video cinema showroom and instant agent booking voucher generator, please enable JavaScript in your browser.
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
