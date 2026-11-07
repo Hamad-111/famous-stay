@@ -265,6 +265,86 @@ export const LUXURY_HOTELS = [
     description: "Spacious Two Bed Room family suite featuring two separate master bedrooms, attached designer marble bathrooms, central living lounge with 65\" TV, and dining area. Perfect for families, corporate teams, and long-term stays."
   },
   {
+    id: "fs-farmhouse-isb-01",
+    name: "Margalla Grand Luxury Pool Farmhouse & Estate",
+    hotel: "Famous Stay Islamabad Farmhouse Retreats",
+    city: "Chak Shahzad & Bani Gala, Islamabad",
+    country: "Pakistan",
+    rating: 4.99,
+    reviewsCount: 312,
+    category: "Luxury Farmhouse",
+    isTrending: true,
+    trendingBadge: "🏡 #1 Luxury Farmhouse in Islamabad",
+    images: [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80"
+    ],
+    clientRate: 60000, // PKR per night
+    agentCommissionPct: 18,
+    sizeSqM: 950,
+    sizeSqFt: 10225,
+    bedType: "4 Master King Bedrooms + Private Caretaker Villa",
+    maxAdults: 12,
+    maxChildren: 6,
+    view: "Private Pool, Lush Green Lawns & Margalla Skyline",
+    floor: "Exclusive Private Gated Estate",
+    availableRooms: 1,
+    instantConfirmation: true,
+    amenities: [
+      "Temperature-Controlled Private Swimming Pool with Sun Loungers",
+      "2-Acre Manicured Green Party Lawn for BBQ & Family Gatherings",
+      "Dedicated Outdoor Barbecue Pit, Bonfire Station & Dining Gazebo",
+      "4 Master King Bedrooms with Attached Luxury Marble Bathrooms",
+      "Full Standby Heavy Generator (24/7 Uninterrupted Electricity)",
+      "24/7 Gated Security Guard, CCTV & Private Caretaker Service",
+      "Indoor Game Lounge with Snooker / Billiards & Table Tennis",
+      "Direct WhatsApp Concierge Coordination with Agent Mohsin & Arsalan"
+    ],
+    description: "Islamabad's most sought-after private luxury farmhouse situated in serene Chak Shahzad & Bani Gala. Complete with a private crystal-clear swimming pool, sprawling 2-acre party lawn, outdoor BBQ & bonfire deck, 4 luxury master suites, and uninterrupted generator power. Ideal for VIP family vacations, wedding shoots, and private corporate retreats."
+  },
+  {
+    id: "fs-hotel-famous-01",
+    name: "Islamabad Famous 5-Star Partner Suite (Serena & Marriott Tier)",
+    hotel: "Famous Stay Islamabad Premier Partner Hotel",
+    city: "F-6 / F-7 / Blue Area, Islamabad",
+    country: "Pakistan",
+    rating: 4.97,
+    reviewsCount: 468,
+    category: "Islamabad Famous Hotels",
+    isTrending: false,
+    trendingBadge: "🏨 Top Islamabad Hotel Suite",
+    images: [
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    clientRate: 15000, // PKR per night (wholesale fixed partner rate)
+    agentCommissionPct: 18,
+    sizeSqM: 140,
+    sizeSqFt: 1500,
+    bedType: "2 Master King Bedrooms + Executive Reception Salon",
+    maxAdults: 4,
+    maxChildren: 2,
+    view: "Margalla Hills View & Islamabad City Skyline",
+    floor: "VIP Club Floor",
+    availableRooms: 3,
+    instantConfirmation: true,
+    amenities: [
+      "Serena & Marriott Tier 5-Star Luxury Furnishings & Bedding",
+      "Prime Central Islamabad Location (Minutes from F-6, F-7, Blue Area)",
+      "Attached Designer En-Suite Marble Bath with Rain Shower & Soaking Tub",
+      "High-speed 1Gbps Fiber Internet with Executive Workstation",
+      "24/7 Room Service, Gourmet Dining & In-Room Breakfast",
+      "Daily Valet Parking & 24/7 Armed Security Surveillance",
+      "Soundproof Double-Glazed Windows with Margalla Sunset Views",
+      "Direct Keycard Express Check-in & Agent Concierge Desk"
+    ],
+    description: "An elite executive hotel suite rivaling Islamabad's famous 5-star hotels (Serena, Marriott, Centaurus) at transparent fixed partner rates. Located in prime central Islamabad with majestic Margalla views, dual master king bedrooms, marble bath, and 24/7 room service."
+  },
+  {
     id: "fs-room-pk-03",
     name: "Karakoram Royal Heritage Pavilion",
     hotel: "5-Star Heritage Sanctuary",

@@ -139,10 +139,12 @@ export default function App() {
   // Total Commissions Calculation
   const totalCommissions = bookings.reduce((sum, b) => sum + (b.agentCommission || 0), 0);
 
-  // Dedicated room types with fixed rates: 1-Bed 8k, 2-Bed 15k, Penthouse 50k
+  // Dedicated room types with fixed rates: 1-Bed 8k, 2-Bed 15k, Penthouse 50k + Farmhouse & Famous Hotels
   const penthouseRoom = LUXURY_HOTELS.find(h => h.id === 'fs-apt-emerald-01') || LUXURY_HOTELS[0];
   const singleBedRoom = LUXURY_HOTELS.find(h => h.id === 'fs-room-1bed-01') || LUXURY_HOTELS[1];
   const twoBedRoom = LUXURY_HOTELS.find(h => h.id === 'fs-room-2bed-01') || LUXURY_HOTELS[2];
+  const farmhouseRoom = LUXURY_HOTELS.find(h => h.id === 'fs-farmhouse-isb-01');
+  const famousHotelRoom = LUXURY_HOTELS.find(h => h.id === 'fs-hotel-famous-01');
 
   // The primary luxury suite featuring the 15 HD video tours
   const featuredSuite = penthouseRoom;
@@ -304,6 +306,8 @@ export default function App() {
               singleBedRoom={singleBedRoom}
               twoBedRoom={twoBedRoom}
               penthouseRoom={penthouseRoom}
+              farmhouseRoom={farmhouseRoom}
+              famousHotelRoom={famousHotelRoom}
             />
 
             {/* OFFICIAL FIXED DAILY RATE CARD (Single Bed 8k, Two Bed 15k, Penthouse 50k) */}
@@ -446,6 +450,8 @@ export default function App() {
               singleBedRoom={singleBedRoom}
               twoBedRoom={twoBedRoom}
               penthouseRoom={penthouseRoom}
+              farmhouseRoom={farmhouseRoom}
+              famousHotelRoom={famousHotelRoom}
               onBookRoom={(room) => handleBookRoom(room)}
             />
 

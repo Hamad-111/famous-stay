@@ -6,37 +6,41 @@
 
 ---
 
-## 🌟 Official Fixed Daily Room Rates
+## 🌟 Official Fixed Daily Room Rates & Luxury Catalog
 
-| Room Tier | Daily Rate | Agent Margin (18%) | Net Agent Earnings | Top Features |
+| Accommodation Category | Daily Rate | Agent Margin (18%) | Net Agent Earnings | Top Features |
 | :--- | :--- | :--- | :--- | :--- |
-| **Single Bed Room** | **Rs. 8,000 / day** | +18% Wholesale | +Rs. 1,440 / nt | 1 Plush King Bed, 4K LED TV, High-Speed Fiber Wi-Fi, Rain Shower |
-| **Two Bed Room** | **Rs. 15,000 / day** | +18% Wholesale | +Rs. 2,700 / nt | 2 Master King Bedrooms, 2 En-Suite Marble Baths, Central Living Lounge, Dining |
+| **Deluxe Single Bed Room** | **Rs. 8,000 / day** | +18% Wholesale | +Rs. 1,440 / nt | 1 Plush King Bed, 4K LED TV, High-Speed Fiber Wi-Fi, Rain Shower |
+| **Executive Two Bed Room** | **Rs. 15,000 / day** | +18% Wholesale | +Rs. 2,700 / nt | 2 Master King Bedrooms, 2 En-Suite Marble Baths, Central Living Lounge, Dining |
 | **Trending Luxury Penthouse** | **Rs. 50,000 / day** | +18% Wholesale | +Rs. 9,000 / nt | Open-Air Margalla Sky Terrace, BBQ Patio, 85" Smart Media Wall, Wave LED Lounge |
+| **Margalla Luxury Pool Farmhouse** | **Rs. 60,000 / day** | +18% Wholesale | +Rs. 10,800 / nt | Private Swimming Pool, 2-Acre Party Lawn, 4 Bed Suites, BBQ Pit, Heavy Generator |
+| **Islamabad Famous 5-Star Suite** | **Rs. 15,000 / day** | +18% Wholesale | +Rs. 2,700 / nt | Serena & Marriott Tier 5-Star Luxury in F-6/F-7/Blue Area, 24/7 Room Service |
 
 ---
 
 ## 🔍 Famous Search Console & SEO Architecture
 
-Famous Stay comes equipped with an on-page **Famous Search Console** and full **Google Search Console (GSC)** verification infrastructure:
+Famous Stay is powered by a high-ranking **Famous Search Console** and comprehensive **Google Search Console (GSC)** indexing infrastructure targeting Islamabad's most popular hospitality search queries:
 
 - **Famous Search Console (On-Page)**:
-  - Instant hotkeys: `Trending Penthouse (50k)`, `Single Bed Room (8k)`, `Two Bed Room (15k)`, `Margalla Sky Terrace`, `BBQ Patio`, `15 HD Video Tours`, `Mohsin & Arsalan`.
-  - Search query URL synchronizer (`?search=...` / `?q=...`) for instant deep linking from search engines or agent shares.
-- **Google Search Console Verification**:
+  - **Category Pills**: *All Keys*, *Islamabad Famous Hotels*, *Luxury Farmhouses*, *Trending Penthouse*, and *Fixed Rates*.
+  - **Live Search Matching**: Instantly surfaces relevant cards for keywords like `hotel`, `serena`, `marriott`, `farmhouse`, `pool`, `chak shahzad`, `penthouse`, `50k`, `8k`, `15k`.
+  - **URL Parameter Listener**: Deep links from Google Search (`?search=...` / `?q=...`) automatically populate the console and highlight matching suites.
+- **Google Search Console Verification & Live Domain**:
+  - Live Domain: `https://famous-stay.vercel.app/`
   - **HTML Meta Tag**: `<meta name="google-site-verification" content="google-site-verification-famousstay-verified" />` in `index.html`.
   - **HTML File Upload**: `public/google-site-verification.html` ready for instant Google webmaster domain verification.
   - **Bing Webmaster Tools**: `<meta name="msvalidate.01" content="msvalidate-famousstay-bing-verified" />`.
   - **Yandex Verification**: `<meta name="yandex-verification" content="yandex-famousstay-verified" />`.
 - **Structured Data (Schema.org JSON-LD)**:
-  - `LodgingBusiness`: Official Pakistan address, coordinates, telephone, pricing, and employee profiles.
-  - `ItemList`: Complete fixed room offers (Single Bed 8k, Two Bed 15k, Penthouse 50k).
-  - `FAQPage`: Rich Snippet FAQs for Google Search featured answers.
-  - `WebSite` with `potentialAction` (`SearchAction`): Triggers Google Sitelinks Search Box directly to `https://famousstay.com/?search={search_term_string}`.
+  - `LodgingBusiness`: Official Islamabad coordinates, phone, verified ratings, and employee profiles.
+  - `ItemList`: Catalog of Single Bed, Two Bed, Trending Penthouse, Luxury Pool Farmhouse, and Famous Hotel Suite.
+  - `FAQPage`: Rich Snippets answering queries on Islamabad famous hotels, private pool farmhouses, rates, and penthouse amenities.
+  - `WebSite` with `potentialAction` (`SearchAction`): Triggers Google Sitelinks Search Box directly to `https://famous-stay.vercel.app/?search={search_term_string}`.
   - `BreadcrumbList`: Structured navigation hierarchy for Googlebot breadcrumbs.
 - **Crawler Optimization**:
   - `public/robots.txt`: Directives for Googlebot, Googlebot-Image, and Googlebot-Video.
-  - `public/sitemap.xml`: Image & Video XML schemas indexing all 5 Penthouse photos and 15 video tours.
+  - `public/sitemap.xml`: Image & Video XML schemas indexing all Penthouse photos, Farmhouses, and 15 video tours.
 
 ---
 

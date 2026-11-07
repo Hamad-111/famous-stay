@@ -4,7 +4,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://famous-stay.vercel.app/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     
@@ -12,7 +12,7 @@
     <image:image>
       <image:loc>https://famous-stay.vercel.app/apartment/trending-living-media.jpg</image:loc>
       <image:title>Famous Stay Grand Executive Salon &amp; 85 inch 4K Smart Media Wall</image:title>
-      <image:caption>Trending luxury penthouse living room with acoustic wall and cove lighting</image:caption>
+      <image:caption>Trending luxury penthouse living room with acoustic wall and cove lighting in Islamabad</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://famous-stay.vercel.app/apartment/trending-terrace-bbq.jpg</image:loc>
@@ -48,7 +48,7 @@
     <video:video>
       <video:thumbnail_loc>https://famous-stay.vercel.app/apartment/trending-terrace-bbq.jpg</video:thumbnail_loc>
       <video:title>Famous Stay Rooftop Sky Terrace &amp; BBQ Walkthrough</video:title>
-      <video:description>Panoramic Margalla mountain views, outdoor dining patio, and barbecue grill walkthrough.</video:description>
+      <video:description>Panoramic Margalla mountain views, outdoor dining patio, and barbecue grill walkthrough in Islamabad.</video:description>
       <video:content_loc>https://famous-stay.vercel.app/apartment/videos/video-tour-4.mp4</video:content_loc>
       <video:player_loc>https://famous-stay.vercel.app/</video:player_loc>
       <video:duration>50</video:duration>

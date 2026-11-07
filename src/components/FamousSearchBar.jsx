@@ -15,7 +15,13 @@ import {
   ExternalLink,
   Share2,
   Terminal,
-  Compass
+  Compass,
+  Building2,
+  Trees,
+  Waves,
+  MapPin,
+  ShieldCheck,
+  Star
 } from 'lucide-react';
 
 export default function FamousSearchBar({
@@ -23,25 +29,83 @@ export default function FamousSearchBar({
   onBookRoom,
   singleBedRoom,
   twoBedRoom,
-  penthouseRoom
+  penthouseRoom,
+  farmhouseRoom,
+  famousHotelRoom
 }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeKey, setActiveKey] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Famous Search Keys / Popular Hotkeys
   const famousKeys = [
-    { id: 'penthouse-50k', label: 'Trending Penthouse (50k)', icon: Flame, tag: '50k/day', category: 'penthouse', room: penthouseRoom },
-    { id: 'single-8k', label: 'Single Bed Room (8k)', icon: Bed, tag: '8k/day', category: 'rates', room: singleBedRoom },
-    { id: 'two-bed-15k', label: 'Two Bed Room (15k)', icon: Bed, tag: '15k/day', category: 'rates', room: twoBedRoom },
-    { id: 'sky-terrace', label: 'Margalla Sky Terrace', icon: Mountain, tag: 'Mountain View', category: 'penthouse', room: penthouseRoom },
-    { id: 'bbq-patio', label: 'BBQ Patio & Grill', icon: UtensilsCrossed, tag: 'Outdoor Dining', category: 'penthouse', room: penthouseRoom },
-    { id: 'video-tours', label: '15 HD Video Tours', icon: Video, tag: 'Live Walkthrough', category: 'media', action: 'videos' },
-    { id: 'agent-desk', label: 'Mohsin & Arsalan', icon: PhoneCall, tag: '24/7 VIP Desk', category: 'agents', action: 'agents' }
+    { 
+      id: 'famous-hotels', 
+      label: 'Islamabad Famous Hotels', 
+      icon: Building2, 
+      tag: 'Serena & Marriott Tier', 
+      category: 'hotels', 
+      room: famousHotelRoom || twoBedRoom,
+      desc: '5-star suites rivaling Serena & Marriott at fixed partner rates'
+    },
+    { 
+      id: 'luxury-farmhouse', 
+      label: 'Luxury Farmhouse (Pool & BBQ)', 
+      icon: Trees, 
+      tag: 'Chak Shahzad & Bani Gala', 
+      category: 'farmhouse', 
+      room: farmhouseRoom,
+      desc: 'Private swimming pool, 2-acre lawn & BBQ party estate'
+    },
+    { 
+      id: 'penthouse-50k', 
+      label: 'Trending Penthouse (50k)', 
+      icon: Flame, 
+      tag: 'Margalla Sky Terrace', 
+      category: 'penthouse', 
+      room: penthouseRoom,
+      desc: 'Private rooftop terrace, BBQ patio & 85" media wall'
+    },
+    { 
+      id: 'single-8k', 
+      label: 'Single Bed Room (8k)', 
+      icon: Bed, 
+      tag: '8k/day', 
+      category: 'rates', 
+      room: singleBedRoom,
+      desc: 'Plush king bed, fiber Wi-Fi & rain shower'
+    },
+    { 
+      id: 'two-bed-15k', 
+      label: 'Two Bed Room (15k)', 
+      icon: Bed, 
+      tag: '15k/day', 
+      category: 'rates', 
+      room: twoBedRoom,
+      desc: '2 master king bedrooms, dual marble baths & central lounge'
+    },
+    { 
+      id: 'video-tours', 
+      label: '15 HD Video Tours', 
+      icon: Video, 
+      tag: 'Live Walkthrough', 
+      category: 'media', 
+      action: 'videos',
+      desc: 'Cinema player with interactive room jump chips'
+    },
+    { 
+      id: 'agent-desk', 
+      label: 'Mohsin & Arsalan', 
+      icon: PhoneCall, 
+      tag: '24/7 VIP Desk', 
+      category: 'agents', 
+      action: 'agents',
+      desc: 'Direct WhatsApp booking with authorized hosts'
+    }
   ];
 
   // Google Search Console & Sitelinks URL parameter listener:
-  // Detects ?search=... or ?q=... from search engine traffic
   useEffect(() => {
     try {
       if (typeof window !== 'undefined' && window.location.search) {
@@ -54,6 +118,7 @@ export default function FamousSearchBar({
           );
           if (matched) {
             setActiveKey(matched.id);
+            setActiveCategory(matched.category || 'all');
           }
         }
       }
@@ -66,7 +131,6 @@ export default function FamousSearchBar({
     setActiveKey(key.id);
     setSearchQuery(key.label);
 
-    // Update URL query cleanly for shareability & search console indexing
     try {
       if (typeof window !== 'undefined') {
         const url = new URL(window.location.href);
@@ -109,9 +173,16 @@ export default function FamousSearchBar({
     } catch {}
   };
 
-  // Filter matching keys or rooms if typing
+  // Filter matching categories or hotkeys
+  const filteredKeys = activeCategory === 'all' 
+    ? famousKeys 
+    : famousKeys.filter(k => k.category === activeCategory || (activeCategory === 'rates' && k.category === 'rates'));
+
+  // Query analysis for live intent detection
   const queryLower = searchQuery.toLowerCase().trim();
-  const isMatchingPenthouse = queryLower.includes('pent') || queryLower.includes('50') || queryLower.includes('terrace') || queryLower.includes('bbq') || queryLower.includes('trend');
+  const isMatchingHotels = queryLower.includes('hotel') || queryLower.includes('serena') || queryLower.includes('marriott') || queryLower.includes('centaurus') || queryLower.includes('f-6') || queryLower.includes('f-7') || queryLower.includes('blue area');
+  const isMatchingFarmhouse = queryLower.includes('farm') || queryLower.includes('pool') || queryLower.includes('lawn') || queryLower.includes('chak') || queryLower.includes('shahzad') || queryLower.includes('bani gala') || queryLower.includes('simly');
+  const isMatchingPenthouse = queryLower.includes('pent') || queryLower.includes('50') || queryLower.includes('terrace') || queryLower.includes('bbq') || queryLower.includes('trend') || queryLower.includes('sky');
   const isMatchingSingle = queryLower.includes('single') || queryLower.includes('8') || queryLower.includes('1 bed') || queryLower.includes('one');
   const isMatchingTwoBed = queryLower.includes('two') || queryLower.includes('2') || queryLower.includes('15') || queryLower.includes('double');
   const isMatchingVideos = queryLower.includes('video') || queryLower.includes('tour') || queryLower.includes('walk') || queryLower.includes('15') || queryLower.includes('live');
@@ -123,7 +194,7 @@ export default function FamousSearchBar({
       <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5">
         <div className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#FFF4D4] via-[#F5E6B8] to-[#E5C07B] text-[#8C6207] shadow-sm border border-[#D4AF37]/45">
-            <Terminal className="h-4.5 w-4.5" />
+            <Compass className="h-5 w-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -131,15 +202,15 @@ export default function FamousSearchBar({
                 Famous Search Console
               </h2>
               <span className="rounded-full bg-rose-600 text-white text-[10px] font-extrabold uppercase px-2 py-0.5 shadow-xs">
-                Live SEO Engine
+                Islamabad Hotspots
               </span>
               <span className="hidden md:inline-flex items-center gap-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 border border-emerald-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                GSC Sitelinks Active
+                Hotels • Farmhouse • Penthouse
               </span>
             </div>
             <p className="text-[11px] text-slate-500 mt-0.5">
-              Instant keyword filter across fixed rates (Single 8k • Two Bed 15k • Penthouse 50k), Margalla Sky Terrace & 15 HD Tours
+              Targeted search engine for Islamabad Famous Hotels, Chak Shahzad Farmhouses with Pool & Trending Margalla Penthouses
             </p>
           </div>
         </div>
@@ -152,14 +223,89 @@ export default function FamousSearchBar({
               title="Copy shareable Search URL"
             >
               <Share2 className="h-3 w-3" />
-              <span>{copiedLink ? 'Link Copied!' : 'Share Query'}</span>
+              <span>{copiedLink ? 'Link Copied!' : 'Share Search'}</span>
             </button>
           )}
           <div className="text-[11px] font-bold text-[#8C6207] bg-[#FFF8E6] px-2.5 py-1 rounded-xl border border-[#D4AF37]/35 shadow-xs flex items-center gap-1.5">
-            <Compass className="h-3.5 w-3.5 text-[#8C6207]" />
-            <span>Search Console</span>
+            <Sparkles className="h-3.5 w-3.5 text-[#8C6207]" />
+            <span>SEO Key Engine</span>
           </div>
         </div>
+      </div>
+
+      {/* Category Filter Pills (Hotels • Farmhouse • Penthouse • Rates) */}
+      <div className="mb-3 flex flex-wrap items-center gap-1.5 text-xs font-bold">
+        <button
+          onClick={() => setActiveCategory('all')}
+          className={`rounded-xl px-3 py-1 transition-all ${
+            activeCategory === 'all'
+              ? 'bg-slate-900 text-white shadow-xs'
+              : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200'
+          }`}
+        >
+          🌟 All Keys
+        </button>
+
+        <button
+          onClick={() => {
+            setActiveCategory('hotels');
+            setSearchQuery('Islamabad Famous Hotels');
+            setActiveKey('famous-hotels');
+          }}
+          className={`flex items-center gap-1.5 rounded-xl px-3 py-1 transition-all ${
+            activeCategory === 'hotels'
+              ? 'bg-[#8C6207] text-white shadow-xs'
+              : 'bg-white text-slate-700 hover:text-[#8C6207] border border-[#D4AF37]/40'
+          }`}
+        >
+          <Building2 className="h-3.5 w-3.5 text-[#D4AF37]" />
+          <span>Famous Hotels</span>
+        </button>
+
+        <button
+          onClick={() => {
+            setActiveCategory('farmhouse');
+            setSearchQuery('Luxury Farmhouse with Pool');
+            setActiveKey('luxury-farmhouse');
+            if (farmhouseRoom && onSelectRoom) onSelectRoom(farmhouseRoom);
+          }}
+          className={`flex items-center gap-1.5 rounded-xl px-3 py-1 transition-all ${
+            activeCategory === 'farmhouse'
+              ? 'bg-emerald-800 text-white shadow-xs'
+              : 'bg-white text-slate-700 hover:text-emerald-800 border border-emerald-300'
+          }`}
+        >
+          <Trees className="h-3.5 w-3.5 text-emerald-600" />
+          <span>Luxury Farmhouse</span>
+        </button>
+
+        <button
+          onClick={() => {
+            setActiveCategory('penthouse');
+            setSearchQuery('Trending Penthouse 50k');
+            setActiveKey('penthouse-50k');
+            if (penthouseRoom && onSelectRoom) onSelectRoom(penthouseRoom);
+          }}
+          className={`flex items-center gap-1.5 rounded-xl px-3 py-1 transition-all ${
+            activeCategory === 'penthouse'
+              ? 'bg-rose-700 text-white shadow-xs'
+              : 'bg-white text-slate-700 hover:text-rose-700 border border-rose-300'
+          }`}
+        >
+          <Crown className="h-3.5 w-3.5 text-rose-600" />
+          <span>Trending Penthouse</span>
+        </button>
+
+        <button
+          onClick={() => setActiveCategory('rates')}
+          className={`rounded-xl px-3 py-1 transition-all ${
+            activeCategory === 'rates'
+              ? 'bg-[#D4AF37] text-slate-950 font-extrabold shadow-xs'
+              : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200'
+          }`}
+        >
+          Fixed Rates (8k / 15k / 50k)
+        </button>
       </div>
 
       {/* Main Search Input */}
@@ -171,7 +317,7 @@ export default function FamousSearchBar({
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search Famous Stay: 8k Single Bed, 15k Two Bed, 50k Penthouse, Sky Terrace, BBQ, 15 Videos..."
+          placeholder="Search: Islamabad Famous Hotels, Farmhouse with Pool, 50k Penthouse, Serena alternative, Single 8k, Two Bed 15k..."
           className="w-full rounded-2xl border-2 border-[#D4AF37]/45 bg-white py-3.5 pl-12 pr-12 text-xs sm:text-sm font-semibold text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF37] focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/20 shadow-inner transition-all"
         />
         {searchQuery && (
@@ -188,12 +334,12 @@ export default function FamousSearchBar({
       {/* Famous Search Key Quick Hotlinks */}
       <div className="mt-3.5">
         <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2 flex items-center justify-between">
-          <span>Click Famous Key to Auto-Filter:</span>
-          <span className="text-[9px] font-mono text-[#8C6207]">7 Hotkeys Ready</span>
+          <span>Famous Search Keys (Click to Filter):</span>
+          <span className="text-[9px] font-mono text-[#8C6207]">{filteredKeys.length} Keys Filtered</span>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          {famousKeys.map((key) => {
+          {filteredKeys.map((key) => {
             const Icon = key.icon;
             const isSelected = activeKey === key.id;
             return (
@@ -219,79 +365,247 @@ export default function FamousSearchBar({
         </div>
       </div>
 
-      {/* Live Match Notification when Searching */}
+      {/* Live Match Notification & Instant Action Cards */}
       {searchQuery && (
-        <div className="mt-4 pt-3.5 border-t border-[#D4AF37]/25 flex flex-wrap items-center justify-between gap-3 text-xs animate-in fade-in duration-200">
-          <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-slate-700">
-              Matches found for <strong className="text-slate-900 font-bold">"{searchQuery}"</strong>:
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            {isMatchingPenthouse && penthouseRoom && (
-              <button
-                onClick={() => onBookRoom && onBookRoom(penthouseRoom)}
-                className="gold-btn flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold shadow-xs"
-              >
-                <span>Book Luxury Penthouse (Rs. 50k)</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
-            )}
-
-            {isMatchingSingle && singleBedRoom && (
-              <button
-                onClick={() => onBookRoom && onBookRoom(singleBedRoom)}
-                className="gold-btn flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold shadow-xs"
-              >
-                <span>Book Single Bed Room (Rs. 8k)</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
-            )}
-
-            {isMatchingTwoBed && twoBedRoom && (
-              <button
-                onClick={() => onBookRoom && onBookRoom(twoBedRoom)}
-                className="gold-btn flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold shadow-xs"
-              >
-                <span>Book Two Bed Room (Rs. 15k)</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
-            )}
-
-            {isMatchingVideos && (
-              <button
-                onClick={() => {
-                  const el = document.getElementById('primary-cinema-player') || document.getElementById('apartment-video-showroom');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="flex items-center gap-1.5 rounded-xl bg-slate-900 text-white px-3 py-1.5 text-xs font-bold hover:bg-slate-800 transition-colors shadow-xs"
-              >
-                <Video className="h-3.5 w-3.5 text-[#E5C07B]" />
-                <span>Jump to 15 Video Tours</span>
-              </button>
-            )}
-
-            {isMatchingAgents && (
-              <button
-                onClick={() => {
-                  const el = document.getElementById('agent-concierge-desk');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="flex items-center gap-1.5 rounded-xl bg-emerald-700 text-white px-3 py-1.5 text-xs font-bold hover:bg-emerald-800 transition-colors shadow-xs"
-              >
-                <PhoneCall className="h-3.5 w-3.5" />
-                <span>Agent WhatsApp Desk</span>
-              </button>
-            )}
-
+        <div className="mt-4 pt-3.5 border-t border-[#D4AF37]/25 flex flex-col gap-3 text-xs animate-in fade-in duration-200">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-slate-700">
+                Matches for <strong className="text-slate-900 font-bold">"{searchQuery}"</strong>:
+              </span>
+            </div>
             <button
               onClick={handleClear}
-              className="text-xs text-slate-500 hover:text-slate-800 underline font-semibold ml-1"
+              className="text-xs text-slate-500 hover:text-slate-800 underline font-semibold"
             >
-              Reset Search
+              Reset Filter
             </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+            {/* 1. Islamabad Famous Hotels Match */}
+            {isMatchingHotels && (
+              <div className="rounded-xl border border-[#D4AF37]/40 bg-white p-3 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="inline-flex items-center gap-1 rounded bg-[#FFF4D4] px-2 py-0.5 text-[10px] font-extrabold text-[#8C6207]">
+                      <Building2 className="h-3 w-3" /> Famous Hotel Suite
+                    </span>
+                    <span className="text-[11px] font-mono font-bold text-emerald-700">Rs. 15k / day</span>
+                  </div>
+                  <h4 className="font-serif font-bold text-slate-900 text-xs">
+                    Islamabad Famous 5-Star Partner Suite
+                  </h4>
+                  <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                    Serena & Marriott tier luxury in F-6/F-7 Blue Area with marble baths and 24/7 room service.
+                  </p>
+                </div>
+                <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[10px] text-slate-400">18% Agent Margin</span>
+                  <button
+                    onClick={() => onBookRoom && onBookRoom(famousHotelRoom || twoBedRoom)}
+                    className="gold-btn rounded-lg px-2.5 py-1 text-[11px] font-bold"
+                  >
+                    Book Hotel 15k
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* 2. Luxury Farmhouse Match */}
+            {isMatchingFarmhouse && (
+              <div className="rounded-xl border border-emerald-300 bg-emerald-50/40 p-3 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="inline-flex items-center gap-1 rounded bg-emerald-200/80 px-2 py-0.5 text-[10px] font-extrabold text-emerald-900">
+                      <Trees className="h-3 w-3" /> Private Pool Farmhouse
+                    </span>
+                    <span className="text-[11px] font-mono font-bold text-emerald-800">Chak Shahzad</span>
+                  </div>
+                  <h4 className="font-serif font-bold text-slate-900 text-xs">
+                    Margalla Luxury Pool Farmhouse & Estate
+                  </h4>
+                  <p className="text-[11px] text-slate-600 mt-1 line-clamp-2">
+                    Private swimming pool, 2-acre party lawn, 4 king bedrooms, BBQ pit & 24/7 generator backup.
+                  </p>
+                </div>
+                <div className="mt-2.5 pt-2 border-t border-emerald-200/60 flex items-center justify-between">
+                  <a
+                    href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20booking%20the%20Luxury%20Farmhouse%20with%20Swimming%20Pool%20in%20Islamabad."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] font-bold text-emerald-800 hover:underline flex items-center gap-1"
+                  >
+                    <span>WhatsApp Inquiry</span>
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                  <button
+                    onClick={() => onBookRoom && onBookRoom(farmhouseRoom)}
+                    className="bg-emerald-800 text-white rounded-lg px-2.5 py-1 text-[11px] font-bold hover:bg-emerald-900 transition-colors"
+                  >
+                    Book Farmhouse
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* 3. Trending Penthouse Match */}
+            {isMatchingPenthouse && penthouseRoom && (
+              <div className="rounded-xl border-2 border-[#D4AF37] bg-white p-3 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="inline-flex items-center gap-1 rounded bg-rose-600 px-2 py-0.5 text-[10px] font-extrabold text-white">
+                      🔥 #1 Penthouse
+                    </span>
+                    <span className="text-[11px] font-mono font-bold text-[#8C6207]">Rs. 50k / day</span>
+                  </div>
+                  <h4 className="font-serif font-bold text-slate-900 text-xs">
+                    Trending Penthouse & Margalla Sky Terrace
+                  </h4>
+                  <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                    Open-air rooftop terrace, BBQ patio, 85" 4K smart TV media wall & 15 video walkthroughs.
+                  </p>
+                </div>
+                <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <button
+                    onClick={() => {
+                      const el = document.getElementById('primary-cinema-player') || document.getElementById('apartment-video-showroom');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="text-[11px] font-bold text-slate-700 hover:text-slate-950 flex items-center gap-1"
+                  >
+                    <Video className="h-3 w-3 text-[#8C6207]" />
+                    <span>Watch 15 Videos</span>
+                  </button>
+                  <button
+                    onClick={() => onBookRoom && onBookRoom(penthouseRoom)}
+                    className="gold-btn rounded-lg px-2.5 py-1 text-[11px] font-bold"
+                  >
+                    Book 50k
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* 4. Single Bed Room (8k) Match */}
+            {isMatchingSingle && singleBedRoom && (
+              <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-[10px] font-extrabold text-slate-800">
+                      <Bed className="h-3 w-3" /> 1-Bed Room
+                    </span>
+                    <span className="text-[11px] font-mono font-bold text-emerald-700">Rs. 8k / day</span>
+                  </div>
+                  <h4 className="font-serif font-bold text-slate-900 text-xs">
+                    Deluxe Single Bed Room Executive Suite
+                  </h4>
+                  <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                    Plush king bed, ergonomic desk, high-speed fiber Wi-Fi & attached luxury marble rain shower.
+                  </p>
+                </div>
+                <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[10px] text-slate-400">Fixed Daily Rate</span>
+                  <button
+                    onClick={() => onBookRoom && onBookRoom(singleBedRoom)}
+                    className="gold-btn rounded-lg px-2.5 py-1 text-[11px] font-bold"
+                  >
+                    Book 8k
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* 5. Two Bed Room (15k) Match */}
+            {isMatchingTwoBed && twoBedRoom && (
+              <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-[10px] font-extrabold text-slate-800">
+                      <Bed className="h-3 w-3" /> 2-Bed Room
+                    </span>
+                    <span className="text-[11px] font-mono font-bold text-emerald-700">Rs. 15k / day</span>
+                  </div>
+                  <h4 className="font-serif font-bold text-slate-900 text-xs">
+                    Executive Two Bed Room Luxury Suite
+                  </h4>
+                  <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                    2 master king bedrooms, 2 en-suite marble baths, central living lounge with 65" TV & kitchenette.
+                  </p>
+                </div>
+                <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[10px] text-slate-400">Fixed Daily Rate</span>
+                  <button
+                    onClick={() => onBookRoom && onBookRoom(twoBedRoom)}
+                    className="gold-btn rounded-lg px-2.5 py-1 text-[11px] font-bold"
+                  >
+                    Book 15k
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* 6. Videos & Tours Match */}
+            {isMatchingVideos && (
+              <div className="rounded-xl border border-slate-800 bg-slate-900 text-white p-3 shadow-xs flex flex-col justify-between">
+                <div>
+                  <span className="inline-flex items-center gap-1 rounded bg-[#D4AF37] text-slate-950 px-2 py-0.5 text-[10px] font-extrabold uppercase">
+                    📹 Video Showroom
+                  </span>
+                  <h4 className="font-serif font-bold text-white text-xs mt-1.5">
+                    15 HD Cinema Walkthrough Tours
+                  </h4>
+                  <p className="text-[11px] text-slate-300 mt-1">
+                    Interactive cinema player with direct frame jump chips for all suites, lounges & terrace.
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('primary-cinema-player') || document.getElementById('apartment-video-showroom');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="mt-2.5 w-full bg-[#D4AF37] hover:bg-[#E5C07B] text-slate-950 font-bold rounded-lg py-1.5 text-xs text-center transition-colors"
+                >
+                  Watch 15 Video Tours →
+                </button>
+              </div>
+            )}
+
+            {/* 7. VIP Concierge Desk Match */}
+            {isMatchingAgents && (
+              <div className="rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 p-3 shadow-xs flex flex-col justify-between">
+                <div>
+                  <span className="inline-flex items-center gap-1 rounded bg-[#25D366] text-white px-2 py-0.5 text-[10px] font-extrabold uppercase">
+                    📞 VIP Concierge
+                  </span>
+                  <h4 className="font-serif font-bold text-slate-900 text-xs mt-1.5">
+                    Agent Mohsin & Arsalan Jutt
+                  </h4>
+                  <p className="text-[11px] text-slate-600 mt-1">
+                    24/7 direct WhatsApp booking, keycard issuance & airport Prado transfers.
+                  </p>
+                </div>
+                <div className="mt-2.5 flex items-center gap-2">
+                  <a
+                    href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20booking%20a%20stay%20in%20Islamabad."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center bg-[#25D366] text-white font-bold rounded-lg py-1 text-[11px] hover:bg-[#20ba5c] transition-colors"
+                  >
+                    Mohsin
+                  </a>
+                  <a
+                    href="https://wa.me/923180985887?text=Hello%20Arsalan%2C%20I%20am%20inquiring%20about%20booking%20a%20stay%20in%20Islamabad."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center bg-[#25D366] text-white font-bold rounded-lg py-1 text-[11px] hover:bg-[#20ba5c] transition-colors"
+                  >
+                    Arsalan
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
