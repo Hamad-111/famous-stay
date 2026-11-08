@@ -150,7 +150,7 @@ function HoverVideoFrame({
           muted={isLocalMuted}
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           onTimeUpdate={handleTimeUpdate}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -451,7 +451,7 @@ function QuadVideoWall({
                   autoPlay
                   loop
                   playsInline
-                  preload="auto"
+                  preload="none"
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import {
   Crown,
   TrendingUp,
@@ -7,19 +7,21 @@ import {
   Play
 } from 'lucide-react';
 import Header from './components/Header';
-import RoomModal from './components/RoomModal';
-import BookingModal from './components/BookingModal';
-import VoucherModal from './components/VoucherModal';
-import AgentLedger from './components/AgentLedger';
-import CommissionSummaryModal from './components/CommissionSummaryModal';
 import Toast from './components/Toast';
-import AuthModal from './components/AuthModal';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import ApartmentShowcase from './components/ApartmentShowcase';
 import FamousSearchBar from './components/FamousSearchBar';
 import SEOContentSection from './components/SEOContentSection';
 import { LUXURY_HOTELS, INITIAL_AGENT_BOOKINGS } from './data/hotels';
 import Logo from './components/Logo';
+
+// Code-split heavy modals and tabs for maximum initial load performance
+const RoomModal = lazy(() => import('./components/RoomModal'));
+const BookingModal = lazy(() => import('./components/BookingModal'));
+const VoucherModal = lazy(() => import('./components/VoucherModal'));
+const AgentLedger = lazy(() => import('./components/AgentLedger'));
+const CommissionSummaryModal = lazy(() => import('./components/CommissionSummaryModal'));
+const AuthModal = lazy(() => import('./components/AuthModal'));
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('explore'); // 'explore' | 'ledger' | 'commissions'
@@ -494,15 +496,17 @@ export default function App() {
 
         {/* AGENT BOOKINGS LEDGER VIEW */}
         {activeTab === 'ledger' && (
-          <AgentLedger
-            bookings={bookings}
-            currency={currency}
-            onViewVoucher={(booking) => setActiveVoucher(booking)}
-            onNewBookingClick={() => {
-              setActiveTab('explore');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
+          <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center text-xs font-bold text-slate-400">Loading ledger...</div>}>
+            <AgentLedger
+              bookings={bookings}
+              currency={currency}
+              onViewVoucher={(booking) => setActiveVoucher(booking)}
+              onNewBookingClick={() => {
+                setActiveTab('explore');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            />
+          </Suspense>
         )}
       </main>
 
@@ -626,58 +630,60 @@ export default function App() {
         </div>
       </footer>
 
-      {/* MODALS */}
-      {selectedRoomForModal && (
-        <RoomModal
-          room={selectedRoomForModal}
-          nights={nights}
-          currency={currency}
-          onClose={() => setSelectedRoomForModal(null)}
-          onBookNow={(room) => {
-            setSelectedRoomForModal(null);
-            handleBookRoom(room);
-          }}
-        />
-      )}
+      {/* MODALS (LAZY LOADED FOR HIGH PERFORMANCE) */}
+      <Suspense fallback={null}>
+        {selectedRoomForModal && (
+          <RoomModal
+            room={selectedRoomForModal}
+            nights={nights}
+            currency={currency}
+            onClose={() => setSelectedRoomForModal(null)}
+            onBookNow={(room) => {
+              setSelectedRoomForModal(null);
+              handleBookRoom(room);
+            }}
+          />
+        )}
 
-      {selectedRoomForBooking && (
-        <BookingModal
-          room={selectedRoomForBooking}
-          initialDates={{ checkIn: bookingDates.checkIn, checkOut: bookingDates.checkOut }}
-          currency={currency}
-          onClose={() => setSelectedRoomForBooking(null)}
-          onBookingComplete={handleBookingComplete}
-        />
-      )}
+        {selectedRoomForBooking && (
+          <BookingModal
+            room={selectedRoomForBooking}
+            initialDates={{ checkIn: bookingDates.checkIn, checkOut: bookingDates.checkOut }}
+            currency={currency}
+            onClose={() => setSelectedRoomForBooking(null)}
+            onBookingComplete={handleBookingComplete}
+          />
+        )}
 
-      {activeVoucher && (
-        <VoucherModal
-          booking={activeVoucher}
-          currency={currency}
-          onClose={() => setActiveVoucher(null)}
-          onViewLedger={() => {
-            setActiveVoucher(null);
-            setActiveTab('ledger');
-          }}
-        />
-      )}
+        {activeVoucher && (
+          <VoucherModal
+            booking={activeVoucher}
+            currency={currency}
+            onClose={() => setActiveVoucher(null)}
+            onViewLedger={() => {
+              setActiveVoucher(null);
+              setActiveTab('ledger');
+            }}
+          />
+        )}
 
-      {showCommissionModal && (
-        <CommissionSummaryModal
-          totalCommissions={totalCommissions}
-          bookingsCount={bookings.length}
-          currency={currency}
-          onClose={() => setShowCommissionModal(false)}
-        />
-      )}
+        {showCommissionModal && (
+          <CommissionSummaryModal
+            totalCommissions={totalCommissions}
+            bookingsCount={bookings.length}
+            currency={currency}
+            onClose={() => setShowCommissionModal(false)}
+          />
+        )}
 
-      {/* AGENT AUTHENTICATION MODAL */}
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-        onLoginSuccess={handleLoginSuccess}
-        initialMode={authModalMode}
-      />
+        {/* AGENT AUTHENTICATION MODAL */}
+        <AuthModal
+          isOpen={isAuthModalOpen}
+          onClose={() => setIsAuthModalOpen(false)}
+          onLoginSuccess={handleLoginSuccess}
+          initialMode={authModalMode}
+        />
+      </Suspense>
 
       {/* TOAST FEEDBACK */}
       <Toast toast={toast} onClose={() => setToast(null)} />
