@@ -16,5 +16,5 @@ User-agent: Googlebot-Video
 Allow: /apartment/videos/*.mp4
 
 # Sitemaps for Google Search Console & Bing Webmaster
-Sitemap: https://famous-stay.vercel.app/sitemap.xml
-Host: https://famous-stay.vercel.app
+Sitemap: https://www.famousstay.site/sitemap.xml
+Host: https://www.famousstay.site

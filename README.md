@@ -27,7 +27,7 @@ Famous Stay is powered by a high-ranking **Famous Search Console** and comprehen
   - **Live Search Matching**: Instantly surfaces relevant cards for keywords like `hotel`, `serena`, `marriott`, `farmhouse`, `pool`, `chak shahzad`, `penthouse`, `50k`, `8k`, `15k`.
   - **URL Parameter Listener**: Deep links from Google Search (`?search=...` / `?q=...`) automatically populate the console and highlight matching suites.
 - **Google Search Console Verification & Live Domain**:
-  - Live Domain: `https://famous-stay.vercel.app/`
+  - Live Domain: `https://www.famousstay.site/` (and apex `https://famousstay.site/`)
   - **HTML Meta Tag**: `<meta name="google-site-verification" content="google-site-verification-famousstay-verified" />` in `index.html`.
   - **HTML File Upload**: `public/google-site-verification.html` ready for instant Google webmaster domain verification.
   - **Bing Webmaster Tools**: `<meta name="msvalidate.01" content="msvalidate-famousstay-bing-verified" />`.
@@ -36,7 +36,7 @@ Famous Stay is powered by a high-ranking **Famous Search Console** and comprehen
   - `LodgingBusiness`: Official Islamabad coordinates, phone, verified ratings, and employee profiles.
   - `ItemList`: Catalog of Single Bed, Two Bed, Trending Penthouse, Luxury Pool Farmhouse, and Famous Hotel Suite.
   - `FAQPage`: Rich Snippets answering queries on Islamabad famous hotels, private pool farmhouses, rates, and penthouse amenities.
-  - `WebSite` with `potentialAction` (`SearchAction`): Triggers Google Sitelinks Search Box directly to `https://famous-stay.vercel.app/?search={search_term_string}`.
+  - `WebSite` with `potentialAction` (`SearchAction`): Triggers Google Sitelinks Search Box directly to `https://www.famousstay.site/?search={search_term_string}`.
   - `BreadcrumbList`: Structured navigation hierarchy for Googlebot breadcrumbs.
 - **Crawler Optimization**:
   - `public/robots.txt`: Directives for Googlebot, Googlebot-Image, and Googlebot-Video.

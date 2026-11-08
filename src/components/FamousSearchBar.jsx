@@ -178,15 +178,15 @@ export default function FamousSearchBar({
     ? famousKeys 
     : famousKeys.filter(k => k.category === activeCategory || (activeCategory === 'rates' && k.category === 'rates'));
 
-  // Query analysis for live intent detection
+  // Query analysis for live intent detection with multiple search keywords
   const queryLower = searchQuery.toLowerCase().trim();
-  const isMatchingHotels = queryLower.includes('hotel') || queryLower.includes('serena') || queryLower.includes('marriott') || queryLower.includes('centaurus') || queryLower.includes('f-6') || queryLower.includes('f-7') || queryLower.includes('blue area');
-  const isMatchingFarmhouse = queryLower.includes('farm') || queryLower.includes('pool') || queryLower.includes('lawn') || queryLower.includes('chak') || queryLower.includes('shahzad') || queryLower.includes('bani gala') || queryLower.includes('simly');
-  const isMatchingPenthouse = queryLower.includes('pent') || queryLower.includes('50') || queryLower.includes('terrace') || queryLower.includes('bbq') || queryLower.includes('trend') || queryLower.includes('sky');
-  const isMatchingSingle = queryLower.includes('single') || queryLower.includes('8') || queryLower.includes('1 bed') || queryLower.includes('one');
-  const isMatchingTwoBed = queryLower.includes('two') || queryLower.includes('2') || queryLower.includes('15') || queryLower.includes('double');
-  const isMatchingVideos = queryLower.includes('video') || queryLower.includes('tour') || queryLower.includes('walk') || queryLower.includes('15') || queryLower.includes('live');
-  const isMatchingAgents = queryLower.includes('agent') || queryLower.includes('mohsin') || queryLower.includes('arsalan') || queryLower.includes('whatsapp') || queryLower.includes('contact');
+  const isMatchingHotels = queryLower.includes('hotel') || queryLower.includes('serena') || queryLower.includes('marriott') || queryLower.includes('centaurus') || queryLower.includes('ramada') || queryLower.includes('top') || queryLower.includes('best') || queryLower.includes('f-6') || queryLower.includes('f-7') || queryLower.includes('blue area');
+  const isMatchingFarmhouse = queryLower.includes('farm') || queryLower.includes('pool') || queryLower.includes('swimming') || queryLower.includes('lawn') || queryLower.includes('chak') || queryLower.includes('shahzad') || queryLower.includes('bani gala') || queryLower.includes('simly') || queryLower.includes('estate');
+  const isMatchingPenthouse = queryLower.includes('pent') || queryLower.includes('50') || queryLower.includes('terrace') || queryLower.includes('bbq') || queryLower.includes('trend') || queryLower.includes('sky') || queryLower.includes('view');
+  const isMatchingSingle = queryLower.includes('single') || queryLower.includes('8') || queryLower.includes('8k') || queryLower.includes('1 bed') || queryLower.includes('one');
+  const isMatchingTwoBed = queryLower.includes('two') || queryLower.includes('2') || queryLower.includes('15') || queryLower.includes('15k') || queryLower.includes('double');
+  const isMatchingVideos = queryLower.includes('video') || queryLower.includes('tour') || queryLower.includes('walk') || queryLower.includes('15') || queryLower.includes('live') || queryLower.includes('cinema');
+  const isMatchingAgents = queryLower.includes('agent') || queryLower.includes('mohsin') || queryLower.includes('arsalan') || queryLower.includes('whatsapp') || queryLower.includes('contact') || queryLower.includes('call') || queryLower.includes('number');
 
   return (
     <div id="famous-search-console" className="relative z-20 mb-8 rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-r from-white via-[#FFFDF8] to-[#FAF6ED] p-4 sm:p-6 shadow-xl shadow-[#D4AF37]/15 backdrop-blur-md">
