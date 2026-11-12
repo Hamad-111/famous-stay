@@ -48,8 +48,8 @@ export default function SEOContentSection({
       a: "Famous Stay maintains strict transparent rates: Single Bed Room at Rs. 8,000 per day (8k), Two Bed Room at Rs. 15,000 per day (15k), Trending Margalla Sky Terrace Penthouse at Rs. 50,000 per day (50k), and Private Pool Farmhouses from Rs. 60,000/day. All bookings include an 18% wholesale partner margin."
     },
     {
-      q: "How can I book instantly via WhatsApp with Agent Mohsin or Arsalan Jutt?",
-      a: "You can connect directly with our authorized VIP desk on WhatsApp: Lead Host Agent Mohsin at 0314 3292778 (+92 314 3292778) or Second Agent Arsalan Jutt at +92 318 0985887. You can also generate an official PDF guest arrival voucher instantly through the online agent booking console."
+      q: "How can I book instantly via WhatsApp with Agent Usman or Arsalan Jutt?",
+      a: "You can connect directly with our authorized VIP desk on WhatsApp: Lead Host Agent Usman at 0348 0964370 (+92 348 0964370) or Second Agent Arsalan Jutt at +92 318 0985887. You can also generate an official PDF guest arrival voucher instantly through the online agent booking console."
     },
     {
       q: "Are the listings on Famous Stay officially verified and DTS accredited?",

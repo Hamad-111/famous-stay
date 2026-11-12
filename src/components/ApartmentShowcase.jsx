@@ -604,7 +604,7 @@ function PanoramicReelCarousel({
   - 1080p full-screen theater view with sound default ON.
   - Floating left/right navigation arrows.
   - Keyboard navigation: Left/Right arrows, Esc to close.
-  - WhatsApp CTA prefilled with video title & room details for Host Mohsin (0314 3292778).
+  - WhatsApp CTA prefilled with video title & room details for Host Usman (0348 0964370).
   - Bottom thumbnail strip to switch between all 15 videos without closing theater.
 */
 function VideoCinemaModal({ 
@@ -652,7 +652,7 @@ function VideoCinemaModal({
     setIsMuted(!isMuted);
   };
 
-  const whatsappMessage = `Hello Mohsin, I am watching the 1080p video tour of ${apartment?.name || 'this luxury suite'} (${apartment?.hotel || 'Famous Stay Partner Hotel'}) - Tour #${currentIndex + 1}: ${currentVideo.room} (${currentVideo.title}). I would like to check availability and book it for my client.`;
+  const whatsappMessage = `Hello Usman, I am watching the 1080p video tour of ${apartment?.name || 'this luxury suite'} (${apartment?.hotel || 'Famous Stay Partner Hotel'}) - Tour #${currentIndex + 1}: ${currentVideo.room} (${currentVideo.title}). I would like to check availability and book it for my client.`;
 
   return (
     <div 
@@ -738,7 +738,7 @@ function VideoCinemaModal({
           </button>
         </div>
 
-        {/* Bottom Bar: Thumbnail Strip + Host Mohsin Inquiry CTA */}
+        {/* Bottom Bar: Thumbnail Strip + Host Usman Inquiry CTA */}
         <div className="w-full flex flex-col gap-3 p-3 sm:p-4 bg-slate-900/95 border-t border-white/10">
           {/* Thumbnail Strip */}
           <div className="flex items-center gap-2 overflow-x-auto max-w-full pb-1 scrollbar-thin">
@@ -768,7 +768,7 @@ function VideoCinemaModal({
             <div className="text-left w-full sm:w-auto">
               <div className="text-xs text-[#E5C07B] font-bold flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse"></span>
-                <span>VIP Agents: Mohsin (0314 3292778) • Arsalan Jutt (+92 318 0985887)</span>
+                <span>VIP Agents: Usman (0348 0964370) • Arsalan Jutt (+92 318 0985887)</span>
               </div>
               <div className="text-[11px] text-slate-300">
                 1080p Verified Walkthrough • Press Left/Right arrows to explore all 15 rooms
@@ -777,13 +777,13 @@ function VideoCinemaModal({
 
             <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
               <a
-                href={`https://wa.me/923143292778?text=${encodeURIComponent(whatsappMessage)}`}
+                href={`https://wa.me/923480964370?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-3.5 py-2 text-xs font-extrabold transition-all shadow-md"
               >
-                <img src="/agent-mohsin.jpg" alt="Mohsin" className="h-4 w-4 rounded-full object-cover object-[center_18%]" />
-                <span>WhatsApp Mohsin</span>
+                <img src="/agent-usman.jpg" alt="Usman" className="h-4 w-4 rounded-full object-cover object-[center_12%]" />
+                <span>WhatsApp Usman</span>
               </a>
 
               <a
@@ -1103,7 +1103,7 @@ export default function ApartmentShowcase({
 
             <div className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-[#FFFDF7] px-3 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#8C6207] shadow-sm">
               <Crown className="h-3.5 w-3.5 text-[#B8860B]" />
-              <span>Host Mohsin: 0314 3292778</span>
+              <span>Host Usman: 0348 0964370</span>
             </div>
           </div>
 
@@ -1743,7 +1743,7 @@ export default function ApartmentShowcase({
 
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <a
-                  href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I am viewing the photos of ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}). I would like to book it for my client.`)}`}
+                  href={`https://wa.me/923480964370?text=${encodeURIComponent(`Hello Usman, I am viewing the photos of ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}). I would like to book it for my client.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 sm:flex-initial flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[#061026] px-4 py-2 text-xs font-bold transition-all shadow-md"
@@ -1781,7 +1781,7 @@ export default function ApartmentShowcase({
         />
       )}
 
-      {/* SECTION C: CLEAR & PROMINENT AGENT MOHSIN VERIFIED HOST PROFILE */}
+      {/* SECTION C: CLEAR & PROMINENT AGENT USMAN VERIFIED HOST PROFILE */}
       <div className="relative z-10 mt-8 sm:mt-10 rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-r from-[#FFFDF8] via-[#FFFFFF] to-[#FAF5E6] p-4 sm:p-8 shadow-xl shadow-[#D4AF37]/10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left w-full sm:w-auto">
@@ -1790,12 +1790,12 @@ export default function ApartmentShowcase({
               <div className="relative">
                 <div className="h-20 w-20 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-[#D4AF37] ring-4 ring-[#D4AF37]/35 shadow-xl bg-slate-100">
                   <img
-                    src="/agent-mohsin.jpg"
-                    alt="Agent Mohsin - Verified Host"
-                    className="h-full w-full object-cover object-[center_18%]"
+                    src="/agent-usman.jpg"
+                    alt="Agent Usman - Verified Host"
+                    className="h-full w-full object-cover object-[center_12%]"
                   />
                 </div>
-                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#25D366] border-2 border-white shadow-lg" title="Mohsin Active">
+                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#25D366] border-2 border-white shadow-lg" title="Usman Active">
                   <CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
                 </span>
               </div>
@@ -1822,17 +1822,17 @@ export default function ApartmentShowcase({
               </div>
 
               <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Agent Mohsin & Agent Arsalan Jutt
+                Agent Usman & Agent Arsalan Jutt
               </h3>
 
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-xs text-slate-600">
                 <a
-                  href="https://wa.me/923143292778"
+                  href="https://wa.me/923480964370"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-mono font-bold text-[#8C6207] text-xs sm:text-sm bg-white px-2.5 sm:px-3 py-1 rounded-xl border border-[#D4AF37]/40 shadow-sm hover:border-[#25D366] transition-colors"
                 >
-                  Mohsin: 📞 0314 3292778
+                  Usman: 📞 0348 0964370
                 </a>
                 <a
                   href="https://wa.me/923180985887"
@@ -1857,13 +1857,13 @@ export default function ApartmentShowcase({
           {/* Action CTAs: Full-width on mobile */}
           <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
             <a
-              href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) for my client.`)}`}
+              href={`https://wa.me/923480964370?text=${encodeURIComponent(`Hello Usman, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) for my client.`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-extrabold shadow-lg shadow-[#25D366]/20 transition-all hover:scale-105 w-full sm:w-auto"
             >
-              <img src="/agent-mohsin.jpg" alt="Mohsin" className="h-5 w-5 rounded-full object-cover object-[center_18%]" />
-              <span>WhatsApp Mohsin (0314 3292778)</span>
+              <img src="/agent-usman.jpg" alt="Usman" className="h-5 w-5 rounded-full object-cover object-[center_12%]" />
+              <span>WhatsApp Usman (0348 0964370)</span>
             </a>
 
             <a
@@ -1917,7 +1917,7 @@ export default function ApartmentShowcase({
           </div>
           <div className="min-w-0">
             <div className="text-[9px] uppercase font-bold text-slate-500">Direct Concierge</div>
-            <div className="font-bold text-emerald-700 text-[11px] sm:text-xs truncate">Mohsin & Arsalan</div>
+            <div className="font-bold text-emerald-700 text-[11px] sm:text-xs truncate">Usman & Arsalan</div>
           </div>
         </div>
       </div>
@@ -1940,13 +1940,13 @@ export default function ApartmentShowcase({
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
           {/* Direct WhatsApp Inquiry for This Apartment */}
           <a
-            href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) in ${apartment.city} for my client. Please share availability.`)}`}
+            href={`https://wa.me/923480964370?text=${encodeURIComponent(`Hello Usman, I want to book ${apartment.name} (${apartment.hotel || 'Famous Stay Partner Hotel'}) in ${apartment.city} for my client. Please share availability.`)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-3.5 py-3 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-slate-950 transition-all shadow-sm w-full sm:w-auto"
           >
-            <img src="/agent-mohsin.jpg" alt="Mohsin" className="h-4 w-4 rounded-full object-cover object-[center_18%]" />
-            <span>Ask Mohsin</span>
+            <img src="/agent-usman.jpg" alt="Usman" className="h-4 w-4 rounded-full object-cover object-[center_12%]" />
+            <span>Ask Usman</span>
           </a>
 
           <a

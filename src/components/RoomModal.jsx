@@ -92,7 +92,7 @@ export default function RoomModal({
               </div>
 
               <span className="text-[11px] text-emerald-700 font-bold hidden sm:inline">
-                Direct Managed by Agent Mohsin (0314 3292778)
+                Direct Managed by Agent Usman (0348 0964370)
               </span>
             </div>
           )}
@@ -360,14 +360,14 @@ export default function RoomModal({
 
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <a
-                  href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, I am inquiring about booking ${room.name} at ${room.hotel} for ${nights} nights.`)}`}
+                  href={`https://wa.me/923480964370?text=${encodeURIComponent(`Hello Usman, I am inquiring about booking ${room.name} at ${room.hotel} for ${nights} nights.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 rounded-xl bg-[#25D366]/15 border border-[#25D366]/40 px-3 py-2.5 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-slate-950 transition-all shadow-sm"
-                  title="Ask Mohsin on WhatsApp"
+                  title="Ask Usman on WhatsApp"
                 >
-                  <img src="/agent-mohsin.jpg" alt="Mohsin" className="h-4 w-4 rounded-full object-cover object-[center_18%]" />
-                  <span>Mohsin (0314 3292778)</span>
+                  <img src="/agent-usman.jpg" alt="Usman" className="h-4 w-4 rounded-full object-cover object-[center_12%]" />
+                  <span>Usman (0348 0964370)</span>
                 </a>
 
                 <a

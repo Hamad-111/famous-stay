@@ -133,7 +133,7 @@ export default function Header({
                 setProfileDropdownOpen(false);
               }}
               className="flex items-center gap-2 rounded-xl border border-emerald-300 bg-gradient-to-r from-emerald-50 via-[#F0FDF4] to-emerald-100/70 hover:from-emerald-100 hover:to-emerald-200/80 px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-emerald-950 transition-all shadow-xs shrink-0 whitespace-nowrap group"
-              title="24/7 VIP Concierge & WhatsApp Desk (Mohsin & Arsalan)"
+              title="24/7 VIP Concierge & WhatsApp Desk (Usman & Arsalan)"
             >
               {/* WhatsApp Icon with Live Online Ping */}
               <div className="relative flex items-center justify-center">
@@ -146,9 +146,9 @@ export default function Header({
               {/* Overlapping Agent Avatars */}
               <div className="flex items-center -space-x-1.5 shrink-0">
                 <img
-                  src="/agent-mohsin.jpg"
-                  alt="Mohsin"
-                  className="h-5 w-5 rounded-full object-cover object-[center_18%] border border-white shadow-xs"
+                  src="/agent-usman.jpg"
+                  alt="Usman"
+                  className="h-5 w-5 rounded-full object-cover object-[center_12%] border border-white shadow-xs"
                 />
                 <img
                   src="/agent-arsalan.jpg"
@@ -181,29 +181,29 @@ export default function Header({
                 </div>
 
                 <div className="space-y-2">
-                  {/* Agent Mohsin Option */}
+                  {/* Agent Usman Option */}
                   <div className="rounded-xl border border-slate-200/90 bg-[#FAF9F5] p-2.5 transition-all hover:border-emerald-400 hover:bg-emerald-50/40">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <div className="relative">
                           <img
-                            src="/agent-mohsin.jpg"
-                            alt="Host Mohsin"
-                            className="h-8 w-8 rounded-full object-cover object-[center_18%] border border-emerald-500"
+                            src="/agent-usman.jpg"
+                            alt="Host Usman"
+                            className="h-8 w-8 rounded-full object-cover object-[center_12%] border border-emerald-500"
                           />
                           <span className="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-[#25D366] border border-white"></span>
                         </div>
                         <div>
-                          <div className="text-xs font-extrabold text-slate-900">Agent Mohsin</div>
+                          <div className="text-xs font-extrabold text-slate-900">Agent Usman</div>
                           <div className="text-[10px] text-[#8C6207] font-semibold">Lead Reservation Host</div>
                         </div>
                       </div>
-                      <span className="font-mono text-[10px] text-slate-500 font-bold">0314 3292778</span>
+                      <span className="font-mono text-[10px] text-slate-500 font-bold">0348 0964370</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-1.5">
                       <a
-                        href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20a%20hotel%20booking%20on%20Famous%20Stay."
+                        href="https://wa.me/923480964370?text=Hello%20Usman%2C%20I%20am%20inquiring%20about%20a%20hotel%20booking%20on%20Famous%20Stay."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-1 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] text-white py-1 px-2 text-[11px] font-bold shadow-xs transition-all"
@@ -212,7 +212,7 @@ export default function Header({
                         <span>WhatsApp</span>
                       </a>
                       <a
-                        href="tel:+923143292778"
+                        href="tel:+923480964370"
                         className="flex items-center justify-center gap-1 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 text-slate-800 py-1 px-2 text-[11px] font-bold shadow-xs transition-all"
                       >
                         <Phone className="h-3 w-3 text-emerald-600" />
@@ -286,7 +286,7 @@ export default function Header({
                     <img
                       src={currentUser.avatar}
                       alt={currentUser.name}
-                      className="h-6 w-6 sm:h-7 sm:w-7 rounded-full object-cover object-[center_18%] border border-[#D4AF37]"
+                      className="h-6 w-6 sm:h-7 sm:w-7 rounded-full object-cover object-[center_12%] border border-[#D4AF37]"
                     />
                   ) : (
                     <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#FFF5D0] to-[#E5C07B] text-slate-900 text-xs font-bold">
@@ -317,7 +317,7 @@ export default function Header({
                       <img
                         src={currentUser.avatar}
                         alt={currentUser.name}
-                        className="h-10 w-10 rounded-full object-cover border border-[#D4AF37]"
+                        className="h-10 w-10 rounded-full object-cover object-[center_12%] border border-[#D4AF37]"
                       />
                     ) : (
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#FFF5D0] to-[#E5C07B] text-slate-900 text-sm font-bold">
@@ -327,7 +327,7 @@ export default function Header({
                     <div>
                       <div className="font-bold text-slate-900 text-sm">{currentUser.name}</div>
                       <div className="text-[11px] text-[#8C6207] font-semibold">{currentUser.agencyName || 'Famous Stay Travel Partner'}</div>
-                      <div className="text-[10px] text-emerald-600 font-mono font-bold mt-0.5">📞 {currentUser.phone || '0314 3292778'}</div>
+                      <div className="text-[10px] text-emerald-600 font-mono font-bold mt-0.5">📞 {currentUser.phone || '0348 0964370'}</div>
                     </div>
                   </div>
 

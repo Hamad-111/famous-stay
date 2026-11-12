@@ -60,7 +60,7 @@ Famous Stay is powered by a high-ranking **Famous Search Console** and comprehen
 
 | Agent | Role | Contact Number | WhatsApp Direct Link |
 | :--- | :--- | :--- | :--- |
-| **Agent Mohsin** | Lead Host & VIP Concierge | `0314 3292778` (`+92 314 3292778`) | [Chat on WhatsApp](https://wa.me/923143292778) |
+| **Agent Usman** | Lead Host & VIP Concierge | `0348 0964370` (`+92 348 0964370`) | [Chat on WhatsApp](https://wa.me/923480964370) |
 | **Arsalan Jutt** | Second Reservation Agent | `+92 318 0985887` | [Chat on WhatsApp](https://wa.me/923180985887) |
 
 ---

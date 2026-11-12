@@ -10,7 +10,7 @@ export const LUXURY_HOTELS = [
     category: "Trending Luxury Penthouse",
     isTrending: true,
     trendingBadge: "🔥 #1 Trending Penthouse in Pakistan",
-    managedBy: "Agent Mohsin (0314 3292778)",
+    managedBy: "Agent Usman (0348 0964370)",
     images: [
       "/apartment/trending-living-media.jpg",
       "/apartment/trending-terrace-bbq.jpg",
@@ -180,7 +180,7 @@ export const LUXURY_HOTELS = [
       "Full-Length Arched Backlit LED Vanity Mirror & Exotic Palm Entrance Foyer",
       "2 Lavish Master Bedrooms with Velvet Tufted King Beds",
       "Warm Architectural Cove Ceiling Lighting & Inverter Climate Control",
-      "Direct WhatsApp Concierge & VIP Check-in Desk with Agent Mohsin",
+      "Direct WhatsApp Concierge & VIP Check-in Desk with Agent Usman",
       "Fully Equipped Gourmet Dining Suite with Gold Hammered Centerpiece",
       "High-speed 1Gbps Fiber Wi-Fi with Dedicated Workstation",
       "Complimentary VIP Airport Chauffeur (Prado / Mercedes)",
@@ -300,7 +300,7 @@ export const LUXURY_HOTELS = [
       "Full Standby Heavy Generator (24/7 Uninterrupted Electricity)",
       "24/7 Gated Security Guard, CCTV & Private Caretaker Service",
       "Indoor Game Lounge with Snooker / Billiards & Table Tennis",
-      "Direct WhatsApp Concierge Coordination with Agent Mohsin & Arsalan"
+      "Direct WhatsApp Concierge Coordination with Agent Usman & Arsalan"
     ],
     description: "Islamabad's most sought-after private luxury farmhouse situated in serene Chak Shahzad & Bani Gala. Complete with a private crystal-clear swimming pool, sprawling 2-acre party lawn, outdoor BBQ & bonfire deck, 4 luxury master suites, and uninterrupted generator power. Ideal for VIP family vacations, wedding shoots, and private corporate retreats."
   },

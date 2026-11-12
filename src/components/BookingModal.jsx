@@ -316,7 +316,7 @@ export default function BookingModal({
                   </div>
                 </div>
                 <span className="hidden sm:inline-block text-[10px] font-mono font-bold text-emerald-400 bg-black/80 px-2 py-0.5 rounded-lg border border-emerald-500/30">
-                  Host: Mohsin (0314 3292778)
+                  Host: Usman (0348 0964370)
                 </span>
               </div>
             </div>

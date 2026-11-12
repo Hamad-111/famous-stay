@@ -255,7 +255,7 @@ export default function VoucherModal({
                   Agent Net Commission: <strong className="text-[#8C6207] font-bold">+{currencySymbol}{formattedAgentCommission.toLocaleString()}</strong>
                 </div>
                 <div className="text-[11px] text-slate-500 pt-1">
-                  Issued by: <strong className="text-[#8C6207]">Famous Stay Luxury Desk (Agent Mohsin • 0314 3292778)</strong>
+                  Issued by: <strong className="text-[#8C6207]">Famous Stay Luxury Desk (Agent Usman • 0348 0964370)</strong>
                 </div>
               </div>
 
@@ -287,14 +287,14 @@ export default function VoucherModal({
             </button>
 
             <a
-              href={`https://wa.me/923143292778?text=${encodeURIComponent(`Hello Mohsin, reservation voucher ${booking.id} has been issued for ${booking.clientName} at ${booking.hotelName}. Check-in: ${booking.checkIn}.`)}`}
+              href={`https://wa.me/923480964370?text=${encodeURIComponent(`Hello Usman, reservation voucher ${booking.id} has been issued for ${booking.clientName} at ${booking.hotelName}. Check-in: ${booking.checkIn}.`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 rounded-xl bg-[#25D366]/15 border border-[#25D366]/40 px-3 py-2 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-slate-950 transition-all shadow-sm"
-              title="Share with Mohsin on WhatsApp"
+              title="Share with Usman on WhatsApp"
             >
-              <img src="/agent-mohsin.jpg" alt="Mohsin" className="h-4 w-4 rounded-full object-cover object-[center_18%]" />
-              <span>WhatsApp Mohsin</span>
+              <img src="/agent-usman.jpg" alt="Usman" className="h-4 w-4 rounded-full object-cover object-[center_12%]" />
+              <span>WhatsApp Usman</span>
             </a>
 
             <a

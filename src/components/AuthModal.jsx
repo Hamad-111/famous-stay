@@ -57,9 +57,9 @@ export default function AuthModal({
 
   // Demo auto-fill helpers
   const handleQuickDemoFill = (type) => {
-    if (type === 'mohsin') {
+    if (type === 'usman') {
       setLoginForm({
-        email: 'mohsin@famousstay.pk',
+        email: 'usman@famousstay.pk',
         password: 'password123',
         rememberMe: true
       });
@@ -86,16 +86,16 @@ export default function AuthModal({
     // Determine user profile based on email or default demo
     const isLahore = loginForm.email.includes('lahore');
     const userData = {
-      name: isLahore ? 'Zainab Malik' : 'Mohsin',
-      avatar: isLahore ? null : '/agent-mohsin.jpg',
+      name: isLahore ? 'Zainab Malik' : 'Usman',
+      avatar: isLahore ? null : '/agent-usman.jpg',
       email: loginForm.email,
       agencyName: isLahore ? 'Lahore Royal Voyages' : 'Famous Stay Luxury Desk',
       dtsLicense: isLahore ? 'LHR-DTS-3810' : 'ISB-DTS-4921',
       taapNumber: isLahore ? 'TAAP-1940' : 'TAAP-2841',
       tier: 'Diamond Desk Lead',
       city: isLahore ? 'Lahore, Pakistan' : 'Islamabad, Pakistan',
-      phone: isLahore ? '+92 321 8899221' : '+92 314 3292778',
-      rawPhone: isLahore ? '03218899221' : '03143292778',
+      phone: isLahore ? '+92 321 8899221' : '+92 348 0964370',
+      rawPhone: isLahore ? '03218899221' : '03480964370',
       isLoggedIn: true
     };
 
@@ -260,10 +260,10 @@ export default function AuthModal({
                   <div className="flex flex-wrap gap-2">
                     <button
                       type="button"
-                      onClick={() => handleQuickDemoFill('mohsin')}
+                      onClick={() => handleQuickDemoFill('usman')}
                       className="rounded-lg bg-white border border-[#D4AF37]/35 px-2.5 py-1 text-[11px] font-semibold text-slate-800 hover:bg-[#FFFDF7] hover:text-[#8C6207] shadow-sm"
                     >
-                      🇵🇰 Agent Mohsin (0314 3292778)
+                      🇵🇰 Agent Usman (0348 0964370)
                     </button>
                     <button
                       type="button"

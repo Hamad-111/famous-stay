@@ -96,7 +96,7 @@ export default function FamousSearchBar({
     },
     { 
       id: 'agent-desk', 
-      label: 'Mohsin & Arsalan', 
+      label: 'Usman & Arsalan', 
       icon: PhoneCall, 
       tag: '24/7 VIP Desk', 
       category: 'agents', 
@@ -186,7 +186,7 @@ export default function FamousSearchBar({
   const isMatchingSingle = queryLower.includes('single') || queryLower.includes('8') || queryLower.includes('8k') || queryLower.includes('1 bed') || queryLower.includes('one');
   const isMatchingTwoBed = queryLower.includes('two') || queryLower.includes('2') || queryLower.includes('15') || queryLower.includes('15k') || queryLower.includes('double');
   const isMatchingVideos = queryLower.includes('video') || queryLower.includes('tour') || queryLower.includes('walk') || queryLower.includes('15') || queryLower.includes('live') || queryLower.includes('cinema');
-  const isMatchingAgents = queryLower.includes('agent') || queryLower.includes('mohsin') || queryLower.includes('arsalan') || queryLower.includes('whatsapp') || queryLower.includes('contact') || queryLower.includes('call') || queryLower.includes('number');
+  const isMatchingAgents = queryLower.includes('agent') || queryLower.includes('usman') || queryLower.includes('arsalan') || queryLower.includes('whatsapp') || queryLower.includes('contact') || queryLower.includes('call') || queryLower.includes('number');
 
   return (
     <div id="famous-search-console" className="relative z-20 mb-8 rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-r from-white via-[#FFFDF8] to-[#FAF6ED] p-4 sm:p-6 shadow-xl shadow-[#D4AF37]/15 backdrop-blur-md">
@@ -432,7 +432,7 @@ export default function FamousSearchBar({
                 </div>
                 <div className="mt-2.5 pt-2 border-t border-emerald-200/60 flex items-center justify-between">
                   <a
-                    href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20booking%20the%20Luxury%20Farmhouse%20with%20Swimming%20Pool%20in%20Islamabad."
+                    href="https://wa.me/923480964370?text=Hello%20Usman%2C%20I%20am%20inquiring%20about%20booking%20the%20Luxury%20Farmhouse%20with%20Swimming%20Pool%20in%20Islamabad."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[11px] font-bold text-emerald-800 hover:underline flex items-center gap-1"
@@ -580,7 +580,7 @@ export default function FamousSearchBar({
                     📞 VIP Concierge
                   </span>
                   <h4 className="font-serif font-bold text-slate-900 text-xs mt-1.5">
-                    Agent Mohsin & Arsalan Jutt
+                    Agent Usman & Arsalan Jutt
                   </h4>
                   <p className="text-[11px] text-slate-600 mt-1">
                     24/7 direct WhatsApp booking, keycard issuance & airport Prado transfers.
@@ -588,12 +588,12 @@ export default function FamousSearchBar({
                 </div>
                 <div className="mt-2.5 flex items-center gap-2">
                   <a
-                    href="https://wa.me/923143292778?text=Hello%20Mohsin%2C%20I%20am%20inquiring%20about%20booking%20a%20stay%20in%20Islamabad."
+                    href="https://wa.me/923480964370?text=Hello%20Usman%2C%20I%20am%20inquiring%20about%20booking%20a%20stay%20in%20Islamabad."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 text-center bg-[#25D366] text-white font-bold rounded-lg py-1 text-[11px] hover:bg-[#20ba5c] transition-colors"
                   >
-                    Mohsin
+                    Usman
                   </a>
                   <a
                     href="https://wa.me/923180985887?text=Hello%20Arsalan%2C%20I%20am%20inquiring%20about%20booking%20a%20stay%20in%20Islamabad."

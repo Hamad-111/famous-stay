@@ -3,13 +3,13 @@ import { MessageCircle, X, ExternalLink, ShieldCheck, Phone, Check } from 'lucid
 
 const AGENTS = [
   {
-    id: 'mohsin',
-    name: 'Mohsin',
+    id: 'usman',
+    name: 'Usman',
     role: 'Lead Reservation Host',
-    phone: '0314 3292778',
-    whatsappNumber: '923143292778',
-    avatar: '/agent-mohsin.jpg',
-    greeting: 'Assalam-o-Alaikum! I am Mohsin, your dedicated VIP reservation host. Looking to book our trending luxury penthouse? Chat with me directly on WhatsApp!'
+    phone: '0348 0964370',
+    whatsappNumber: '923480964370',
+    avatar: '/agent-usman.jpg',
+    greeting: 'Assalam-o-Alaikum! I am Usman, your dedicated VIP reservation host. Looking to book our trending luxury penthouse? Chat with me directly on WhatsApp!'
   },
   {
     id: 'arsalan',
@@ -24,7 +24,7 @@ const AGENTS = [
 
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedAgentId, setSelectedAgentId] = useState('mohsin');
+  const [selectedAgentId, setSelectedAgentId] = useState('usman');
 
   const activeAgent = AGENTS.find(a => a.id === selectedAgentId) || AGENTS[0];
   const defaultMessage = encodeURIComponent(
@@ -129,10 +129,10 @@ export default function WhatsAppWidget() {
             {/* Quick Switch Link to the Other Agent */}
             <div className="pt-1 text-center">
               <button
-                onClick={() => setSelectedAgentId(activeAgent.id === 'mohsin' ? 'arsalan' : 'mohsin')}
+                onClick={() => setSelectedAgentId(activeAgent.id === 'usman' ? 'arsalan' : 'usman')}
                 className="text-[11px] text-[#8C6207] hover:underline font-bold"
               >
-                Or message {activeAgent.id === 'mohsin' ? 'Arsalan Jutt (+92 318 0985887)' : 'Mohsin (0314 3292778)'} →
+                Or message {activeAgent.id === 'usman' ? 'Arsalan Jutt (+92 318 0985887)' : 'Usman (0348 0964370)'} →
               </button>
             </div>
           </div>
@@ -150,9 +150,9 @@ export default function WhatsAppWidget() {
             {/* Dual Overlapping Avatars */}
             <div className="flex items-center -space-x-2.5">
               <img
-                src="/agent-mohsin.jpg"
-                alt="Agent Mohsin"
-                className="h-9 w-9 rounded-full object-cover object-[center_18%] border-2 border-[#D4AF37] shadow-sm z-10"
+                src="/agent-usman.jpg"
+                alt="Agent Usman"
+                className="h-9 w-9 rounded-full object-cover object-[center_12%] border-2 border-[#D4AF37] shadow-sm z-10"
               />
               <img
                 src="/agent-arsalan.jpg"
@@ -162,7 +162,7 @@ export default function WhatsAppWidget() {
             </div>
             <div className="text-left">
               <div className="text-xs text-slate-900 font-extrabold leading-tight flex items-center gap-1.5">
-                <span>Mohsin & Arsalan</span>
+                <span>Usman & Arsalan</span>
                 <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse"></span>
               </div>
               <div className="text-[10px] text-[#8C6207] font-semibold leading-tight">
@@ -175,7 +175,7 @@ export default function WhatsAppWidget() {
         {/* WhatsApp Icon Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Open WhatsApp Chat with Agents Mohsin & Arsalan Jutt"
+          aria-label="Open WhatsApp Chat with Agents Usman & Arsalan Jutt"
           className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-[#061026] shadow-2xl shadow-[#25D366]/40 transition-all hover:scale-110 hover:bg-[#20ba5a] focus:outline-none"
         >
           {/* Animated pulse ring */}
