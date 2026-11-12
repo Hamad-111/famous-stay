@@ -194,7 +194,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-slate-800 flex flex-col font-sans selection:bg-[#D4AF37] selection:text-white">
+    <div className="min-h-screen overflow-x-hidden bg-[#FAF9F5] text-slate-800 flex flex-col font-sans selection:bg-[#D4AF37] selection:text-white">
       {/* Fixed Luxury Navigation in White & Royal Gold */}
       <Header
         activeTab={activeTab}
@@ -214,7 +214,7 @@ export default function App() {
         {activeTab === 'explore' && (
           <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 pt-4 sm:pt-6 animate-in fade-in duration-300">
             {/* STREAMLINED LUXURY HERO BANNER */}
-            <div className="relative mb-6 sm:mb-8 overflow-hidden rounded-3xl border border-[#D4AF37]/35 bg-gradient-to-r from-[#FFFDF8] via-white to-[#FAF6ED] p-6 sm:p-10 text-center shadow-lg shadow-[#D4AF37]/10">
+            <div className="relative mb-6 sm:mb-8 overflow-hidden rounded-2xl sm:rounded-3xl border border-[#D4AF37]/35 bg-gradient-to-r from-[#FFFDF8] via-white to-[#FAF6ED] p-4 sm:p-10 text-center shadow-lg shadow-[#D4AF37]/10">
               {/* Radial ambient glow */}
               <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-[600px] rounded-full bg-[#D4AF37]/15 blur-[100px]"></div>
 
@@ -291,13 +291,13 @@ export default function App() {
                 </p>
 
                 {/* Quick Action Buttons */}
-                <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+                <div className="mt-5 grid grid-cols-1 sm:flex sm:flex-wrap items-center justify-center gap-2.5 sm:gap-3">
                   <button
                     onClick={() => {
                       const el = document.getElementById('primary-cinema-player');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="gold-btn flex items-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold text-slate-950 shadow-md shadow-[#D4AF37]/20"
+                    className="gold-btn flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold text-slate-950 shadow-md shadow-[#D4AF37]/20 w-full sm:w-auto"
                   >
                     <Play className="h-4 w-4 fill-current ml-0.5" />
                     <span>Watch Main Player</span>
@@ -307,9 +307,9 @@ export default function App() {
                     href="https://wa.me/923480964370?text=Hello%20Usman%2C%20I%20am%20watching%20the%2015%20video%20tours%20and%20want%20to%20inquire%20about%20booking%20the%20luxury%20suite."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs sm:text-sm font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-sm"
+                    className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs sm:text-sm font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-sm w-full sm:w-auto"
                   >
-                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <svg className="h-4 w-4 fill-current shrink-0" viewBox="0 0 24 24">
                       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
                     </svg>
                     <span>WhatsApp Usman (0348 0964370)</span>
@@ -320,9 +320,9 @@ export default function App() {
                       const el = document.getElementById('awan-rental-cars');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="flex items-center gap-2 rounded-2xl bg-slate-950 hover:bg-slate-800 text-[#F7E5A9] px-4 py-3 text-xs sm:text-sm font-bold shadow-sm transition-all"
+                    className="flex items-center justify-center gap-2 rounded-2xl bg-slate-950 hover:bg-slate-800 text-[#F7E5A9] px-4 py-3 text-xs sm:text-sm font-bold shadow-sm transition-all w-full sm:w-auto"
                   >
-                    <Car className="h-4 w-4 text-[#D4AF37]" />
+                    <Car className="h-4 w-4 text-[#D4AF37] shrink-0" />
                     <span>AWAN Rental Cars</span>
                   </button>
 
@@ -330,9 +330,9 @@ export default function App() {
                     href="https://wa.me/923180985887?text=Hello%20Arsalan%2C%20I%20am%20watching%20the%2015%20video%20tours%20and%20want%20to%20inquire%20about%20booking%20the%20luxury%20suite."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs sm:text-sm font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-sm"
+                    className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 px-4 py-3 text-xs sm:text-sm font-bold text-[#128C7E] hover:bg-[#25D366] hover:text-white transition-all shadow-sm w-full sm:w-auto"
                   >
-                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <svg className="h-4 w-4 fill-current shrink-0" viewBox="0 0 24 24">
                       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.28c-.24.67-1.39 1.28-1.92 1.36-.51.08-1.16.12-3.37-.8-2.69-1.12-4.4-3.86-4.53-4.04-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .35.01.5.01.16 0 .38-.06.59.45.22.53.76 1.86.83 2 .07.14.12.31.02.5-.1.19-.15.31-.3.49-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.31 1.71 2.12 1.17 1.04 2.16 1.36 2.47 1.51.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.71-.15.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.76-.16 1.43z"/>
                     </svg>
                     <span>WhatsApp Arsalan (+92 318 0985887)</span>

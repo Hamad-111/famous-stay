@@ -39,12 +39,12 @@ export default function AwanRentalCars() {
     <section
       id="awan-rental-cars"
       aria-label="AWAN RENTAL CARS - Official Islamabad Car Rental Fleet"
-      className="relative z-10 mt-6 mb-10 rounded-3xl border border-[#D4AF37]/35 bg-white p-5 sm:p-8 shadow-sm"
+      className="relative z-10 mt-6 mb-10 rounded-2xl sm:rounded-3xl border border-[#D4AF37]/35 bg-white p-4 sm:p-8 shadow-sm"
     >
       {/* Simple Clean Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-100">
         <div>
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FAF6EA] border border-[#D4AF37]/40 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#8C6207]">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FAF6EA] border border-[#D4AF37]/40 px-3 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#8C6207]">
             <Car className="h-3.5 w-3.5" />
             <span>AWAN RENTAL CARS • Islamabad</span>
           </div>
@@ -58,28 +58,28 @@ export default function AwanRentalCars() {
         </div>
 
         {/* Clean Manager Contact Card: Jawad */}
-        <div className="flex items-center gap-3 rounded-2xl border border-[#D4AF37]/35 bg-[#FAF9F5] px-4 py-2.5 shrink-0">
+        <div className="flex items-center gap-3 rounded-2xl border border-[#D4AF37]/35 bg-[#FAF9F5] px-3.5 py-2.5 w-full md:w-auto shrink-0">
           <img
             src="/agent-jawad.jpg"
             alt="Jawad - AWAN RENTAL CARS"
             className="h-11 w-11 rounded-full object-cover object-[center_20%] border-2 border-[#25D366] shrink-0"
           />
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <div className="text-xs font-extrabold text-slate-950">
               Jawad <span className="font-semibold text-[#8C6207]">• Booking Manager</span>
             </div>
-            <div className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs">
+            <div className="mt-0.5 flex flex-wrap items-center gap-x-2.5 gap-y-0.5 text-[11px] sm:text-xs">
               <a
                 href="https://wa.me/923342443388"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono font-bold text-emerald-700 hover:underline"
+                className="font-mono font-bold text-emerald-700 hover:underline shrink-0"
               >
                 0334 2443388
               </a>
               <a
                 href="mailto:malikjawad3066@gmail.com"
-                className="text-slate-600 hover:text-[#8C6207] truncate"
+                className="text-slate-600 hover:text-[#8C6207] break-all sm:break-normal"
               >
                 malikjawad3066@gmail.com
               </a>
@@ -89,14 +89,14 @@ export default function AwanRentalCars() {
       </div>
 
       {/* Simple 1-Row Controls: Categories + Self-Drive/Chauffeur + Days */}
-      <div className="mt-5 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-1.5">
+      <div className="mt-4 sm:mt-5 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+        <div className="flex flex-nowrap sm:flex-wrap overflow-x-auto pb-1 sm:pb-0 gap-1.5">
           {categories.map((cat) => (
             <button
               key={cat.id}
               type="button"
               onClick={() => setSelectedCategory(cat.id)}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
+              className={`rounded-full px-3 sm:px-3.5 py-1.5 text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                 selectedCategory === cat.id
                   ? 'bg-slate-950 text-[#F7E5A9] shadow-xs'
                   : 'bg-slate-100 text-slate-700 hover:bg-[#FAF6EA] hover:text-[#8C6207]'
@@ -107,13 +107,13 @@ export default function AwanRentalCars() {
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+        <div className="flex items-center justify-between sm:justify-start gap-2 w-full sm:w-auto shrink-0">
           {/* Self-Drive vs With Driver Toggle */}
           <div className="inline-flex rounded-xl bg-slate-100 p-1">
             <button
               type="button"
               onClick={() => setDriverMode('self')}
-              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
+              className={`rounded-lg px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap ${
                 driverMode === 'self'
                   ? 'bg-white text-slate-950 shadow-xs'
                   : 'text-slate-600 hover:text-slate-950'
@@ -124,7 +124,7 @@ export default function AwanRentalCars() {
             <button
               type="button"
               onClick={() => setDriverMode('driver')}
-              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
+              className={`rounded-lg px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap ${
                 driverMode === 'driver'
                   ? 'bg-white text-slate-950 shadow-xs'
                   : 'text-slate-600 hover:text-slate-950'
@@ -135,9 +135,9 @@ export default function AwanRentalCars() {
           </div>
 
           {/* Days Counter */}
-          <div className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-[#FAF9F5] px-3 py-1.5">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 bg-[#FAF9F5] px-2.5 sm:px-3 py-1.5">
             <Calendar className="h-3.5 w-3.5 text-[#8C6207]" />
-            <span className="text-xs font-bold text-slate-600">Days</span>
+            <span className="text-[11px] sm:text-xs font-bold text-slate-600">Days</span>
             <button
               type="button"
               onClick={() => setRentalDays((d) => Math.max(1, d - 1))}
@@ -146,7 +146,7 @@ export default function AwanRentalCars() {
             >
               -
             </button>
-            <span className="font-mono text-xs font-extrabold text-slate-950 min-w-[18px] text-center">
+            <span className="font-mono text-xs font-extrabold text-slate-950 min-w-[16px] text-center">
               {rentalDays}
             </span>
             <button
@@ -162,7 +162,7 @@ export default function AwanRentalCars() {
       </div>
 
       {/* Spacious User-Friendly Car Grid */}
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      <div className="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
         {filteredCars.map((car) => {
           const activeRate = driverMode === 'driver' ? car.withDriverRate : car.dailyRate;
           const totalEstimate = activeRate * rentalDays;

@@ -50,7 +50,7 @@ export default function Header({
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[#D4AF37]/25 bg-white/95 backdrop-blur-xl shadow-xs">
       {/* Top Main Navigation Bar */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 gap-2">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-2.5 sm:px-6 lg:px-8 py-2 sm:py-3 gap-1.5 sm:gap-2">
         {/* Brand Logo (Left) */}
         <div 
           onClick={() => setActiveTab('explore')}
@@ -137,7 +137,7 @@ export default function Header({
         </nav>
 
         {/* Right Action Controls (VIP Concierge + Profile) */}
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           {/* Unified 24/7 VIP Concierge Dropdown Pill */}
           <div ref={conciergeRef} className="relative shrink-0">
             <button
@@ -145,7 +145,7 @@ export default function Header({
                 setConciergeDropdownOpen(!conciergeDropdownOpen);
                 setProfileDropdownOpen(false);
               }}
-              className="flex items-center gap-2 rounded-xl border border-emerald-300 bg-gradient-to-r from-emerald-50 via-[#F0FDF4] to-emerald-100/70 hover:from-emerald-100 hover:to-emerald-200/80 px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-emerald-950 transition-all shadow-xs shrink-0 whitespace-nowrap group"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-emerald-300 bg-gradient-to-r from-emerald-50 via-[#F0FDF4] to-emerald-100/70 hover:from-emerald-100 hover:to-emerald-200/80 px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-emerald-950 transition-all shadow-xs shrink-0 whitespace-nowrap group"
               title="24/7 VIP Concierge & WhatsApp Desk (Usman & Arsalan)"
             >
               {/* WhatsApp Icon with Live Online Ping */}
@@ -157,7 +157,7 @@ export default function Header({
               </div>
 
               {/* Overlapping Agent Avatars */}
-              <div className="flex items-center -space-x-1.5 shrink-0">
+              <div className="hidden sm:flex items-center -space-x-1.5 shrink-0">
                 <img
                   src="/agent-usman.jpg"
                   alt="Usman"
@@ -424,17 +424,17 @@ export default function Header({
       </div>
 
       {/* Mobile & Tablet Tab Navigation Bar (< lg screens) */}
-      <div className="lg:hidden flex items-center border-t border-[#D4AF37]/20 bg-[#FAF9F5] px-2 py-1.5">
+      <div className="lg:hidden grid grid-cols-5 gap-1 border-t border-[#D4AF37]/20 bg-[#FAF9F5] px-1.5 py-1.5">
         <button
           onClick={() => setActiveTab('explore')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1.5 py-1.5 px-1 rounded-xl text-[10px] sm:text-xs font-bold transition-all min-w-0 ${
             activeTab === 'explore'
               ? 'bg-white text-[#8C6207] shadow-xs border border-[#D4AF37]/35 font-extrabold'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
-          <Film className="h-3.5 w-3.5" />
-          <span>Videos</span>
+          <Film className="h-3.5 w-3.5 shrink-0" />
+          <span className="truncate">Videos</span>
         </button>
 
         <button
@@ -445,36 +445,43 @@ export default function Header({
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }, 100);
           }}
-          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all"
+          className="flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1.5 py-1.5 px-1 rounded-xl text-[10px] sm:text-xs font-bold text-slate-600 hover:text-slate-900 transition-all min-w-0"
         >
-          <Search className="h-3.5 w-3.5" />
-          <span>Search</span>
+          <Search className="h-3.5 w-3.5 shrink-0" />
+          <span className="truncate">Search</span>
         </button>
 
         <button
           onClick={() => setActiveTab('cars')}
-          className={`flex-1 flex items-center justify-center gap-1 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1 py-1.5 px-1 rounded-xl text-[10px] sm:text-xs font-bold transition-all min-w-0 ${
             activeTab === 'cars'
               ? 'bg-white text-[#8C6207] shadow-xs border border-[#D4AF37]/35 font-extrabold'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
-          <Car className="h-3.5 w-3.5" />
-          <span>Cars</span>
+          <Car className="h-3.5 w-3.5 shrink-0" />
+          <span className="truncate">Cars</span>
         </button>
 
         <button
           onClick={() => setActiveTab('ledger')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1.5 py-1.5 px-1 rounded-xl text-[10px] sm:text-xs font-bold transition-all min-w-0 ${
             activeTab === 'ledger'
               ? 'bg-white text-[#8C6207] shadow-xs border border-[#D4AF37]/35 font-extrabold'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
-          <Briefcase className="h-3.5 w-3.5" />
-          <span>Bookings</span>
+          <div className="flex items-center gap-0.5">
+            <Briefcase className="h-3.5 w-3.5 shrink-0" />
+            {bookingsCount > 0 && (
+              <span className="sm:hidden rounded-full bg-slate-900 px-1 text-[9px] font-extrabold text-[#F7E5A9] leading-tight">
+                {bookingsCount}
+              </span>
+            )}
+          </div>
+          <span className="truncate">Bookings</span>
           {bookingsCount > 0 && (
-            <span className="rounded-full bg-slate-900 px-1.5 py-0.2 text-[10px] font-extrabold text-[#F7E5A9]">
+            <span className="hidden sm:inline rounded-full bg-slate-900 px-1.5 py-0.2 text-[10px] font-extrabold text-[#F7E5A9]">
               {bookingsCount}
             </span>
           )}
@@ -482,14 +489,14 @@ export default function Header({
 
         <button
           onClick={() => setActiveTab('commissions')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1.5 py-1.5 px-1 rounded-xl text-[10px] sm:text-xs font-bold transition-all min-w-0 ${
             activeTab === 'commissions'
               ? 'bg-white text-[#8C6207] shadow-xs border border-[#D4AF37]/35 font-extrabold'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
-          <DollarSign className="h-3.5 w-3.5" />
-          <span>Earnings</span>
+          <DollarSign className="h-3.5 w-3.5 shrink-0" />
+          <span className="truncate">Earnings</span>
         </button>
       </div>
     </header>
