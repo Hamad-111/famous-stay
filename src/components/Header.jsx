@@ -12,7 +12,8 @@ import {
   MessageCircle,
   ShieldCheck,
   ExternalLink,
-  Phone
+  Phone,
+  Car
 } from 'lucide-react';
 import Logo from './Logo';
 
@@ -86,6 +87,18 @@ export default function Header({
             <Search className="h-3.5 w-3.5 text-[#8C6207] shrink-0" />
             <span className="hidden xl:inline">Search Console</span>
             <span className="xl:hidden">Search</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('cars')}
+            className={`flex items-center gap-1.5 xl:gap-2 rounded-full px-3 xl:px-3.5 py-1.5 xl:py-2 text-xs font-bold tracking-wide transition-all whitespace-nowrap ${
+              activeTab === 'cars'
+                ? 'gold-btn text-slate-950 shadow-xs'
+                : 'text-slate-600 hover:text-slate-950 hover:bg-white/70'
+            }`}
+          >
+            <Car className="h-3.5 w-3.5 text-[#8C6207] shrink-0" />
+            <span>AWAN Cars</span>
           </button>
 
           <button
@@ -359,6 +372,17 @@ export default function Header({
                     </button>
 
                     <button
+                      onClick={() => {
+                        setActiveTab('cars');
+                        setProfileDropdownOpen(false);
+                      }}
+                      className="w-full flex items-center gap-2 rounded-xl px-2.5 py-2 text-left text-slate-700 hover:bg-[#FAF6EA] hover:text-[#8C6207] transition-colors font-bold text-xs"
+                    >
+                      <Car className="h-3.5 w-3.5 text-[#8C6207]" />
+                      <span>AWAN Rental Cars</span>
+                    </button>
+
+                    <button
                       onClick={() => setActiveTab('ledger')}
                       className="w-full flex items-center gap-2 rounded-xl px-2.5 py-2 text-left text-slate-700 hover:bg-[#FAF6EA] hover:text-[#8C6207] transition-colors"
                     >
@@ -425,6 +449,18 @@ export default function Header({
         >
           <Search className="h-3.5 w-3.5" />
           <span>Search</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('cars')}
+          className={`flex-1 flex items-center justify-center gap-1 py-2 rounded-xl text-xs font-bold transition-all ${
+            activeTab === 'cars'
+              ? 'bg-white text-[#8C6207] shadow-xs border border-[#D4AF37]/35 font-extrabold'
+              : 'text-slate-600 hover:text-slate-900'
+          }`}
+        >
+          <Car className="h-3.5 w-3.5" />
+          <span>Cars</span>
         </button>
 
         <button

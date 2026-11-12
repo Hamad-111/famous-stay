@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Toast from './components/Toast';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import ApartmentShowcase from './components/ApartmentShowcase';
+import AwanRentalCars from './components/AwanRentalCars';
 import FamousSearchBar from './components/FamousSearchBar';
 import SEOContentSection from './components/SEOContentSection';
 import { LUXURY_HOTELS, INITIAL_AGENT_BOOKINGS } from './data/hotels';
@@ -132,6 +133,8 @@ export default function App() {
     const activeRoom = selectedRoomForBooking || selectedRoomForModal;
     if (activeRoom?.name) {
       document.title = `${activeRoom.name} | Famous Stay Islamabad`;
+    } else if (activeTab === 'cars') {
+      document.title = 'AWAN RENTAL CARS Islamabad | Daily Car Rental Fleet | Famous Stay';
     } else if (activeTab === 'ledger') {
       document.title = 'Agent Bookings & Reservation Ledger | Famous Stay Islamabad';
     } else {
@@ -462,6 +465,9 @@ export default function App() {
               />
             )}
 
+            {/* DEDICATED CAR RENTAL PORTION: AWAN RENTAL CARS */}
+            <AwanRentalCars />
+
             {/* SEO KNOWLEDGE BASE & FREQUENTLY ASKED QUESTIONS */}
             <SEOContentSection
               singleBedRoom={singleBedRoom}
@@ -506,6 +512,13 @@ export default function App() {
                 <p className="text-xs text-slate-600 mt-1">Direct coordination with Host Usman for airport Prado transfers and VIP greeting.</p>
               </div>
             </div>
+          </div>
+        )}
+
+        {/* DEDICATED AWAN RENTAL CARS STANDALONE VIEW */}
+        {activeTab === 'cars' && (
+          <div className="animate-in fade-in duration-300">
+            <AwanRentalCars />
           </div>
         )}
 
