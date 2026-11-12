@@ -5,16 +5,13 @@ Disallow: /api/
 
 User-agent: Googlebot
 Allow: /
-Allow: /apartment/
-Allow: /apartment/videos/
+Disallow: /admin
+Disallow: /api/
 
 User-agent: Googlebot-Image
-Allow: /apartment/*.jpg
-Allow: /agent-*.jpg
+Allow: /
 
 User-agent: Googlebot-Video
-Allow: /apartment/videos/*.mp4
+Allow: /
 
-# Sitemaps for Google Search Console & Bing Webmaster
 Sitemap: https://www.famousstay.site/sitemap.xml
-Host: https://www.famousstay.site

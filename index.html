@@ -202,8 +202,8 @@
       },
       "checkinTime": "14:00",
       "checkoutTime": "12:00",
-      "numberOfRooms": "15",
-      "petsAllowed": "false",
+      "numberOfRooms": 15,
+      "petsAllowed": false,
       "starRating": {
         "@type": "Rating",
         "ratingValue": "5"
@@ -254,8 +254,14 @@
               "@type": "Offer",
               "price": "8000",
               "priceCurrency": "PKR",
-              "unitCode": "DAY",
-              "availability": "https://schema.org/InStock"
+              "priceValidUntil": "2027-12-31",
+              "availability": "https://schema.org/InStock",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "8000",
+                "priceCurrency": "PKR",
+                "unitCode": "DAY"
+              }
             }
           }
         },
@@ -279,8 +285,14 @@
               "@type": "Offer",
               "price": "15000",
               "priceCurrency": "PKR",
-              "unitCode": "DAY",
-              "availability": "https://schema.org/InStock"
+              "priceValidUntil": "2027-12-31",
+              "availability": "https://schema.org/InStock",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "15000",
+                "priceCurrency": "PKR",
+                "unitCode": "DAY"
+              }
             }
           }
         },
@@ -304,8 +316,14 @@
               "@type": "Offer",
               "price": "50000",
               "priceCurrency": "PKR",
-              "unitCode": "DAY",
-              "availability": "https://schema.org/InStock"
+              "priceValidUntil": "2027-12-31",
+              "availability": "https://schema.org/InStock",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "50000",
+                "priceCurrency": "PKR",
+                "unitCode": "DAY"
+              }
             }
           }
         },
@@ -316,13 +334,7 @@
             "@type": "Resort",
             "name": "Margalla Grand Luxury Pool Farmhouse & Estate",
             "description": "Exclusive private gated luxury farmhouse in Chak Shahzad & Bani Gala with temperature-controlled swimming pool, 2-acre lawn, 4 king bedrooms, and BBQ pit.",
-            "offers": {
-              "@type": "Offer",
-              "price": "60000",
-              "priceCurrency": "PKR",
-              "unitCode": "DAY",
-              "availability": "https://schema.org/InStock"
-            }
+            "priceRange": "PKR 60,000 / day"
           }
         },
         {
@@ -336,8 +348,14 @@
               "@type": "Offer",
               "price": "15000",
               "priceCurrency": "PKR",
-              "unitCode": "DAY",
-              "availability": "https://schema.org/InStock"
+              "priceValidUntil": "2027-12-31",
+              "availability": "https://schema.org/InStock",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "15000",
+                "priceCurrency": "PKR",
+                "unitCode": "DAY"
+              }
             }
           }
         }
@@ -433,6 +451,60 @@
           "interactionType": { "@type": "WatchAction" },
           "userInteractionCount": 1890
         }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Famous Stay Wave LED Executive Lounge & Dining Tour",
+        "description": "Walkthrough of the sculpted wave backlit wall, deep velvet sectional, and luxury dining area in Islamabad.",
+        "thumbnailUrl": [
+          "https://www.famousstay.site/apartment/trending-lounge-dining.jpg"
+        ],
+        "uploadDate": "2026-11-01T12:00:00+05:00",
+        "duration": "PT40S",
+        "contentUrl": "https://www.famousstay.site/apartment/videos/video-tour-2.mp4",
+        "embedUrl": "https://www.famousstay.site/",
+        "interactionStatistic": {
+          "@type": "InteractionCounter",
+          "interactionType": { "@type": "WatchAction" },
+          "userInteractionCount": 980
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Famous Stay Arched Vanity Mirror & Marble Suite Walkthrough",
+        "description": "Tour of the illuminated arched mirror foyer, king bedroom suites, and marble bathrooms in Famous Stay Islamabad.",
+        "thumbnailUrl": [
+          "https://www.famousstay.site/apartment/trending-mirror-foyer.jpg"
+        ],
+        "uploadDate": "2026-11-01T12:00:00+05:00",
+        "duration": "PT42S",
+        "contentUrl": "https://www.famousstay.site/apartment/videos/video-tour-3.mp4",
+        "embedUrl": "https://www.famousstay.site/",
+        "interactionStatistic": {
+          "@type": "InteractionCounter",
+          "interactionType": { "@type": "WatchAction" },
+          "userInteractionCount": 1120
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Famous Stay Margalla Twilight Terrace & Night Ambience Tour",
+        "description": "Evening sky terrace illumination and panoramic Margalla mountain twilight tour at Famous Stay Islamabad.",
+        "thumbnailUrl": [
+          "https://www.famousstay.site/apartment/trending-terrace-night.jpg"
+        ],
+        "uploadDate": "2026-11-01T12:00:00+05:00",
+        "duration": "PT38S",
+        "contentUrl": "https://www.famousstay.site/apartment/videos/video-tour-5.mp4",
+        "embedUrl": "https://www.famousstay.site/",
+        "interactionStatistic": {
+          "@type": "InteractionCounter",
+          "interactionType": { "@type": "WatchAction" },
+          "userInteractionCount": 1460
+        }
       }
     ]
     </script>
@@ -444,6 +516,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Famous Stay Trending Luxury Penthouse & Margalla Sky Terrace",
+        "sku": "FS-PENTHOUSE-ISB-50K",
         "image": [
           "https://www.famousstay.site/apartment/trending-living-media.jpg",
           "https://www.famousstay.site/apartment/trending-terrace-bbq.jpg",
@@ -457,7 +530,22 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "460"
+          "reviewCount": "460",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Tariq Mahmood"
+          },
+          "reviewBody": "Matched Serena and Marriott standards with a private Margalla rooftop sky terrace and instant check-in through Agent Usman."
         },
         "offers": {
           "@type": "Offer",
@@ -473,6 +561,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Famous Stay Margalla Grand Luxury Pool Farmhouse & Estate",
+        "sku": "FS-FARMHOUSE-ISB-60K",
         "image": [
           "https://www.famousstay.site/apartment/trending-terrace-bbq.jpg"
         ],
@@ -484,7 +573,22 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "210"
+          "reviewCount": "210",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Zainab Qureshi"
+          },
+          "reviewBody": "Spotless private swimming pool farmhouse in Chak Shahzad with standby power and smooth WhatsApp reservation."
         },
         "offers": {
           "@type": "Offer",
@@ -525,7 +629,7 @@
               <p style="color:#64748b;font-size:0.9rem;">2 Master King Bedrooms, 2 En-Suite Designer Marble Baths, Central Living Lounge, Dining.</p>
             </article>
 
-            <article style="border:2px solid #D4AF37;border-radius:12px;padding:20px;background:#FFFDF7;">
+            <article id="penthouse" style="border:2px solid #D4AF37;border-radius:12px;padding:20px;background:#FFFDF7;">
               <h3 style="font-size:1.2rem;color:#8C6207;margin-bottom:6px;">Trending Luxury Penthouse &amp; Margalla Sky Terrace</h3>
               <p style="font-weight:bold;color:#8C6207;font-size:1.1rem;margin-bottom:8px;">Rs. 50,000 / day (50k)</p>
               <p style="color:#64748b;font-size:0.9rem;">Open-Air Rooftop Sky Terrace with Barbecue Patio, 85&quot; Smart Media Wall, Wave LED Lounge, 15 Video Tours.</p>
@@ -534,7 +638,7 @@
         </section>
 
         <!-- SEO SECTION: ISLAMABAD FAMOUS HOTELS -->
-        <section style="margin-bottom:30px;border-top:1px solid #e2e8f0;padding-top:20px;">
+        <section id="famous-hotels" style="margin-bottom:30px;border-top:1px solid #e2e8f0;padding-top:20px;">
           <h2 style="font-size:1.4rem;color:#0f172a;margin-bottom:8px;">Islamabad Famous Hotels &amp; Luxury 5-Star Suites</h2>
           <p style="color:#475569;line-height:1.6;font-size:0.95rem;">
             Looking for famous hotels in Islamabad? Famous Stay provides an exclusive alternative to 5-star hotels like Serena Hotel Islamabad, Islamabad Marriott, and Centaurus Suites. Located in prime sectors (F-6, F-7, and Blue Area), our suites offer identical VIP luxury, marble bathrooms, and 24/7 concierge at fixed wholesale rates with zero hidden markups.
@@ -553,7 +657,7 @@
         </section>
 
         <!-- SEO SECTION: LUXURY FARMHOUSES IN ISLAMABAD -->
-        <section style="margin-bottom:30px;border-top:1px solid #e2e8f0;padding-top:20px;">
+        <section id="farmhouse" style="margin-bottom:30px;border-top:1px solid #e2e8f0;padding-top:20px;">
           <h2 style="font-size:1.4rem;color:#0f172a;margin-bottom:8px;">Luxury Farmhouse with Swimming Pool in Islamabad</h2>
           <p style="color:#475569;line-height:1.6;font-size:0.95rem;">
             Rent private luxury farmhouses in Islamabad's scenic Chak Shahzad, Bani Gala, and Simly Dam. Each estate features a private swimming pool, 2-acre party lawn for barbecues and family gatherings, 4 master king bedrooms, standby generator, and 24/7 gated security.
