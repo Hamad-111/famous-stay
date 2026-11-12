@@ -11,7 +11,8 @@ import {
   CheckCircle2,
   MapPin,
   X,
-  Calendar
+  Calendar,
+  Mail
 } from 'lucide-react';
 import { AWAN_CARS_FLEET } from '../data/awanCars';
 
@@ -37,8 +38,8 @@ export default function AwanRentalCars() {
   const buildWhatsAppLink = (car, rate) => {
     const modeLabel = driverMode === 'driver' ? 'With Chauffeur/Driver' : 'Self-Drive';
     const total = rate * rentalDays;
-    const msg = `Assalam-o-Alaikum Usman, I want to book ${car.name} (${car.subtitle}) from AWAN RENTAL CARS (%2A${modeLabel}%2A) for ${rentalDays} day(s) at Rs. ${rate.toLocaleString()}/day (Est. Total: Rs. ${total.toLocaleString()}).`;
-    return `https://wa.me/923480964370?text=${msg}`;
+    const msg = `Assalam-o-Alaikum Jawad, I want to book ${car.name} (${car.subtitle}) from AWAN RENTAL CARS (${modeLabel}) for ${rentalDays} day(s) at Rs. ${rate.toLocaleString()}/day (Est. Total: Rs. ${total.toLocaleString()}).`;
+    return `https://wa.me/923342443388?text=${encodeURIComponent(msg)}`;
   };
 
   return (
@@ -65,6 +66,38 @@ export default function AwanRentalCars() {
 
         {/* Driver Toggle & Days Selector Controls */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+          {/* AWAN RENTAL CARS Direct Contact Badge: Jawad */}
+          <div className="flex items-center gap-2.5 rounded-2xl border border-[#D4AF37]/45 bg-white px-3 py-1.5 shadow-xs">
+            <img
+              src="/agent-jawad.jpg"
+              alt="Jawad - AWAN RENTAL CARS Manager"
+              className="h-10 w-10 rounded-full object-cover object-[center_20%] border-2 border-[#25D366] shrink-0"
+            />
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs font-extrabold text-slate-950 truncate">Jawad</span>
+                <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                <span className="text-[10px] font-bold text-[#8C6207]">Fleet Lead</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px]">
+                <a
+                  href="https://wa.me/923342443388"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono font-bold text-emerald-700 hover:underline"
+                >
+                  0334 2443388
+                </a>
+                <a
+                  href="mailto:malikjawad3066@gmail.com"
+                  className="text-slate-600 hover:text-[#8C6207] truncate max-w-[140px]"
+                >
+                  malikjawad3066@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
           {/* Self Drive vs With Driver */}
           <div className="inline-flex rounded-2xl border border-[#D4AF37]/35 bg-white p-1 shadow-xs">
             <button
@@ -260,11 +293,18 @@ export default function AwanRentalCars() {
                       <span>Book on WhatsApp</span>
                     </a>
                     <a
-                      href="tel:+923480964370"
+                      href="tel:+923342443388"
                       className="inline-flex items-center justify-center rounded-xl border border-[#D4AF37]/45 bg-[#FFFDF5] hover:bg-[#FFF4D4] text-[#8C6207] p-2.5 transition-colors"
-                      title="Call Usman: 0348 0964370"
+                      title="Call Jawad: 0334 2443388"
                     >
                       <PhoneCall className="h-3.5 w-3.5" />
+                    </a>
+                    <a
+                      href={`mailto:malikjawad3066@gmail.com?subject=${encodeURIComponent(`AWAN RENTAL CARS Booking: ${car.name}`)}`}
+                      className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 p-2.5 transition-colors"
+                      title="Email Jawad: malikjawad3066@gmail.com"
+                    >
+                      <Mail className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </div>
@@ -276,24 +316,47 @@ export default function AwanRentalCars() {
 
       {/* Compact Official Per-Day Tariff Summary Bar */}
       <div className="mt-7 rounded-2xl border border-[#D4AF37]/30 bg-white p-4 sm:p-5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div>
-            <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#8C6207]">
-              AWAN RENTAL CARS — Official Daily Tariff Desk
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5">
+            <img
+              src="/agent-jawad.jpg"
+              alt="Jawad - AWAN RENTAL CARS"
+              className="h-12 w-12 rounded-2xl object-cover object-[center_20%] border-2 border-[#D4AF37] shrink-0"
+            />
+            <div>
+              <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#8C6207]">
+                AWAN RENTAL CARS — Contact Jawad (Fleet Manager)
+              </div>
+              <p className="text-xs text-slate-600 mt-0.5">
+                Self-drive (valid CNIC &amp; driving license) or Chauffeur-driven • WhatsApp{' '}
+                <a href="https://wa.me/923342443388" target="_blank" rel="noopener noreferrer" className="font-bold text-emerald-700 hover:underline font-mono">
+                  0334 2443388
+                </a>{' '}
+                • Email{' '}
+                <a href="mailto:malikjawad3066@gmail.com" className="font-semibold text-slate-800 hover:text-[#8C6207] underline">
+                  malikjawad3066@gmail.com
+                </a>
+              </p>
             </div>
-            <p className="text-xs text-slate-600 mt-0.5">
-              Self-drive (valid CNIC &amp; driving license) or Chauffeur-driven • Airport pick &amp; drop available 24/7 via Agent Usman (<strong>0348 0964370</strong>).
-            </p>
           </div>
-          <a
-            href="https://wa.me/923480964370?text=Hello%20Usman%2C%20I%20want%20to%20inquire%20about%20AWAN%20RENTAL%20CARS%20in%20Islamabad."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center justify-center gap-2 rounded-xl gold-btn px-4 py-2.5 text-xs font-extrabold text-slate-950 shadow-sm"
-          >
-            <Car className="h-4 w-4" />
-            <span>Custom Monthly / Outstation Quote</span>
-          </a>
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
+            <a
+              href="mailto:malikjawad3066@gmail.com?subject=AWAN%20RENTAL%20CARS%20Booking%20Inquiry"
+              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#D4AF37]/45 bg-[#FFFDF5] hover:bg-[#FFF4D4] px-3.5 py-2.5 text-xs font-extrabold text-[#8C6207] transition-colors"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              <span>Email Jawad</span>
+            </a>
+            <a
+              href="https://wa.me/923342443388?text=Hello%20Jawad%2C%20I%20want%20to%20inquire%20about%20AWAN%20RENTAL%20CARS%20in%20Islamabad."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl gold-btn px-4 py-2.5 text-xs font-extrabold text-slate-950 shadow-sm"
+            >
+              <Car className="h-4 w-4" />
+              <span>WhatsApp Jawad (0334 2443388)</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -346,3 +409,4 @@ export default function AwanRentalCars() {
     </section>
   );
 }
+

@@ -638,6 +638,37 @@ export default function App() {
                     </a>
                   </div>
                 </div>
+
+                {/* Car Rental Desk: Jawad (AWAN RENTAL CARS) */}
+                <div className="rounded-xl border border-[#D4AF37]/30 bg-white p-2.5 shadow-sm space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    <img
+                      src="/agent-jawad.jpg"
+                      alt="Jawad - AWAN RENTAL CARS"
+                      className="h-9 w-9 rounded-full object-cover object-[center_20%] border-2 border-[#D4AF37]"
+                    />
+                    <div className="min-w-0">
+                      <div className="text-slate-900 font-bold text-xs">Jawad</div>
+                      <div className="text-[#8C6207] text-[10px] font-semibold">AWAN RENTAL CARS Manager</div>
+                      <a href="mailto:malikjawad3066@gmail.com" className="block text-[10px] text-slate-500 hover:text-[#8C6207] truncate">
+                        malikjawad3066@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
+                    <a href="tel:+923342443388" className="font-bold text-slate-800 hover:text-[#8C6207] font-mono text-[11px]">
+                      0334 2443388
+                    </a>
+                    <a
+                      href="https://wa.me/923342443388?text=Hello%20Jawad%2C%20I%20want%20to%20book%20a%20car%20from%20AWAN%20RENTAL%20CARS."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-lg bg-[#25D366] text-slate-950 font-bold text-[10px] px-2 py-1 shadow-sm"
+                    >
+                      <span>WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
