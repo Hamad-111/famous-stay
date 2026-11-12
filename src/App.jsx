@@ -218,36 +218,7 @@ export default function App() {
               {/* Radial ambient glow */}
               <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-[600px] rounded-full bg-[#D4AF37]/15 blur-[100px]"></div>
 
-              <div className="relative z-10 max-w-4xl mx-auto">
-                {/* BIG & VISIBLE OWNER OF BUSINESS SPOTLIGHT: AREEBO */}
-                <div className="mb-5 sm:mb-6 flex justify-center">
-                  <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-3xl border-2 border-[#D4AF37]/60 bg-white/95 px-6 sm:px-9 py-4 sm:py-5 shadow-xl shadow-[#D4AF37]/20 w-full sm:w-auto">
-                    <div className="relative shrink-0">
-                      <img
-                        src="/owner-areebo.jpg"
-                        alt="AREEBO - Owner of Business Famous Stay & AWAN Rental Cars"
-                        className="h-28 w-28 sm:h-32 sm:w-32 rounded-full object-cover object-[center_20%] border-4 border-[#D4AF37] ring-4 ring-[#D4AF37]/20 shadow-lg"
-                      />
-                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-slate-950 border border-[#D4AF37] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#F7E5A9] shadow-sm whitespace-nowrap">
-                        <Crown className="h-3 w-3 text-[#D4AF37]" />
-                        <span>Verified Owner</span>
-                      </span>
-                    </div>
-
-                    <div className="text-center sm:text-left">
-                      <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF4D4] border border-[#D4AF37]/50 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#8C6207]">
-                        <span>Owner of Business</span>
-                      </div>
-                      <div className="mt-1.5 font-serif text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 leading-none">
-                        <span className="gold-gradient-text">AREEBO</span>
-                      </div>
-                      <p className="mt-1.5 text-xs sm:text-sm font-semibold text-slate-600">
-                        Founder &amp; Proprietor • Famous Stay &amp; AWAN Rental Cars Islamabad
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
+              <div className="relative z-10 max-w-3xl mx-auto">
                 <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
                   <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-rose-700 text-white px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider shadow-md">
                     <span className="relative flex h-2 w-2">
@@ -598,7 +569,7 @@ export default function App() {
               <Logo size="large" />
 
               <p className="text-xs text-slate-600 leading-relaxed max-w-sm pt-2">
-                Owned &amp; led by <strong className="text-slate-900">AREEBO</strong> — Pakistan's premier hospitality &amp; mobility network uniting Famous Stay 5-star suites, pool farmhouses, and AWAN Rental Cars.
+                Pakistan's premier B2B luxury suite reservation portal connecting accredited travel agents to 5-star suites with guaranteed wholesale margins.
               </p>
 
               <div className="flex flex-wrap items-center gap-2 pt-2">
