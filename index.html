@@ -15,21 +15,9 @@
     <meta name="author" content="Famous Stay Luxury Hospitality Network" />
     <meta name="publisher" content="Famous Stay" />
     <link rel="canonical" href="https://www.famousstay.site/" />
-
-    <!-- DYNAMIC CANONICAL RESILIENCE (Supports both famousstay.site and www.famousstay.site) -->
-    <script>
-      (function() {
-        try {
-          var h = window.location.hostname;
-          if (h && h !== 'localhost' && h !== '127.0.0.1') {
-            var can = document.querySelector("link[rel='canonical']");
-            if (can) {
-              can.setAttribute('href', window.location.origin + window.location.pathname);
-            }
-          }
-        } catch(e) {}
-      })();
-    </script>
+    <link rel="alternate" hreflang="en-PK" href="https://www.famousstay.site/" />
+    <link rel="alternate" hreflang="en" href="https://www.famousstay.site/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.famousstay.site/" />
 
     <!-- GOOGLE SEARCH CONSOLE & WEBMASTER VERIFICATION -->
     <meta name="google-site-verification" content="google-site-verification-famousstay-verified" />
@@ -75,10 +63,41 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none'><rect width='48' height='48' rx='12' fill='%23FAF9F5'/><path d='M24 3L39 10V25C39 33.5 32.5 41 24 44C15.5 41 9 33.5 9 25V10L24 3Z' stroke='%23D4AF37' stroke-width='2' fill='%23FFFDF5'/><path d='M17 31L29 19M29 19L26 16M29 19L31 21M30 18L33 15' stroke='%238C6207' stroke-width='2.5' stroke-linecap='round'/><circle cx='16' cy='32' r='3.5' stroke='%238C6207' stroke-width='2'/><path d='M16 19L19 14L24 17L29 14L32 19H16Z' fill='%23D4AF37'/></svg>" />
 
-    <!-- TYPOGRAPHY FONTS -->
+    <!-- CORE WEB VITALS: PRELOAD & DNS PREFETCH -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/apartment/trending-living-media.jpg" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+
+    <!-- STRUCTURED DATA: ORGANIZATION BRAND AUTHORITY -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Famous Stay",
+      "alternateName": ["Famous Stay Islamabad", "FamousStay Pakistan"],
+      "url": "https://www.famousstay.site/",
+      "logo": "https://www.famousstay.site/apartment/trending-living-media.jpg",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+92-348-0964370",
+          "contactType": "reservations",
+          "areaServed": "PK",
+          "availableLanguage": ["en", "ur"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+92-318-0985887",
+          "contactType": "customer support",
+          "areaServed": "PK",
+          "availableLanguage": ["en", "ur"]
+        }
+      ]
+    }
+    </script>
 
     <!-- STRUCTURED DATA: GOOGLE SEARCH CONSOLE SITELINKS SEARCHBOX -->
     <script type="application/ld+json">
@@ -137,9 +156,9 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LodgingBusiness",
+      "@type": ["LodgingBusiness", "Hotel"],
       "name": "Famous Stay",
-      "alternateName": "Famous Stay Top Hotels, Farmhouses & Penthouses",
+      "alternateName": "Famous Stay Top Hotels, Farmhouses & Penthouses Islamabad",
       "image": [
         "https://www.famousstay.site/apartment/trending-living-media.jpg",
         "https://www.famousstay.site/apartment/trending-terrace-bbq.jpg",
@@ -152,6 +171,15 @@
       "priceRange": "PKR 8,000 - PKR 60,000",
       "currenciesAccepted": "PKR",
       "paymentAccepted": "Bank Transfer, Cash, Net 30 Corporate Credit",
+      "areaServed": [
+        { "@type": "City", "name": "Islamabad" },
+        { "@type": "Place", "name": "Sector F-6 Super Market, Islamabad" },
+        { "@type": "Place", "name": "Sector F-7 Jinnah Super, Islamabad" },
+        { "@type": "Place", "name": "Blue Area & Centaurus Mall, Islamabad" },
+        { "@type": "Place", "name": "Chak Shahzad Farmhouses, Islamabad" },
+        { "@type": "Place", "name": "Bani Gala Lake View, Islamabad" },
+        { "@type": "Place", "name": "Sector E-7 Margalla Hills, Islamabad" }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Margalla Hills Foothills",
@@ -511,6 +539,17 @@
           <p style="color:#475569;line-height:1.6;font-size:0.95rem;">
             Looking for famous hotels in Islamabad? Famous Stay provides an exclusive alternative to 5-star hotels like Serena Hotel Islamabad, Islamabad Marriott, and Centaurus Suites. Located in prime sectors (F-6, F-7, and Blue Area), our suites offer identical VIP luxury, marble bathrooms, and 24/7 concierge at fixed wholesale rates with zero hidden markups.
           </p>
+        </section>
+
+        <!-- SEO SECTION: ISLAMABAD SECTOR COVERAGE & HOTEL ALTERNATIVE DIRECTORY -->
+        <section style="margin-bottom:30px;border-top:1px solid #e2e8f0;padding-top:20px;">
+          <h2 style="font-size:1.4rem;color:#0f172a;margin-bottom:10px;">Islamabad Top Locations &amp; Sector Coverage</h2>
+          <ul style="color:#475569;line-height:1.7;font-size:0.95rem;padding-left:20px;">
+            <li><strong>Sector F-6 Super Market &amp; Sector F-7 Jinnah Super:</strong> Top hotels &amp; private 1-bed (Rs. 8,000/day) and 2-bed (Rs. 15,000/day) boutique suites.</li>
+            <li><strong>Blue Area &amp; Centaurus Luxury Tier Suites:</strong> Diplomatic &amp; corporate apartments matching Serena, Marriott &amp; Centaurus hospitality standards.</li>
+            <li><strong>Sector E-7 Margalla Foothills:</strong> Trending Luxury Penthouse &amp; Margalla Sky Terrace (Rs. 50,000/day) with 85&quot; media wall &amp; BBQ patio.</li>
+            <li><strong>Chak Shahzad &amp; Bani Gala Lake Estates:</strong> Private luxury pool farmhouses with 2-acre party lawns and standby power from Rs. 60,000/day.</li>
+          </ul>
         </section>
 
         <!-- SEO SECTION: LUXURY FARMHOUSES IN ISLAMABAD -->

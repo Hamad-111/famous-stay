@@ -4,7 +4,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.famousstay.site/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     
@@ -52,6 +52,33 @@
       <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-4.mp4</video:content_loc>
       <video:player_loc>https://www.famousstay.site/</video:player_loc>
       <video:duration>50</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-lounge-dining.jpg</video:thumbnail_loc>
+      <video:title>Famous Stay Wave LED Executive Lounge &amp; Dining Tour</video:title>
+      <video:description>Walkthrough of the sculpted wave backlit wall, deep velvet sectional, and luxury dining area in Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-2.mp4</video:content_loc>
+      <video:player_loc>https://www.famousstay.site/</video:player_loc>
+      <video:duration>40</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-mirror-foyer.jpg</video:thumbnail_loc>
+      <video:title>Famous Stay Arched Vanity Mirror &amp; Marble Suite Walkthrough</video:title>
+      <video:description>Tour of the illuminated arched mirror foyer, king bedroom suites, and marble bathrooms in Famous Stay Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-3.mp4</video:content_loc>
+      <video:player_loc>https://www.famousstay.site/</video:player_loc>
+      <video:duration>42</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-terrace-night.jpg</video:thumbnail_loc>
+      <video:title>Famous Stay Margalla Twilight Terrace &amp; Night Ambience Tour</video:title>
+      <video:description>Evening sky terrace illumination and panoramic Margalla mountain twilight tour at Famous Stay Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-5.mp4</video:content_loc>
+      <video:player_loc>https://www.famousstay.site/</video:player_loc>
+      <video:duration>38</video:duration>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>

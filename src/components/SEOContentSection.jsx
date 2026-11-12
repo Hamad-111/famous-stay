@@ -251,6 +251,32 @@ export default function SEOContentSection({
         </table>
       </div>
 
+      {/* Islamabad Top Locations & Sector Guide */}
+      <div className="rounded-2xl border border-slate-200 bg-white/80 p-5 sm:p-6">
+        <div className="mb-4">
+          <div className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700">
+            Islamabad Prime Sector Directory
+          </div>
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900 mt-0.5">
+            Best Sectors for Top Hotels, Luxury Penthouses &amp; Pool Farmhouses in Islamabad
+          </h3>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm">
+          <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-3.5">
+            <div className="font-bold text-slate-900">Sector F-6 &amp; F-7 (Jinnah Super)</div>
+            <p className="text-slate-600 mt-1">Diplomatic-zone 1 Bed (<span className="font-semibold text-emerald-700">8k</span>) &amp; 2 Bed (<span className="font-semibold text-emerald-700">15k</span>) luxury hotel suites minutes from Kohsar Market.</p>
+          </div>
+          <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-3.5">
+            <div className="font-bold text-slate-900">Blue Area &amp; Centaurus Belt</div>
+            <p className="text-slate-600 mt-1">Executive corporate rooms matching Serena &amp; Marriott hospitality standards with fixed rates (<span className="font-semibold text-emerald-700">8k–15k</span>).</p>
+          </div>
+          <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-3.5">
+            <div className="font-bold text-slate-900">E-7 Margalla Hills &amp; Chak Shahzad</div>
+            <p className="text-slate-600 mt-1">Trending Sky Terrace Penthouse (<span className="font-semibold text-[#8C6207]">50k</span>) &amp; Bani Gala / Chak Shahzad Pool Farmhouses (<span className="font-semibold text-emerald-700">60k</span>).</p>
+          </div>
+        </div>
+      </div>
+
       {/* SEO Frequently Asked Questions Accordion */}
       <div className="rounded-2xl border border-[#D4AF37]/30 bg-[#FFFDF8] p-5 sm:p-7">
         <div className="mb-4">

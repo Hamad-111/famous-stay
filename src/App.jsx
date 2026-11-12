@@ -127,6 +127,18 @@ export default function App() {
   const [showCommissionModal, setShowCommissionModal] = useState(false);
   const [toast, setToast] = useState(null);
 
+  // Sync document title dynamically for tab and room selection states
+  useEffect(() => {
+    const activeRoom = selectedRoomForBooking || selectedRoomForModal;
+    if (activeRoom?.name) {
+      document.title = `${activeRoom.name} | Famous Stay Islamabad`;
+    } else if (activeTab === 'ledger') {
+      document.title = 'Agent Bookings & Reservation Ledger | Famous Stay Islamabad';
+    } else {
+      document.title = 'Famous Stay Islamabad | Top Hotels, Pool Farmhouses & Trending Luxury Penthouse';
+    }
+  }, [activeTab, selectedRoomForModal, selectedRoomForBooking]);
+
   const showToast = (title, message) => {
     setToast({ title, message });
     setTimeout(() => setToast(null), 4000);
@@ -239,8 +251,11 @@ export default function App() {
                 </div>
 
                 <h1 className="mt-4 font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-tight">
+                  <span className="block text-sm sm:text-base font-sans font-extrabold uppercase tracking-[0.18em] text-[#8C6207] mb-1.5">
+                    Famous Stay Islamabad • Top Hotels &amp; Pool Farmhouses
+                  </span>
                   Trending Luxury Penthouse <br className="hidden sm:inline" />
-                  <span className="gold-gradient-text">& Margalla Sky Terrace</span>
+                  <span className="gold-gradient-text">&amp; Margalla Sky Terrace</span>
                 </h1>
 
                 {/* Fixed Rates Pill Bar */}
