@@ -145,15 +145,16 @@ function HoverVideoFrame({
       >
         <video
           ref={videoRef}
-          src={video.url}
           poster={video.thumbnail}
           muted={isLocalMuted}
           loop
           playsInline
-          preload="none"
+          preload={index === 0 ? 'metadata' : 'none'}
           onTimeUpdate={handleTimeUpdate}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        >
+          <source src={video.url} type="video/mp4" />
+        </video>
 
         {/* Dynamic Progress Scrubber Bar */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/40 z-20">
