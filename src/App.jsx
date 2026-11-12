@@ -4,7 +4,8 @@ import {
   TrendingUp,
   ShieldCheck,
   PhoneCall,
-  Play
+  Play,
+  Car
 } from 'lucide-react';
 import Header from './components/Header';
 import Toast from './components/Toast';
@@ -273,6 +274,16 @@ export default function App() {
                   <span className="rounded-lg bg-[#FFF4D4] px-2 py-0.5 border border-[#D4AF37]/50 font-mono text-[#8C6207] font-extrabold">
                     Penthouse: <strong>Rs. 50k/day</strong>
                   </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const el = document.getElementById('awan-rental-cars');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="rounded-lg bg-slate-950 px-2.5 py-0.5 font-mono text-[#F7E5A9] font-extrabold hover:bg-slate-800 transition-colors"
+                  >
+                    AWAN Cars: <strong>Rs. 4.5k–16k/day</strong>
+                  </button>
                 </div>
 
                 <p className="mt-3 text-xs sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
@@ -303,6 +314,17 @@ export default function App() {
                     </svg>
                     <span>WhatsApp Usman (0348 0964370)</span>
                   </a>
+
+                  <button
+                    onClick={() => {
+                      const el = document.getElementById('awan-rental-cars');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="flex items-center gap-2 rounded-2xl bg-slate-950 hover:bg-slate-800 text-[#F7E5A9] px-4 py-3 text-xs sm:text-sm font-bold shadow-sm transition-all"
+                  >
+                    <Car className="h-4 w-4 text-[#D4AF37]" />
+                    <span>AWAN Rental Cars</span>
+                  </button>
 
                   <a
                     href="https://wa.me/923180985887?text=Hello%20Arsalan%2C%20I%20am%20watching%20the%2015%20video%20tours%20and%20want%20to%20inquire%20about%20booking%20the%20luxury%20suite."
@@ -455,6 +477,9 @@ export default function App() {
               </div>
             </div>
 
+            {/* DEDICATED CAR RENTAL PORTION ON FRONT PAGE: AWAN RENTAL CARS */}
+            <AwanRentalCars />
+
             {/* THE MULTI-FRAME VIDEO SHOWROOM (15 VIDEOS DIRECT) */}
             {featuredSuite && (
               <ApartmentShowcase
@@ -464,9 +489,6 @@ export default function App() {
                 onBookApartment={(apt) => handleBookRoom(apt)}
               />
             )}
-
-            {/* DEDICATED CAR RENTAL PORTION: AWAN RENTAL CARS */}
-            <AwanRentalCars />
 
             {/* SEO KNOWLEDGE BASE & FREQUENTLY ASKED QUESTIONS */}
             <SEOContentSection
