@@ -17,8 +17,10 @@ import {
   Waves,
   UtensilsCrossed,
   ArrowRight,
-  ExternalLink
+  ExternalLink,
+  Search
 } from 'lucide-react';
+import { SEO_KEYWORD_GROUPS, ALL_SEO_KEYWORDS } from '../data/seoKeywords';
 
 export default function SEOContentSection({ 
   singleBedRoom, 
@@ -29,6 +31,8 @@ export default function SEOContentSection({
   onBookRoom 
 }) {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
+  const [activeKeywordTab, setActiveKeywordTab] = useState(0);
+  const [showAllKeywords, setShowAllKeywords] = useState(false);
 
   const faqs = [
     {
@@ -278,7 +282,7 @@ export default function SEOContentSection({
       </div>
 
       {/* SEO Frequently Asked Questions Accordion */}
-      <div className="rounded-2xl border border-[#D4AF37]/30 bg-[#FFFDF8] p-5 sm:p-7">
+      <div className="rounded-2xl border border-[#D4AF37]/30 bg-[#FFFDF8] p-5 sm:p-7 mb-8">
         <div className="mb-4">
           <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#8C6207]">
             Google Search FAQ & Knowledge Base
@@ -312,6 +316,69 @@ export default function SEOContentSection({
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* 500+ Verified Hospitality Search Index & Popular Queries */}
+      <div id="search-index-500" className="rounded-2xl border border-[#D4AF37]/35 bg-white p-5 sm:p-7">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <div className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
+              <Search className="h-3.5 w-3.5" />
+              <span>Islamabad &amp; Pakistan Complete Stay Directory ({ALL_SEO_KEYWORDS.length} Indexed Search Terms)</span>
+            </div>
+            <h3 className="font-serif text-lg sm:text-2xl font-bold text-slate-900 mt-0.5">
+              Popular Searches: Top Hotels, Luxury Penthouses, Farmhouses &amp; 15 Video Walkthroughs
+            </h3>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowAllKeywords((prev) => !prev)}
+            className="shrink-0 rounded-xl border border-[#D4AF37]/40 bg-[#FFFDF5] px-3.5 py-2 text-xs font-bold text-[#8C6207] hover:bg-[#FFF4D4] transition-colors"
+          >
+            {showAllKeywords ? 'Show Single Category' : `View All ${ALL_SEO_KEYWORDS.length} Queries`}
+          </button>
+        </div>
+
+        {!showAllKeywords && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {SEO_KEYWORD_GROUPS.map((group, idx) => (
+              <button
+                key={group.category}
+                type="button"
+                onClick={() => setActiveKeywordTab(idx)}
+                className={`rounded-lg px-2.5 py-1.5 text-[11px] font-bold transition-colors ${
+                  activeKeywordTab === idx
+                    ? 'bg-slate-900 text-[#F7E5A9]'
+                    : 'bg-slate-100 text-slate-700 hover:bg-[#FAF6EA]'
+                }`}
+              >
+                {group.badge} ({group.queries.length})
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="space-y-4">
+          {(showAllKeywords ? SEO_KEYWORD_GROUPS : [SEO_KEYWORD_GROUPS[activeKeywordTab]]).map((group) => (
+            <div key={group.category} className="rounded-xl border border-slate-100 bg-[#FAF9F5]/60 p-3.5">
+              <div className="text-xs font-bold text-slate-900 mb-2 flex items-center justify-between">
+                <span>{group.category}</span>
+                <span className="text-[10px] font-semibold text-[#8C6207]">{group.queries.length} keywords</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {group.queries.map((kw) => (
+                  <a
+                    key={kw}
+                    href={`/?search=${encodeURIComponent(kw)}#famous-search-console`}
+                    className="rounded-full border border-[#D4AF37]/25 bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 hover:border-[#D4AF37] hover:text-[#8C6207] transition-colors"
+                  >
+                    {kw}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

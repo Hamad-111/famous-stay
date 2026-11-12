@@ -7,12 +7,12 @@
     <lastmod>2026-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    
-    <!-- Verified Penthouse Photos for Google Image Search -->
+
+    <!-- Verified Property & Concierge Photos for Google Image Search (12 Images) -->
     <image:image>
       <image:loc>https://www.famousstay.site/apartment/trending-living-media.jpg</image:loc>
       <image:title>Famous Stay Grand Executive Salon &amp; 85 inch 4K Smart Media Wall</image:title>
-      <image:caption>Trending luxury penthouse living room with acoustic wall and cove lighting in Islamabad</image:caption>
+      <image:caption>Trending luxury penthouse living room with fluted acoustic wall and cove lighting in Islamabad</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.famousstay.site/apartment/trending-terrace-bbq.jpg</image:loc>
@@ -27,54 +27,310 @@
     <image:image>
       <image:loc>https://www.famousstay.site/apartment/trending-mirror-foyer.jpg</image:loc>
       <image:title>Famous Stay Arched Backlit Vanity Mirror &amp; Palm Foyer</image:title>
-      <image:caption>Iconic illuminated arched mirror and exotic palm entrance foyer</image:caption>
+      <image:caption>Iconic illuminated arched mirror and exotic palm entrance foyer in Islamabad</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.famousstay.site/apartment/trending-terrace-night.jpg</image:loc>
       <image:title>Famous Stay Margalla Mountain Twilight Terrace View</image:title>
-      <image:caption>Evening ambiance and twilight mountain skyline from the penthouse terrace</image:caption>
+      <image:caption>Evening ambiance and twilight mountain skyline from the penthouse sky terrace</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.famousstay.site/apartment/beige-marble-salon.jpg</image:loc>
+      <image:title>Famous Stay Beige Marble Executive Hotel Salon Islamabad</image:title>
+      <image:caption>Marble floor VIP living suite comparable to 5-star Islamabad hotels</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.famousstay.site/apartment/charcoal-bedroom-suite.jpg</image:loc>
+      <image:title>Famous Stay Charcoal King Bedroom Suite in Islamabad</image:title>
+      <image:caption>Executive Single Bed 8k and Two Bed 15k luxury suite bedroom</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.famousstay.site/apartment/emerald-living-main.jpg</image:loc>
+      <image:title>Famous Stay Emerald Designer Living Room Suite</image:title>
+      <image:caption>Modern designer apartment suite in prime Islamabad sector F-6 and F-7</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.famousstay.site/apartment/emerald-lounge-art.jpg</image:loc>
+      <image:title>Famous Stay Executive Lounge &amp; Curated Artwork Gallery</image:title>
+      <image:caption>Boutique hospitality interior lounge for corporate and VIP travelers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.famousstay.site/apartment/master-bedroom-blush.jpg</image:loc>
+      <image:title>Famous Stay Blush Velvet Master King Bedroom Suite</image:title>
+      <image:caption>Plush orthopedic king mattress and luxury linen bridal &amp; executive suite</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.famousstay.site/agent-usman.jpg</image:loc>
+      <image:title>Agent Usman - Lead Host &amp; VIP Concierge Famous Stay Islamabad</image:title>
+      <image:caption>Direct WhatsApp hotel, farmhouse and penthouse reservation desk 03480964370</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.famousstay.site/agent-arsalan.jpg</image:loc>
+      <image:title>Agent Arsalan Jutt - Famous Stay Concierge Islamabad</image:title>
+      <image:caption>24/7 hospitality reservation partner for Islamabad hotel suites and farmhouses</image:caption>
     </image:image>
 
-    <!-- Verified Video Walkthrough Tours for Google Video Search -->
+    <!-- All 15 Verified HD Video Walkthrough Tours for Google Video Search -->
     <video:video>
       <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-living-media.jpg</video:thumbnail_loc>
-      <video:title>Famous Stay Executive Salon &amp; 85 inch Media Wall Tour</video:title>
-      <video:description>Complete walkthrough of the executive salon, fluted acoustic wall, and 4K media setup in Islamabad.</video:description>
+      <video:title>Executive Salon &amp; 85-inch 4K Media Wall Tour | Famous Stay Islamabad Penthouse</video:title>
+      <video:description>Full HD walkthrough of the executive salon, fluted acoustic wall, 85-inch 4K TV media setup, and terrace access at Famous Stay Islamabad.</video:description>
       <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-1.mp4</video:content_loc>
       <video:duration>45</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>4280</video:view_count>
       <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Islamabad Penthouse</video:tag>
+      <video:tag>Top Hotels Islamabad</video:tag>
+      <video:tag>Famous Stay</video:tag>
+      <video:tag>85 inch Media Wall</video:tag>
     </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-terrace-bbq.jpg</video:thumbnail_loc>
-      <video:title>Famous Stay Rooftop Sky Terrace &amp; BBQ Walkthrough</video:title>
-      <video:description>Panoramic Margalla mountain views, outdoor dining patio, and barbecue grill walkthrough in Islamabad.</video:description>
-      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-4.mp4</video:content_loc>
-      <video:duration>50</video:duration>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
+
     <video:video>
       <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-lounge-dining.jpg</video:thumbnail_loc>
-      <video:title>Famous Stay Wave LED Executive Lounge &amp; Dining Tour</video:title>
-      <video:description>Walkthrough of the sculpted wave backlit wall, deep velvet sectional, and luxury dining area in Islamabad.</video:description>
+      <video:title>Wave Ambient LED Lounge &amp; Custom Sectional Walkthrough | Famous Stay Islamabad</video:title>
+      <video:description>Walkthrough of the custom sculpted wave LED wall, deep velvet sectional lounge, and designer dining ambiance in Islamabad.</video:description>
       <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-2.mp4</video:content_loc>
       <video:duration>40</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>3150</video:view_count>
       <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Luxury Lounge Islamabad</video:tag>
+      <video:tag>Famous Stay</video:tag>
+      <video:tag>Two Bed 15k</video:tag>
     </video:video>
+
     <video:video>
       <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-mirror-foyer.jpg</video:thumbnail_loc>
-      <video:title>Famous Stay Arched Vanity Mirror &amp; Marble Suite Walkthrough</video:title>
-      <video:description>Tour of the illuminated arched mirror foyer, king bedroom suites, and marble bathrooms in Famous Stay Islamabad.</video:description>
+      <video:title>Arched Backlit Vanity Mirror &amp; Palm Entrance Foyer Tour | Famous Stay</video:title>
+      <video:description>Tour of the full-length illuminated arched vanity mirror, exotic palm foyer, and marble suite interior at Famous Stay Islamabad.</video:description>
       <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-3.mp4</video:content_loc>
       <video:duration>42</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>2890</video:view_count>
       <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Luxury Suite Foyer</video:tag>
+      <video:tag>Famous Stay Islamabad</video:tag>
+      <video:tag>Boutique Hotel Suites</video:tag>
     </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-terrace-bbq.jpg</video:thumbnail_loc>
+      <video:title>Private Rooftop Sky Terrace &amp; Barbecue Patio | Margalla Hills Islamabad</video:title>
+      <video:description>Panoramic Margalla mountain views, outdoor barbecue grill station, and rooftop dining patio walkthrough in Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-4.mp4</video:content_loc>
+      <video:duration>50</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>5410</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Margalla Sky Terrace</video:tag>
+      <video:tag>BBQ Terrace Islamabad</video:tag>
+      <video:tag>Trending Penthouse 50k</video:tag>
+    </video:video>
+
     <video:video>
       <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-terrace-night.jpg</video:thumbnail_loc>
-      <video:title>Famous Stay Margalla Twilight Terrace &amp; Night Ambience Tour</video:title>
-      <video:description>Evening sky terrace illumination and panoramic Margalla mountain twilight tour at Famous Stay Islamabad.</video:description>
+      <video:title>Full 3,200 sq ft Trending Penthouse Walkthrough &amp; Skyline Flow | Famous Stay</video:title>
+      <video:description>Complete penthouse skyline flow covering outdoor terrace, evening illumination, and Margalla mountain backdrop in Islamabad.</video:description>
       <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-5.mp4</video:content_loc>
       <video:duration>38</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>3720</video:view_count>
       <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Penthouse Walkthrough</video:tag>
+      <video:tag>Margalla Hills</video:tag>
+      <video:tag>Famous Stay</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-mirror-foyer.jpg</video:thumbnail_loc>
+      <video:title>Executive Entry Foyer, LED Mirror &amp; Keycard Security Tour | Famous Stay</video:title>
+      <video:description>Look inside the designer entry hall with custom LED sconces and private smart-keycard elevator access in Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-6.mp4</video:content_loc>
+      <video:duration>32</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>1940</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>VIP Suite Entrance</video:tag>
+      <video:tag>Islamabad Hotels</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-lounge-dining.jpg</video:thumbnail_loc>
+      <video:title>Gourmet Dining Suite &amp; Gold Centerpiece Tour | Famous Stay Islamabad</video:title>
+      <video:description>Glass dining suite, hammered gold sculptural centerpiece, and family entertaining area in Famous Stay Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-7.mp4</video:content_loc>
+      <video:duration>35</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>1820</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Gourmet Dining Penthouse</video:tag>
+      <video:tag>Family Suites Islamabad</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/charcoal-bedroom-suite.jpg</video:thumbnail_loc>
+      <video:title>Master Bedroom Suite &amp; LED Built-in Dressing Wardrobes | Famous Stay</video:title>
+      <video:description>Step-by-step tour of the king master bedroom, illuminated dressing mirrors, and bespoke soft-close joinery wardrobes.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-8.mp4</video:content_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>2450</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>King Bedroom Suite</video:tag>
+      <video:tag>Single Bed 8k</video:tag>
+      <video:tag>Two Bed 15k</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-lounge-dining.jpg</video:thumbnail_loc>
+      <video:title>Architectural Ceiling &amp; Multi-Zone Ambient Cove Lighting Tour</video:title>
+      <video:description>Showcase of warm architectural cove ceiling lighting and dimmable ambient illumination in Famous Stay luxury residences.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-9.mp4</video:content_loc>
+      <video:duration>34</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>1690</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Luxury Interior Design</video:tag>
+      <video:tag>Penthouse Islamabad</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-terrace-night.jpg</video:thumbnail_loc>
+      <video:title>Grand Margalla Mountain Sunset Sky Terrace &amp; Turf Lawn Video Tour</video:title>
+      <video:description>Evening sunset panorama over the Margalla Hills with outdoor seating lawn and sky terrace lounge at Famous Stay Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-10.mp4</video:content_loc>
+      <video:duration>48</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>4120</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Sunset Terrace Islamabad</video:tag>
+      <video:tag>Farmhouse &amp; Penthouse</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/beige-marble-salon.jpg</video:thumbnail_loc>
+      <video:title>Designer En-Suite Marble Bath &amp; Rain Shower Walkthrough | Famous Stay</video:title>
+      <video:description>Walkthrough of imported Italian marble vanities, overhead rain shower fixtures, and 5-star bath amenities in Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-11.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>2180</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>5 Star Hotel Bath</video:tag>
+      <video:tag>Serena Tier Suites</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-living-media.jpg</video:thumbnail_loc>
+      <video:title>VIP Executive Corridor &amp; Fluted Acoustic Media Wall Tour | Famous Stay</video:title>
+      <video:description>Private residence gallery hallway with recessed warm LEDs leading into the flagship 85-inch media lounge.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-12.mp4</video:content_loc>
+      <video:duration>31</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>1760</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Executive Suites Islamabad</video:tag>
+      <video:tag>Famous Stay</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/master-bedroom-blush.jpg</video:thumbnail_loc>
+      <video:title>Second Marble Vanity &amp; Golden Faucets Guest Powder Suite Tour</video:title>
+      <video:description>Tour of the guest marble vanity, brushed gold faucets, and luxury powder bathroom at Famous Stay Islamabad.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-13.mp4</video:content_loc>
+      <video:duration>33</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>1640</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>Luxury Guest Suite</video:tag>
+      <video:tag>Islamabad Hotel</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/emerald-living-main.jpg</video:thumbnail_loc>
+      <video:title>Smart Media Console, Dolby Atmos &amp; Fiber Wi-Fi Setup | Famous Stay</video:title>
+      <video:description>Interactive look at the 4K cinema console, Dolby Atmos audio system, and 1Gbps symmetrical fiber Wi-Fi workspace.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-14.mp4</video:content_loc>
+      <video:duration>37</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>2290</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>4K Cinema Suite</video:tag>
+      <video:tag>Corporate Stays Islamabad</video:tag>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://www.famousstay.site/apartment/trending-terrace-night.jpg</video:thumbnail_loc>
+      <video:title>Full 360 Penthouse Twilight Walkthrough &amp; Night Lighting | Famous Stay</video:title>
+      <video:description>Complete evening 360-degree twilight walkthrough highlighting penthouse terraces, warm interior fixtures, and panoramic skyline views.</video:description>
+      <video:content_loc>https://www.famousstay.site/apartment/videos/video-tour-15.mp4</video:content_loc>
+      <video:duration>44</video:duration>
+      <video:publication_date>2026-11-01T12:00:00+05:00</video:publication_date>
+      <video:rating>5.0</video:rating>
+      <video:view_count>3910</video:view_count>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:category>Travel &amp; Accommodation</video:category>
+      <video:tag>360 Penthouse Tour</video:tag>
+      <video:tag>Best Stay Islamabad</video:tag>
     </video:video>
   </url>
 </urlset>
